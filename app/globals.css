@@ -1,26 +1,118 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --charcoal: #1a1a1a;
+  --off-white: #f5f2ee;
+  --warm-white: #faf8f5;
+  --muted-gray: #8a8a8a;
+  --accent: #c9a96e;
+  --pure-white: #ffffff;
+  --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-charcoal: var(--charcoal);
+  --color-off-white: var(--off-white);
+  --color-warm-white: var(--warm-white);
+  --color-muted-gray: var(--muted-gray);
+  --color-accent: var(--accent);
+  --color-pure-white: var(--pure-white);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling {
+  overflow: auto;
+}
+
+/* Base styles */
+body {
+  background-color: var(--off-white);
+  color: var(--charcoal);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--charcoal);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted-gray);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--charcoal);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Text reveal clip */
+.text-reveal-clip {
+  clip-path: inset(0 0 100% 0);
+}
+
+.text-reveal-clip.revealed {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* Placeholder pattern */
+.placeholder-pattern {
+  background-image: 
+    linear-gradient(45deg, rgba(26,26,26,0.03) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(26,26,26,0.03) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(26,26,26,0.03) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(26,26,26,0.03) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Horizontal scroll section */
+.horizontal-scroll-section {
+  overflow: visible;
+}
+
+/* Canvas container */
+.three-canvas-container canvas {
+  outline: none;
 }
