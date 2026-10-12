@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <rect width="300" height="400" fill="#f5f2ee"/>
+  <!-- Subtle technical grid -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e5e0d8" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="300" height="400" fill="url(#grid)"/>
+  <!-- Spec badge -->
+  <text x="20" y="30" font-family="monospace" font-size="8" fill="#8a8a8a" letter-spacing="1.5">SPEC // CREWNECK TEE</text>
+  <text x="20" y="42" font-family="monospace" font-size="7" fill="#c9a96e">160-220 GSM SINGLE JERSEY</text>
+
+  <!-- Technical T-Shirt Outline -->
+  <g transform="translate(50, 70)" stroke="#1a1a1a" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body & Sleeves -->
+    <path d="M 50 15 L 25 35 L 5 80 L 35 95 L 48 65 L 48 240 L 152 240 L 152 65 L 165 95 L 195 80 L 175 35 L 150 15" fill="#ffffff" fill-opacity="0.7"/>
+    <!-- Collar -->
+    <path d="M 50 15 Q 100 42 150 15" stroke="#1a1a1a" stroke-width="2"/>
+    <path d="M 55 13 Q 100 34 145 13" stroke="#c9a96e" stroke-width="1" stroke-dasharray="2,2"/>
+    <!-- Back Neckline -->
+    <path d="M 50 15 Q 100 8 150 15" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+    <!-- Sleeve Stitching -->
+    <line x1="8" y1="76" x2="32" y2="91" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+    <line x1="192" y1="76" x2="168" y2="91" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+    <!-- Hem Stitching -->
+    <line x1="48" y1="232" x2="152" y2="232" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+  </g>
+</svg>

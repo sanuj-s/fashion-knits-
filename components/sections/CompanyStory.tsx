@@ -1,65 +1,121 @@
-'use client'
+'use client';
 
-import { useRef } from 'react'
-import { SectionHeading } from '@/components/ui/SectionHeading'
-import { useInView, useReducedMotion } from '@/lib/hooks'
+import React, { useRef } from 'react';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { useInView, useReducedMotion } from '@/lib/hooks';
+import { Award, Layers, ShieldCheck, Factory, Globe } from 'lucide-react';
 
-const MILESTONES = [
-  { year: '[YEAR]', event: '[ADD COMPANY MILESTONE — e.g., Company Founded]' },
-  { year: '[YEAR]', event: '[ADD COMPANY MILESTONE — e.g., First Export]' },
-  { year: '[YEAR]', event: '[ADD COMPANY MILESTONE — e.g., Factory Expansion]' },
-  { year: '[YEAR]', event: '[ADD COMPANY MILESTONE — e.g., New Market Entry]' },
-  { year: '[YEAR]', event: '[ADD COMPANY MILESTONE — e.g., Sustainability Initiative]' },
-]
+interface Milestone {
+  phase: string;
+  title: string;
+  description: string;
+  tag: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const MILESTONES: Milestone[] = [
+  {
+    phase: 'PHASE 01',
+    title: 'Textile Foundations in Tirupur',
+    description:
+      'Established high-gauge circular knitting infrastructure in India\'s premier knitwear hub, engineering single jersey, pique, and interlock fabrics for regional exporters.',
+    tag: 'Knitting Infrastructure',
+    icon: Factory,
+  },
+  {
+    phase: 'PHASE 02',
+    title: 'Vertical Dyeing & Wet Processing',
+    description:
+      'Commissioned soft-flow jet dyeing vessels and computerized stenter compacting lines, bringing color matching, shrinkage control, and hand-feel refinement under complete in-house governance.',
+    tag: 'Vertical Integration',
+    icon: Layers,
+  },
+  {
+    phase: 'PHASE 03',
+    title: 'Cut & Sew Apparel Manufacturing',
+    description:
+      'Expanded into full garment manufacturing with computer-aided CAD marker planning, automated multi-ply cutting tables, and modular lean sewing lines tailored for international retail brands.',
+    tag: 'Garmenting Scale',
+    icon: Globe,
+  },
+  {
+    phase: 'PHASE 04',
+    title: 'Organic & Chemical Accreditations',
+    description:
+      'Attained verified GOTS Organic Cotton (v7.0), OCS 100, and OEKO-TEX® Standard 100 (Product Class I baby-safe) certifications, establishing a verified sustainable supply chain.',
+    tag: 'GOTS & OEKO-TEX',
+    icon: ShieldCheck,
+  },
+  {
+    phase: 'PHASE 05',
+    title: 'Social Audits & Character Licensing',
+    description:
+      'Achieved amfori BSCI and SMETA 4-pillar social compliance audits, alongside international facility authorizations including Disney FAMA and LEGO licensee approvals.',
+    tag: 'BSCI & Disney FAMA',
+    icon: Award,
+  },
+];
 
 export function CompanyStory() {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const prefersReducedMotion = useReducedMotion()
-  const isInView = useInView(containerRef, { once: true, amount: 0.1 })
+  const containerRef = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
+  const isInView = useInView(containerRef, { once: true, amount: 0.05 });
 
   return (
-    <section id="story" className="bg-warm-white py-32 md:py-40 px-6 md:px-16 lg:px-24">
-      <SectionHeading title="OUR\nSTORY." subtitle="The Fashion Knits journey." />
+    <section id="story" className="bg-warm-white py-28 md:py-36 px-6 md:px-16 lg:px-24 border-t border-charcoal/5">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
+        <SectionHeading
+          title={'OUR\nSTORY.'}
+          subtitle="The evolution of Fashion Knits: building a vertically integrated, certified, and compliant textile and garment manufacturing partner in Tirupur, India."
+        />
 
-      <div 
-        ref={containerRef}
-        className="mt-20 max-w-6xl mx-auto relative"
-      >
-        {/* Desktop Horizontal Line */}
-        <div className="hidden md:block absolute top-1/2 left-0 right-0 h-px bg-muted-gray/30 -translate-y-1/2" />
-        
-        {/* Mobile Vertical Line */}
-        <div className="md:hidden absolute left-[15px] top-0 bottom-0 w-px bg-muted-gray/30" />
+        {/* Milestone Timeline */}
+        <div ref={containerRef} className="mt-20 max-w-6xl mx-auto relative">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+            {MILESTONES.map((milestone, index) => {
+              const Icon = milestone.icon;
+              return (
+                <div
+                  key={milestone.phase}
+                  className="bg-pure-white p-6 border border-charcoal/8 hover:border-accent/40 shadow-sm transition-all duration-300 flex flex-col justify-between"
+                  style={{
+                    opacity: prefersReducedMotion || isInView ? 1 : 0,
+                    transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
+                    transition: `opacity 0.5s ease-out ${index * 0.08}s, transform 0.5s ease-out ${index * 0.08}s`,
+                  }}
+                >
+                  <div>
+                    {/* Top phase & icon */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                        {milestone.phase}
+                      </span>
+                      <div className="w-8 h-8 bg-charcoal text-accent flex items-center justify-center">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                    </div>
 
-        <div className="flex flex-col md:flex-row md:justify-between space-y-12 md:space-y-0">
-          {MILESTONES.map((milestone, index) => {
-            const isTop = index % 2 === 0
-            return (
-              <div
-                key={index}
-                className="relative pl-12 md:pl-0 md:w-48 flex-shrink-0"
-                style={{
-                  opacity: prefersReducedMotion || isInView ? 1 : 0,
-                  transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
-                  transition: `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`
-                }}
-              >
-                {/* Dot */}
-                <div className="absolute left-[10px] md:left-1/2 top-1.5 md:top-1/2 w-3 h-3 rounded-full bg-accent md:-translate-x-1/2 md:-translate-y-1/2 z-10" />
+                    <h3 className="text-base font-bold text-charcoal uppercase tracking-wider mb-2">
+                      {milestone.title}
+                    </h3>
 
-                <div className={`flex flex-col ${!isTop ? 'md:flex-col-reverse md:mt-[calc(50%+2rem)]' : 'md:mb-[calc(50%+2rem)]'} md:text-center`}>
-                  <div className={`text-2xl font-bold text-accent ${isTop ? 'md:mb-4' : 'md:mt-4'}`}>
-                    {milestone.year}
+                    <p className="text-xs text-charcoal/70 leading-relaxed mb-4">
+                      {milestone.description}
+                    </p>
                   </div>
-                  <div className="text-sm text-muted-gray italic mt-1 md:mt-0">
-                    {milestone.event}
+
+                  <div className="pt-3 border-t border-charcoal/5">
+                    <span className="text-[10px] font-mono text-muted-gray uppercase block truncate">
+                      {milestone.tag}
+                    </span>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="100%" height="100%">
+  <rect width="300" height="400" fill="#f5f2ee"/>
+  <defs>
+    <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e5e0d8" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="300" height="400" fill="url(#grid2)"/>
+  <text x="20" y="30" font-family="monospace" font-size="8" fill="#8a8a8a" letter-spacing="1.5">SPEC // PIQUE POLO</text>
+  <text x="20" y="42" font-family="monospace" font-size="7" fill="#c9a96e">220-260 GSM HONEYCOMB PIQUE</text>
+
+  <g transform="translate(50, 70)" stroke="#1a1a1a" stroke-width="1.75" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <path d="M 50 15 L 25 35 L 5 80 L 35 95 L 48 65 L 48 240 L 152 240 L 152 65 L 165 95 L 195 80 L 175 35 L 150 15" fill="#ffffff" fill-opacity="0.7"/>
+    <!-- Ribbed Sleeve Cuffs -->
+    <path d="M 5 80 L 35 95 L 32 99 L 2 84 Z" fill="#e8e4dc" stroke="#1a1a1a" stroke-width="1"/>
+    <path d="M 195 80 L 165 95 L 168 99 L 198 84 Z" fill="#e8e4dc" stroke="#1a1a1a" stroke-width="1"/>
+    <!-- Placket & Buttons -->
+    <rect x="92" y="16" width="16" height="75" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.2"/>
+    <circle cx="100" cy="35" r="2" fill="#c9a96e" stroke="#1a1a1a" stroke-width="0.75"/>
+    <circle cx="100" cy="55" r="2" fill="#c9a96e" stroke="#1a1a1a" stroke-width="0.75"/>
+    <circle cx="100" cy="75" r="2" fill="#c9a96e" stroke="#1a1a1a" stroke-width="0.75"/>
+    <!-- Folded Rib Collar -->
+    <path d="M 50 15 L 75 38 L 92 16 L 108 16 L 125 38 L 150 15 Q 100 6 50 15 Z" fill="#ffffff" stroke="#1a1a1a" stroke-width="1.75"/>
+    <!-- Bottom Side Vents -->
+    <line x1="48" y1="225" x2="48" y2="240" stroke="#c9a96e" stroke-width="2"/>
+    <line x1="152" y1="225" x2="152" y2="240" stroke="#c9a96e" stroke-width="2"/>
+  </g>
+</svg>
