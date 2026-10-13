@@ -10,17 +10,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Fashion Knits | Integrated Textile & Garment Manufacturing',
+  title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
   description:
-    'Integrated textile and garment manufacturing built for global brands. From yarn spinning, circular knitting, precision dyeing, and fabric finishing to export-grade apparel production.',
+    'Premier knitwear and garment manufacturer in Tiruppur, India. Operating across our Angeripalayam Road corporate headquarters and Netaji Apparel Park manufacturing facility (Unit-1).',
   keywords: [
     'Fashion Knits',
     'garment manufacturing',
-    'textile exporter',
+    'knitwear exporter Tiruppur',
     'circular knitting',
-    'fabric dyeing',
-    'apparel OEM',
-    'global export',
+    'apparel OEM India',
+    'Netaji Apparel Park',
+    'GOTS certified knitwear',
     'sustainable textiles',
   ],
   authors: [{ name: 'Fashion Knits' }],
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: 'Fashion Knits | From Yarn to Global',
+    title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
     description:
-      'Integrated textile and garment manufacturing ecosystem for international apparel brands.',
+      'Knitwear and garment manufacturing for international apparel brands across two specialized facilities in Tiruppur, India.',
     url: 'https://fashionknits.com',
     siteName: 'Fashion Knits',
     locale: 'en_US',
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Fashion Knits | From Yarn to Global',
+    title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
     description:
-      'Integrated textile and garment manufacturing ecosystem for international apparel brands.',
+      'Knitwear and garment manufacturing for international apparel brands across two specialized facilities in Tiruppur, India.',
   },
 };
 

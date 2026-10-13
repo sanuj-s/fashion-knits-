@@ -24,18 +24,18 @@ const MILESTONES: Milestone[] = [
   },
   {
     phase: 'PHASE 02',
-    title: 'Vertical Dyeing & Wet Processing',
+    title: 'Certified Processing Partnerships',
     description:
-      'Commissioned soft-flow jet dyeing vessels and computerized stenter compacting lines, bringing color matching, shrinkage control, and hand-feel refinement under complete in-house governance.',
-    tag: 'Vertical Integration',
+      'Established long-standing partnerships with certified soft-flow dyeing and processing units, ensuring computerized color matching, tight shrinkage control, and OEKO-TEX chemical safety.',
+    tag: 'Certified Wet Processing',
     icon: Layers,
   },
   {
     phase: 'PHASE 03',
-    title: 'Cut & Sew Apparel Manufacturing',
+    title: 'Netaji Apparel Park Expansion (Unit-1)',
     description:
-      'Expanded into full garment manufacturing with computer-aided CAD marker planning, automated multi-ply cutting tables, and modular lean sewing lines tailored for international retail brands.',
-    tag: 'Garmenting Scale',
+      'Established our dedicated production plant at Shed No. 29, Netaji Apparel Park, scaling computer-aided CAD cutting, modular lean sewing lines, and export finishing for international brands.',
+    tag: 'NAP Unit-1 Factory',
     icon: Globe,
   },
   {
@@ -67,7 +67,7 @@ export function CompanyStory() {
         {/* Section Heading */}
         <SectionHeading
           title={'OUR\nSTORY.'}
-          subtitle="The evolution of Fashion Knits: building a vertically integrated, certified, and compliant textile and garment manufacturing partner in Tirupur, India."
+          subtitle="The evolution of Fashion Knits: building a trusted, certified, and compliant knitwear manufacturing partner across two specialized facilities in Tiruppur, India."
         />
 
         {/* Milestone Timeline */}

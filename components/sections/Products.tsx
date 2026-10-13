@@ -3,99 +3,118 @@
 import React, { useState, useRef } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useInView, useReducedMotion } from '@/lib/hooks';
-import { ArrowUpRight, ShieldCheck, Check } from 'lucide-react';
+import { ChevronDown, ChevronUp, ShieldCheck, Check, Sparkles, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface ProductItem {
+  id: string;
   category: string;
   type: string;
   description: string;
-  asset: string;
-  fabricSpecs: string;
+  image: string;
+  composition: string;
   weightGsm: string;
   finishes: string[];
-  organicAvailable: boolean;
+  customization: string[];
+  organicCertified: boolean;
 }
 
 const PRODUCTS: ProductItem[] = [
   {
+    id: 'tshirts',
     category: 'T-Shirts',
     type: 'tops',
-    description: 'Essential crewnecks, relaxed tees, v-necks, and oversized drop-shoulder silhouettes.',
-    asset: '/assets/products/t-shirt.svg',
-    fabricSpecs: '100% Combed Cotton, Cotton/Modal, Organic Cotton',
+    description: 'Essential crewneck tees, modern relaxed fits, v-necks, and oversized drop-shoulder silhouettes.',
+    image: '/assets/products/product_tshirt.jpg',
+    composition: '100% Combed Cotton, Micro-Modal, Organic Cotton',
     weightGsm: '160 – 220 GSM Single Jersey',
     finishes: ['Bio-Wash Enzyme Finish', 'Silicon Softener', 'Pre-Shrunk < 5%'],
-    organicAvailable: true,
+    customization: ['Custom Pantone Color Dyeing', 'High-Density Chest Print', 'Woven Brand Neck Label'],
+    organicCertified: true,
   },
   {
+    id: 'polos',
     category: 'Polos',
     type: 'tops',
-    description: 'Classic & modern polo constructions with flat-knit jacquard collars and reinforced plackets.',
-    asset: '/assets/products/polo.svg',
-    fabricSpecs: 'Honeycomb Pique, Slub Pique, Mercerized Cotton',
+    description: 'Classic and modern polo shirts with engineered flat-knit jacquard collars and reinforced plackets.',
+    image: '/assets/products/product_polo.jpg',
+    composition: '100% Cotton Honeycomb Pique, Mercerized Cotton',
     weightGsm: '220 – 260 GSM Pique Knit',
-    finishes: ['Flat-Knit Collar & Cuff', 'Side-Slit Vents', 'Dyed-to-Match Buttons'],
-    organicAvailable: true,
+    finishes: ['Anti-Pilling Treatment', 'Silicon Touch', 'Side-Vent Reinforcements'],
+    customization: ['Tipped Rib Collar & Cuffs', 'Engraved Mother-of-Pearl Buttons', 'Chest Embroidery'],
+    organicCertified: true,
   },
   {
+    id: 'sweatshirts',
     category: 'Sweatshirts',
     type: 'fleece',
-    description: 'Raglan and set-in crewneck sweatshirts engineered for cold-weather durability and comfort.',
-    asset: '/assets/products/sweatshirt.svg',
-    fabricSpecs: '3-Thread Fleece, Diagonal French Terry, Loopback',
+    description: 'Raglan and set-in crewneck sweatshirts engineered for cold-weather durability and premium comfort.',
+    image: '/assets/products/product_sweatshirt.jpg',
+    composition: '100% Cotton French Terry, 3-Thread Diagonal Fleece',
     weightGsm: '320 – 380 GSM Heavyweight Terry',
-    finishes: ['Heavy Rib Neck & Hem', 'Triangle V-Stitch Insert', 'Anti-Pilling Treatment'],
-    organicAvailable: true,
+    finishes: ['Heavy Rib Neck & Hem Band', 'Triangle V-Stitch Insert', 'Enzyme Bio-Polishing'],
+    customization: ['Garment Wash & Vintage Dye', 'Chenille & Applique Patches', 'Custom Hem Label'],
+    organicCertified: true,
   },
   {
+    id: 'hoodies',
     category: 'Hoodies',
     type: 'fleece',
-    description: 'Pullover and full-zip hoodies with 3-piece lined hoods and reinforced kangaroo pockets.',
-    asset: '/assets/products/hoodie.svg',
-    fabricSpecs: 'Heavyweight Brushed Fleece, Cotton/Poly Blends',
+    description: 'Pullover and full-zip hooded sweatshirts with 3-piece lined hoods and reinforced kangaroo pockets.',
+    image: '/assets/products/product_hoodie.jpg',
+    composition: 'Heavyweight Cotton/Polyester Brushed Fleece, 100% Organic Cotton',
     weightGsm: '340 – 420 GSM Brushed Fleece',
-    finishes: ['3-Piece Lined Hood', 'Metal Aglet Drawcords', 'Coverstitch Seams'],
-    organicAvailable: true,
+    finishes: ['Peach Skin Soft Touch', 'Coverstitch Construction', 'Dense Thermal Interior'],
+    customization: ['Custom Metal Aglets & Drawcords', 'All-Over Print (AOP)', 'Debossed Leather Trims'],
+    organicCertified: true,
   },
   {
+    id: 'sportswear',
     category: 'Sportswear & Active',
     type: 'performance',
-    description: 'Performance-driven athletic apparel with rapid moisture management and ergonomic seams.',
-    asset: '/assets/products/sportswear.svg',
-    fabricSpecs: 'Polyester/Spandex Interlock, Recycled Micro-Mesh',
-    weightGsm: '160 – 200 GSM Quick-Dry',
-    finishes: ['Moisture-Wicking Treatment', 'Flatlock Anti-Chafe Seams', 'Sublimation Ready'],
-    organicAvailable: false,
+    description: 'Coordinated performance collections: rapid-dry athletic T-shirts, athletic shorts, and technical track pants.',
+    image: '/assets/products/product_sportswear.jpg',
+    composition: 'Polyester/Spandex Interlock, Recycled Micro-Mesh & Stretch Blends',
+    weightGsm: '160 – 220 GSM Quick-Dry',
+    finishes: ['Hydrophilic Moisture Management', 'Anti-Microbial & Anti-Odor', 'Flatlock Ergonomic Seams'],
+    customization: ['Reflective Heat-Transfer Logos', 'Zippered Ankle & Pocket Details', 'Sublimation Print'],
+    organicCertified: false,
   },
   {
+    id: 'casualwear',
     category: 'Casualwear & Lounge',
     type: 'tops',
-    description: 'Contemporary loungewear, heavyweight boxy tees, track pants, and comfortable basics.',
-    asset: '/assets/products/casualwear.svg',
-    fabricSpecs: 'Open-End Heavy Jersey, Waffle Knit, Micro-Rib',
-    weightGsm: '240 – 280 GSM Heavy Jersey',
-    finishes: ['Vintage Wash / Garment Dye', 'Drop-Shoulder Cut', 'Compacted Hand-Feel'],
-    organicAvailable: true,
+    description: 'Coordinated loungewear sets: relaxed crewneck sweatshirts, fleece joggers, everyday tees, and textured waffle shorts.',
+    image: '/assets/products/product_casualwear.jpg',
+    composition: 'Heavyweight Cotton Jersey, French Terry, Waffle Knit, Rib Knit',
+    weightGsm: '240 – 340 GSM Loungewear Terry',
+    finishes: ['Pigment Wash / Garment Dye', 'Brushed Hand-Feel', 'Pre-Shrunk Compacting'],
+    customization: ['Custom Garment Dye Palettes', 'Cotton Drawstrings & Metal Eyelets', 'Custom Brand Labeling'],
+    organicCertified: true,
   },
   {
+    id: 'kidswear',
     category: 'Kidswear & Babywear',
     type: 'kids',
-    description: 'Ultra-gentle baby rompers, infant tees, and childrenswear certified completely non-toxic.',
-    asset: '/assets/products/kidswear.svg',
-    fabricSpecs: 'OEKO-TEX® Class I Certified 100% Organic Cotton',
-    weightGsm: '160 – 200 GSM Interlock & Jersey',
-    finishes: ['Nickel-Free Shoulder Snaps', 'Non-Toxic Waterbase Inks', 'Zero Chemical Irritants'],
-    organicAvailable: true,
+    description: 'Authentic childrenswear: ribbed infant rompers with snaps, toddler crew tees, cozy fleece sweatshirts, and matching shorts.',
+    image: '/assets/products/product_kidswear.jpg',
+    composition: 'OEKO-TEX® Product Class I Certified 100% Organic Combed Cotton',
+    weightGsm: '160 – 260 GSM Rib, Interlock & Fleece',
+    finishes: ['Zero Chemical Irritants', 'Nickel-Free Shoulder Snaps', 'Waterbase Inks Only'],
+    customization: ['Snap Plackets for Easy Dressing', 'Baby-Safe Flat Seams', 'Organic Cotton Brand Tags'],
+    organicCertified: true,
   },
   {
-    category: 'Custom OEM Programs',
+    id: 'custom_oem',
+    category: 'Custom Programs & OEM',
     type: 'bespoke',
-    description: 'Bespoke garment manufacturing developed strictly to international buyer tech packs and specs.',
-    asset: '/assets/products/custom-garments.svg',
-    fabricSpecs: 'Custom Knitting & Fiber Blends to Buyer Spec',
-    weightGsm: 'Custom Weights (120 to 450 GSM)',
-    finishes: ['Custom CAD Grading & Nesting', 'Buyer Private Label Trims', 'Full AQL Quality Protocol'],
-    organicAvailable: true,
+    description: 'Bespoke sampling & development: comprehensive fabric swatch libraries, Pantone color options, custom jacquard trims, and private label execution.',
+    image: '/assets/products/product_custom_oem.jpg',
+    composition: 'Custom Yarn Blends & Fabric Constructions to Tech Pack Spec',
+    weightGsm: 'Full Custom Grammages (120 to 450 GSM)',
+    finishes: ['Custom CAD Grading & Nesting', 'Proprietary Enzyme & Silicon Washes', 'Full AQL 2.5 Audit'],
+    customization: ['Complete Private Label Package', 'Retail Barcode & RFID Packing', 'Direct Port Logistics'],
+    organicCertified: true,
   },
 ];
 
@@ -103,13 +122,14 @@ const FILTER_TABS = [
   { id: 'all', label: 'All Categories' },
   { id: 'tops', label: 'Tops & Polos' },
   { id: 'fleece', label: 'Fleece & Terry' },
-  { id: 'performance', label: 'Active & Sport' },
-  { id: 'kids', label: 'Kids & Babywear' },
-  { id: 'bespoke', label: 'Bespoke OEM' },
+  { id: 'performance', label: 'Activewear' },
+  { id: 'kids', label: 'Baby & Kids' },
+  { id: 'bespoke', label: 'Custom OEM' },
 ];
 
 export function Products() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [expandedId, setExpandedId] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const prefersReducedMotion = useReducedMotion();
   const isInView = useInView(containerRef, { once: true, amount: 0.05 });
@@ -117,11 +137,23 @@ export function Products() {
   const filteredProducts =
     activeFilter === 'all'
       ? PRODUCTS
-      : PRODUCTS.filter((p) => p.type === activeFilter || (activeFilter === 'tops' && (p.category === 'T-Shirts' || p.category === 'Polos' || p.category === 'Casualwear & Lounge')));
+      : PRODUCTS.filter((p) => p.type === activeFilter || (activeFilter === 'tops' && (p.id === 'tshirts' || p.id === 'polos' || p.id === 'casualwear')));
 
-  const scrollToContact = () => {
+  const toggleExpand = (id: string) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
+  const scrollToContact = (productCategory: string) => {
     const el = document.getElementById('contact');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      // Pre-select interest in contact form if dropdown exists
+      const select = document.getElementById('productInterest') as HTMLSelectElement | null;
+      if (select) {
+        const option = Array.from(select.options).find((opt) => opt.value.toLowerCase().includes(productCategory.toLowerCase()));
+        if (option) select.value = option.value;
+      }
+    }
   };
 
   return (
@@ -129,12 +161,12 @@ export function Products() {
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <SectionHeading
-          title={'PRODUCT\nRANGE.'}
-          subtitle="Comprehensive knitted apparel manufacturing across product categories. Engineered for global fashion brands and retail distributors."
+          title={'PRODUCT\nPORTFOLIO.'}
+          subtitle="Precision knitted apparel manufactured for international fashion labels, retail chains, and private brands across categories."
         />
 
-        {/* Filter Navigation & Technical CAD Disclaimer */}
-        <div className="mt-12 flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-charcoal/10">
+        {/* Filter Navigation */}
+        <div className="mt-12 flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-charcoal/10">
           <div className="flex flex-wrap items-center gap-2">
             {FILTER_TABS.map((tab) => (
               <button
@@ -151,92 +183,148 @@ export function Products() {
             ))}
           </div>
 
-          <div className="text-[11px] font-mono text-muted-gray flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent" />
-            <span>CAD TECH PACK SPECS // PRODUCTION SAMPLES SENT ON INQUIRY</span>
-          </div>
+          <span className="text-[11px] font-mono text-muted-gray">
+            8 Export Product Categories
+          </span>
         </div>
 
-        {/* Product Grid */}
+        {/* Product Cards Grid with Real Product Photography */}
         <div
           ref={containerRef}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-10"
         >
-          {filteredProducts.map((product, index) => (
-            <div
-              key={product.category}
-              className="group bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-xl transition-all duration-300"
-              style={{
-                opacity: prefersReducedMotion || isInView ? 1 : 0,
-                transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
-                transition: `opacity 0.5s ease-out ${index * 0.05}s, transform 0.5s ease-out ${index * 0.05}s`,
-              }}
-            >
-              {/* Product Visual Area: CAD Spec SVG */}
-              <div className="relative aspect-[3/4] w-full overflow-hidden bg-off-white/50 border-b border-charcoal/5">
-                <img
-                  src={product.asset}
-                  alt={`${product.category} Technical CAD Specification`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
-                />
+          {filteredProducts.map((product, index) => {
+            const isExpanded = expandedId === product.id;
 
-                {/* Organic Certification Tag */}
-                {product.organicAvailable && (
-                  <div className="absolute top-3 right-3 z-10">
-                    <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-charcoal/90 text-off-white text-[9px] font-mono tracking-widest uppercase border border-white/10">
-                      <ShieldCheck className="w-3 h-3 text-accent" />
-                      GOTS Organic
-                    </span>
-                  </div>
-                )}
+            return (
+              <div
+                key={product.id}
+                className="group bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-xl transition-all duration-300"
+                style={{
+                  opacity: prefersReducedMotion || isInView ? 1 : 0,
+                  transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
+                  transition: `opacity 0.4s ease-out ${index * 0.05}s, transform 0.4s ease-out ${index * 0.05}s`,
+                }}
+              >
+                  {/* 1. Real Commercial Product Photograph (Consistent 3:4 Aspect Ratio) */}
+                  <div>
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-off-white/80 border-b border-charcoal/8">
+                      <img
+                        src={product.image}
+                        alt={`Fashion Knits ${product.category} Production Sample`}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
+                        loading="lazy"
+                      />
 
-                <div className="absolute bottom-3 left-3 z-10">
-                  <span className="px-2 py-0.5 bg-white/95 text-charcoal text-[9px] font-mono font-bold tracking-wider uppercase border border-charcoal/10">
-                    {product.weightGsm}
-                  </span>
-                </div>
-              </div>
+                      {/* Organic Tag */}
+                      {product.organicCertified && (
+                        <div className="absolute top-3 right-3 z-10">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-charcoal/90 backdrop-blur-md text-off-white text-[9px] font-mono tracking-widest uppercase border border-white/10">
+                            <ShieldCheck className="w-3 h-3 text-accent" />
+                            GOTS Organic
+                          </span>
+                        </div>
+                      )}
 
-              {/* Product Content */}
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-base font-bold text-charcoal uppercase tracking-wider mb-1 flex items-center justify-between">
-                    <span>{product.category}</span>
-                    <ArrowUpRight className="w-4 h-4 text-muted-gray group-hover:text-accent transition-colors" />
-                  </h3>
-                  <p className="text-xs text-charcoal/70 leading-relaxed mb-4">
-                    {product.description}
-                  </p>
-
-                  <div className="pt-3 border-t border-charcoal/5 space-y-1.5 mb-4">
-                    <div className="text-[10px] font-mono text-muted-gray uppercase">
-                      Fabric Construction:
-                    </div>
-                    <div className="text-[11px] font-mono font-medium text-charcoal">
-                      {product.fabricSpecs}
-                    </div>
-                  </div>
-
-                  <div className="space-y-1 mb-4">
-                    {product.finishes.map((finish, fIdx) => (
-                      <div key={fIdx} className="flex items-center gap-1.5 text-[10px] font-mono text-charcoal/70">
-                        <Check className="w-3 h-3 text-accent flex-shrink-0" />
-                        <span>{finish}</span>
+                      {/* Grammage Badge */}
+                      <div className="absolute bottom-3 left-3 z-10">
+                        <span className="px-2.5 py-1 bg-white/95 text-charcoal text-[9px] font-mono font-bold tracking-wider uppercase border border-charcoal/15 shadow-sm">
+                          {product.weightGsm}
+                        </span>
                       </div>
-                    ))}
+                    </div>
+
+                    {/* 2. Visible Category Name & Short Description */}
+                    <div className="p-6">
+                      <h3 className="text-lg font-bold text-charcoal uppercase tracking-wider mb-1.5">
+                        {product.category}
+                      </h3>
+                      <p className="text-xs text-charcoal/70 leading-relaxed font-normal mb-4">
+                        {product.description}
+                      </p>
+
+                      {/* Expandable Technical Specifications */}
+                      {isExpanded && (
+                        <div className="mt-4 pt-4 border-t border-charcoal/10 space-y-3 animate-fadeIn text-left">
+                          <div>
+                            <span className="text-[10px] font-mono uppercase text-muted-gray block">
+                              Fabric Composition:
+                            </span>
+                            <span className="text-xs font-mono font-semibold text-charcoal block mt-0.5">
+                              {product.composition}
+                            </span>
+                          </div>
+
+                          <div>
+                            <span className="text-[10px] font-mono uppercase text-muted-gray block">
+                              Finishing Options:
+                            </span>
+                            <div className="space-y-1 mt-1">
+                              {product.finishes.map((finish, fIdx) => (
+                                <div key={fIdx} className="flex items-center gap-1.5 text-[10px] font-mono text-charcoal/80">
+                                  <Check className="w-3 h-3 text-accent flex-shrink-0" />
+                                  <span>{finish}</span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div className="pt-2 border-t border-charcoal/5">
+                            <span className="text-[10px] font-mono uppercase text-accent font-semibold block flex items-center gap-1">
+                              <Sparkles className="w-3 h-3" />
+                              Customization / OEM:
+                            </span>
+                            <div className="space-y-1 mt-1">
+                              {product.customization.map((c, cIdx) => (
+                                <div key={cIdx} className="text-[10px] font-mono text-charcoal/70">
+                                  • {c}
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* 3. Action Buttons: Expand Specs & Request Sample */}
+                  <div className="p-6 pt-0 space-y-2">
+                    <button
+                      onClick={() => toggleExpand(product.id)}
+                      className="w-full py-2 bg-charcoal/5 hover:bg-charcoal/10 text-charcoal text-[11px] font-mono uppercase tracking-wider border border-charcoal/10 flex items-center justify-between px-3 transition-colors cursor-pointer"
+                    >
+                      <span>{isExpanded ? 'Hide Specs' : 'Technical Specs'}</span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-3.5 h-3.5 text-accent" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5 text-muted-gray" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={() => scrollToContact(product.category)}
+                      className="w-full py-2.5 bg-charcoal group-hover:bg-accent text-off-white group-hover:text-charcoal text-[11px] font-mono uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer"
+                    >
+                      Request Sample / Quote
+                    </button>
                   </div>
                 </div>
+            );
+          })}
+        </div>
 
-                {/* Inquiry CTA */}
-                <button
-                  onClick={scrollToContact}
-                  className="w-full py-2.5 mt-2 bg-charcoal/5 group-hover:bg-charcoal text-charcoal group-hover:text-off-white text-[10px] font-mono uppercase tracking-widest font-bold border border-charcoal/10 group-hover:border-charcoal transition-all cursor-pointer"
-                >
-                  Request Sample / Quote
-                </button>
-              </div>
-            </div>
-          ))}
+        {/* View Full Product Catalogue */}
+        <div className="mt-12 pt-8 border-t border-charcoal/10 flex items-center justify-between">
+          <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
+            Full Product Catalogue
+          </span>
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-charcoal hover:text-accent transition-colors font-bold group"
+          >
+            <span>View All Products</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

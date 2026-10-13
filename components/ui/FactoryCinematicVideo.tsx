@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Play, Pause, Video, Eye, ShieldCheck, Activity } from 'lucide-react';
+import { Play, Pause, Video, Eye, Activity } from 'lucide-react';
 
 interface FactoryCinematicVideoProps {
   label?: string;
@@ -151,7 +151,7 @@ export function FactoryCinematicVideo({
 
             <div className="hidden md:flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10 text-off-white/70">
               <Activity className="w-3 h-3 text-emerald-400" />
-              <span>FACILITY TELEMETRY: OPTIMAL</span>
+              <span>{label}</span>
             </div>
 
             <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 border border-white/10 text-off-white/90">

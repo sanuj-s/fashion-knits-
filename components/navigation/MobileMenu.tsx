@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 import { gsap } from '@/lib/animations';
 
 interface MobileMenuProps {
@@ -9,21 +11,21 @@ interface MobileMenuProps {
 }
 
 const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Manufacturing', href: '#manufacturing' },
-  { name: 'Capabilities', href: '#capabilities' },
-  { name: 'Products', href: '#products' },
-  { name: 'Quality', href: '#quality' },
-  { name: 'Certifications', href: '#certifications' },
+  { name: 'Products', href: '/products' },
+  { name: 'Manufacturing', href: '/manufacturing' },
+  { name: 'Quality', href: '/quality' },
   { name: 'Sustainability', href: '#sustainability' },
-  { name: 'Global Reach', href: '#global-reach' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Global Export', href: '/export' },
+  { name: 'About Us', href: '/about' },
 ];
 
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     if (isOpen) {
@@ -98,12 +100,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     onClose();
-    setTimeout(() => {
-      const target = document.querySelector(href);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 550);
+    if (href.startsWith('/')) {
+      router.push(href);
+    } else if (isHomePage) {
+      setTimeout(() => {
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 550);
+    } else {
+      router.push('/' + href);
+    }
   };
 
   return (
@@ -115,32 +123,51 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       style={{ clipPath: 'inset(0 0 100% 0)' }}
     >
       <nav className="flex flex-col items-center space-y-4 my-auto py-12">
-        {navLinks.map((link, index) => (
-          <a
-            key={link.name}
-            href={link.href}
-            ref={(el) => {
-              linksRef.current[index] = el;
-            }}
-            onClick={(e) => handleLinkClick(e, link.href)}
-            className="text-2xl sm:text-3xl font-bold text-off-white uppercase tracking-wider hover:text-accent transition-colors duration-200"
-            style={{ opacity: 0 }}
-          >
-            {link.name}
-          </a>
-        ))}
+        {navLinks.map((link, index) =>
+          link.href.startsWith('/') ? (
+            <Link
+              key={link.name}
+              href={link.href}
+              ref={(el: HTMLAnchorElement | null) => {
+                linksRef.current[index] = el;
+              }}
+              onClick={() => onClose()}
+              className="text-2xl sm:text-3xl font-bold text-off-white uppercase tracking-wider hover:text-accent transition-colors duration-200"
+              style={{ opacity: 0 }}
+            >
+              {link.name}
+            </Link>
+          ) : (
+            <a
+              key={link.name}
+              href={link.href}
+              ref={(el: HTMLAnchorElement | null) => {
+                linksRef.current[index] = el;
+              }}
+              onClick={(e) => handleLinkClick(e, link.href)}
+              className="text-2xl sm:text-3xl font-bold text-off-white uppercase tracking-wider hover:text-accent transition-colors duration-200"
+              style={{ opacity: 0 }}
+            >
+              {link.name}
+            </a>
+          )
+        )}
 
         <div className="pt-6">
           <button
             ref={buttonRef}
             onClick={() => {
               onClose();
-              setTimeout(() => {
-                const target = document.querySelector('#contact');
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-              }, 550);
+              if (isHomePage) {
+                setTimeout(() => {
+                  const target = document.querySelector('#contact');
+                  if (target) target.scrollIntoView({ behavior: 'smooth' });
+                }, 550);
+              } else {
+                router.push('/#contact');
+              }
             }}
-            className="border border-accent text-accent px-8 py-3 uppercase text-xs tracking-widest hover:bg-accent hover:text-charcoal transition-all duration-300 font-bold"
+            className="border border-accent text-accent px-8 py-3 uppercase text-xs tracking-widest hover:bg-accent hover:text-charcoal transition-all duration-300 font-bold cursor-pointer"
             style={{ opacity: 0 }}
           >
             Start an Inquiry

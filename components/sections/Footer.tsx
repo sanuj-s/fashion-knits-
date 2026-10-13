@@ -24,14 +24,20 @@ export function Footer() {
               FASHION KNITS
             </h2>
             <p className="text-xs font-mono uppercase tracking-widest text-accent mt-1">
-              Integrated Textile &amp; Garment Manufacturing
+              Knitwear &amp; Garment Manufacturing
             </p>
             <p className="text-xs sm:text-sm text-off-white/60 mt-4 leading-relaxed max-w-sm">
-              Vertically integrated circular knitting, eco-friendly dyeing, fabric finishing, and export apparel production headquartered in Tirupur, India.
+              Specialized circular knitting, cutting, garment assembly, finishing, and export packing across two dedicated facilities in Tiruppur, India.
             </p>
-            <div className="mt-6 flex items-start gap-2.5 text-xs text-off-white/60 font-mono">
-              <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-              <span>Apparel Park, Eettiveerampalayam, Avinashi, Tirupur – 641 666, Tamil Nadu, India</span>
+            <div className="mt-6 space-y-2 text-xs text-off-white/60 font-mono">
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <span>Angeripalayam Main Road, Tiruppur – 641 603 (HQ)</span>
+              </div>
+              <div className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                <span>Shed No: 29, Netaji Apparel Park, New Tirupur – 641 666 (Unit-1)</span>
+              </div>
             </div>
           </div>
 

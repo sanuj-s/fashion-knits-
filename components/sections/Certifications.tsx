@@ -3,7 +3,8 @@
 import React, { useState, useRef } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useInView, useReducedMotion } from '@/lib/hooks';
-import { Download, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Download, ExternalLink, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 interface VerifiedScopeCertificate {
   id: string;
@@ -11,10 +12,11 @@ interface VerifiedScopeCertificate {
   standard: string;
   issuer: string;
   licenseNumber: string;
-  scope: string;
+  scopeSummary: string;
   pdfUrl: string;
+  previewImage: string;
   logo: string;
-  validity: string;
+  statusBadge: string;
 }
 
 const VERIFIED_SCOPE_CERTIFICATES: VerifiedScopeCertificate[] = [
@@ -24,43 +26,47 @@ const VERIFIED_SCOPE_CERTIFICATES: VerifiedScopeCertificate[] = [
     standard: 'Global Organic Textile Standard (Version 7.0)',
     issuer: 'USB Certification (Control Union Partner)',
     licenseNumber: 'USB TEX-5053-GOTS-2510.2',
-    scope: 'Organic Cotton Knitted Apparel (Men, Women, Children, Babies) // Circular Knitting, Dyeing, Finishing, Printing, Cut & Sew, Export',
+    scopeSummary: 'Men, Women, Children & Babies Knitted Garments (Organic Cotton)',
     pdfUrl: '/assets/certificates/gots-organic-textile.pdf',
+    previewImage: '/assets/certificates/previews/preview_gots.png',
     logo: '/assets/certificates/logos/cert_gots.png',
-    validity: 'Scope Certified Active',
+    statusBadge: 'Verified Scope Certificate',
   },
   {
     id: 'ocs',
-    name: 'OCS 100 & OCS Blended',
+    name: 'OCS 100',
     standard: 'Organic Content Standard (Version 3.0)',
     issuer: 'USB Certification Denetim',
     licenseNumber: 'USB-00007995-OCS-2510',
-    scope: 'Certified Organic Cotton & Cotton Blends // Full Chain of Custody from Fiber Sourcing to Finished Garments',
+    scopeSummary: 'Certified Organic Cotton & Cotton Blends Chain of Custody',
     pdfUrl: '/assets/certificates/ocs-organic-content.pdf',
+    previewImage: '/assets/certificates/previews/preview_ocs.png',
     logo: '/assets/certificates/logos/cert_ocs_100.png',
-    validity: 'Scope Certified Active',
+    statusBadge: 'Verified Scope Certificate',
   },
   {
     id: 'oekotex',
-    name: 'OEKO-TEX® Standard 100',
-    standard: 'Annex 4 (Product Class I: Baby Articles)',
+    name: 'OEKO-TEX®',
+    standard: 'STANDARD 100 Annex 4 (Product Class I: Baby Articles)',
     issuer: 'Centexbel Belgian Textile Research Centre',
     licenseNumber: 'Certificate No. 2011149',
-    scope: 'Knitted Garments Safe for Infants & Children // Tested Free of Harmful Chemicals, Azo Dyes, Heavy Metals, and Formaldehyde',
+    scopeSummary: 'Tested Safe for Newborn Infants: Zero Harmful Dyes, Heavy Metals, or Formaldehyde',
     pdfUrl: '/assets/certificates/oeko-tex-standard-100.pdf',
+    previewImage: '/assets/certificates/previews/preview_oekotex.png',
     logo: '/assets/certificates/logos/cert_oekotex.png',
-    validity: 'Product Class I Certified',
+    statusBadge: 'Product Class I Baby-Safe',
   },
   {
     id: 'bsci',
     name: 'amfori BSCI',
-    standard: 'Business Social Compliance Initiative',
+    standard: 'Business Social Compliance Initiative Code of Conduct',
     issuer: 'amfori Audited Independent Inspection',
     licenseNumber: 'Audit ID: 9322',
-    scope: 'Fair Remuneration, Occupational Health & Safety, Environmental Protection, No Child Labor, Ethical Business Conduct',
+    scopeSummary: 'Fair Compensation, Worker Health & Safety, Environmental Protection, No Child Labor',
     pdfUrl: '/assets/certificates/bsci-social-compliance.pdf',
+    previewImage: '/assets/certificates/previews/preview_bsci.png',
     logo: '/assets/certificates/logos/cert_amfori_bsci.svg',
-    validity: 'Social Audit Verified',
+    statusBadge: 'Social Audit Verified',
   },
 ];
 
@@ -216,71 +222,76 @@ export function Certifications() {
         {/* Section Heading */}
         <SectionHeading
           title={'CERTIFICATIONS\n& COMPLIANCE.'}
-          subtitle="International accreditations and verified scope certificates governing environmental stewardship, product safety, ethical labor, and quality systems at Fashion Knits."
+          subtitle="Official scope certificates and recognized compliance accreditations governing sustainability, chemical safety, ethical labor, and quality systems at Fashion Knits."
         />
 
-        {/* Part 1: Downloadable Verified Scope Certificates */}
+        {/* 1. Verified Scope Certificates with Real Scanned Document Previews */}
         <div className="mt-16">
           <div className="flex items-center justify-between pb-4 border-b border-charcoal/10 mb-8">
             <h3 className="text-sm font-mono uppercase tracking-[0.2em] text-accent font-bold">
-              Verified Scope Certificates // Official Documents
+              Verified Scope Certificates // Official Documents On File
             </h3>
             <span className="text-[11px] font-mono text-muted-gray">
               Direct PDF Verification Available
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {VERIFIED_SCOPE_CERTIFICATES.map((cert) => (
               <div
                 key={cert.id}
-                className="bg-pure-white border border-charcoal/10 p-6 md:p-8 flex flex-col justify-between hover:border-accent hover:shadow-md transition-all duration-300"
+                className="bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-lg transition-all duration-300 group"
               >
                 <div>
-                  <div className="flex items-start justify-between gap-4 mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-off-white/80 p-2 border border-charcoal/5 flex items-center justify-center">
+                  {/* Real Scanned Document Thumbnail Preview */}
+                  <div className="relative aspect-[3/4] w-full overflow-hidden bg-off-white/80 border-b border-charcoal/10">
+                    <img
+                      src={cert.previewImage}
+                      alt={`${cert.name} Official Scope Certificate`}
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+                    {/* Logo & Status Badge Overlay */}
+                    <div className="absolute top-3 left-3 z-10">
+                      <div className="w-10 h-10 bg-white p-1.5 shadow-md flex items-center justify-center border border-charcoal/5">
                         <img
                           src={cert.logo}
-                          alt={`${cert.name} emblem`}
+                          alt={cert.name}
                           className="max-h-full max-w-full object-contain"
                         />
                       </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-charcoal tracking-tight">
-                          {cert.name}
-                        </h4>
-                        <span className="text-xs font-mono uppercase tracking-wider text-accent font-semibold block">
-                          {cert.validity}
-                        </span>
-                      </div>
                     </div>
-                    <span className="text-[10px] font-mono text-muted-gray bg-off-white px-2 py-1 border border-charcoal/5">
-                      {cert.licenseNumber}
-                    </span>
+
+                    <div className="absolute bottom-3 left-3 right-3 z-10">
+                      <span className="px-2 py-1 bg-charcoal/90 backdrop-blur-md text-[9px] font-mono font-bold uppercase tracking-wider text-accent border border-white/10 block truncate">
+                        {cert.licenseNumber}
+                      </span>
+                    </div>
                   </div>
 
-                  <p className="text-xs font-bold text-charcoal/90 mt-2">
-                    {cert.standard}
-                  </p>
-                  <p className="text-[11px] font-mono text-muted-gray mt-0.5">
-                    Issuing Body: {cert.issuer}
-                  </p>
-                  <p className="text-xs text-charcoal/70 leading-relaxed mt-3">
-                    {cert.scope}
-                  </p>
+                  {/* Certificate Info */}
+                  <div className="p-5">
+                    <h4 className="text-base font-bold text-charcoal uppercase tracking-wider mb-1">
+                      {cert.name}
+                    </h4>
+                    <p className="text-[11px] font-mono text-accent font-semibold mb-2">
+                      {cert.statusBadge}
+                    </p>
+                    <p className="text-xs text-charcoal/70 leading-relaxed font-normal">
+                      {cert.scopeSummary}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-charcoal/5 flex items-center justify-between">
-                  <span className="text-[10px] font-mono text-muted-gray flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
-                    Authenticity Audited
-                  </span>
+                {/* Direct Verified PDF Download Button */}
+                <div className="p-5 pt-0">
                   <a
                     href={cert.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3 py-1.5 bg-charcoal text-off-white text-xs font-mono uppercase tracking-wider hover:bg-accent hover:text-charcoal transition-colors cursor-pointer"
+                    className="w-full py-2.5 px-3 bg-charcoal hover:bg-accent text-off-white hover:text-charcoal text-[11px] font-mono uppercase tracking-wider font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Download Scope PDF</span>
@@ -291,7 +302,7 @@ export function Certifications() {
           </div>
         </div>
 
-        {/* Part 2: Comprehensive 17-Accreditation Grid with Filter Tabs */}
+        {/* 2. Full 17-Accreditation Grid with Filter Tabs */}
         <div ref={containerRef} className="mt-20">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-charcoal/10 mb-8">
             <h3 className="text-sm font-mono uppercase tracking-[0.2em] text-accent font-bold">
@@ -357,7 +368,7 @@ export function Certifications() {
                       href={item.hasPdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[10px] font-mono text-accent hover:underline"
+                      className="inline-flex items-center gap-1 text-[10px] font-mono text-accent hover:underline font-bold"
                     >
                       <span>Scope PDF</span>
                       <ExternalLink className="w-2.5 h-2.5" />
@@ -373,17 +384,17 @@ export function Certifications() {
           </div>
         </div>
 
-        {/* Part 3: Audit Readiness Statement */}
+        {/* 3. Audit Readiness Banner */}
         <div className="mt-16 bg-charcoal text-off-white p-8 md:p-10 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-2xl">
             <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent block mb-2">
               Buyer Audit Readiness
             </span>
             <h4 className="text-xl md:text-2xl font-bold uppercase tracking-tight">
-              Open to Third-Party Brand &amp; Retail Audits
+              Scheduled Third-Party &amp; Brand Audits Welcome
             </h4>
             <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mt-2">
-              Fashion Knits maintains an open-door policy for scheduled factory audits by international brands, third-party inspection agencies (SGS, Intertek, Bureau Veritas), and customer compliance officers.
+              Fashion Knits regularly hosts customer compliance teams, third-party inspection agencies (SGS, Intertek, Bureau Veritas), and brand auditors across our Netaji Apparel Park factory and Angeripalayam corporate office.
             </p>
           </div>
           <button
@@ -393,8 +404,22 @@ export function Certifications() {
             }}
             className="px-6 py-3 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold hover:bg-pure-white transition-colors flex-shrink-0 cursor-pointer"
           >
-            Request Audit Pack
+            Inquire for Audit Protocol
           </button>
+        </div>
+
+        {/* View Full Quality & Certifications Page */}
+        <div className="mt-12 pt-8 border-t border-charcoal/10 flex items-center justify-between">
+          <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
+            Detailed Certifications & Compliance
+          </span>
+          <Link
+            href="/quality"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-charcoal hover:text-accent transition-colors font-bold group"
+          >
+            <span>View All Certifications</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>

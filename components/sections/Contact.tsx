@@ -89,17 +89,34 @@ export function Contact() {
 
               {/* Contact Details List */}
               <div className="space-y-6 pt-6 border-t border-white/10">
+                {/* Unit 1: Corporate Head Office */}
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-gray block">
-                      Manufacturing Facility &amp; Head Office
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
+                      Primary Corporate Office &amp; Sampling
                     </span>
                     <p className="text-xs sm:text-sm text-off-white leading-relaxed mt-0.5">
-                      Fashion Knits, Apparel Park, Eettiveerampalayam,<br />
-                      Avinashi, Tirupur – 641 666, Tamil Nadu, India
+                      Fashion Knits, Angeripalayam Main Road, Gandhi Nagar Post,<br />
+                      Tiruppur – 641 603, Tamil Nadu, India
+                    </p>
+                  </div>
+                </div>
+
+                {/* Unit 2: Main Manufacturing Factory */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
+                      Main Manufacturing Facility (Unit-1)
+                    </span>
+                    <p className="text-xs sm:text-sm text-off-white leading-relaxed mt-0.5">
+                      Shed No: 29, Netaji Apparel Park,<br />
+                      New Tirupur – 641 666, Tamil Nadu, India
                     </p>
                   </div>
                 </div>

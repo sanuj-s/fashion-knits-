@@ -3,7 +3,8 @@
 import React, { useRef } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { useInView, useReducedMotion } from '@/lib/hooks';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, ArrowRight, ShieldCheck, Microscope, Gauge, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 interface QualityStep {
   step: string;
@@ -70,6 +71,83 @@ export function Quality() {
           subtitle="Multi-stage quality assurance systems engineered to deliver zero-defect reliability across international textile and apparel shipments."
         />
 
+        {/* Real Laboratory & Inspection Photographic Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 md:mt-20">
+          <div className="bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
+              <img
+                src="/assets/images/quality_process.jpg"
+                alt="Fashion Knits In-House Testing Laboratory and Inspection Floor"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-transparent to-transparent" />
+              <div className="absolute top-4 left-4 z-10">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                  <Microscope className="w-3.5 h-3.5 text-accent" />
+                  Physical &amp; Chemical Testing Lab
+                </span>
+              </div>
+              <div className="absolute bottom-3 left-4 z-10 text-[11px] font-mono text-off-white/90">
+                <span>Unit-1 Quality Control Station · Netaji Apparel Park</span>
+              </div>
+            </div>
+
+            <div className="p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-charcoal mb-2">
+                  In-House Textile Testing Laboratory
+                </h3>
+                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
+                  Equipped with calibrated tensile testers, wash crock meters, computerized spectrophotometers, and precision grammage balances to verify CSP yarn strength, colorfastness to light/rubbing, and residual wash shrinkage.
+                </p>
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-charcoal/8 flex items-center justify-between text-xs font-mono text-charcoal/70">
+                <span>STANDARDS: ISO 105 / AATCC</span>
+                <span className="text-accent font-semibold">DELTA-E &lt; 0.5</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between">
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
+              <img
+                src="/assets/images/team_about.jpg"
+                alt="Fashion Knits Quality Control Controllers & Merchandising Team"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-transparent to-transparent" />
+              <div className="absolute top-4 left-4 z-10">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                  <Gauge className="w-3.5 h-3.5 text-accent" />
+                  100% Needle Detection Tunnel
+                </span>
+              </div>
+              <div className="absolute bottom-3 left-4 z-10 text-[11px] font-mono text-off-white/90">
+                <span>Conveyor Metal Scan · Calibrated Hourly (0.8mm Fe)</span>
+              </div>
+            </div>
+
+            <div className="p-7 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-charcoal mb-2">
+                  Zero-Tolerance Infant Safety &amp; FRI
+                </h3>
+                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
+                  Every export carton undergoes 100% conveyor needle scanning calibrated with 9-point ferrous test cards before sealing. Certified by Centexbel for OEKO-TEX Standard 100 Class I (safe for newborn babywear).
+                </p>
+              </div>
+
+              <div className="mt-5 pt-4 border-t border-charcoal/8 flex items-center justify-between text-xs font-mono text-charcoal/70">
+                <span>NEEDLE DETECTION: 100% PASS</span>
+                <span className="text-accent font-semibold">AQL 2.5 / 4.0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Quality Timeline */}
         <div ref={containerRef} className="mt-20 relative max-w-5xl mx-auto">
           {/* Vertical Timeline Guide Line */}
@@ -93,7 +171,7 @@ export function Quality() {
                   {/* Central Node Indicator */}
                   <div className="absolute left-[15px] md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-off-white -translate-x-1/2 z-10 mt-1.5 shadow-sm" />
 
-                  {/* Step Card Content */}
+                  {/* Step Card Content with 3D Tilt */}
                   <div
                     className={`ml-12 md:ml-0 md:w-1/2 ${
                       isEven ? 'md:pl-12' : 'md:pr-12 md:text-right'
@@ -135,6 +213,20 @@ export function Quality() {
               );
             })}
           </div>
+        </div>
+
+        {/* View Full Quality & Certifications */}
+        <div className="mt-16 pt-8 border-t border-charcoal/10 flex items-center justify-between">
+          <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
+            Full Quality &amp; Certifications
+          </span>
+          <Link
+            href="/quality"
+            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-charcoal hover:text-accent transition-colors font-bold group"
+          >
+            <span>View Quality Details</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
       </div>
     </section>
