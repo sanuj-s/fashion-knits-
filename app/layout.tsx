@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/components/navigation/Navbar';
 import { SmoothScroll } from '@/components/providers/SmoothScroll';
+import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 export const viewport: Viewport = {
   themeColor: '#1a1a1a',
@@ -54,6 +55,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="min-h-screen bg-off-white text-charcoal font-sans selection:bg-accent selection:text-charcoal antialiased overflow-x-hidden">
         <SmoothScroll>
+          <ScrollProgress />
           <Navbar />
           <main className="relative flex flex-col w-full">{children}</main>
         </SmoothScroll>

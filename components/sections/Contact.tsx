@@ -1,12 +1,10 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { MapPin, Mail, Phone, Clock, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 export function Contact() {
-  const formRef = useRef<HTMLFormElement>(null);
-
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -62,312 +60,303 @@ export function Contact() {
     }
   };
 
-
   return (
-    <section id="contact" className="bg-charcoal text-off-white py-28 md:py-36 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
+    <section id="contact" className="bg-off-white text-charcoal py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
+      <div className="max-w-[90rem] mx-auto">
+        {/* Editorial Eyebrow with numbering */}
+        <div className="flex items-center gap-4 mb-6">
+          <span className="h-px w-10 bg-accent" />
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+            11 // Technical Inquiries
+          </span>
+        </div>
+
+        {/* Section Heading with Masked Line Reveal */}
         <SectionHeading
           title={"LET'S BUILD\nWHAT'S NEXT."}
           subtitle="Connect with Fashion Knits for manufacturing partnerships, OEM garment production, sample requests, and global export sourcing."
-          light={true}
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-16 md:mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mt-16 md:mt-24">
           {/* Left Column: Direct Commercial & Merchandising Contacts */}
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-3">
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-3 font-semibold">
                 Export Merchandising Division
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-off-white mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-charcoal mb-6">
                 Direct Buyer Inquiries &amp; Factory Visits
               </h3>
-              <p className="text-sm text-off-white/70 leading-relaxed mb-8">
+              <p className="text-sm text-charcoal/70 leading-relaxed mb-8">
                 Our technical merchandising team handles tech pack reviews, lab dips, Proto &amp; SMS sample development, cost breakdowns, and production scheduling for international brands.
               </p>
 
               {/* Contact Details List */}
-              <div className="space-y-6 pt-6 border-t border-white/10">
+              <div className="space-y-6 pt-6 border-t border-charcoal/10">
                 {/* Unit 1: Corporate Head Office */}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
                       Primary Corporate Office &amp; Sampling
                     </span>
-                    <p className="text-xs sm:text-sm text-off-white leading-relaxed mt-0.5">
-                      Fashion Knits, Angeripalayam Main Road, Gandhi Nagar Post,<br />
-                      Tiruppur – 641 603, Tamil Nadu, India
+                    <p className="text-xs sm:text-sm font-mono text-charcoal/80 mt-1">
+                      Angeripalayam Main Road, Tiruppur – 641 603, Tamil Nadu, India
                     </p>
                   </div>
                 </div>
 
-                {/* Unit 2: Main Manufacturing Factory */}
+                {/* Unit 2: Production Facility */}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
-                      Main Manufacturing Facility (Unit-1)
+                      Unit-1 Main Manufacturing Plant
                     </span>
-                    <p className="text-xs sm:text-sm text-off-white leading-relaxed mt-0.5">
-                      Shed No: 29, Netaji Apparel Park,<br />
-                      New Tirupur – 641 666, Tamil Nadu, India
+                    <p className="text-xs sm:text-sm font-mono text-charcoal/80 mt-1">
+                      Shed No: 29, Netaji Apparel Park, New Tirupur – 641 666, India
                     </p>
                   </div>
                 </div>
 
+                {/* Email Direct Desk */}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center flex-shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-gray block">
-                      Export Desk Email
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
+                      Export Inquiries &amp; Tech Packs
                     </span>
                     <a
                       href="mailto:export@fashionknits.com"
-                      className="text-xs sm:text-sm text-accent hover:underline font-mono"
+                      className="text-xs sm:text-sm font-mono text-charcoal/80 hover:text-accent transition-colors block mt-1"
                     >
                       export@fashionknits.com
                     </a>
                   </div>
                 </div>
 
+                {/* Direct Phone */}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center flex-shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-gray block">
-                      Telephone &amp; WhatsApp
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
+                      Telephone &amp; Switchboard
                     </span>
                     <a
                       href="tel:+914212370000"
-                      className="text-xs sm:text-sm text-off-white hover:text-accent font-mono"
+                      className="text-xs sm:text-sm font-mono text-charcoal/80 hover:text-accent transition-colors block mt-1"
                     >
                       +91 421 237 0000
                     </a>
                   </div>
                 </div>
 
+                {/* Operating Hours */}
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent flex-shrink-0">
+                  <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center flex-shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-gray block">
-                      Operating Hours
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent block font-semibold">
+                      Manufacturing Hours (IST)
                     </span>
-                    <p className="text-xs sm:text-sm text-off-white/80 font-mono">
-                      Monday – Saturday: 09:00 – 18:00 IST (UTC +5:30)
+                    <p className="text-xs sm:text-sm font-mono text-charcoal/80 mt-1">
+                      Mon – Sat: 09:00 – 19:00 IST (UTC +5:30)
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 p-4 bg-white/5 border border-white/10 text-xs font-mono text-muted-gray">
-              <span className="text-accent font-bold">COMPLIANCE NOTICE:</span> Non-Disclosure Agreements (NDAs) and customer confidentiality strictly respected for proprietary tech packs and artworks.
+            <div className="mt-8 pt-6 border-t border-charcoal/10 text-xs font-mono text-muted-gray">
+              <span>RESPONSE TIME: WITHIN 24 BUSINESS HOURS</span>
             </div>
           </div>
 
-          {/* Right Column: Functional Inquiry Form */}
-          <div className="lg:col-span-7 bg-[#171514] border border-white/10 p-8 sm:p-10 md:p-12">
-            <h4 className="text-lg font-bold uppercase tracking-wider text-off-white mb-2">
-              Manufacturing &amp; Sourcing Inquiry
+          {/* Right Column: Technical Inquiry Form */}
+          <div className="lg:col-span-7 bg-pure-white p-8 md:p-12 border border-charcoal/10 shadow-sm">
+            <h4 className="text-xl font-bold uppercase tracking-wider text-charcoal mb-2">
+              Request Production Quotation or Prototype
             </h4>
-            <p className="text-xs text-off-white/60 mb-8 font-mono">
-              Fill out this form to connect with our export merchandising team.
+            <p className="text-xs text-charcoal/70 mb-8 leading-relaxed">
+              Submit your inquiry details. Our technical merchandising desk will review your requirements and respond with initial costing, MOQ parameters, and sampling timelines.
             </p>
 
             {status === 'success' ? (
-              <div className="p-8 bg-charcoal border border-accent/40 text-center space-y-4">
-                <div className="w-12 h-12 bg-accent/10 border border-accent rounded-full flex items-center justify-center text-accent mx-auto">
+              <div className="p-8 bg-charcoal text-off-white border border-accent/40 space-y-4">
+                <div className="flex items-center gap-3 text-accent">
                   <CheckCircle2 className="w-6 h-6" />
+                  <span className="text-sm font-mono font-bold uppercase tracking-wider">
+                    Inquiry Successfully Received
+                  </span>
                 </div>
-                <h5 className="text-xl font-bold uppercase tracking-tight text-off-white">
-                  Inquiry Successfully Transmitted
-                </h5>
-                <p className="text-xs sm:text-sm text-off-white/70 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-off-white/80 leading-relaxed">
                   {responseMsg}
                 </p>
-                <div className="inline-block px-4 py-2 bg-white/5 border border-white/10 text-xs font-mono text-accent">
-                  Reference: {referenceId}
-                </div>
-                <div className="pt-4">
-                  <button
-                    onClick={() => {
-                      setStatus('idle');
-                      setFormData({
-                        name: '',
-                        company: '',
-                        email: '',
-                        phone: '',
-                        country: '',
-                        productInterest: 'T-Shirts',
-                        targetQuantity: '',
-                        message: '',
-                      });
-                    }}
-                    className="px-6 py-2 border border-white/20 text-xs font-mono uppercase tracking-wider text-off-white hover:border-accent hover:text-accent transition-colors cursor-pointer"
-                  >
-                    Submit Another Inquiry
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                {status === 'error' && (
-                  <div className="p-4 bg-red-950/50 border border-red-500/40 text-red-200 text-xs font-mono flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0 text-red-400" />
-                    <span>{responseMsg}</span>
+                {referenceId && (
+                  <div className="p-3 bg-white/5 border border-white/10 font-mono text-xs text-accent">
+                    Inquiry Reference ID: {referenceId}
                   </div>
                 )}
-
+                <button
+                  onClick={() => setStatus('idle')}
+                  className="mt-4 px-6 py-2.5 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold cursor-pointer hover:bg-pure-white transition-colors"
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
                       Full Name *
                     </label>
                     <input
                       type="text"
-                      id="name"
                       name="name"
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder="e.g. Sarah Jenkins"
-                      className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                      placeholder="e.g. John Doe"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                      Company / Brand Name
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                      Company / Brand *
                     </label>
                     <input
                       type="text"
-                      id="company"
                       name="company"
+                      required
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder="e.g. Apex Apparel Ltd"
-                      className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                      placeholder="e.g. Acme Apparel Ltd"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="email" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                      Business Email *
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                      Work Email *
                     </label>
                     <input
                       type="email"
-                      id="email"
                       name="email"
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="s.jenkins@brand.com"
-                      className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                      placeholder="buyer@brand.com"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
                       Phone / WhatsApp
                     </label>
                     <input
                       type="tel"
-                      id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 000-0000"
-                      className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   <div>
-                    <label htmlFor="country" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                      Destination Country
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                      Country *
                     </label>
                     <input
                       type="text"
-                      id="country"
                       name="country"
+                      required
                       value={formData.country}
                       onChange={handleChange}
                       placeholder="e.g. United Kingdom"
-                      className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="productInterest" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                      Product Category Interest
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                      Product Interest
                     </label>
                     <select
                       id="productInterest"
                       name="productInterest"
                       value={formData.productInterest}
                       onChange={handleChange}
-                      className="bg-charcoal border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm cursor-pointer"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors cursor-pointer"
                     >
-                      <option value="T-Shirts">T-Shirts (160–220 GSM)</option>
-                      <option value="Polos">Polos (Pique / Honeycomb)</option>
-                      <option value="Sweatshirts">Sweatshirts (French Terry)</option>
-                      <option value="Hoodies">Hoodies (Fleece / Brushed)</option>
+                      <option value="T-Shirts">T-Shirts</option>
+                      <option value="Polos">Polo Shirts</option>
+                      <option value="Sweatshirts">Sweatshirts</option>
+                      <option value="Hoodies">Hoodies</option>
                       <option value="Sportswear">Sportswear &amp; Active</option>
-                      <option value="Casualwear">Casualwear &amp; Loungewear</option>
-                      <option value="Kidswear">Kidswear (Baby-Safe Organic)</option>
-                      <option value="Custom OEM">Custom Bespoke Tech Pack</option>
+                      <option value="Casualwear">Casualwear / Loungewear</option>
+                      <option value="Kidswear">Kidswear &amp; Babywear</option>
+                      <option value="Custom OEM">Custom Programs / OEM</option>
                     </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                      Target Qty (Pieces)
+                    </label>
+                    <input
+                      type="text"
+                      name="targetQuantity"
+                      value={formData.targetQuantity}
+                      onChange={handleChange}
+                      placeholder="e.g. 1,000 - 5,000"
+                      className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors"
+                    />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="targetQuantity" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                    Estimated Order Volume (Pcs)
-                  </label>
-                  <input
-                    type="text"
-                    id="targetQuantity"
-                    name="targetQuantity"
-                    value={formData.targetQuantity}
-                    onChange={handleChange}
-                    placeholder="e.g. 1,000 – 5,000 pcs per style"
-                    className="bg-transparent border-b border-off-white/20 text-off-white py-2.5 w-full focus:border-accent focus:outline-none transition-colors text-sm"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="text-xs uppercase font-mono tracking-widest text-off-white/60 mb-2 block">
-                    Project Scope / Specifications
+                  <label className="block text-[11px] font-mono uppercase tracking-wider text-charcoal/80 mb-2">
+                    Project Requirements / Tech Pack Specs *
                   </label>
                   <textarea
-                    id="message"
                     name="message"
+                    required
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Provide fabric details, target delivery window, certifications required, or tech pack notes..."
-                    className="bg-transparent border border-off-white/20 p-3 text-off-white w-full focus:border-accent focus:outline-none transition-colors text-sm"
+                    placeholder="Specify fabric composition, target GSM, pantone shades, trims, delivery timeline, or sample requirements..."
+                    className="w-full px-4 py-3 bg-off-white border border-charcoal/15 text-charcoal text-xs font-mono focus:border-accent focus:outline-none transition-colors resize-none"
                   />
                 </div>
+
+                {status === 'error' && (
+                  <div className="p-4 bg-red-900/10 border border-red-500/30 text-red-600 flex items-center gap-2 text-xs font-mono">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0" />
+                    <span>{responseMsg}</span>
+                  </div>
+                )}
 
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="w-full py-4 bg-accent text-charcoal text-xs font-mono uppercase tracking-[0.2em] font-bold hover:bg-pure-white transition-colors duration-300 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="btn-shine w-full py-4 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold flex items-center justify-center gap-2 transition-all duration-300 disabled:opacity-50 cursor-pointer shadow-sm"
                 >
                   {status === 'loading' ? (
                     <>
@@ -375,7 +364,7 @@ export function Contact() {
                       <span>Transmitting Inquiry...</span>
                     </>
                   ) : (
-                    <span>Transmit Manufacturing Inquiry →</span>
+                    <span>Submit Manufacturing Inquiry</span>
                   )}
                 </button>
               </form>

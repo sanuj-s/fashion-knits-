@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap } from '@/lib/animations';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { useInView, useReducedMotion } from '@/lib/hooks';
 import { Leaf, Droplets, Zap, Recycle, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 interface SustainabilityPillar {
@@ -65,66 +65,106 @@ const SUSTAINABILITY_PILLARS: SustainabilityPillar[] = [
 ];
 
 export function Sustainability() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const isInView = useInView(containerRef, { once: true, amount: 0.05 });
+  const containerRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
+      if (gridRef.current) {
+        gsap.fromTo(
+          gridRef.current.children,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.1,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: gridRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      }
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="sustainability" className="bg-charcoal text-off-white py-28 md:py-36 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
+    <section id="sustainability" ref={containerRef} className="bg-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
+      <div className="max-w-[90rem] mx-auto">
+        {/* Editorial Eyebrow with numbering */}
+        <div className="flex items-center gap-4 mb-6">
+          <span className="h-px w-10 bg-accent" />
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+            07 // ESG &amp; Sustainability
+          </span>
+        </div>
+
+        {/* Section Heading with Masked Line Reveal */}
         <SectionHeading
           title={'MAKING MANUFACTURING\nMORE RESPONSIBLE.'}
-          subtitle="Verifiable environmental and ethical accountability embedded into every layer of our textile and garment production in Tirupur, India."
-          light={true}
+          subtitle="Verifiable environmental and ethical accountability embedded into every layer of our textile and garment production in Tiruppur, India."
         />
 
         {/* 6 Sustainability Pillars Grid */}
         <div
-          ref={containerRef}
-          className="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          ref={gridRef}
+          className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
         >
           {SUSTAINABILITY_PILLARS.map((pillar, index) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.title}
-                className="p-8 bg-[#171514] border border-white/10 relative group hover:border-accent/40 transition-all duration-300 flex flex-col justify-between"
-                style={{
-                  opacity: prefersReducedMotion || isInView ? 1 : 0,
-                  transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
-                  transition: `opacity 0.6s ease-out ${index * 0.08}s, transform 0.6s ease-out ${index * 0.08}s`,
-                }}
+                className="group p-8 md:p-10 bg-pure-white border border-charcoal/10 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-10 h-10 bg-white/5 border border-white/10 flex items-center justify-center text-accent">
-                      <Icon className="w-5 h-5" />
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-12 h-12 bg-charcoal text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-charcoal transition-colors duration-300">
+                      <Icon className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-mono text-accent/80 uppercase tracking-wider bg-white/5 px-2.5 py-1 border border-white/10">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-accent font-semibold px-2.5 py-1 border border-accent/30 bg-accent/5">
                       {pillar.complianceTag}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-off-white uppercase tracking-wider mb-1">
+                  <h3 className="text-xl font-bold uppercase tracking-wider text-charcoal mb-1.5 group-hover:text-accent transition-colors duration-300">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs font-mono uppercase tracking-widest text-accent mb-4">
+                  <p className="text-xs font-mono uppercase tracking-widest text-accent mb-4 font-semibold">
                     {pillar.subtitle}
                   </p>
-
-                  <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
                     {pillar.description}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-muted-gray">
-                  <span>PILLAR 0{index + 1} / 06</span>
-                  <span className="text-accent">VERIFIED ESG</span>
+                <div className="mt-8 pt-4 border-t border-charcoal/8 flex items-center justify-between text-[11px] font-mono text-muted-gray">
+                  <span>PILLAR 0{index + 1}</span>
+                  <span className="w-1.5 h-1.5 bg-accent/60 rotate-45" />
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-16 p-8 md:p-10 bg-pure-white border border-charcoal/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-1">
+              Third-Party Audited Supply Chain
+            </span>
+            <p className="text-xs sm:text-sm text-charcoal/80 max-w-2xl leading-relaxed">
+              We provide formal Transaction Certificates (TCs) for GOTS &amp; OCS orders, verifying the provenance of certified organic cotton from farm to shipping container.
+            </p>
+          </div>
+          <span className="px-5 py-2.5 bg-charcoal text-off-white text-xs font-mono uppercase tracking-widest font-semibold flex-shrink-0">
+            TCs Provided With Export
+          </span>
         </div>
       </div>
     </section>

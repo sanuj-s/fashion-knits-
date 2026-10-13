@@ -1,135 +1,105 @@
 'use client';
 
-import React from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap } from '@/lib/animations';
 import { ScrollIndicator } from './ScrollIndicator';
-import { ArrowRight, ShieldCheck, Layers, Award, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
+
+const MARQUEE = [
+  'GOTS & OCS Organic', 'OEKO-TEX® Standard 100 Class I', 'amfori BSCI #9322',
+  'Polos', 'T-Shirts', 'Hoodies', 'Sweatshirts', 'Kidswear', 'Sportswear', 'Custom OEM',
+];
+
+function Magnetic({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const move = (e: React.MouseEvent) => {
+    const r = ref.current!.getBoundingClientRect();
+    gsap.to(ref.current, { x: (e.clientX - r.left - r.width / 2) * 0.25, y: (e.clientY - r.top - r.height / 2) * 0.35, duration: 0.4, ease: 'power3.out' });
+  };
+  const leave = () => gsap.to(ref.current, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1,0.4)' });
+  return <div ref={ref} onMouseMove={move} onMouseLeave={leave} className="inline-block">{children}</div>;
+}
 
 export function Hero() {
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const root = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
+      gsap.set('.h-line', { yPercent: 115 });
+      gsap.set('.h-fade', { y: 28, opacity: 0 });
+      gsap.set('.h-bg', { scale: 1.25 });
+      gsap.timeline({ defaults: { ease: 'power4.out' } })
+        .to('.h-bg', { scale: 1.05, duration: 2.6 }, 0)
+        .to('.h-line', { yPercent: 0, duration: 1.3, stagger: 0.14 }, 0.25)
+        .to('.h-fade', { y: 0, opacity: 1, duration: 1, stagger: 0.1 }, 0.7);
+      gsap.to('.h-bg', { yPercent: 14, ease: 'none', scrollTrigger: { trigger: root.current, start: 'top top', end: 'bottom top', scrub: true } });
+      gsap.to('.h-content', { yPercent: -8, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: root.current, start: '15% top', end: 'bottom top', scrub: true } });
+    }, root);
+    return () => ctx.revert();
+  }, []);
+
+  const spot = (e: React.MouseEvent<HTMLElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
+    e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
   };
+  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <section
-      id="hero"
-      className="relative w-full min-h-screen flex flex-col justify-between bg-charcoal text-off-white overflow-hidden pt-32 sm:pt-36 pb-12 sm:pb-16 px-6 md:px-16 lg:px-24"
-    >
-      {/* Subtle Luxury Atmospheric Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none select-none">
-        <div className="absolute inset-0 bg-[#141312]" />
-        {/* Soft, warm ambient vignette */}
-        <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[140px]" />
-        <div className="absolute bottom-0 left-10 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[120px]" />
-      </div>
+    <section ref={root} id="hero" onMouseMove={spot} className="grain relative w-full min-h-screen flex flex-col justify-between bg-charcoal text-off-white overflow-hidden pt-32 sm:pt-40">
+      {/* Full-bleed photograph */}
+      <picture className="absolute inset-0 z-0">
+        <source media="(max-width: 640px)" type="image/webp" srcSet="/assets/images/hero_luxury_knitwear_mobile.webp" />
+        <source media="(max-width: 640px)" type="image/jpeg" srcSet="/assets/images/hero_luxury_knitwear_mobile.jpg" />
+        <source type="image/webp" srcSet="/assets/images/hero_luxury_knitwear.webp" />
+        <img src="/assets/images/hero_luxury_knitwear.jpg" alt="Fashion Knits editorial knitwear campaign" className="h-bg w-full h-full object-cover object-center" fetchPriority="high" />
+      </picture>
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/10" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-charcoal via-transparent to-charcoal/60" />
+      <div className="spotlight absolute inset-0 z-[2] pointer-events-none" />
 
-      {/* Main Two-Column Editorial Hero Content */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto my-auto py-6 sm:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16 items-center">
-          
-          {/* Left Column: Typography & CTAs (5 Cols on Large, 6 on XL) */}
-          <div className="lg:col-span-5 xl:col-span-6 flex flex-col justify-center">
-            {/* Minimalist Editorial Eyebrow */}
-            <div className="mb-5 sm:mb-6">
-              <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold block">
-                Fashion Knits // Tiruppur, India
-              </span>
-            </div>
+      <div className="h-content relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 my-auto pb-10">
+        <div className="h-fade flex items-center gap-4 mb-8">
+          <span className="h-px w-12 bg-accent" />
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.3em] text-accent font-semibold">Fashion Knits // Tiruppur, India</span>
+        </div>
 
-            {/* Core Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl font-bold tracking-tight uppercase leading-[1.08] sm:leading-[1.02]">
-              <span className="block text-off-white">MADE FOR BRANDS.</span>
-              <span className="block text-accent mt-1">BUILT FOR THE WORLD.</span>
-            </h1>
+        <h1 className="font-bold uppercase tracking-tight leading-[0.95] text-[clamp(2.6rem,8.2vw,7.5rem)]">
+          <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">Made for brands.</span></span>
+          <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent">Built for the world.</span></span>
+        </h1>
 
-            {/* Concise Supporting Copy */}
-            <p className="text-base sm:text-lg text-off-white/80 max-w-lg mt-6 leading-relaxed font-normal">
-              Precision knitwear development and manufacturing for international apparel brands.
-            </p>
+        <p className="h-fade text-base sm:text-xl text-off-white/75 max-w-xl mt-8 leading-relaxed">
+          Precision knitwear development and manufacturing for international apparel brands, from yarn to export.
+        </p>
 
-            {/* Refined Call to Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 sm:mt-10">
-              <button
-                onClick={() => scrollToSection('products')}
-                className="group inline-flex items-center justify-center px-8 py-4 bg-accent text-charcoal text-xs uppercase tracking-[0.2em] font-semibold transition-all duration-300 hover:bg-pure-white focus:outline-none focus:ring-2 focus:ring-accent cursor-pointer"
-              >
-                EXPLORE PRODUCTS
-                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-              </button>
+        <div className="h-fade flex flex-col sm:flex-row gap-4 mt-10">
+          <Magnetic>
+            <button onClick={() => go('products')} className="btn-shine group inline-flex items-center px-9 py-4 bg-accent text-charcoal text-xs uppercase tracking-[0.2em] font-semibold cursor-pointer">
+              Explore Products <ArrowRight className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1.5" />
+            </button>
+          </Magnetic>
+          <Magnetic>
+            <button onClick={() => go('contact')} className="inline-flex items-center px-9 py-4 border border-off-white/30 backdrop-blur-sm text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 hover:bg-off-white hover:text-charcoal cursor-pointer">
+              Request a Quote
+            </button>
+          </Magnetic>
+        </div>
 
-              <button
-                onClick={() => scrollToSection('manufacturing')}
-                className="inline-flex items-center justify-center px-8 py-4 border border-off-white/30 text-off-white text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:bg-off-white/10 hover:border-off-white focus:outline-none focus:ring-2 focus:ring-off-white cursor-pointer"
-              >
-                OUR MANUFACTURING
-              </button>
-            </div>
-          </div>
-
-          {/* Right Column: High-End Luxury Knitwear Campaign Photograph */}
-          <div className="lg:col-span-7 xl:col-span-6">
-            <div className="relative group overflow-hidden border border-white/10 bg-[#161413] shadow-2xl">
-              {/* Responsive Luxury Campaign Image (Desktop 16:9 / Mobile 3:4) */}
-              <picture className="block w-full">
-                <source
-                  media="(max-width: 640px)"
-                  srcSet="/assets/images/hero_luxury_knitwear_mobile.jpg"
-                />
-                <img
-                  src="/assets/images/hero_luxury_knitwear.jpg"
-                  alt="Fashion Knits Luxury Editorial Campaign: Handcrafted Honeycomb Pique Polo, Organic Cotton T-Shirt, and French Terry Sweatshirt"
-                  className="w-full h-auto max-h-[560px] object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-[1.015]"
-                  loading="eager"
-                  fetchPriority="high"
-                />
-              </picture>
-
-              {/* Subtle Luxury Gradient Vignette along bottom for caption readability */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent pointer-events-none" />
-
-              {/* Restrained Editorial Caption Pill */}
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-off-white/80 bg-black/60 backdrop-blur-md px-3 sm:px-4 py-2 border border-white/10">
-                <span className="truncate">
-                  Editorial Campaign // Pique Polo · Organic Tee · French Terry
-                </span>
-                <span className="text-accent ml-2 flex-shrink-0 font-semibold">
-                  Unit-1 NAP
-                </span>
-              </div>
-            </div>
-          </div>
-
+        <div className="h-fade hidden md:inline-flex items-center gap-2 mt-12 px-4 py-2 border border-white/15 bg-black/30 backdrop-blur-md text-[11px] font-mono uppercase tracking-wider text-off-white/80">
+          <MapPin className="w-3.5 h-3.5 text-accent" /> NAP Unit-1 &amp; Angeripalayam HQ
         </div>
       </div>
 
-      {/* Restrained Verified Trust Strip Below Hero */}
-      <div className="relative z-10 max-w-7xl w-full mx-auto mt-6 pt-6 border-t border-white/10">
-        <div className="flex flex-wrap items-center justify-between gap-4 text-xs font-mono text-off-white/70 uppercase">
-          <div className="flex flex-wrap items-center gap-4 sm:gap-8">
-            <div className="inline-flex items-center gap-2">
-              <ShieldCheck className="w-3.5 h-3.5 text-accent" />
-              <span>GOTS &amp; OCS Organic Certified</span>
-            </div>
-            <div className="inline-flex items-center gap-2">
-              <Layers className="w-3.5 h-3.5 text-accent" />
-              <span>OEKO-TEX® Standard 100 Class I</span>
-            </div>
-            <div className="inline-flex items-center gap-2">
-              <Award className="w-3.5 h-3.5 text-accent" />
-              <span>amfori BSCI #9322 Audited</span>
-            </div>
-          </div>
-
-          <div className="hidden md:inline-flex items-center gap-2 text-muted-gray">
-            <MapPin className="w-3.5 h-3.5 text-accent/80" />
-            <span>NAP Unit-1 &amp; Angeripalayam HQ · Tiruppur</span>
-          </div>
+      {/* Infinite trust + product marquee */}
+      <div className="relative z-10 border-t border-white/10 bg-charcoal/70 backdrop-blur-md py-5 overflow-hidden">
+        <div className="marquee-track flex w-max gap-10 text-xs font-mono uppercase tracking-[0.2em] text-off-white/70">
+          {[...MARQUEE, ...MARQUEE].map((t, i) => (
+            <span key={i} className="flex items-center gap-10 whitespace-nowrap">{t}<span className="w-1.5 h-1.5 rotate-45 bg-accent" /></span>
+          ))}
         </div>
       </div>
-
-      {/* Minimal Scroll Indicator */}
       <ScrollIndicator />
     </section>
   );

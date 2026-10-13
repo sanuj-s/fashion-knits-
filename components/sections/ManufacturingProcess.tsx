@@ -1,9 +1,9 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+import { gsap, ScrollTrigger } from '@/lib/animations';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { useInView, useReducedMotion } from '@/lib/hooks';
-import { ChevronDown, ChevronUp, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 interface Stage {
@@ -11,237 +11,252 @@ interface Stage {
   name: string;
   summary: string;
   image: string;
-  expandedDetails: {
-    overview: string;
-    specs: string[];
-    standard: string;
-  };
+  specs: string[];
+  standard: string;
 }
 
 const PRODUCTION_STAGES: Stage[] = [
   {
     number: '01',
-    name: 'Yarn',
+    name: 'Yarn Sourcing',
     summary: 'Sourcing certified organic cotton and combed compact yarns from audited spinning mills.',
-    image: '/assets/images/yarn_process.jpg',
-    expandedDetails: {
-      overview: 'Strategic sourcing from leading spinning mills covering 100% combed cotton, micro-modal, and GOTS/OCS certified organic cotton with calibrated tensile strength.',
-      specs: ['Yarn Counts: 20s to 80s Single & Double', 'Low Hairiness & High CSP Calibrated', '100% Organic Chain of Custody Verified'],
-      standard: 'GOTS v7.0 & OCS 100 Standards',
-    },
+    image: '/assets/images/yarn_process.webp',
+    specs: ['Yarn Counts: 20s to 80s Single & Double', 'Low Hairiness & High CSP Calibrated', '100% Organic Chain of Custody Verified'],
+    standard: 'GOTS v7.0 & OCS 100 Standards',
   },
   {
     number: '02',
-    name: 'Knitting',
+    name: 'Circular Knitting',
     summary: 'High-gauge circular knitting machines producing single jersey, pique, interlock, rib, and fleece.',
-    image: '/assets/images/knitting_process.jpg',
-    expandedDetails: {
-      overview: 'Precision circular and flat knitting machinery with electronic computerized tension control ensuring uniform loop geometry and zero fabric spirality.',
-      specs: ['Machine Gauges: 20GG to 32GG', 'Diameters: 24" to 36"', 'Single Jersey, Pique, Interlock, Rib, Waffle, Fleece'],
-      standard: 'Zero-Spirality & GSM Calibration',
-    },
+    image: '/assets/images/knitting_process.webp',
+    specs: ['Machine Gauges: 20GG to 32GG', 'Diameters: 24" to 36"', 'Single Jersey, Pique, Interlock, Rib, Waffle, Fleece'],
+    standard: 'Zero-Spirality & GSM Calibration',
   },
   {
     number: '03',
-    name: 'Dyeing',
+    name: 'Eco Soft-Flow Dyeing',
     summary: 'Certified soft-flow jet dyeing with low liquor ratios and OEKO-TEX Standard 100 non-toxic dyes.',
-    image: '/assets/images/dyeing_process.jpg',
-    expandedDetails: {
-      overview: 'Partnered with audited soft-flow dyeing and processing facilities utilizing computerized dispensing for uniform shade penetration and superior fastness.',
-      specs: ['Low Liquor-Ratio Eco Vessels', 'Computerized Spectrophotometer Delta-E < 0.5', 'Non-Toxic ZDHC Compliant Dyestuffs'],
-      standard: 'OEKO-TEX® Standard 100 Class I',
-    },
+    image: '/assets/images/dyeing_process.webp',
+    specs: ['Low Liquor-Ratio Eco Vessels', 'Computerized Spectrophotometer Delta-E < 0.5', 'Non-Toxic ZDHC Compliant Dyestuffs'],
+    standard: 'OEKO-TEX® Standard 100 Class I',
   },
   {
     number: '04',
-    name: 'Cutting',
+    name: 'CAD Cutting',
     summary: 'Multi-ply vacuum cutting tables synchronized with CAD marker optimization for maximum fabric yield.',
-    image: '/assets/images/cutting_process.jpg',
-    expandedDetails: {
-      overview: 'Digitized pattern grading and automated marker nesting delivering cut tolerance precision within ±0.5mm while minimizing fabric scrap.',
-      specs: ['CAD Pattern Grading & Nesting', 'Vacuum-Clamped Multi-Ply Spreading', 'Precision Cut Tolerances ±0.5mm'],
-      standard: 'CAD Automated Pattern System',
-    },
+    image: '/assets/images/cutting_process.webp',
+    specs: ['CAD Pattern Grading & Nesting', 'Vacuum-Clamped Multi-Ply Spreading', 'Precision Cut Tolerances ±0.5mm'],
+    standard: 'CAD Automated Pattern System',
   },
   {
     number: '05',
-    name: 'Stitching',
+    name: 'Precision Stitching',
     summary: 'Modular lean sewing lines with programmable Juki and Brother machines for precision seam construction.',
-    image: '/assets/images/stitching_process.jpg',
-    expandedDetails: {
-      overview: 'Synchronized assembly lines operating under single-piece flow systems with specialized workstations for overlock, flatlock, and twin-needle hems.',
-      specs: ['Programmable Juki & Brother Workstations', 'Overlock, Flatlock, & Chainstitch Seams', 'Hourly In-Line Stitch Density (SPI) Audits'],
-      standard: 'Lean Modular Assembly Protocol',
-    },
+    image: '/assets/images/stitching_process.webp',
+    specs: ['Programmable Juki & Brother Workstations', 'Overlock, Flatlock, & Chainstitch Seams', 'Hourly In-Line Stitch Density (SPI) Audits'],
+    standard: 'Lean Modular Assembly Protocol',
   },
   {
     number: '06',
-    name: 'Finishing',
+    name: 'Fabric Finishing',
     summary: 'Enzyme bio-polishing, peached suede finish, silicon softening, and calender compacting.',
-    image: '/assets/images/finishing_process.jpg',
-    expandedDetails: {
-      overview: 'Multi-chamber stenters and tubular compactors to lock fabric dimensional stability, ensure silky hand-feel, and prevent post-wash shrinkage.',
-      specs: ['Enzyme Bio-Polishing & Silicon Baths', 'Tension-Free Calender Compacting', 'Residual Shrinkage Controlled < 5%'],
-      standard: 'ISO Shrinkage & Dimensional Standards',
-    },
+    image: '/assets/images/finishing_process.webp',
+    specs: ['Enzyme Bio-Polishing & Silicon Baths', 'Tension-Free Calender Compacting', 'Residual Shrinkage Controlled < 5%'],
+    standard: 'ISO Shrinkage & Dimensional Standards',
   },
   {
     number: '07',
-    name: 'Quality Inspection',
+    name: 'Quality & Metal Scan',
     summary: 'In-line AQL 2.5 auditing, seam burst testing, and 100% calibrated conveyor metal detection.',
-    image: '/assets/images/quality_process.jpg',
-    expandedDetails: {
-      overview: 'Full-spectrum physical laboratory testing accompanied by 100% conveyor metal detector scans to ensure total consumer and infant safety.',
-      specs: ['AQL 2.5 In-Line & Final Random Audit', '0.8mm Ferrous Calibrated Needle Detection', 'Seam Strength, Pull-Test, & Color Crock Testing'],
-      standard: 'MIL-STD-105E & 9-Point Needle Audit',
-    },
+    image: '/assets/images/quality_process.webp',
+    specs: ['AQL 2.5 In-Line & Final Random Audit', '0.8mm Ferrous Calibrated Needle Detection', 'Seam Strength, Pull-Test, & Color Crock Testing'],
+    standard: 'MIL-STD-105E & 9-Point Needle Audit',
   },
   {
     number: '08',
-    name: 'Packing',
-    summary: 'Steam pressing, moisture-barrier polybags, and container packing at Netaji Apparel Park (Unit-1).',
-    image: '/assets/images/packing_process.jpg',
-    expandedDetails: {
-      overview: 'Pristine steam finishing, custom polybagging, barcode labeling, and container stuffing at our Netaji Apparel Park factory ready for port dispatch.',
-      specs: ['Vacuum Steam Pressing Stations', 'Retail Barcode & RFID Inventory Labeling', 'Moisture-Barrier Heavy Duty Master Cartons'],
-      standard: 'International Retail Compliance',
-    },
+    name: 'Export Packing',
+    summary: 'Steam tunnel pressing, individual polybagging, barcode scan, carton packing for global sea & air dispatch.',
+    image: '/assets/images/packing_process.webp',
+    specs: ['Steam Tunnel Finishing & Hand Ironing', 'Retail Drop-Tested Heavy Export Cartons', 'Bonded Container Loading at Unit-1 NAP'],
+    standard: 'Global Retail Compliance & Barcode Scan',
   },
 ];
 
 export function ManufacturingProcess() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const isInView = useInView(containerRef, { once: true, amount: 0.05 });
+  const pinSectionRef = useRef<HTMLElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const [activeStage, setActiveStage] = useState(1);
 
-  const toggleExpand = (idx: number) => {
-    setExpandedIndex((prev) => (prev === idx ? null : idx));
-  };
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    // Desktop: Pinned horizontal scroll story
+    mm.add('(min-width: 1024px)', () => {
+      if (!pinSectionRef.current || !trackRef.current) return;
+
+      const track = trackRef.current;
+      const getScrollAmount = () => track.scrollWidth - window.innerWidth + 120;
+
+      const tween = gsap.to(track, {
+        x: () => -getScrollAmount(),
+        ease: 'none',
+        scrollTrigger: {
+          trigger: pinSectionRef.current,
+          pin: true,
+          scrub: 1,
+          start: 'top top',
+          end: () => `+=${getScrollAmount() * 1.2}`,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            if (progressBarRef.current) {
+              progressBarRef.current.style.transform = `scaleX(${self.progress})`;
+            }
+            const stageIndex = Math.min(
+              8,
+              Math.max(1, Math.floor(self.progress * 8) + 1)
+            );
+            setActiveStage(stageIndex);
+          },
+        },
+      });
+
+      return () => {
+        tween.kill();
+      };
+    });
+
+    return () => mm.revert();
+  }, []);
 
   return (
-    <section id="manufacturing" className="bg-charcoal text-off-white py-28 md:py-36 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
-        <SectionHeading
-          title={'VISUAL PRODUCTION\nJOURNEY.'}
-          subtitle="From certified yarn selection to export container dispatch: an 8-stage precision manufacturing journey across our facilities in Tiruppur, India."
-          light={true}
-        />
-
-        {/* Connected Process Navigation Bar */}
-        <div className="mt-12 pb-6 border-b border-white/10 overflow-x-auto scrollbar-none">
-          <div className="flex items-center gap-1.5 min-w-max text-xs font-mono uppercase tracking-wider text-muted-gray">
-            {PRODUCTION_STAGES.map((stg, i) => (
-              <React.Fragment key={stg.number}>
-                <span className="px-2.5 py-1 bg-white/5 border border-white/10 text-off-white/80 font-bold">
-                  {stg.number} {stg.name}
-                </span>
-                {i < PRODUCTION_STAGES.length - 1 && (
-                  <ArrowRight className="w-3.5 h-3.5 text-accent/60 mx-1 flex-shrink-0" />
-                )}
-              </React.Fragment>
-            ))}
+    <section
+      id="manufacturing"
+      ref={pinSectionRef}
+      className="grain relative w-full bg-charcoal text-off-white overflow-hidden border-b border-white/10"
+    >
+      {/* Header Bar within pinned section */}
+      <div className="pt-24 lg:pt-28 pb-8 px-6 md:px-16 lg:px-24 max-w-[90rem] mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/10">
+        <div>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="h-px w-10 bg-accent" />
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+              02 // Manufacturing Story
+            </span>
           </div>
+          <SectionHeading
+            title={'FROM YARN\nTO EXPORT.'}
+            subtitle="Explore our end-to-end 8-stage manufacturing cycle — operating with tight ISO tolerances and verified GOTS/OEKO-TEX standards."
+            light={true}
+          />
         </div>
 
-        {/* 8-Stage Responsive Visual Grid */}
+        {/* Live Stage Counter & Desktop Horizontal Hint */}
+        <div className="flex items-center gap-8 text-xs font-mono">
+          <div className="flex items-center gap-2">
+            <span className="text-accent text-lg font-bold">0{activeStage}</span>
+            <span className="text-muted-gray">/</span>
+            <span className="text-muted-gray">08 STAGES</span>
+          </div>
+          <span className="hidden lg:inline-block text-[11px] uppercase tracking-[0.2em] text-off-white/60">
+            Scroll To Navigate Sequence &rarr;
+          </span>
+        </div>
+      </div>
+
+      {/* Progress Line */}
+      <div className="w-full h-[2px] bg-white/10 relative">
         <div
-          ref={containerRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"
+          ref={progressBarRef}
+          className="absolute inset-y-0 left-0 w-full bg-accent origin-left transition-transform duration-75"
+          style={{ transform: 'scaleX(0.125)' }}
+        />
+      </div>
+
+      {/* Track: Horizontal on Desktop, Responsive Flow on Mobile */}
+      <div className="py-12 lg:py-16 px-6 md:px-16 lg:px-24">
+        <div
+          ref={trackRef}
+          className="flex flex-col lg:flex-row gap-8 lg:gap-10 w-full lg:w-max will-change-transform"
         >
-          {PRODUCTION_STAGES.map((stage, index) => {
-            const isExpanded = expandedIndex === index;
-
-            return (
-              <div
-                key={stage.number}
-                className="group bg-[#171514] border border-white/10 flex flex-col justify-between hover:border-accent/40 transition-all duration-300"
-                style={{
-                  opacity: prefersReducedMotion || isInView ? 1 : 0,
-                  transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
-                  transition: `opacity 0.4s ease-out ${index * 0.05}s, transform 0.4s ease-out ${index * 0.05}s`,
-                }}
-              >
-                {/* Stage Photograph with Badge */}
-                <div>
-                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40 border-b border-white/10">
-                    <img
-                      src={stage.image}
-                      alt={`Fashion Knits ${stage.name} Process`}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                      loading="lazy"
-                    />
-                    <div className="absolute top-3 left-3 z-10">
-                      <span className="px-2.5 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
-                        STAGE {stage.number}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Concise Title & 1-Sentence Summary */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold uppercase tracking-tight text-off-white mb-2">
-                      {stage.name}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed font-normal">
-                      {stage.summary}
-                    </p>
-
-                    {/* Expandable Technical Details */}
-                    {isExpanded && (
-                      <div className="mt-5 pt-4 border-t border-white/10 space-y-3 animate-fadeIn">
-                        <p className="text-xs text-accent font-mono leading-relaxed">
-                          {stage.expandedDetails.overview}
-                        </p>
-                        <div className="space-y-1.5 pt-1">
-                          {stage.expandedDetails.specs.map((spec, sIdx) => (
-                            <div key={sIdx} className="flex items-start gap-2 text-[11px] font-mono text-off-white/80">
-                              <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                              <span className="leading-tight">{spec}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="text-[10px] font-mono uppercase tracking-wider text-muted-gray pt-2 border-t border-white/5">
-                          Standard: {stage.expandedDetails.standard}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+          {PRODUCTION_STAGES.map((stage) => (
+            <div
+              key={stage.number}
+              className="w-full lg:w-[480px] xl:w-[520px] flex-shrink-0 bg-[#161413] border border-white/10 hover:border-accent/60 transition-all duration-300 group flex flex-col justify-between"
+            >
+              {/* Photo with 16:10 ratio */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/60">
+                <picture className="w-full h-full">
+                  <source type="image/webp" srcSet={stage.image} />
+                  <img
+                    src={stage.image.replace('.webp', '.jpg')}
+                    alt={stage.name}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </picture>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#161413] via-transparent to-transparent opacity-90" />
+                
+                {/* Number Badge */}
+                <div className="absolute top-4 left-4 z-10">
+                  <span className="px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-xs font-mono font-bold text-accent">
+                    STAGE {stage.number}
+                  </span>
                 </div>
 
-                {/* Expansion Toggle Button */}
-                <div className="p-6 pt-0">
-                  <button
-                    onClick={() => toggleExpand(index)}
-                    className="w-full py-2.5 px-3 bg-white/5 hover:bg-white/10 border border-white/10 text-[11px] font-mono uppercase tracking-wider text-off-white/80 hover:text-accent transition-colors flex items-center justify-between cursor-pointer"
-                  >
-                    <span>{isExpanded ? 'Hide Specs' : 'Expand Specs'}</span>
-                    {isExpanded ? (
-                      <ChevronUp className="w-3.5 h-3.5 text-accent" />
-                    ) : (
-                      <ChevronDown className="w-3.5 h-3.5 text-muted-gray" />
-                    )}
-                  </button>
+                {/* Standard Badge */}
+                <div className="absolute top-4 right-4 z-10">
+                  <span className="px-2.5 py-1 bg-black/80 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-off-white/80 border border-white/10">
+                    {stage.standard}
+                  </span>
                 </div>
               </div>
-            );
-          })}
-        </div>
 
-        {/* View Full Manufacturing Capabilities */}
-        <div className="mt-12 pt-8 border-t border-white/10 flex items-center justify-between">
-          <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
-            Complete Manufacturing Details
-          </span>
-          <Link
-            href="/manufacturing"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-off-white hover:text-accent transition-colors font-bold group"
-          >
-            <span>View Manufacturing</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
+              {/* Card Body */}
+              <div className="p-8 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-2xl font-bold uppercase tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
+                    {stage.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mb-6">
+                    {stage.summary}
+                  </p>
+
+                  <div className="space-y-2.5 pt-4 border-t border-white/10">
+                    {stage.specs.map((spec, sIdx) => (
+                      <div key={sIdx} className="flex items-start gap-2.5 text-xs font-mono text-off-white/80">
+                        <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span>{spec}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-muted-gray">
+                  <span>FASHION KNITS // UNIT-1</span>
+                  <span className="text-accent font-semibold">TIRUPPUR</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
+
+      {/* Footer bar of section */}
+      <div className="pb-16 px-6 md:px-16 lg:px-24 max-w-[90rem] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8">
+        <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
+          Continuous Quality Protocol Across All 8 Stages
+        </span>
+        <Link
+          href="/manufacturing"
+          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent hover:text-off-white transition-colors font-bold group"
+        >
+          <span>Detailed Manufacturing Deep-Dive</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+        </Link>
       </div>
     </section>
   );

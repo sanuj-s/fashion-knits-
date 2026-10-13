@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
+import { gsap } from '@/lib/animations';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { useInView, useReducedMotion } from '@/lib/hooks';
-import { CheckCircle2, ArrowRight, ShieldCheck, Microscope, Gauge, Sparkles } from 'lucide-react';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
+import { Check, ArrowRight, Microscope, Gauge, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 interface QualityStep {
@@ -58,174 +59,207 @@ const QUALITY_STEPS: QualityStep[] = [
 ];
 
 export function Quality() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
-  const isInView = useInView(containerRef, { once: true, amount: 0.05 });
+  const containerRef = useRef<HTMLElement>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const ctx = gsap.context(() => {
+      if (stepsRef.current) {
+        gsap.fromTo(
+          stepsRef.current.children,
+          { y: 35, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.12,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: stepsRef.current,
+              start: 'top 85%',
+              once: true,
+            },
+          }
+        );
+      }
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="quality" className="bg-off-white py-28 md:py-36 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
+    <section id="quality" ref={containerRef} className="bg-warm-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
+      <div className="max-w-[90rem] mx-auto">
+        {/* Editorial Eyebrow with numbering */}
+        <div className="flex items-center gap-4 mb-6">
+          <span className="h-px w-10 bg-accent" />
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+            05 // Quality Standards
+          </span>
+        </div>
+
+        {/* Section Heading with Masked Line Reveal */}
         <SectionHeading
           title={'QUALITY IS\nENGINEERED IN.'}
           subtitle="Multi-stage quality assurance systems engineered to deliver zero-defect reliability across international textile and apparel shipments."
         />
 
         {/* Real Laboratory & Inspection Photographic Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16 md:mt-20">
-          <div className="bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
+          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-              <img
-                src="/assets/images/quality_process.jpg"
-                alt="Fashion Knits In-House Testing Laboratory and Inspection Floor"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-transparent to-transparent" />
+              <picture className="w-full h-full">
+                <source type="image/webp" srcSet="/assets/images/quality_process.webp" />
+                <img
+                  src="/assets/images/quality_process.jpg"
+                  alt="Fashion Knits In-House Testing Laboratory and Inspection Floor"
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
               <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
                   <Microscope className="w-3.5 h-3.5 text-accent" />
                   Physical &amp; Chemical Testing Lab
                 </span>
               </div>
-              <div className="absolute bottom-3 left-4 z-10 text-[11px] font-mono text-off-white/90">
-                <span>Unit-1 Quality Control Station · Netaji Apparel Park</span>
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-[11px] font-mono text-off-white/90">
+                <span className="truncate">Unit-1 Quality Control Station · Netaji Apparel Park</span>
+                <span className="text-accent font-semibold ml-2">IN-HOUSE</span>
               </div>
             </div>
 
-            <div className="p-7 flex-1 flex flex-col justify-between">
+            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-charcoal mb-2">
+                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
                   In-House Textile Testing Laboratory
                 </h3>
-                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Equipped with calibrated tensile testers, wash crock meters, computerized spectrophotometers, and precision grammage balances to verify CSP yarn strength, colorfastness to light/rubbing, and residual wash shrinkage.
+                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
+                  Our internal testing laboratory executes physical and chemical tests across all production batches: dimensional stability post-wash, colorfastness to washing and crocking, spirality, burst strength, and pilling resistance before bulk cut.
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-charcoal/8 flex items-center justify-between text-xs font-mono text-charcoal/70">
-                <span>STANDARDS: ISO 105 / AATCC</span>
-                <span className="text-accent font-semibold">DELTA-E &lt; 0.5</span>
+              <div className="mt-8 pt-6 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-charcoal/70">
+                <span>COLOR TOLERANCE: DELTA-E &lt; 0.5</span>
+                <span className="text-accent font-semibold">ISO 105 TEST BENCHMARKS</span>
               </div>
             </div>
           </div>
 
-          <div className="bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between">
+          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-              <img
-                src="/assets/images/team_about.jpg"
-                alt="Fashion Knits Quality Control Controllers & Merchandising Team"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-104"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-transparent to-transparent" />
+              <picture className="w-full h-full">
+                <source type="image/webp" srcSet="/assets/images/team_about.webp" />
+                <img
+                  src="/assets/images/team_about.jpg"
+                  alt="Fashion Knits Certified Technical Quality Controllers and Merchandising Team"
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                  loading="lazy"
+                />
+              </picture>
+              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
               <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
+                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
                   <Gauge className="w-3.5 h-3.5 text-accent" />
-                  100% Needle Detection Tunnel
+                  Technical Quality Assurance Team
                 </span>
               </div>
-              <div className="absolute bottom-3 left-4 z-10 text-[11px] font-mono text-off-white/90">
-                <span>Conveyor Metal Scan · Calibrated Hourly (0.8mm Fe)</span>
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-[11px] font-mono text-off-white/90">
+                <span className="truncate">Inline QA Officers · 100% Needle Detector Calibration</span>
+                <span className="text-accent font-semibold ml-2">AQL 2.5 / 4.0</span>
               </div>
             </div>
 
-            <div className="p-7 flex-1 flex flex-col justify-between">
+            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-charcoal mb-2">
-                  Zero-Tolerance Infant Safety &amp; FRI
+                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
+                  Certified Technical QA Controllers
                 </h3>
-                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Every export carton undergoes 100% conveyor needle scanning calibrated with 9-point ferrous test cards before sealing. Certified by Centexbel for OEKO-TEX Standard 100 Class I (safe for newborn babywear).
+                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
+                  Independent roving quality inspectors conduct hourly inline audits along cutting and sewing lines. All measurement points are checked against the approved sealed size set, with non-conformance logged and resolved in real time.
                 </p>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-charcoal/8 flex items-center justify-between text-xs font-mono text-charcoal/70">
-                <span>NEEDLE DETECTION: 100% PASS</span>
-                <span className="text-accent font-semibold">AQL 2.5 / 4.0</span>
+              <div className="mt-8 pt-6 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-charcoal/70">
+                <span>INLINE PROTOCOL: HOURLY SPI AUDITS</span>
+                <span className="text-accent font-semibold">ZERO COMPROMISE STANDARDS</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Quality Timeline */}
-        <div ref={containerRef} className="mt-20 relative max-w-5xl mx-auto">
-          {/* Vertical Timeline Guide Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-charcoal/15 -translate-x-1/2" />
+        {/* Dynamic Key Metric Counters */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 md:mt-24 p-8 md:p-12 bg-pure-white border border-charcoal/10 shadow-sm">
+          <AnimatedCounter value={100} suffix="%" label="Needle Detection Scan" />
+          <AnimatedCounter value={2} prefix="AQL " suffix=".5" label="In-Line & Final Inspection" />
+          <AnimatedCounter value={5} prefix="< " suffix="%" label="Controlled Shrinkage" />
+          <AnimatedCounter value={9} suffix="-Point" label="Hourly Calibration Routine" />
+        </div>
 
-          <div className="space-y-16">
-            {QUALITY_STEPS.map((step, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <div
-                  key={step.step}
-                  className={`relative flex items-start ${
-                    isEven ? 'md:flex-row-reverse' : 'md:flex-row'
-                  }`}
-                  style={{
-                    opacity: prefersReducedMotion || isInView ? 1 : 0,
-                    transform: prefersReducedMotion || isInView ? 'translateY(0)' : 'translateY(20px)',
-                    transition: `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`,
-                  }}
-                >
-                  {/* Central Node Indicator */}
-                  <div className="absolute left-[15px] md:left-1/2 w-4 h-4 rounded-full bg-accent border-4 border-off-white -translate-x-1/2 z-10 mt-1.5 shadow-sm" />
+        {/* 5-Step Quality Assurance Architecture */}
+        <div className="mt-20 pt-16 border-t border-charcoal/10">
+          <div className="mb-10">
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-2 font-semibold">
+              Quality Assurance Architecture
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-charcoal">
+              5 Checkpoints Between Greige Yarn and Packed Shipment
+            </h3>
+          </div>
 
-                  {/* Step Card Content with 3D Tilt */}
-                  <div
-                    className={`ml-12 md:ml-0 md:w-1/2 ${
-                      isEven ? 'md:pl-12' : 'md:pr-12 md:text-right'
-                    }`}
-                  >
-                    <div className="bg-pure-white p-8 border border-charcoal/8 hover:border-accent/40 shadow-sm transition-all duration-300">
-                      <div className={`flex items-baseline gap-3 mb-2 ${isEven ? '' : 'md:justify-end'}`}>
-                        <span className="text-3xl font-bold font-mono text-accent">
-                          {step.step}
-                        </span>
-                        <span className="text-xs uppercase font-mono tracking-widest text-muted-gray">
-                          QUALITY STAGE
-                        </span>
-                      </div>
-
-                      <h3 className="text-xl font-bold text-charcoal uppercase tracking-tight mb-1">
+          <div ref={stepsRef} className="space-y-6">
+            {QUALITY_STEPS.map((step) => (
+              <div
+                key={step.step}
+                className="group p-8 bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
+                  <div className="flex items-start gap-6">
+                    <span className="text-2xl md:text-3xl font-mono font-bold text-accent">
+                      {step.step}
+                    </span>
+                    <div>
+                      <h4 className="text-xl font-bold uppercase tracking-wider text-charcoal group-hover:text-accent transition-colors duration-300">
                         {step.name}
-                      </h3>
-
-                      <p className="text-xs font-mono uppercase tracking-wider text-accent mb-4">
+                      </h4>
+                      <p className="text-xs font-mono uppercase tracking-widest text-accent mt-1 font-semibold">
                         {step.subtitle}
                       </p>
-
-                      <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mb-6 text-left">
+                      <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mt-3 max-w-3xl font-normal">
                         {step.description}
                       </p>
-
-                      <div className="pt-4 border-t border-charcoal/5 space-y-2 text-left">
-                        {step.standards.map((std, sIdx) => (
-                          <div key={sIdx} className="flex items-center gap-2 text-[11px] font-mono text-charcoal/80">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0" />
-                            <span>{std}</span>
-                          </div>
-                        ))}
-                      </div>
                     </div>
                   </div>
+
+                  <div className="lg:w-80 flex-shrink-0 pt-4 lg:pt-0 lg:border-l lg:border-charcoal/10 lg:pl-6 space-y-2">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-muted-gray block mb-1">
+                      Enforced Standards:
+                    </span>
+                    {step.standards.map((std, sIdx) => (
+                      <div key={sIdx} className="flex items-start gap-2 text-xs font-mono text-charcoal/80">
+                        <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span>{std}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* View Full Quality & Certifications */}
-        <div className="mt-16 pt-8 border-t border-charcoal/10 flex items-center justify-between">
+        {/* View Full Quality Manual CTA */}
+        <div className="mt-16 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
-            Full Quality &amp; Certifications
+            Request Our Complete Quality Manual &amp; Lab Test Protocols
           </span>
           <Link
             href="/quality"
-            className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-charcoal hover:text-accent transition-colors font-bold group"
+            className="inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-charcoal hover:text-accent transition-colors font-bold group"
           >
-            <span>View Quality Details</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <span>Explore Quality Control Framework</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
           </Link>
         </div>
       </div>

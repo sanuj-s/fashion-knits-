@@ -3,15 +3,14 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  Sparkles,
   ChevronDown,
   ChevronUp,
   ArrowRight,
   ShieldCheck,
   Layers,
   Scissors,
-  CheckCircle2,
-  FileText,
+  Check,
+  Sparkles,
 } from 'lucide-react';
 
 interface ProductItem {
@@ -39,7 +38,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Classic Crew, V-Neck, Oversized & Drop-Shoulder Styles',
     description:
       'High-grade everyday basic and premium fashion tees. Knitted from combed compact and GOTS certified organic yarns with uniform stitch density and minimal torquing.',
-    image: '/assets/products/product_tshirt.jpg',
+    image: '/assets/products/product_tshirt.webp',
     composition: '100% Combed Cotton, Cotton/Modal, Cotton/Elastane (95/5)',
     weightGsm: '160 – 220 GSM Single Jersey',
     yarnCounts: '26s, 30s, 34s, 40s Combed Compact',
@@ -56,7 +55,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Classic Knit Polos, Jacquard Collars & Modern Flat Knits',
     description:
       'Refined polo shirts with engineered flat-knit jacquard collars and cuffs. Built for corporate, retail, and casual collections with shape retention after repeated laundry cycles.',
-    image: '/assets/products/product_polo.jpg',
+    image: '/assets/products/product_polo.webp',
     composition: '100% Cotton Pique, Cotton/Polyester Blend, Mercerized Cotton',
     weightGsm: '220 – 260 GSM Honeycomb & Pique',
     yarnCounts: '24s, 30s Double Yarn (2/30s)',
@@ -73,7 +72,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Crewneck Pullovers, French Terry & Brushed Fleece',
     description:
       'Cozy, durable crewneck sweatshirts engineered for autumn and winter collections. Available in loopback French terry and carbon-brushed inner fleece with heavy 2x2 rib trims.',
-    image: '/assets/products/product_sweatshirt.jpg',
+    image: '/assets/products/product_sweatshirt.webp',
     composition: '100% Cotton French Terry, 80/20 Cotton/Poly Fleece',
     weightGsm: '320 – 380 GSM Heavyweight Terry',
     yarnCounts: '30s Face / 10s Loop (3-Thread Fleece)',
@@ -90,7 +89,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Double-Layer Hoods, Kangaroo Pockets & Custom Hardware',
     description:
       'Premium heavyweight hoodies built with double-lined hoods, heavy cotton drawcords, reinforced kangaroo pockets, and high-tensile metal aglets and YKK zippers.',
-    image: '/assets/products/product_hoodie.jpg',
+    image: '/assets/products/product_hoodie.webp',
     composition: '100% Organic Cotton French Terry, 3-Thread Brushed Fleece',
     weightGsm: '340 – 420 GSM Ultra-Heavyweight',
     yarnCounts: '32s Face / 12s Fleece Pile',
@@ -107,7 +106,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Technical Athletic Tees, Running Shorts & Track Pants',
     description:
       'Coordinated performance athletic collections engineered for maximum breathability, 4-way stretch recovery, rapid moisture evaporation, and chafeless movement.',
-    image: '/assets/products/product_sportswear.jpg',
+    image: '/assets/products/product_sportswear.webp',
     composition: 'Recycled Polyester/Spandex Interlock, Micro-Mesh Blends',
     weightGsm: '160 – 220 GSM Technical Knit',
     yarnCounts: '50D, 75D Micro-Filament & Poly-Spandex',
@@ -124,7 +123,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Coordinated Sets, Joggers, Waffle Shorts & Everyday Knits',
     description:
       'Modern relaxed loungewear collections combining soft French terry pullovers, elasticated drawstring joggers, boxy drop-shoulder tees, and tactile waffle shorts.',
-    image: '/assets/products/product_casualwear.jpg',
+    image: '/assets/products/product_casualwear.webp',
     composition: '100% Cotton Heavy Jersey, French Terry, Waffle & Thermal Knit',
     weightGsm: '240 – 340 GSM Loungewear Terry',
     yarnCounts: '20s, 24s Combed & 16s Open-End',
@@ -141,7 +140,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Organic Baby Rompers, Toddler Tees & Matching Fleece Sets',
     description:
       'Certified non-toxic childrenswear and babywear manufactured strictly under OEKO-TEX® Product Class I (baby-safe) standards with ultra-soft flatlock seams and nickel-free snaps.',
-    image: '/assets/products/product_kidswear.jpg',
+    image: '/assets/products/product_kidswear.webp',
     composition: '100% GOTS Organic Combed Cotton, Interlock & 1x1 Rib',
     weightGsm: '160 – 260 GSM Rib, Interlock & Fleece',
     yarnCounts: '30s, 40s Super-Combed Compact',
@@ -158,7 +157,7 @@ const CATALOG_PRODUCTS: ProductItem[] = [
     subtitle: 'Complete Sampling, Pantone Matching & Private Label Packages',
     description:
       'Full-service custom OEM apparel development. Send us your tech packs, target fabric swatches, and Pantone codes, and our merchandising desk will create physical proto samples.',
-    image: '/assets/products/product_custom_oem.jpg',
+    image: '/assets/products/product_custom_oem.webp',
     composition: 'Custom Yarn Blends & Fiber Compositions to Buyer Tech Pack',
     weightGsm: 'Full Custom Grammages (120 to 450 GSM)',
     yarnCounts: '20s to 80s Count Array',
@@ -196,283 +195,203 @@ export function ProductsClient() {
     setExpandedId((prev) => (prev === id ? null : id));
   };
 
-  const handleRequestQuote = (category: string) => {
-    const contactForm = document.getElementById('contact');
-    if (contactForm) {
-      contactForm.scrollIntoView({ behavior: 'smooth' });
-      // Pre-select product dropdown if present
-      const select = document.getElementById('product-interest-select') as HTMLSelectElement | null;
-      if (select) {
-        select.value = category;
-      }
-    }
-  };
-
   return (
     <div className="bg-warm-white text-charcoal">
       {/* Editorial Header */}
-      <section className="bg-charcoal text-off-white pt-36 pb-20 px-6 md:px-16 lg:px-24 border-b border-white/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="grain relative bg-charcoal text-off-white pt-40 pb-28 px-6 md:px-16 lg:px-24 border-b border-white/10 overflow-hidden">
+        <div className="max-w-[90rem] mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-6">
-            <Link href="/" className="hover:underline">
+          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-accent mb-8">
+            <Link href="/" className="hover:text-off-white transition-colors">
               Home
             </Link>
-            <span>/</span>
-            <span className="text-off-white/70">Product Catalogue</span>
+            <span className="text-white/40">/</span>
+            <span className="text-off-white/80">Product Catalogue</span>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="max-w-3xl">
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-3">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+            <div className="max-w-4xl">
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-3 font-semibold">
                 Commercial Knitted Apparel Portfolio
               </span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-off-white">
-                PRODUCT<br />
-                <span className="text-accent">CATALOGUE.</span>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
+                <span className="block text-off-white">PRODUCT</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent mt-1">
+                  CATALOGUE.
+                </span>
               </h1>
-              <p className="text-sm sm:text-base text-off-white/80 mt-6 leading-relaxed">
+              <p className="text-base sm:text-xl text-off-white/75 mt-8 max-w-2xl leading-relaxed font-normal">
                 Explore our export-grade knitted garment portfolio. Manufactured for international fashion brands, private labels, and retail distributors across our two specialized facilities in Tiruppur, India.
               </p>
             </div>
 
-            <div className="p-6 bg-white/5 border border-white/10 max-w-sm">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent block mb-1">
-                Buyer Technical Assurance
+            <div className="p-8 bg-black/40 border border-white/10 backdrop-blur-md max-w-md flex-shrink-0">
+              <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
+                Manufacturing Highlights
               </span>
-              <p className="text-xs text-off-white/70 leading-relaxed font-mono">
-                GOTS &amp; OCS Organic Cotton // OEKO-TEX® Class I Baby-Safe // 100% Needle Detector Scanned // AQL 2.5 Inspection Standard
-              </p>
+              <div className="space-y-2 text-xs font-mono text-off-white/80">
+                <div className="flex justify-between border-b border-white/10 pb-1">
+                  <span className="text-muted-gray">STANDARD MOQS</span>
+                  <span className="text-accent font-semibold">800 – 1,000 PCS</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-1">
+                  <span className="text-muted-gray">PRODUCTION LEAD TIME</span>
+                  <span className="text-off-white">45 – 65 DAYS</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-gray">SAMPLING TURNAROUND</span>
+                  <span className="text-accent font-semibold">7 – 10 DAYS</span>
+                </div>
+              </div>
             </div>
-          </div>
-
-          {/* Filter Tabs */}
-          <div className="flex items-center gap-2 mt-12 pb-2 overflow-x-auto scrollbar-none">
-            {FILTER_TABS.map((tab) => {
-              const isActive = activeFilter === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveFilter(tab.id)}
-                  className={`px-4 py-2.5 text-xs font-mono uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
-                    isActive
-                      ? 'bg-accent text-charcoal font-bold shadow-sm'
-                      : 'bg-white/5 text-off-white/70 hover:bg-white/10 hover:text-off-white border border-white/10'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
           </div>
         </div>
       </section>
 
-      {/* Main Product Grid */}
-      <section className="py-24 px-6 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {/* Main Catalogue Section */}
+      <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
+        <div className="max-w-[90rem] mx-auto">
+          {/* Category Filter Navigation */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-charcoal/10">
+            <div className="flex flex-wrap items-center gap-2">
+              {FILTER_TABS.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveFilter(tab.id)}
+                  className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                    activeFilter === tab.id
+                      ? 'bg-charcoal text-off-white font-bold'
+                      : 'bg-pure-white text-charcoal/70 border border-charcoal/10 hover:border-charcoal/30'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            <span className="text-xs font-mono text-muted-gray">
+              Showing {filteredProducts.length} Product Categories
+            </span>
+          </div>
+
+          {/* Product Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             {filteredProducts.map((product) => {
               const isExpanded = expandedId === product.id;
+
               return (
                 <div
                   key={product.id}
-                  className="group bg-pure-white border border-charcoal/10 hover:border-accent transition-all duration-300 flex flex-col justify-between shadow-sm"
+                  className="group bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-2xl transition-all duration-500 overflow-hidden"
                 >
-                  {/* Top Image Card */}
                   <div>
-                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-charcoal/5">
-                      <img
-                        src={product.image}
-                        alt={product.category}
-                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-104"
-                        loading="lazy"
-                      />
+                    {/* Real Commercial Photograph (3:4 ratio) */}
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-off-white border-b border-charcoal/10">
+                      <picture className="w-full h-full">
+                        <source type="image/webp" srcSet={product.image} />
+                        <img
+                          src={product.image.replace('.webp', '.jpg')}
+                          alt={`Fashion Knits ${product.category} Production Sample`}
+                          className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      </picture>
 
-                      {/* Organic Certified Badge */}
                       {product.organicCertified && (
                         <div className="absolute top-3 right-3 z-10">
-                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-charcoal/90 backdrop-blur-md border border-white/15 text-[10px] font-mono text-accent uppercase tracking-widest">
+                          <span className="inline-flex items-center gap-1 px-2.5 py-1 bg-charcoal/90 backdrop-blur-md text-off-white text-[9px] font-mono tracking-widest uppercase border border-white/10">
                             <ShieldCheck className="w-3 h-3 text-accent" />
                             GOTS Organic
                           </span>
                         </div>
                       )}
 
-                      {/* Weight GSM Pill */}
                       <div className="absolute bottom-3 left-3 z-10">
-                        <span className="px-2.5 py-1 bg-pure-white/95 backdrop-blur-md text-[10px] font-mono text-charcoal uppercase tracking-widest font-semibold border border-charcoal/10 shadow-sm">
+                        <span className="px-2.5 py-1 bg-white/95 text-charcoal text-[9px] font-mono font-bold tracking-wider uppercase border border-charcoal/15 shadow-sm">
                           {product.weightGsm}
                         </span>
                       </div>
                     </div>
 
-                    {/* Content Block */}
-                    <div className="p-6">
-                      <h3 className="text-lg font-bold text-charcoal uppercase tracking-wider group-hover:text-accent transition-colors">
+                    {/* Card Content */}
+                    <div className="p-6 md:p-8">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-semibold block mb-1">
+                        {product.subtitle}
+                      </span>
+                      <h3 className="text-xl font-bold text-charcoal uppercase tracking-wider mb-2 group-hover:text-accent transition-colors duration-300">
                         {product.category}
                       </h3>
-                      <p className="text-xs font-mono text-accent mt-0.5">
-                        {product.subtitle}
-                      </p>
-                      <p className="text-xs text-charcoal/70 leading-relaxed mt-3">
+                      <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal mb-6">
                         {product.description}
                       </p>
 
-                      {/* Expandable Technical Specs Drawer */}
+                      {/* Expandable Specifications */}
                       {isExpanded && (
-                        <div className="mt-4 pt-4 border-t border-charcoal/10 space-y-3 text-xs font-mono">
+                        <div className="pt-4 border-t border-charcoal/10 space-y-3.5 text-xs font-mono text-left">
                           <div>
-                            <span className="text-muted-gray uppercase tracking-widest text-[10px] block">
-                              Fiber Composition:
-                            </span>
-                            <span className="text-charcoal font-medium">
-                              {product.composition}
-                            </span>
+                            <span className="text-[10px] text-muted-gray uppercase block">Fabric Composition:</span>
+                            <span className="text-charcoal font-semibold block mt-0.5">{product.composition}</span>
                           </div>
-
                           <div>
-                            <span className="text-muted-gray uppercase tracking-widest text-[10px] block">
-                              Yarn Counts:
-                            </span>
-                            <span className="text-charcoal font-medium">
-                              {product.yarnCounts}
-                            </span>
+                            <span className="text-[10px] text-muted-gray uppercase block">Yarn Count Specification:</span>
+                            <span className="text-charcoal font-semibold block mt-0.5">{product.yarnCounts}</span>
                           </div>
-
                           <div>
-                            <span className="text-muted-gray uppercase tracking-widest text-[10px] block mb-1">
-                              Technical Finishes:
-                            </span>
-                            <ul className="space-y-1">
+                            <span className="text-[10px] text-muted-gray uppercase block">Finishes &amp; Treatments:</span>
+                            <div className="space-y-1 mt-1">
                               {product.finishes.map((f, i) => (
-                                <li key={i} className="flex items-center gap-1.5 text-charcoal/80">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                                <div key={i} className="flex items-center gap-1.5 text-charcoal/80">
+                                  <Check className="w-3 h-3 text-accent flex-shrink-0" />
                                   <span>{f}</span>
-                                </li>
+                                </div>
                               ))}
-                            </ul>
+                            </div>
                           </div>
-
                           <div>
-                            <span className="text-muted-gray uppercase tracking-widest text-[10px] block mb-1">
-                              Customization Options:
-                            </span>
-                            <ul className="space-y-1">
+                            <span className="text-[10px] text-accent uppercase font-semibold block">Custom OEM Options:</span>
+                            <div className="space-y-1 mt-1">
                               {product.customization.map((c, i) => (
-                                <li key={i} className="flex items-center gap-1.5 text-charcoal/80">
-                                  <span className="w-1.5 h-1.5 rounded-full bg-charcoal" />
-                                  <span>{c}</span>
-                                </li>
+                                <div key={i} className="text-charcoal/70 text-[11px]">• {c}</div>
                               ))}
-                            </ul>
+                            </div>
                           </div>
-
-                          <div className="pt-2 border-t border-charcoal/5 flex items-center justify-between text-[11px]">
+                          <div className="pt-2 border-t border-charcoal/10 flex justify-between">
                             <span className="text-muted-gray">MOQ:</span>
-                            <span className="font-bold text-charcoal">{product.moq}</span>
+                            <span className="text-charcoal font-semibold">{product.moq}</span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-muted-gray">LEAD TIME:</span>
+                            <span className="text-charcoal font-semibold">{product.leadTime}</span>
                           </div>
                         </div>
                       )}
                     </div>
                   </div>
 
-                  {/* Actions Bar */}
-                  <div className="p-6 pt-0 space-y-2">
+                  {/* Card Actions */}
+                  <div className="p-6 md:p-8 pt-0 space-y-2.5">
                     <button
                       onClick={() => toggleExpand(product.id)}
-                      className="w-full py-2.5 px-3 bg-off-white hover:bg-charcoal/5 text-charcoal/80 text-[11px] font-mono uppercase tracking-widest flex items-center justify-between transition-colors cursor-pointer"
+                      className="w-full py-2 bg-charcoal/5 hover:bg-charcoal/10 text-charcoal text-[11px] font-mono uppercase tracking-wider border border-charcoal/10 flex items-center justify-between px-3 transition-colors cursor-pointer"
                     >
-                      <span>{isExpanded ? 'Hide Specs' : 'Technical Specs'}</span>
+                      <span>{isExpanded ? 'Collapse Specs' : 'Full Tech Specs'}</span>
                       {isExpanded ? (
                         <ChevronUp className="w-3.5 h-3.5 text-accent" />
                       ) : (
-                        <ChevronDown className="w-3.5 h-3.5 text-accent" />
+                        <ChevronDown className="w-3.5 h-3.5 text-muted-gray" />
                       )}
                     </button>
 
-                    <button
-                      onClick={() => handleRequestQuote(product.category)}
-                      className="w-full py-3 px-4 bg-charcoal hover:bg-accent hover:text-charcoal text-off-white text-xs font-mono uppercase tracking-widest font-bold transition-colors cursor-pointer"
+                    <Link
+                      href="/#contact"
+                      className="btn-shine block text-center w-full py-3 bg-charcoal hover:bg-accent hover:text-charcoal text-off-white text-[11px] font-mono uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer shadow-sm"
                     >
-                      Request Quote / Sample
-                    </button>
+                      Request Quotation
+                    </Link>
                   </div>
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* OEM Fabric Swatch & Customization Capabilities */}
-      <section className="bg-off-white py-24 px-6 md:px-16 lg:px-24 border-t border-charcoal/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold block">
-                Custom Apparel Programs
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight text-charcoal">
-                ENGINEERED TO YOUR<br />
-                <span className="text-accent">EXACT TECH PACK.</span>
-              </h2>
-              <p className="text-sm sm:text-base text-charcoal/70 leading-relaxed">
-                Whether you need bespoke GSM fabric development, Pantone-matched reactive eco-dyeing, high-density screen printing, or private-label trims, Fashion Knits offers turnkey OEM garment manufacturing.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                <div className="p-5 bg-pure-white border border-charcoal/10">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-charcoal block mb-1">
-                    Fabric Swatch Library
-                  </span>
-                  <p className="text-xs text-charcoal/60 leading-relaxed">
-                    Single Jersey, Pique, French Terry, Interlock, 1x1 &amp; 2x2 Rib, Waffle, and custom Spandex stretch blends.
-                  </p>
-                </div>
-
-                <div className="p-5 bg-pure-white border border-charcoal/10">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-charcoal block mb-1">
-                    Pantone Lab Dip Service
-                  </span>
-                  <p className="text-xs text-charcoal/60 leading-relaxed">
-                    Color-matching under standard D65 and store light sources with spectrophotometer Delta-E &lt; 0.5 approval swatches.
-                  </p>
-                </div>
-
-                <div className="p-5 bg-pure-white border border-charcoal/10">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-charcoal block mb-1">
-                    Embellishment &amp; Print
-                  </span>
-                  <p className="text-xs text-charcoal/60 leading-relaxed">
-                    High-density rubber prints, waterbase, puff, discharge, silicone badges, and computerized embroidery.
-                  </p>
-                </div>
-
-                <div className="p-5 bg-pure-white border border-charcoal/10">
-                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-charcoal block mb-1">
-                    Turnkey Private Label
-                  </span>
-                  <p className="text-xs text-charcoal/60 leading-relaxed">
-                    Woven labels, care tags, FSC hangtags, barcode stickers, individual bio-polybags, and export master cartons.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="relative aspect-[4/3] w-full overflow-hidden border border-charcoal/15 shadow-md">
-                <img
-                  src="/assets/products/product_custom_oem.jpg"
-                  alt="Custom OEM Garment Samples and Fabric Swatches"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-4 left-4 right-4 p-4 bg-charcoal/95 backdrop-blur-md text-off-white text-xs font-mono border border-white/10 flex items-center justify-between">
-                  <span>SAMPLE DEVELOPMENT: 7 – 10 DAYS</span>
-                  <span className="text-accent">PANTONE TCX / TPG</span>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>

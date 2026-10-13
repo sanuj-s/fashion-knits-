@@ -4,15 +4,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import {
   ShieldCheck,
-  Award,
   Download,
-  ExternalLink,
-  CheckCircle2,
-  FileText,
-  Calendar,
-  Layers,
-  Activity,
+  Check,
 } from 'lucide-react';
+import { SectionHeading } from '@/components/ui/SectionHeading';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 interface VerifiedCertificate {
   id: string;
@@ -36,8 +32,8 @@ const VERIFIED_CERTIFICATES: VerifiedCertificate[] = [
     licenseNumber: 'USB TEX-5053-GOTS-2510.2 (License USB 005253)',
     scopeSummary:
       'Certified for Dyed fabrics (PC0025), Children’s apparel (PC0004), Men’s apparel (PC0001), Greige fabrics (PC0028), Women’s apparel (PC0002), Babies’ apparel (PC0003), and Greige yarns (PC0030). Processes: Dyeing, Finishing, Pre-treatment, Knitting, Manufacturing, Embroidery, Warehousing.',
-    pdfUrl: '/assets/certificates/Scope_Certificate_GOTS.pdf',
-    previewImage: '/assets/certificates/previews/preview_gots.png',
+    pdfUrl: '/assets/certificates/gots-organic-textile.pdf',
+    previewImage: '/assets/certificates/previews/preview_gots.webp',
     statusBadge: 'CURRENT / VERIFIED AUDIT',
     validity: 'Valid until 2026-05-27',
   },
@@ -49,8 +45,8 @@ const VERIFIED_CERTIFICATES: VerifiedCertificate[] = [
     licenseNumber: 'USB-00007995-OCS-2510 (Client No: USB 005053)',
     scopeSummary:
       'Certified chain-of-custody for Organic 100 and Organic Blended knitted apparel across Men’s, Women’s, Children’s, and Infant categories. Verified traceability from audited organic cotton raw material to finished export garment.',
-    pdfUrl: '/assets/certificates/Scope_Certificate_OCS.pdf',
-    previewImage: '/assets/certificates/previews/preview_ocs.png',
+    pdfUrl: '/assets/certificates/ocs-organic-content.pdf',
+    previewImage: '/assets/certificates/previews/preview_ocs.webp',
     statusBadge: 'CURRENT / VERIFIED AUDIT',
     validity: 'Valid until 2026-10-13',
   },
@@ -62,21 +58,21 @@ const VERIFIED_CERTIFICATES: VerifiedCertificate[] = [
     licenseNumber: 'Certificate No. 2011149 (Annex 6)',
     scopeSummary:
       'Certified non-toxic chemical compliance for knitted apparel, dyed cotton fabrics, and babywear (Product Class I). Tested rigorously for harmful substances, pesticides, heavy metals, formaldehyde, and phthalates.',
-    pdfUrl: '/assets/certificates/OEKO-TEX_Certificate.pdf',
+    pdfUrl: '/assets/certificates/oeko-tex-standard-100.pdf',
     previewImage: '/assets/certificates/previews/preview_oekotex.png',
     statusBadge: 'CURRENT / VERIFIED AUDIT',
     validity: 'Annual Renewal Cycle',
   },
   {
     id: 'bsci',
-    name: 'amfori BSCI / WRAP Compliance Audit',
-    standard: 'amfori BSCI Code of Conduct & WRAP Gold Facility Audit',
-    issuer: 'amfori BSCI / WRAP (Worldwide Responsible Accredited Production)',
+    name: 'amfori BSCI Social Compliance Audit',
+    standard: 'amfori BSCI Code of Conduct & Social Audit Protocol',
+    issuer: 'amfori BSCI Independent Audit Partner',
     licenseNumber: 'Audit ID: 9322 (Avinashi / New Tirupur Facility)',
     scopeSummary:
       'Verified social compliance governing fair wages, maximum working hour limits, occupational health and safety, non-discrimination, collective bargaining rights, and strict prohibition of forced or child labor.',
-    pdfUrl: '/assets/certificates/WRAP_BSCI_Audit_Certificate.pdf',
-    previewImage: '/assets/certificates/previews/preview_bsci.png',
+    pdfUrl: '/assets/certificates/bsci-social-compliance.pdf',
+    previewImage: '/assets/certificates/previews/preview_bsci.webp',
     statusBadge: 'CURRENT / VERIFIED AUDIT',
     validity: 'Facility Audited & Compliant',
   },
@@ -152,37 +148,39 @@ export function QualityClient() {
   return (
     <div className="bg-warm-white text-charcoal">
       {/* Editorial Header */}
-      <section className="bg-charcoal text-off-white pt-36 pb-20 px-6 md:px-16 lg:px-24 border-b border-white/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="grain relative bg-charcoal text-off-white pt-40 pb-28 px-6 md:px-16 lg:px-24 border-b border-white/10 overflow-hidden">
+        <div className="max-w-[90rem] mx-auto relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-6">
-            <Link href="/" className="hover:underline">
+          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-accent mb-8">
+            <Link href="/" className="hover:text-off-white transition-colors">
               Home
             </Link>
-            <span>/</span>
-            <span className="text-off-white/70">Quality &amp; Certifications</span>
+            <span className="text-white/40">/</span>
+            <span className="text-off-white/80">Quality &amp; Certifications</span>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-[0.2em] text-accent mb-4">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
+            <div className="max-w-4xl">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-[0.2em] text-accent font-semibold mb-6">
                 <ShieldCheck className="w-3.5 h-3.5 text-accent" />
                 <span>Verified Compliance &amp; Inspection Systems</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-off-white">
-                QUALITY &amp;<br />
-                <span className="text-accent">CERTIFICATIONS.</span>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
+                <span className="block text-off-white">QUALITY &amp;</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent mt-1">
+                  CERTIFICATIONS.
+                </span>
               </h1>
-              <p className="text-sm sm:text-base text-off-white/80 mt-6 leading-relaxed">
+              <p className="text-base sm:text-xl text-off-white/75 mt-8 max-w-2xl leading-relaxed font-normal">
                 Complete traceability and uncompromising manufacturing discipline. Explore our verified scope certificates on file, in-house laboratory testing protocols, and 5-stage quality inspection system.
               </p>
             </div>
 
-            <div className="p-6 bg-white/5 border border-white/10 max-w-sm">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent block mb-1">
+            <div className="p-8 bg-black/40 border border-white/10 backdrop-blur-md max-w-md flex-shrink-0">
+              <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
                 Zero Compromise Policy
               </span>
-              <p className="text-xs text-off-white/70 leading-relaxed font-mono">
+              <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed font-mono">
                 Only verified, authentic certificates on file are published. Direct PDF verification available for international buyer compliance desks.
               </p>
             </div>
@@ -190,77 +188,76 @@ export function QualityClient() {
         </div>
       </section>
 
-      {/* 4 Verified Scope Certificates with Scanned Previews */}
-      <section className="py-24 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-14">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold block mb-2">
-              Verified Legal Documents On File
+      {/* 4 Verified Scope Certificates Showcase */}
+      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
+        <div className="max-w-[90rem] mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="h-px w-10 bg-accent" />
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+              01 // Scope Certificates
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-charcoal">
-              Official Scope Certificates
-            </h2>
-            <p className="text-xs sm:text-sm text-charcoal/70 mt-2 max-w-2xl leading-relaxed">
-              High-resolution document previews of our verified scope certificates. Click any certificate to open or download the complete official PDF.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <SectionHeading
+            title={'LEGAL DOCUMENTS\nON FILE.'}
+            subtitle="High-resolution document previews of our verified scope certificates. Click any certificate to open or download the complete official PDF."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16 md:mt-24">
             {VERIFIED_CERTIFICATES.map((cert) => (
               <div
                 key={cert.id}
-                className="group bg-off-white border border-charcoal/10 hover:border-accent transition-all duration-300 flex flex-col justify-between shadow-sm"
+                className="group bg-warm-white border border-charcoal/10 hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* High-Resolution Document Preview */}
                   <div className="relative aspect-[3/4] w-full overflow-hidden bg-charcoal/5 border-b border-charcoal/10">
-                    <img
-                      src={cert.previewImage}
-                      alt={cert.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-104"
-                      loading="lazy"
-                    />
+                    <picture className="w-full h-full">
+                      <source type="image/webp" srcSet={cert.previewImage} />
+                      <img
+                        src={cert.previewImage.replace('.webp', '.png')}
+                        alt={cert.name}
+                        className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </picture>
 
-                    {/* Status Badge */}
                     <div className="absolute top-3 right-3 z-10">
                       <span className="px-2.5 py-1 bg-charcoal/90 text-[9px] font-mono uppercase tracking-widest text-accent font-bold border border-white/10">
                         {cert.statusBadge}
                       </span>
                     </div>
 
-                    {/* License Number Overlay */}
                     <div className="absolute bottom-0 inset-x-0 p-2.5 bg-black/85 backdrop-blur-md text-off-white text-[10px] font-mono truncate">
                       {cert.licenseNumber}
                     </div>
                   </div>
 
-                  {/* Document Summary */}
-                  <div className="p-6">
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-semibold block">
+                  <div className="p-6 md:p-8">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-semibold block mb-1">
                       {cert.validity}
                     </span>
-                    <h3 className="text-base font-bold text-charcoal uppercase tracking-wider mt-1 group-hover:text-accent transition-colors">
+                    <h3 className="text-xl font-bold uppercase tracking-wider text-charcoal mb-2 group-hover:text-accent transition-colors duration-300">
                       {cert.name}
                     </h3>
-                    <p className="text-[11px] font-mono text-muted-gray mt-1">
-                      Issuer: {cert.issuer}
+                    <p className="text-xs font-mono text-charcoal/80 mb-3 font-semibold">
+                      {cert.issuer}
                     </p>
-                    <p className="text-xs text-charcoal/70 leading-relaxed mt-3">
+                    <p className="text-xs text-charcoal/70 leading-relaxed font-normal mb-6">
                       {cert.scopeSummary}
                     </p>
                   </div>
                 </div>
 
-                {/* PDF Download Button */}
-                <div className="p-6 pt-0">
+                <div className="p-6 md:p-8 pt-0">
                   <a
                     href={cert.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-3 px-4 bg-charcoal hover:bg-accent hover:text-charcoal text-off-white text-xs font-mono uppercase tracking-widest font-bold transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    className="btn-shine w-full py-3 bg-charcoal hover:bg-accent hover:text-charcoal text-off-white text-xs font-mono uppercase tracking-widest font-bold flex items-center justify-center gap-2 transition-all duration-300"
                   >
                     <Download className="w-3.5 h-3.5" />
-                    <span>Download Scope PDF</span>
+                    <span>Download Official PDF</span>
                   </a>
                 </div>
               </div>
@@ -269,48 +266,53 @@ export function QualityClient() {
         </div>
       </section>
 
-      {/* 5-Stage Quality Inspection Framework */}
-      <section className="py-24 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold block mb-2">
-              AQL 2.5 Major / 4.0 Minor Standard
+      {/* 5-Stage Inspection Protocol */}
+      <section className="grain relative py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
+        <div className="max-w-[90rem] mx-auto">
+          <div className="flex items-center gap-4 mb-6">
+            <span className="h-px w-10 bg-accent" />
+            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+              02 // QA Systems
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-charcoal">
-              5-Stage Quality Inspection Framework
-            </h2>
-            <p className="text-xs sm:text-sm text-charcoal/70 mt-2 max-w-2xl leading-relaxed">
-              Every production order follows unified checkpoints from incoming yarn lot verification through 100% metal detector tunnels to Final Random Inspection.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {QUALITY_STAGES.map((q) => (
+          <SectionHeading
+            title={'5-STAGE QUALITY\nINSPECTION SYSTEM.'}
+            subtitle="Engineered quality checkpoints operating at every phase from raw spinning yarn to bonded container loading."
+            light={true}
+          />
+
+          <div className="space-y-6 mt-16 md:mt-24">
+            {QUALITY_STAGES.map((stage) => (
               <div
-                key={q.step}
-                className="bg-pure-white p-6 border border-charcoal/10 flex flex-col justify-between hover:border-accent transition-colors"
+                key={stage.step}
+                className="group p-8 md:p-10 bg-[#161413] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-8"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-3xl font-bold font-mono text-charcoal/15">
-                      {q.step}
+                <div className="flex items-start gap-6">
+                  <span className="text-3xl md:text-4xl font-mono font-bold text-accent">
+                    {stage.step}
+                  </span>
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-semibold block mb-1">
+                      {stage.standard}
                     </span>
-                    <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-0.5 bg-accent/15 text-charcoal font-semibold">
-                      {q.standard}
-                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold uppercase tracking-wider text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
+                      {stage.name}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed font-normal max-w-3xl">
+                      {stage.description}
+                    </p>
                   </div>
-
-                  <h3 className="text-base font-bold uppercase tracking-wider text-charcoal mb-2">
-                    {q.name}
-                  </h3>
-
-                  <p className="text-xs text-charcoal/70 leading-relaxed">
-                    {q.description}
-                  </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-charcoal/10 text-[10px] font-mono text-accent font-semibold">
-                  ✓ {q.checkpoint}
+                <div className="lg:w-80 flex-shrink-0 pt-4 lg:pt-0 lg:border-l lg:border-white/10 lg:pl-8">
+                  <span className="text-[10px] font-mono uppercase text-muted-gray block mb-1">
+                    Checkpoint Signoff:
+                  </span>
+                  <div className="flex items-center gap-2 text-xs font-mono text-off-white/90">
+                    <Check className="w-3.5 h-3.5 text-accent flex-shrink-0" />
+                    <span>{stage.checkpoint}</span>
+                  </div>
                 </div>
               </div>
             ))}
@@ -318,29 +320,28 @@ export function QualityClient() {
         </div>
       </section>
 
-      {/* Accreditations Matrix */}
-      <section className="py-24 px-6 md:px-16 lg:px-24 bg-pure-white">
-        <div className="max-w-7xl mx-auto">
+      {/* Complete Accreditations Roster */}
+      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-warm-white">
+        <div className="max-w-[90rem] mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold block mb-2">
-                Industry Accreditations Matrix
+                03 // Compliance Roster
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-charcoal">
-                Compliance &amp; Audit Portfolio
+                13 Audited Accreditations &amp; Protocols
               </h2>
             </div>
 
-            {/* Filter Buttons */}
             <div className="flex flex-wrap items-center gap-2">
-              {['All', 'Organic', 'Ethical Labor', 'Chemical Safety', 'Licensing'].map((cat) => (
+              {['All', 'Organic', 'Chemical Safety', 'Ethical Labor', 'Sustainable Fibers', 'Licensing'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilterCategory(cat)}
-                  className={`px-3 py-1.5 text-xs font-mono uppercase tracking-wider transition-colors cursor-pointer ${
+                  className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
                     filterCategory === cat
                       ? 'bg-charcoal text-off-white font-bold'
-                      : 'bg-off-white text-charcoal/70 hover:bg-charcoal/10'
+                      : 'bg-pure-white text-charcoal/70 border border-charcoal/10 hover:border-charcoal/30'
                   }`}
                 >
                   {cat}
@@ -349,51 +350,25 @@ export function QualityClient() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredAccreditations.map((item, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredAccreditations.map((acc, idx) => (
               <div
                 key={idx}
-                className="p-5 bg-off-white border border-charcoal/10 flex items-center justify-between gap-4 hover:border-accent/50 transition-colors"
+                className="group p-6 bg-pure-white border border-charcoal/10 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-semibold block">
-                    {item.category}
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-accent font-bold px-2 py-0.5 border border-accent/30 bg-accent/5 inline-block mb-3">
+                    {acc.category}
                   </span>
-                  <h4 className="text-sm font-bold uppercase tracking-wider text-charcoal mt-0.5">
-                    {item.name}
-                  </h4>
-                  <p className="text-[11px] font-mono text-charcoal/60 mt-1">
-                    {item.status}
+                  <h3 className="text-base font-bold uppercase tracking-wider text-charcoal mb-2">
+                    {acc.name}
+                  </h3>
+                  <p className="text-xs font-mono text-charcoal/70">
+                    {acc.status}
                   </p>
                 </div>
-                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0" />
               </div>
             ))}
-          </div>
-
-          {/* Audit Booking Card */}
-          <div className="mt-16 bg-charcoal text-off-white p-8 md:p-10 border border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="max-w-2xl">
-              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent block mb-2">
-                Third-Party Brand Audits
-              </span>
-              <h3 className="text-xl md:text-2xl font-bold uppercase tracking-tight">
-                Scheduled Audits Welcomed Across Both Facilities
-              </h3>
-              <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mt-2">
-                Fashion Knits regularly hosts customer compliance teams, independent inspection agencies (SGS, Intertek, Bureau Veritas), and brand auditors across our Netaji Apparel Park factory and Angeripalayam corporate office.
-              </p>
-            </div>
-
-            <button
-              onClick={() => {
-                const el = document.getElementById('contact');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-6 py-3 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold hover:bg-pure-white transition-colors flex-shrink-0 cursor-pointer"
-            >
-              Inquire for Audit Protocol
-            </button>
           </div>
         </div>
       </section>
