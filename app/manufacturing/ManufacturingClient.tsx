@@ -23,7 +23,7 @@ interface MachineryPillar {
   summary: string;
   specs: string[];
   equipmentList: string[];
-  capacityNote: string;
+  capacityNote?: string;
 }
 
 const MACHINERY_PILLARS: MachineryPillar[] = [
@@ -46,7 +46,6 @@ const MACHINERY_PILLARS: MachineryPillar[] = [
       'Computerized flat-knit collar & cuff jacquard machines',
       'Digital fabric roll length & weight counters',
     ],
-    capacityNote: 'Knitting capacity: [Capacity figure to be confirmed by Fashion Knits — e.g. ~120 – 180 Tons/month]',
   },
   {
     id: 'cutting',
@@ -67,7 +66,6 @@ const MACHINERY_PILLARS: MachineryPillar[] = [
       'Air-cushion fabric spreading tables with edge alignment',
       'Barcoded bundle management and ticket tracking system',
     ],
-    capacityNote: 'Cutting capacity: [Capacity figure to be confirmed by Fashion Knits — e.g. ~8,000 – 12,000 pcs/day]',
   },
   {
     id: 'sewing',
@@ -88,7 +86,6 @@ const MACHINERY_PILLARS: MachineryPillar[] = [
       'Heavy-duty electronic bartacking machines for stress points',
       'In-line Q-check stations with lighted inspection mannequins',
     ],
-    capacityNote: 'Garmenting capacity: [Capacity figure to be confirmed by Fashion Knits — e.g. ~150,000 – 250,000 pcs/month]',
   },
   {
     id: 'dyeing_partner',
@@ -184,7 +181,7 @@ export function ManufacturingClient() {
               </div>
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
                 <span className="block text-off-white">MANUFACTURING &amp;</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent mt-1">
+                <span className="mt-1 block text-accent">
                   CAPABILITIES.
                 </span>
               </h1>
@@ -206,7 +203,7 @@ export function ManufacturingClient() {
       </section>
 
       {/* Facilities Overview */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -222,13 +219,13 @@ export function ManufacturingClient() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
             {/* Unit 1 */}
-            <div className="group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
                 <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park.webp" />
+                  <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park_exterior.webp" />
                   <img
-                    src="/assets/facilities/factory_netaji_park.jpg"
-                    alt="Unit 1 Main Factory Netaji Apparel Park"
+                    src="/assets/facilities/factory_netaji_park_exterior.jpg"
+                    alt="Exterior of the Unit 1 main factory at Netaji Apparel Park"
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                 </picture>
@@ -237,6 +234,9 @@ export function ManufacturingClient() {
                     Unit-1 // Main Plant
                   </span>
                 </div>
+                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
+                  Representative image
+                </span>
               </div>
               <div className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-2">
@@ -252,13 +252,13 @@ export function ManufacturingClient() {
             </div>
 
             {/* Corporate Office */}
-            <div className="group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
                 <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam.webp" />
+                  <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam_exterior.webp" />
                   <img
-                    src="/assets/facilities/office_angeripalayam.jpg"
-                    alt="Corporate Office Angeripalayam"
+                    src="/assets/facilities/office_angeripalayam_exterior.jpg"
+                    alt="Exterior of the Fashion Knits corporate office in Angeripalayam"
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                 </picture>
@@ -267,6 +267,9 @@ export function ManufacturingClient() {
                     Corporate HQ // Showroom
                   </span>
                 </div>
+                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
+                  Representative image
+                </span>
               </div>
               <div className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-2">
@@ -285,7 +288,7 @@ export function ManufacturingClient() {
       </section>
 
       {/* Machinery & Process Pillars Deep-Dive */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -306,7 +309,7 @@ export function ManufacturingClient() {
               return (
                 <div
                   key={pillar.id}
-                  className="group bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
+                  className="premium-card group bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden"
                 >
                   <div>
                     <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
@@ -360,14 +363,16 @@ export function ManufacturingClient() {
                               ))}
                             </div>
                           </div>
-                          <div className="pt-2">
-                            <span className="text-[10px] font-mono uppercase text-accent font-semibold block">
-                              Production Scope:
-                            </span>
-                            <span className="text-xs font-mono text-charcoal/80 block mt-0.5">
-                              {pillar.capacityNote}
-                            </span>
-                          </div>
+                          {pillar.capacityNote && (
+                            <div className="pt-2">
+                              <span className="text-[10px] font-mono uppercase text-accent font-semibold block">
+                                Operational note:
+                              </span>
+                              <span className="text-xs font-mono text-charcoal/80 block mt-0.5">
+                                {pillar.capacityNote}
+                              </span>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -410,7 +415,7 @@ export function ManufacturingClient() {
             </div>
 
             <Link
-              href="/#contact"
+              href="#contact"
               className="btn-shine px-8 py-4 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold transition-all duration-300 flex-shrink-0 cursor-pointer"
             >
               Request Factory Tour

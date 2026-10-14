@@ -1,262 +1,171 @@
 'use client';
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
-import { gsap, ScrollTrigger } from '@/lib/animations';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Check, ArrowRight } from 'lucide-react';
+import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 
 interface Stage {
   number: string;
   name: string;
-  summary: string;
   image: string;
-  specs: string[];
   standard: string;
+  alt: string;
+  description: string;
 }
 
 const PRODUCTION_STAGES: Stage[] = [
   {
     number: '01',
-    name: 'Yarn Sourcing',
-    summary: 'Sourcing certified organic cotton and combed compact yarns from audited spinning mills.',
-    image: '/assets/images/yarn_process.webp',
-    specs: ['Yarn Counts: 20s to 80s Single & Double', 'Low Hairiness & High CSP Calibrated', '100% Organic Chain of Custody Verified'],
-    standard: 'GOTS v7.0 & OCS 100 Standards',
+    name: 'Yarn sourcing',
+    image: '/assets/images/process-yarn-sourcing.webp',
+    standard: 'Fiber & yarn selection',
+    alt: 'Cotton yarn cones feeding winding equipment on a textile factory floor',
+    description: 'Yarn is selected to meet the buyer’s fiber, weight, and hand-feel targets, giving the fabric the right starting point.',
   },
   {
     number: '02',
-    name: 'Circular Knitting',
-    summary: 'High-gauge circular knitting machines producing single jersey, pique, interlock, rib, and fleece.',
-    image: '/assets/images/knitting_process.webp',
-    specs: ['Machine Gauges: 20GG to 32GG', 'Diameters: 24" to 36"', 'Single Jersey, Pique, Interlock, Rib, Waffle, Fleece'],
-    standard: 'Zero-Spirality & GSM Calibration',
+    name: 'Circular knitting',
+    image: '/assets/images/process-circular-knitting.webp',
+    standard: 'Fabric construction',
+    alt: 'Circular knitting machine forming a continuous tube of cotton jersey fabric',
+    description: 'We knit the yarn into jersey, rib, pique, or fleece. Gauge and weight define the fabric’s surface, stretch, and body.',
   },
   {
     number: '03',
-    name: 'Eco Soft-Flow Dyeing',
-    summary: 'Certified soft-flow jet dyeing with low liquor ratios and OEKO-TEX Standard 100 non-toxic dyes.',
-    image: '/assets/images/dyeing_process.webp',
-    specs: ['Low Liquor-Ratio Eco Vessels', 'Computerized Spectrophotometer Delta-E < 0.5', 'Non-Toxic ZDHC Compliant Dyestuffs'],
-    standard: 'OEKO-TEX® Standard 100 Class I',
+    name: 'Color & dyeing',
+    image: '/assets/images/process-color-dyeing.webp',
+    standard: 'Approved shade',
+    alt: 'Worker checking deep navy fabric beside a stainless-steel dyeing vessel',
+    description: 'Color samples are approved before dyeing. In-process checks help keep the shade consistent across the order.',
   },
   {
     number: '04',
-    name: 'CAD Cutting',
-    summary: 'Multi-ply vacuum cutting tables synchronized with CAD marker optimization for maximum fabric yield.',
-    image: '/assets/images/cutting_process.webp',
-    specs: ['CAD Pattern Grading & Nesting', 'Vacuum-Clamped Multi-Ply Spreading', 'Precision Cut Tolerances ±0.5mm'],
-    standard: 'CAD Automated Pattern System',
+    name: 'CAD cutting',
+    image: '/assets/images/process-cad-cutting.webp',
+    standard: 'Pattern accuracy',
+    alt: 'Automated cutting head following garment pattern shapes across layered knit fabric',
+    description: 'Digital patterns are arranged across fabric layers before cutting. Accurate markers keep panels on spec and reduce unused fabric.',
   },
   {
     number: '05',
-    name: 'Precision Stitching',
-    summary: 'Modular lean sewing lines with programmable Juki and Brother machines for precision seam construction.',
-    image: '/assets/images/stitching_process.webp',
-    specs: ['Programmable Juki & Brother Workstations', 'Overlock, Flatlock, & Chainstitch Seams', 'Hourly In-Line Stitch Density (SPI) Audits'],
-    standard: 'Lean Modular Assembly Protocol',
+    name: 'Garment assembly',
+    image: '/assets/images/process-garment-assembly.webp',
+    standard: 'Seam construction',
+    alt: 'Garment operator sewing cotton knit panels together on an assembly line',
+    description: 'Cut panels are joined with the specified seams and stitches, shaping each garment and helping it hold up through wear.',
   },
   {
     number: '06',
-    name: 'Fabric Finishing',
-    summary: 'Enzyme bio-polishing, peached suede finish, silicon softening, and calender compacting.',
-    image: '/assets/images/finishing_process.webp',
-    specs: ['Enzyme Bio-Polishing & Silicon Baths', 'Tension-Free Calender Compacting', 'Residual Shrinkage Controlled < 5%'],
-    standard: 'ISO Shrinkage & Dimensional Standards',
+    name: 'Garment finishing',
+    image: '/assets/images/process-garment-finishing.webp',
+    standard: 'Steam pressing',
+    alt: 'Worker steam-pressing a finished knit T-shirt at an industrial vacuum ironing table',
+    description: 'Garments are steam-pressed, trimmed, and shaped, with moisture checked before final inspection and packing.',
   },
   {
     number: '07',
-    name: 'Quality & Metal Scan',
-    summary: 'In-line AQL 2.5 auditing, seam burst testing, and 100% calibrated conveyor metal detection.',
-    image: '/assets/images/quality_process.webp',
-    specs: ['AQL 2.5 In-Line & Final Random Audit', '0.8mm Ferrous Calibrated Needle Detection', 'Seam Strength, Pull-Test, & Color Crock Testing'],
-    standard: 'MIL-STD-105E & 9-Point Needle Audit',
+    name: 'Quality control',
+    image: '/assets/images/process-quality-control.webp',
+    standard: 'Final inspection',
+    alt: 'Inspector measuring a finished knit top and comparing its fabric with an approved swatch',
+    description: 'Measurements, seams, workmanship, and appearance are checked to spec. Final sampling follows the agreed acceptable quality level (AQL).',
   },
   {
     number: '08',
-    name: 'Export Packing',
-    summary: 'Steam tunnel pressing, individual polybagging, barcode scan, carton packing for global sea & air dispatch.',
-    image: '/assets/images/packing_process.webp',
-    specs: ['Steam Tunnel Finishing & Hand Ironing', 'Retail Drop-Tested Heavy Export Cartons', 'Bonded Container Loading at Unit-1 NAP'],
-    standard: 'Global Retail Compliance & Barcode Scan',
+    name: 'Ready for export',
+    image: '/assets/images/process-export-packing.webp',
+    standard: 'Export packing',
+    alt: 'Worker placing folded knit garments into unbranded cartons for export packing',
+    description: 'Garments are folded, labeled, assorted, and packed to buyer instructions, keeping each size and color ready for shipment.',
   },
 ];
 
 export function ManufacturingProcess() {
-  const pinSectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  const [activeStage, setActiveStage] = useState(1);
-
-  useLayoutEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    gsap.registerPlugin(ScrollTrigger);
-
-    const mm = gsap.matchMedia();
-
-    // Desktop: Pinned horizontal scroll story
-    mm.add('(min-width: 1024px)', () => {
-      if (!pinSectionRef.current || !trackRef.current) return;
-
-      const track = trackRef.current;
-      const getScrollAmount = () => track.scrollWidth - window.innerWidth + 120;
-
-      const tween = gsap.to(track, {
-        x: () => -getScrollAmount(),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: pinSectionRef.current,
-          pin: true,
-          scrub: 1,
-          start: 'top top',
-          end: () => `+=${getScrollAmount() * 1.2}`,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (progressBarRef.current) {
-              progressBarRef.current.style.transform = `scaleX(${self.progress})`;
-            }
-            const stageIndex = Math.min(
-              8,
-              Math.max(1, Math.floor(self.progress * 8) + 1)
-            );
-            setActiveStage(stageIndex);
-          },
-        },
-      });
-
-      return () => {
-        tween.kill();
-      };
-    });
-
-    return () => mm.revert();
-  }, []);
-
   return (
     <section
       id="manufacturing"
-      ref={pinSectionRef}
-      className="grain relative w-full bg-charcoal text-off-white overflow-hidden border-b border-white/10"
+      className="process-story grain relative isolate overflow-hidden border-b border-white/10 bg-[#121110] text-off-white"
     >
-      {/* Header Bar within pinned section */}
-      <div className="pt-24 lg:pt-28 pb-8 px-6 md:px-16 lg:px-24 max-w-[90rem] mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/10">
-        <div>
-          <div className="flex items-center gap-4 mb-4">
-            <span className="h-px w-10 bg-accent" />
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              02 // Manufacturing Story
-            </span>
+      <div className="mx-auto max-w-[100rem] px-5 pb-8 pt-28 sm:px-8 lg:px-16 lg:pb-7 lg:pt-24">
+        <div className="flex flex-col justify-between gap-8 border-b border-white/10 pb-7 lg:flex-row lg:items-end">
+          <div>
+            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-accent sm:text-xs">
+              <span className="h-px w-9 bg-accent" />
+              Made in Tiruppur · 01—08
+            </p>
+            <h2 className="max-w-4xl text-[clamp(2.8rem,6.6vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.065em] text-white">
+              From yarn <span className="text-white/45">to world.</span>
+            </h2>
           </div>
-          <SectionHeading
-            title={'FROM YARN\nTO EXPORT.'}
-            subtitle="Explore our end-to-end 8-stage manufacturing cycle — operating with tight ISO tolerances and verified GOTS/OEKO-TEX standards."
-            light={true}
-          />
+
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-8 lg:w-[30rem] lg:shrink-0">
+            <div className="max-w-[22rem]">
+              <p className="text-xs leading-relaxed text-white/65 sm:text-sm">
+                Eight connected stages take an order from selected yarn to packed garments. Each one shapes the fit, color, quality, and finish of the final piece.
+              </p>
+            </div>
+            <div className="flex shrink-0 items-center gap-3 border-t border-white/10 pt-3 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
+              <span className="font-mono text-2xl font-light tracking-[-0.06em] text-accent sm:text-3xl">08</span>
+              <span className="max-w-[8rem] text-[9px] font-semibold uppercase leading-relaxed tracking-[0.13em] text-white/45 sm:text-[10px]">
+                stages from yarn selection to export packing
+              </span>
+            </div>
+          </div>
         </div>
 
-        {/* Live Stage Counter & Desktop Horizontal Hint */}
-        <div className="flex items-center gap-8 text-xs font-mono">
-          <div className="flex items-center gap-2">
-            <span className="text-accent text-lg font-bold">0{activeStage}</span>
-            <span className="text-muted-gray">/</span>
-            <span className="text-muted-gray">08 STAGES</span>
-          </div>
-          <span className="hidden lg:inline-block text-[11px] uppercase tracking-[0.2em] text-off-white/60">
-            Scroll To Navigate Sequence &rarr;
-          </span>
-        </div>
-      </div>
+        <p className="mb-4 mt-6 text-[9px] font-medium uppercase tracking-[0.13em] text-white/35 sm:text-[10px]">
+          Representative production imagery
+        </p>
 
-      {/* Progress Line */}
-      <div className="w-full h-[2px] bg-white/10 relative">
-        <div
-          ref={progressBarRef}
-          className="absolute inset-y-0 left-0 w-full bg-accent origin-left transition-transform duration-75"
-          style={{ transform: 'scaleX(0.125)' }}
-        />
-      </div>
-
-      {/* Track: Horizontal on Desktop, Responsive Flow on Mobile */}
-      <div className="py-12 lg:py-16 px-6 md:px-16 lg:px-24">
-        <div
-          ref={trackRef}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-10 w-full lg:w-max will-change-transform"
-        >
+        <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4 2xl:gap-5">
           {PRODUCTION_STAGES.map((stage) => (
-            <div
+            <article
               key={stage.number}
-              className="w-full lg:w-[480px] xl:w-[520px] flex-shrink-0 bg-[#161413] border border-white/10 hover:border-accent/60 transition-all duration-300 group flex flex-col justify-between"
+              className="group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#1a1917] transition-[border-color,box-shadow] duration-300 hover:border-accent/50 hover:shadow-[0_18px_40px_rgba(0,0,0,0.28)]"
             >
-              {/* Photo with 16:10 ratio */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/60">
-                <picture className="w-full h-full">
-                  <source type="image/webp" srcSet={stage.image} />
-                  <img
-                    src={stage.image.replace('.webp', '.jpg')}
-                    alt={stage.name}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                    loading="lazy"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#161413] via-transparent to-transparent opacity-90" />
-                
-                {/* Number Badge */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="px-3 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-xs font-mono font-bold text-accent">
-                    STAGE {stage.number}
-                  </span>
-                </div>
+              <figure className="relative aspect-[16/10] overflow-hidden bg-[#24221f]">
+                <Image
+                  src={stage.image}
+                  alt={stage.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  className="process-card-image object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:group-hover:scale-100 motion-reduce:transition-none"
+                />
+              </figure>
 
-                {/* Standard Badge */}
-                <div className="absolute top-4 right-4 z-10">
-                  <span className="px-2.5 py-1 bg-black/80 backdrop-blur-md text-[10px] font-mono uppercase tracking-wider text-off-white/80 border border-white/10">
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/10 pb-3">
+                  <span className="font-mono text-[9px] font-medium uppercase tracking-[0.15em] text-accent sm:text-[10px]">
+                    Stage {stage.number}
+                  </span>
+                  <span className="text-right text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45 sm:text-[9px]">
                     {stage.standard}
                   </span>
                 </div>
+                <h3 className="text-xl font-medium leading-tight tracking-[-0.035em] text-white sm:text-[1.35rem]">
+                  {stage.name}
+                </h3>
+                <p className="mt-2.5 text-xs leading-6 text-white/65 sm:text-[13px]">
+                  {stage.description}
+                </p>
               </div>
-
-              {/* Card Body */}
-              <div className="p-8 flex-1 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold uppercase tracking-tight text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
-                    {stage.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mb-6">
-                    {stage.summary}
-                  </p>
-
-                  <div className="space-y-2.5 pt-4 border-t border-white/10">
-                    {stage.specs.map((spec, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-2.5 text-xs font-mono text-off-white/80">
-                        <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                        <span>{spec}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-muted-gray">
-                  <span>FASHION KNITS // UNIT-1</span>
-                  <span className="text-accent font-semibold">TIRUPPUR</span>
-                </div>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
-      </div>
 
-      {/* Footer bar of section */}
-      <div className="pb-16 px-6 md:px-16 lg:px-24 max-w-[90rem] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-8">
-        <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
-          Continuous Quality Protocol Across All 8 Stages
-        </span>
-        <Link
-          href="/manufacturing"
-          className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-accent hover:text-off-white transition-colors font-bold group"
-        >
-          <span>Detailed Manufacturing Deep-Dive</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-        </Link>
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-5 border-t border-white/10 pt-5">
+          <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/40 sm:text-[10px]">
+            Yarn <span className="mx-2 text-accent">→</span> Fabric <span className="mx-2 text-accent">→</span> Garment <span className="mx-2 text-accent">→</span> Shipment
+          </span>
+          <Link
+            href="/manufacturing"
+            className="group inline-flex shrink-0 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-accent sm:text-xs"
+          >
+            Explore production
+            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
+        </div>
       </div>
     </section>
   );

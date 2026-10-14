@@ -189,7 +189,7 @@ export function QualityClient() {
       </section>
 
       {/* 4 Verified Scope Certificates Showcase */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
+      <section id="certificates" className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -207,7 +207,7 @@ export function QualityClient() {
             {VERIFIED_CERTIFICATES.map((cert) => (
               <div
                 key={cert.id}
-                className="group bg-warm-white border border-charcoal/10 hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
+                className="premium-card group bg-warm-white border border-charcoal/10 hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
               >
                 <div>
                   {/* High-Resolution Document Preview */}
@@ -267,7 +267,7 @@ export function QualityClient() {
       </section>
 
       {/* 5-Stage Inspection Protocol */}
-      <section className="grain relative py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
+      <section className="grain relative py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -286,7 +286,7 @@ export function QualityClient() {
             {QUALITY_STAGES.map((stage) => (
               <div
                 key={stage.step}
-                className="group p-8 md:p-10 bg-[#161413] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-8"
+                className="premium-card group p-8 md:p-10 bg-[#161413] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col lg:flex-row lg:items-center justify-between gap-8"
               >
                 <div className="flex items-start gap-6">
                   <span className="text-3xl md:text-4xl font-mono font-bold text-accent">
@@ -321,7 +321,7 @@ export function QualityClient() {
       </section>
 
       {/* Complete Accreditations Roster */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-warm-white">
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-warm-white">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
             <div>

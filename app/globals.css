@@ -77,16 +77,6 @@ body {
   background: var(--charcoal);
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
 /* Text reveal clip */
 .text-reveal-clip {
   clip-path: inset(0 0 100% 0);
@@ -126,8 +116,230 @@ body {
 .spotlight { background: radial-gradient(520px circle at var(--mx, 70%) var(--my, 40%), rgba(201,169,110,.16), transparent 65%); transition: background .15s; }
 .marquee-track { animation: marquee 38s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
+.marquee-track.is-paused { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .btn-shine { position: relative; overflow: hidden; transition: background .3s; }
 .btn-shine::before { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s ease; }
 .btn-shine:hover::before { transform: translateX(120%); }
 .btn-shine:hover { background: #fff; }
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.premium-card {
+  transition:
+    translate 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 480ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 280ms ease;
+}
+
+.pointer-tilt {
+  position: relative;
+  transform: perspective(1400px) rotateX(var(--tilt-y, 0deg)) rotateY(var(--tilt-x, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pointer-tilt::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: var(--glow-alpha, 0);
+  background: radial-gradient(
+    26rem circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 242, 213, 0.9),
+    transparent 72%
+  );
+  mix-blend-mode: soft-light;
+  transition: opacity 240ms ease;
+}
+
+.motion-photo {
+  view-timeline-name: --motion-photo;
+  view-timeline-axis: block;
+}
+
+.motion-photo-image {
+  scale: 1.12;
+}
+
+@keyframes image-depth-drift {
+  from { translate: 0 5%; }
+  to { translate: 0 -5%; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .motion-photo-image {
+      animation: image-depth-drift linear both;
+      animation-timeline: --motion-photo;
+      animation-range: entry 0% exit 100%;
+    }
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .premium-card:hover {
+    translate: 0 -5px;
+    box-shadow: 0 24px 56px -32px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@keyframes product-card-enter {
+  from {
+    opacity: 0;
+    translate: 0 1.25rem;
+    scale: 0.99;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    .product-card-reveal {
+      animation: product-card-enter linear both;
+      animation-timeline: view(block);
+      animation-range: entry 0% entry 28%;
+    }
+  }
+}
+
+@keyframes catalogue-hero-copy-enter {
+  from {
+    opacity: 0;
+    translate: 0 1rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes catalogue-hero-visual-enter {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 0 8% round 1.25rem);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round 1.25rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .catalogue-hero-copy {
+    animation: catalogue-hero-copy-enter 700ms cubic-bezier(.2,.7,.2,1) both;
+  }
+
+  .catalogue-hero-visual {
+    animation: catalogue-hero-visual-enter 900ms 100ms cubic-bezier(.2,.7,.2,1) both;
+  }
+}
+
+@keyframes specs-panel-enter {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.specs-panel {
+  animation: specs-panel-enter 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes page-scroll-progress {
+  to { transform: scaleX(1); }
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-bar {
+    animation: page-scroll-progress 1s linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+    width: auto;
+    flex-wrap: wrap;
+    gap: 1rem 2.5rem;
+  }
+
+  #trust-highlights {
+    overflow: visible;
+    padding-right: 1.5rem;
+  }
+
+  .marquee-track > [aria-hidden="true"] {
+    display: none;
+  }
+
+  .marquee-control {
+    display: none;
+  }
+
+  .spotlight {
+    opacity: 0;
+  }
+
+  .btn-shine::before {
+    display: none;
+  }
+
+  .premium-card,
+  .specs-panel {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .pointer-tilt {
+    transform: none;
+    transition: none;
+  }
+
+  .pointer-tilt::after {
+    opacity: 0;
+    transition: none;
+  }
+
+  .motion-photo-image {
+    animation: none !important;
+    scale: 1;
+  }
+
+  .rail-hint-arrow {
+    animation: none !important;
+  }
+
+  .process-card-image,
+  .visual-tile-image,
+  .product-card-reveal img {
+    animation: none !important;
+    scale: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

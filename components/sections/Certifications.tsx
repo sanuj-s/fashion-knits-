@@ -205,7 +205,7 @@ export function Certifications() {
       : ACCREDITATIONS.filter((item) => item.category === activeCategory);
 
   return (
-    <section id="certifications" className="grain relative bg-[#161413] text-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-white/10">
+    <section id="certifications" className="grain relative bg-[#161413] text-off-white py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 border-b border-white/10">
       <div className="max-w-[90rem] mx-auto">
         {/* Editorial Eyebrow with numbering */}
         <div className="flex items-center gap-4 mb-6">
@@ -227,7 +227,7 @@ export function Certifications() {
           {VERIFIED_SCOPE_CERTIFICATES.map((cert) => (
             <div
               key={cert.id}
-              className="group bg-[#121110] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
+              className="premium-card group bg-[#121110] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
             >
               <div>
                 {/* Certificate Scan Preview */}
@@ -337,7 +337,7 @@ export function Certifications() {
             {filteredAccreditations.map((item, idx) => (
               <div
                 key={idx}
-                className="group bg-[#121110] border border-white/10 hover:border-accent p-4 flex flex-col items-center text-center justify-between transition-all duration-300"
+                className="premium-card group bg-[#121110] border border-white/10 hover:border-accent p-4 flex flex-col items-center text-center justify-between transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-white/95 p-1.5 flex items-center justify-center mb-3">
                   <img src={item.logo} alt={item.name} className="w-full h-full object-contain" />

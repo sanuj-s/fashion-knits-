@@ -13,16 +13,16 @@ interface FacilityView {
 
 const FACILITY_VIEWS: FacilityView[] = [
   {
-    title: 'Main Factory (Unit-1) — Production Floor',
+    title: 'Main Factory (Unit-1) — Exterior',
     category: 'Netaji Apparel Park · Shed 29',
-    image: '/assets/facilities/factory_netaji_park.webp',
-    specs: 'Shed No: 29, Netaji Apparel Park, New Tirupur // Circular knitting, sewing assembly & finishing lines',
+    image: '/assets/facilities/factory_netaji_park_actual.jpeg',
+    specs: 'Shed No: 29, Netaji Apparel Park, New Tiruppur // Main manufacturing facility and production entrance',
   },
   {
-    title: 'Primary Corporate Office & Sample Showroom',
+    title: 'Corporate Office — Exterior',
     category: 'Angeripalayam Road · Head Office',
-    image: '/assets/facilities/office_angeripalayam.webp',
-    specs: 'Angeripalayam Road, Tiruppur 641603 // Executive management, technical merchandising & proto sampling',
+    image: '/assets/facilities/office_angeripalayam_actual.webp',
+    specs: 'Angeripalayam Road, Tiruppur 641603 // Corporate headquarters for merchandising, sampling and buyer liaison',
   },
   {
     title: 'CAD Computerized Multi-Ply Cutting Floor',
@@ -45,7 +45,7 @@ export function FactoryVideo() {
   };
 
   return (
-    <section className="bg-warm-white text-charcoal py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
+    <section className="bg-warm-white text-charcoal py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
       <div className="max-w-[90rem] mx-auto">
         {/* Editorial Eyebrow with numbering */}
         <div className="flex items-center gap-4 mb-6">
@@ -83,17 +83,14 @@ export function FactoryVideo() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
           {FACILITY_VIEWS.map((facility, idx) => (
             <div key={idx} className="h-full">
-              <div className="group bg-pure-white border border-charcoal/10 overflow-hidden flex flex-col justify-between hover:border-accent hover:shadow-2xl transition-all duration-500 h-full">
+              <div className="premium-card group bg-pure-white border border-charcoal/10 overflow-hidden flex flex-col justify-between hover:border-accent hover:shadow-2xl transition-all duration-500 h-full">
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-                  <picture className="w-full h-full">
-                    <source type="image/webp" srcSet={facility.image} />
-                    <img
-                      src={facility.image.replace('.webp', '.jpg')}
-                      alt={facility.title}
-                      className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </picture>
+                  <img
+                    src={facility.image}
+                    alt={facility.title}
+                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent opacity-90" />
                   <div className="absolute top-4 left-4 z-10">
                     <span className="px-3 py-1.5 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono uppercase tracking-widest text-accent font-bold">

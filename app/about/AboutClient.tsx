@@ -4,11 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import {
   Factory,
-  Award,
-  Users,
-  Quote,
   Building2,
-  ArrowRight,
 } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
@@ -97,7 +93,7 @@ export function AboutClient() {
               </div>
               <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
                 <span className="block text-off-white">ABOUT</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent mt-1">
+                <span className="mt-1 block text-accent">
                   FASHION KNITS.
                 </span>
               </h1>
@@ -119,7 +115,7 @@ export function AboutClient() {
       </section>
 
       {/* Facilities Showcase */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -135,13 +131,13 @@ export function AboutClient() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
             {/* Unit 1 */}
-            <div className="group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
                 <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park.webp" />
+                  <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park_exterior.webp" />
                   <img
-                    src="/assets/facilities/factory_netaji_park.jpg"
-                    alt="Netaji Apparel Park Plant"
+                    src="/assets/facilities/factory_netaji_park_exterior.jpg"
+                    alt="Exterior of the Netaji Apparel Park Plant"
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                 </picture>
@@ -152,6 +148,9 @@ export function AboutClient() {
                     Unit-1 Production Facility
                   </span>
                 </div>
+                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
+                  Representative image
+                </span>
               </div>
               <div className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
@@ -168,13 +167,13 @@ export function AboutClient() {
             </div>
 
             {/* Corporate HQ */}
-            <div className="group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
                 <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam.webp" />
+                  <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam_exterior.webp" />
                   <img
-                    src="/assets/facilities/office_angeripalayam.jpg"
-                    alt="Corporate Office Angeripalayam"
+                    src="/assets/facilities/office_angeripalayam_exterior.jpg"
+                    alt="Exterior of the Fashion Knits Corporate Office in Angeripalayam"
                     className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                   />
                 </picture>
@@ -185,6 +184,9 @@ export function AboutClient() {
                     Corporate HQ &amp; Showroom
                   </span>
                 </div>
+                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
+                  Representative image
+                </span>
               </div>
               <div className="p-8 md:p-10">
                 <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
@@ -203,64 +205,63 @@ export function AboutClient() {
         </div>
       </section>
 
-      {/* Leadership & Management Philosophy */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
+      {/* Production model */}
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
             <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              02 // Executive Governance
+              02 // Our Production Model
             </span>
           </div>
 
           <SectionHeading
-            title={'LEADERSHIP &\nMANAGEMENT PHILOSOPHY.'}
-            subtitle="Guiding principles of quality, ethical workplace standards, and transparent buyer partnerships."
+            title={'A CONSISTENT\nSTANDARD.'}
+            subtitle="A focused Tiruppur team coordinates development, production, quality, and export finishing across two facilities."
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-16 md:mt-24">
-            {/* MD Profile Card */}
+            {/* Production overview */}
             <div className="lg:col-span-5 bg-pure-white p-8 sm:p-12 border border-charcoal/10 shadow-sm">
               <div className="w-16 h-16 bg-charcoal text-accent flex items-center justify-center mb-6">
-                <Users className="w-8 h-8" />
+                <Factory className="w-8 h-8" />
               </div>
 
               <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-1">
-                Executive Leadership
+                Tiruppur, India
               </span>
               <h3 className="text-2xl font-bold uppercase tracking-wider text-charcoal">
-                [Managing Director Profile]
+                Two Facilities. One Focused Team.
               </h3>
               <p className="text-xs font-mono text-muted-gray mt-1">
-                Fashion Knits // Tiruppur, India
+                Development through export finishing
               </p>
 
               <div className="mt-6 pt-6 border-t border-charcoal/10 text-xs sm:text-sm text-charcoal/70 leading-relaxed space-y-3 font-normal">
                 <p>
-                  <em>Note: [Executive leadership biography, founder name, and photograph to be provided by Fashion Knits management.]</em>
+                  Our Angeripalayam office coordinates technical merchandising, fabric swatches, lab dips, prototype sampling, and buyer communication.
                 </p>
                 <p>
-                  Under executive direction, Fashion Knits has grown from specialized circular knitting foundations into a globally recognized export garment manufacturer, maintaining an unyielding focus on quality, ethical workplace standards, and transparent international buyer partnerships.
+                  At Netaji Apparel Park, knitting, CAD cutting, garment assembly, quality checks, and export packing bring each program through production.
                 </p>
               </div>
 
               <div className="mt-8 pt-4 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/80">
-                <span>HEADQUARTERS: ANGERIPALAYAM MAIN ROAD, TIRUPPUR</span>
+                <span>ANGERIPALAYAM HQ · NETAJI APPAREL PARK UNIT-1</span>
               </div>
             </div>
 
-            {/* Leadership Vision & Quote */}
+            {/* Quality commitment */}
             <div className="lg:col-span-7 space-y-8">
               <div className="grain relative p-8 md:p-12 bg-charcoal text-off-white border border-white/10 shadow-xl overflow-hidden">
-                <Quote className="w-10 h-10 text-accent/30 mb-4" />
                 <h4 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight leading-snug">
-                  &ldquo;In textile export, consistency is not a goal — it is the only viable business model.&rdquo;
+                  Consistency is the standard behind every order.
                 </h4>
                 <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mt-5">
-                  Every garment that leaves our Netaji Apparel Park factory carries our reputation. We invest in precision circular knitting, automated CAD marker nesting, and certified eco-processing to guarantee that every stitch meets international buyer expectations season after season.
+                  Precision knitting, CAD cutting, in-line quality checks, and audited processing guide production from development through dispatch.
                 </p>
                 <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-off-white/60">
-                  <span>EXECUTIVE COMMITMENT</span>
+                  <span>QUALITY WORKFLOW</span>
                   <span className="text-accent font-semibold">AQL 2.5 INSPECTION</span>
                 </div>
               </div>
@@ -277,7 +278,7 @@ export function AboutClient() {
       </section>
 
       {/* Historical Milestones */}
-      <section className="grain relative py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
+      <section className="grain relative py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -296,7 +297,7 @@ export function AboutClient() {
             {MILESTONES.map((m) => (
               <div
                 key={m.phase}
-                className="group bg-[#161413] p-8 border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                className="premium-card group bg-[#161413] p-8 border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <span className="text-xs font-mono uppercase tracking-widest text-accent font-bold block mb-4">
@@ -320,7 +321,7 @@ export function AboutClient() {
       </section>
 
       {/* Core Values */}
-      <section className="py-32 md:py-40 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
+      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
         <div className="max-w-[90rem] mx-auto">
           <div className="flex items-center gap-4 mb-6">
             <span className="h-px w-10 bg-accent" />
@@ -355,35 +356,6 @@ export function AboutClient() {
         </div>
       </section>
 
-      {/* Industry Standing Banner */}
-      <section className="py-24 px-6 md:px-16 lg:px-24 bg-warm-white">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="p-8 md:p-12 bg-pure-white border border-charcoal/15 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-sm">
-            <div className="max-w-3xl">
-              <div className="flex items-center gap-2 text-accent text-xs font-mono uppercase tracking-widest font-semibold mb-2">
-                <Award className="w-4 h-4 text-accent" />
-                <span>Industry Recognitions &amp; Positions</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-charcoal">
-                Awards, Trade Memberships &amp; Industry Standing
-              </h3>
-              <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mt-2">
-                Active member within Tiruppur&apos;s knitwear export ecosystem. Specific regional trade council memberships (e.g. TEA, AEPC) and export awards will be populated upon official confirmation by Fashion Knits.
-              </p>
-              <p className="text-xs font-mono text-muted-gray mt-2 italic">
-                [Trade Council Memberships &amp; Export Awards: details to be verified with company credentials]
-              </p>
-            </div>
-
-            <Link
-              href="/#contact"
-              className="btn-shine px-8 py-4 bg-accent text-charcoal text-xs font-mono uppercase tracking-widest font-bold transition-all duration-300 flex-shrink-0 cursor-pointer shadow-sm"
-            >
-              Contact Corporate Desk
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

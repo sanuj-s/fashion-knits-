@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from '@/lib/animations';
 import { ScrollIndicator } from './ScrollIndicator';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin, Pause, Play } from 'lucide-react';
+import { useReducedMotion } from '@/lib/hooks';
 
 const MARQUEE = [
   'GOTS & OCS Organic', 'OEKO-TEX® Standard 100 Class I', 'amfori BSCI #9322',
@@ -12,16 +13,23 @@ const MARQUEE = [
 
 function Magnetic({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
+  const prefersReducedMotion = useReducedMotion();
   const move = (e: React.MouseEvent) => {
-    const r = ref.current!.getBoundingClientRect();
+    if (prefersReducedMotion || !ref.current) return;
+    const r = ref.current.getBoundingClientRect();
     gsap.to(ref.current, { x: (e.clientX - r.left - r.width / 2) * 0.25, y: (e.clientY - r.top - r.height / 2) * 0.35, duration: 0.4, ease: 'power3.out' });
   };
-  const leave = () => gsap.to(ref.current, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1,0.4)' });
+  const leave = () => {
+    if (prefersReducedMotion) return;
+    gsap.to(ref.current, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1,0.4)' });
+  };
   return <div ref={ref} onMouseMove={move} onMouseLeave={leave} className="inline-block">{children}</div>;
 }
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const [isMarqueePaused, setIsMarqueePaused] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -44,19 +52,27 @@ export function Hero() {
     e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`);
     e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`);
   };
-  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const go = (id: string) => {
+    const behavior = prefersReducedMotion ? 'auto' : 'smooth';
+    document.getElementById(id)?.scrollIntoView({ behavior });
+  };
 
   return (
     <section ref={root} id="hero" onMouseMove={spot} className="grain relative w-full min-h-screen flex flex-col justify-between bg-charcoal text-off-white overflow-hidden pt-32 sm:pt-40">
       {/* Full-bleed photograph */}
       <picture className="absolute inset-0 z-0">
-        <source media="(max-width: 640px)" type="image/webp" srcSet="/assets/images/hero_luxury_knitwear_mobile.webp" />
-        <source media="(max-width: 640px)" type="image/jpeg" srcSet="/assets/images/hero_luxury_knitwear_mobile.jpg" />
-        <source type="image/webp" srcSet="/assets/images/hero_luxury_knitwear.webp" />
-        <img src="/assets/images/hero_luxury_knitwear.jpg" alt="Fashion Knits editorial knitwear campaign" className="h-bg w-full h-full object-cover object-center" fetchPriority="high" />
+        <source type="image/webp" srcSet="/assets/images/hero_campaign.webp" />
+        <img
+          src="/assets/images/hero_campaign.jpg"
+          alt="Models wearing refined cotton knitwear in a warm editorial studio"
+          width="1672"
+          height="941"
+          className="h-bg w-full h-full object-cover object-center"
+          fetchPriority="high"
+        />
       </picture>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/10" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-charcoal via-transparent to-charcoal/60" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-charcoal/75 via-charcoal/45 to-charcoal/5" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-charcoal/80 via-transparent to-charcoal/25" />
       <div className="spotlight absolute inset-0 z-[2] pointer-events-none" />
 
       <div className="h-content relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 my-auto pb-10">
@@ -93,12 +109,26 @@ export function Hero() {
       </div>
 
       {/* Infinite trust + product marquee */}
-      <div className="relative z-10 border-t border-white/10 bg-charcoal/70 backdrop-blur-md py-5 overflow-hidden">
-        <div className="marquee-track flex w-max gap-10 text-xs font-mono uppercase tracking-[0.2em] text-off-white/70">
-          {[...MARQUEE, ...MARQUEE].map((t, i) => (
-            <span key={i} className="flex items-center gap-10 whitespace-nowrap">{t}<span className="w-1.5 h-1.5 rotate-45 bg-accent" /></span>
-          ))}
+      <div className="relative z-10 border-t border-white/10 bg-charcoal/70 backdrop-blur-md">
+        <div id="trust-highlights" role="region" aria-label="Product and compliance highlights" className="overflow-hidden py-5 pr-16">
+          <div className={`marquee-track flex w-max gap-10 text-xs font-mono uppercase tracking-[0.2em] text-off-white/70 ${isMarqueePaused ? 'is-paused' : ''}`}>
+            {[...MARQUEE, ...MARQUEE].map((t, i) => (
+              <span key={i} aria-hidden={i >= MARQUEE.length} className="flex items-center gap-10 whitespace-nowrap">{t}<span className="w-1.5 h-1.5 rotate-45 bg-accent" /></span>
+            ))}
+          </div>
         </div>
+        {!prefersReducedMotion && (
+          <button
+            type="button"
+            className="marquee-control absolute right-5 top-1/2 inline-flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-white/5 text-off-white/70 transition-colors hover:border-accent/60 hover:text-accent"
+            onClick={() => setIsMarqueePaused((paused) => !paused)}
+            aria-label={isMarqueePaused ? 'Play product and compliance highlights' : 'Pause product and compliance highlights'}
+            aria-pressed={isMarqueePaused}
+            aria-controls="trust-highlights"
+          >
+            {isMarqueePaused ? <Play className="h-3.5 w-3.5" /> : <Pause className="h-3.5 w-3.5" />}
+          </button>
+        )}
       </div>
       <ScrollIndicator />
     </section>

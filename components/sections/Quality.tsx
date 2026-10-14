@@ -88,7 +88,7 @@ export function Quality() {
   }, []);
 
   return (
-    <section id="quality" ref={containerRef} className="bg-warm-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
+    <section id="quality" ref={containerRef} className="bg-warm-white py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
       <div className="max-w-[90rem] mx-auto">
         {/* Editorial Eyebrow with numbering */}
         <div className="flex items-center gap-4 mb-6">
@@ -106,7 +106,7 @@ export function Quality() {
 
         {/* Real Laboratory & Inspection Photographic Showcase */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
-          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
+          <div className="premium-card group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
               <picture className="w-full h-full">
                 <source type="image/webp" srcSet="/assets/images/quality_process.webp" />
@@ -147,7 +147,7 @@ export function Quality() {
             </div>
           </div>
 
-          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
+          <div className="premium-card group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 h-full flex flex-col justify-between">
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
               <picture className="w-full h-full">
                 <source type="image/webp" srcSet="/assets/images/team_about.webp" />
@@ -212,7 +212,7 @@ export function Quality() {
             {QUALITY_STEPS.map((step) => (
               <div
                 key={step.step}
-                className="group p-8 bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-lg transition-all duration-300"
+                className="premium-card group p-8 bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
                   <div className="flex items-start gap-6">

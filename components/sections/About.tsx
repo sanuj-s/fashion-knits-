@@ -1,261 +1,230 @@
 'use client';
 
 import React, { useLayoutEffect, useRef } from 'react';
-import { gsap } from '@/lib/animations';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { ShieldCheck, MapPin, Layers, Award, ArrowRight, Building2, Factory } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
+import {
+  ArrowUpRight,
+  Award,
+  Building2,
+  Factory,
+  Layers,
+  MapPin,
+  ShieldCheck,
+} from 'lucide-react';
+import { gsap } from '@/lib/animations';
+import { updatePointerTilt, resetPointerTilt } from '@/components/ui/pointerTilt';
 
-const OPERATIONAL_PILLARS = [
+const FACILITIES = [
   {
+    number: '01',
+    label: 'Main plant · Unit 01',
+    title: 'Production built around precision',
+    location: 'Netaji Apparel Park, New Tiruppur',
+    image: '/assets/facilities/factory_netaji_park_exterior.webp',
+    alt: 'Exterior of the Netaji Apparel Park knitwear factory in Tiruppur',
+    imageNote: 'Netaji Apparel Park · Unit 01',
+    detail: '20,000+ sq. ft.',
+    icon: Factory,
+    imageSize: 'aspect-[5/4]',
+    column: 'lg:col-span-7',
+    offset: '',
+    sizes: '(max-width: 1024px) 100vw, 58vw',
+  },
+  {
+    number: '02',
+    label: 'Corporate office · Sampling',
+    title: 'Ideas take shape here',
+    location: 'Angeripalayam, Tiruppur',
+    image: '/assets/facilities/office_angeripalayam_exterior.webp',
+    alt: 'Exterior of the Fashion Knits corporate office in Angeripalayam',
+    imageNote: 'Angeripalayam · Corporate HQ',
+    detail: 'Tiruppur, India',
+    icon: Building2,
+    imageSize: 'aspect-[4/3]',
+    column: 'lg:col-span-5',
+    offset: 'lg:mt-28',
+    sizes: '(max-width: 1024px) 100vw, 42vw',
+  },
+];
+
+const PILLARS = [
+  {
+    number: '01',
+    title: 'Two Tiruppur units',
+    detail: 'A corporate office and a dedicated production plant.',
     icon: MapPin,
-    title: 'Two Strategic Units',
-    subtitle: 'Office & Main Factory',
-    detail: 'Primary corporate office on Angeripalayam Road and main production facility at Netaji Apparel Park (Unit-1), Tiruppur.',
   },
   {
+    number: '02',
+    title: 'Production, connected',
+    detail: 'Knitting, CAD cutting, sewing assembly and finishing.',
     icon: Layers,
-    title: 'Precision Assembly',
-    subtitle: 'Cut-to-Pack Excellence',
-    detail: 'Specialized in-house knitting, CAD cutting, sewing lines, garment finishing, and rigorous inspection with certified processing partners.',
   },
   {
+    number: '03',
+    title: 'Certified materials',
+    detail: 'GOTS and OCS chain-of-custody tracking for organic cotton.',
     icon: ShieldCheck,
-    title: 'Certified Organic',
-    subtitle: 'GOTS & OCS Verified',
-    detail: 'Certified chain-of-custody tracking from raw organic cotton through certified spinning, eco-dyeing, and garment fabrication.',
   },
   {
+    number: '04',
+    title: 'Responsible standards',
+    detail: 'amfori BSCI and SMETA social compliance audits.',
     icon: Award,
-    title: 'Social Compliance',
-    subtitle: 'amfori BSCI & SMETA',
-    detail: 'Audited against rigorous international ethical labor benchmarks, safe working conditions, fair compensation, and zero child labor.',
   },
 ];
 
 export function About() {
   const containerRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const pillarsRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const ctx = gsap.context(() => {
-      if (gridRef.current) {
+      const reveal = (element: HTMLDivElement | null) => {
+        if (!element?.children.length) return;
         gsap.fromTo(
-          gridRef.current.children,
-          { y: 35, opacity: 0 },
+          element.children,
+          { y: 28, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.9,
+            duration: 0.8,
             stagger: 0.12,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: 'top 85%',
-              once: true,
-            },
+            scrollTrigger: { trigger: element, start: 'top 84%', once: true },
           }
         );
-      }
+      };
+
+      reveal(galleryRef.current);
+      reveal(pillarsRef.current);
     }, containerRef);
+
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="about" ref={containerRef} className="bg-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
-      <div className="max-w-[90rem] mx-auto">
-        {/* Editorial Eyebrow with numbering */}
-        <div className="flex items-center gap-4 mb-6">
-          <span className="h-px w-10 bg-accent" />
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-            01 // About Us
-          </span>
-        </div>
-
-        {/* Section Heading with Masked Line Reveal */}
-        <SectionHeading
-          title={'BUILT AROUND\nMANUFACTURING.'}
-          subtitle="Fashion Knits operates a dedicated two-unit infrastructure in Tiruppur, India — uniting client merchandising at our Angeripalayam Road corporate office with specialized garment manufacturing at Netaji Apparel Park (Unit-1)."
-        />
-
-        {/* Real-Level Photographic Facility Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
-          {/* Unit 1: Netaji Apparel Park Main Plant */}
-          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-              <picture className="w-full h-full">
-                <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park.webp" />
-                <img
-                  src="/assets/facilities/factory_netaji_park.jpg"
-                  alt="Fashion Knits Unit-1 Main Manufacturing Plant at Netaji Apparel Park"
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
-              <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
-                  <Factory className="w-3.5 h-3.5 text-accent" />
-                  Unit-1 Production Facility
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-[11px] font-mono text-off-white/90">
-                <span className="truncate">Shed No. 29, Netaji Apparel Park, New Tirupur</span>
-                <span className="text-accent font-semibold ml-2">20,000+ SQ.FT</span>
-              </div>
+    <section
+      id="about"
+      ref={containerRef}
+      className="relative overflow-hidden border-b border-charcoal/10 bg-[#f6f4ef] px-5 py-24 sm:px-8 md:py-32 lg:px-14 xl:px-20"
+    >
+      <div className="mx-auto max-w-[86rem]">
+        <div className="grid items-end gap-8 lg:grid-cols-12 lg:gap-14">
+          <div className="lg:col-span-7">
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-10 bg-accent" />
+              <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#907348]">
+                About Fashion Knits
+              </span>
             </div>
-
-            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
-                  Netaji Apparel Park (Unit-1) Main Plant
-                </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Our dedicated production plant houses high-gauge circular knitting machines, automated CAD multi-ply vacuum cutting tables, modular lean sewing assembly lines, steam finishing, and bonded export carton packing.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-charcoal/70">
-                <span className="uppercase tracking-wider">CAPACITY: KNITTING &amp; SEWING</span>
-                <span className="text-accent font-semibold tracking-wider">AQL 2.5 INSPECTION</span>
-              </div>
-            </div>
+            <h2 className="max-w-4xl text-[clamp(3rem,6.2vw,5.8rem)] font-semibold leading-[0.98] tracking-[-0.055em] text-charcoal">
+              <span className="block">Made with care.</span>
+              <span className="block text-charcoal/55">Built around knitwear.</span>
+            </h2>
           </div>
 
-          {/* Corporate HQ: Angeripalayam Road Office & Showroom */}
-          <div className="group bg-pure-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
-            <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-              <picture className="w-full h-full">
-                <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam.webp" />
-                <img
-                  src="/assets/facilities/office_angeripalayam.jpg"
-                  alt="Fashion Knits Corporate Office on Angeripalayam Road, Tiruppur"
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                  loading="lazy"
-                />
-              </picture>
-              <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
-              <div className="absolute top-4 left-4 z-10">
-                <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold uppercase tracking-widest text-accent">
-                  <Building2 className="w-3.5 h-3.5 text-accent" />
-                  Corporate HQ &amp; Showroom
-                </span>
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between text-[11px] font-mono text-off-white/90">
-                <span className="truncate">Angeripalayam Main Road, Tiruppur – 641 603</span>
-                <span className="text-accent font-semibold ml-2">SAMPLING LAB</span>
-              </div>
-            </div>
-
-            <div className="p-8 md:p-10 flex-1 flex flex-col justify-between">
-              <div>
-                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
-                  Angeripalayam Corporate Office &amp; Sampling
-                </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Our central corporate headquarters manages technical merchandising, international buyer liaisons, fabric swatch libraries, Pantone color lab dips, proto sampling, and regulatory social audit oversight.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-charcoal/70">
-                <span className="uppercase tracking-wider">MERCHANDISING &amp; SAMPLING</span>
-                <span className="text-accent font-semibold tracking-wider">RAPID PROTO FABRICATION</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Editorial Narrative Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-20 md:mt-28 items-start">
-          <div className="lg:col-span-7 space-y-6 text-charcoal/80 text-base md:text-lg leading-relaxed font-normal">
-            <p>
-              Operating across two key facilities in Tiruppur, Fashion Knits serves as a reliable manufacturing and sourcing partner for international fashion brands, private labels, and high-volume apparel distributors worldwide.
+          <div className="lg:col-span-5 lg:pb-2">
+            <p className="max-w-xl text-base leading-relaxed text-charcoal/70 md:text-lg">
+              Two Tiruppur locations. One connected knitwear partner, from first swatch to finished garment.
             </p>
-            <p className="text-sm md:text-base text-charcoal/70">
-              Our setup separates administrative focus from factory floor execution: our primary corporate office on Angeripalayam Main Road manages sampling, client liaison, technical merchandising, and executive oversight, while our main manufacturing plant at Shed No. 29, Netaji Apparel Park (Unit-1) houses circular knitting, CAD pattern cutting, modular sewing assembly, finishing, and export carton packing.
-            </p>
-            <div className="p-6 md:p-8 bg-pure-white border-l-2 border-accent border-y border-r border-charcoal/10 shadow-sm mt-8">
-              <p className="text-xs uppercase font-mono tracking-widest text-accent font-semibold mb-2">
-                Executive Manufacturing Scope
-              </p>
-              <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-mono">
-                Men&apos;s, Women&apos;s, Children&apos;s &amp; Babies&apos; Knitted Apparel // Product Class I Baby-Safe OEKO-TEX® Certified // GOTS Organic Cotton v7.0 // amfori BSCI Audit #9322
-              </p>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5 bg-charcoal text-off-white p-8 md:p-12 border border-white/10 relative overflow-hidden shadow-2xl grain">
-            <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="h-px w-8 bg-accent" />
-                <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-                  Manufacturing Philosophy
-                </span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight uppercase leading-snug">
-                Precision Engineering at Every Seam
-              </h3>
-              <p className="text-sm text-off-white/70 leading-relaxed mt-5">
-                We believe commercial success for global apparel brands begins on the factory floor: consistent fabric weights, uniform shrinkage control, exact Delta-E color fastness, and ethical, transparent production timelines you can rely on season after season.
-              </p>
-              <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-off-white/60">
-                <span>LOCATION: TIRUPPUR (INDIA)</span>
-                <span className="text-accent font-semibold">AQL 2.5 / 4.0</span>
-              </div>
-            </div>
-            {/* Subtle luxury ambient glow */}
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-accent/15 rounded-full blur-3xl pointer-events-none" />
+            <Link
+              href="/about"
+              className="group mt-6 inline-flex items-center gap-2 border-b border-charcoal/25 pb-2 text-xs font-semibold uppercase tracking-[0.16em] text-charcoal transition-colors hover:border-accent hover:text-[#907348]"
+            >
+              Discover our company
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
           </div>
         </div>
 
-        {/* 4 Verified Operational Pillars */}
-        <div
-          ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20 md:mt-28 pt-16 border-t border-charcoal/10"
-        >
-          {OPERATIONAL_PILLARS.map((pillar, idx) => {
-            const Icon = pillar.icon;
+        <div ref={galleryRef} className="mt-14 grid gap-10 lg:grid-cols-12 lg:gap-8">
+          {FACILITIES.map((facility) => {
+            const Icon = facility.icon;
             return (
-              <div
-                key={idx}
-                className="group bg-pure-white p-8 border border-charcoal/10 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg flex flex-col justify-between"
+              <article
+                key={facility.number}
+                onPointerMove={updatePointerTilt}
+                onPointerLeave={resetPointerTilt}
+                className={`premium-card pointer-tilt group ${facility.column} ${facility.offset}`}
               >
-                <div>
-                  <div className="w-12 h-12 bg-charcoal text-accent flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-charcoal transition-colors duration-300">
-                    <Icon className="w-5 h-5" />
+                <figure className={`motion-photo relative ${facility.imageSize} overflow-hidden rounded-[1.15rem] bg-[#e8e4dc]`}>
+                  <Image
+                    src={facility.image}
+                    alt={facility.alt}
+                    fill
+                    sizes={facility.sizes}
+                    loading="lazy"
+                    className="motion-photo-image object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#171612]/65 via-[#171612]/5 to-[#171612]/10" />
+                  <div className="absolute inset-x-4 top-4 flex flex-wrap items-start justify-between gap-2 sm:inset-x-5 sm:top-5 sm:gap-3">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-[#191815]/65 px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-md">
+                      <Icon className="h-3.5 w-3.5 text-[#dfbd7d]" />
+                      {facility.label}
+                    </span>
+                    <span className="rounded-full border border-charcoal/10 bg-[#f7f5f0]/90 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
+                      Representative image
+                    </span>
                   </div>
-                  <h4 className="text-base font-bold text-charcoal uppercase tracking-wider">
-                    {pillar.title}
-                  </h4>
-                  <p className="text-xs font-mono uppercase tracking-widest text-accent mt-1 font-semibold">
-                    {pillar.subtitle}
+                  <figcaption className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 text-white sm:inset-x-6 sm:bottom-6">
+                    <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-white/85">
+                      {facility.imageNote}
+                    </span>
+                    <span className="shrink-0 text-xs font-medium tracking-wide text-white">
+                      {facility.detail}
+                    </span>
+                  </figcaption>
+                </figure>
+
+                <div className="pt-6 sm:pt-7">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#907348]">
+                    {facility.location}
                   </p>
-                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mt-4">
-                    {pillar.detail}
-                  </p>
+                  <h3 className="mt-2 text-2xl font-medium leading-tight tracking-[-0.03em] text-charcoal sm:text-[1.8rem]">
+                    {facility.title}
+                  </h3>
+                  <div className="mt-4 flex items-center justify-between border-t border-charcoal/12 pt-4 text-[9px] font-semibold uppercase tracking-[0.14em] text-charcoal/45">
+                    <span>Fashion Knits · Tiruppur</span>
+                    <span>{facility.number} / 02</span>
+                  </div>
                 </div>
-                <div className="mt-6 pt-4 border-t border-charcoal/8 flex items-center justify-between text-[11px] font-mono text-muted-gray">
-                  <span>PILLAR 0{idx + 1}</span>
-                  <span className="w-1.5 h-1.5 bg-accent/60 rotate-45" />
-                </div>
-              </div>
+              </article>
             );
           })}
         </div>
 
-        {/* Explore Full Company Profile CTA */}
-        <div className="mt-16 pt-8 border-t border-charcoal/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <span className="text-xs font-mono uppercase tracking-widest text-muted-gray">
-            Learn More About Our Heritage &amp; Operations
-          </span>
-          <Link
-            href="/about"
-            className="inline-flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-charcoal hover:text-accent transition-colors font-bold group"
-          >
-            <span>Explore Company Profile</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
-          </Link>
+        <div className="mt-12 border-t border-charcoal/15 pt-7 md:mt-16 md:pt-9">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+            <h3 className="text-xl font-medium tracking-[-0.035em] text-charcoal sm:text-2xl">
+              Connected from yarn to shipment.
+            </h3>
+            <span className="text-[9px] font-mono uppercase tracking-[0.12em] text-charcoal/45 sm:text-[10px]">
+              Tiruppur, India
+            </span>
+          </div>
+
+          <div ref={pillarsRef} className="flex flex-wrap gap-2.5 sm:gap-3">
+            {PILLARS.map((pillar) => {
+              const Icon = pillar.icon;
+              return (
+                <div
+                  key={pillar.number}
+                  className="premium-card inline-flex items-center gap-2.5 rounded-full border border-charcoal/10 bg-white/60 px-4 py-3 sm:px-5"
+                >
+                  <Icon className="h-4 w-4 text-[#a38454]" />
+                  <h4 className="text-[10px] font-semibold uppercase tracking-[0.1em] text-charcoal sm:text-[11px]">
+                    {pillar.title}
+                  </h4>
+                </div>
+              );
+            })}
+          </div>
+
         </div>
       </div>
     </section>

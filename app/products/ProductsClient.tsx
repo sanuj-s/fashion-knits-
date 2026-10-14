@@ -2,13 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   ChevronDown,
   ChevronUp,
   ArrowRight,
   ShieldCheck,
-  Layers,
-  Scissors,
   Check,
   Sparkles,
 } from 'lucide-react';
@@ -197,59 +196,86 @@ export function ProductsClient() {
 
   return (
     <div className="bg-warm-white text-charcoal">
-      {/* Editorial Header */}
-      <section className="grain relative bg-charcoal text-off-white pt-40 pb-28 px-6 md:px-16 lg:px-24 border-b border-white/10 overflow-hidden">
-        <div className="max-w-[90rem] mx-auto relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-accent mb-8">
-            <Link href="/" className="hover:text-off-white transition-colors">
-              Home
-            </Link>
-            <span className="text-white/40">/</span>
-            <span className="text-off-white/80">Product Catalogue</span>
+      {/* Product catalogue hero */}
+      <section className="grain relative isolate overflow-hidden border-b border-white/10 bg-charcoal px-5 pb-14 pt-24 text-off-white sm:px-8 sm:pb-16 sm:pt-28 lg:px-16 lg:pb-20 lg:pt-32">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full bg-accent/10 blur-[120px]" />
+        <div className="relative z-10 mx-auto max-w-[90rem]">
+          <div className="mb-8 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.22em] text-accent sm:text-xs">
+            <Link href="/" className="transition-colors hover:text-off-white">Home</Link>
+            <span className="text-white/35">/</span>
+            <span className="text-off-white/75">Product catalogue</span>
           </div>
 
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-            <div className="max-w-4xl">
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-3 font-semibold">
-                Commercial Knitted Apparel Portfolio
+          <div className="grid items-center gap-10 lg:grid-cols-[1.02fr_.98fr] lg:gap-14">
+            <div className="catalogue-hero-copy max-w-4xl">
+              <span className="mb-4 inline-flex items-center gap-2.5 rounded-full border border-accent/25 bg-white/[0.035] px-3.5 py-2 text-[9px] font-mono font-semibold uppercase tracking-[0.18em] text-accent sm:text-[10px]">
+                <Sparkles aria-hidden="true" className="h-3.5 w-3.5" />
+                Commercial knitwear · Tiruppur, India
               </span>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
-                <span className="block text-off-white">PRODUCT</span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-accent via-[#f0dcae] to-accent mt-1">
-                  CATALOGUE.
+              <h1 className="text-[clamp(3.4rem,7.2vw,7rem)] font-semibold uppercase leading-[0.86] tracking-[-0.065em]">
+                <span className="block text-off-white">Product</span>
+                <span className="mt-2 block text-accent">
+                  Catalogue.
                 </span>
               </h1>
-              <p className="text-base sm:text-xl text-off-white/75 mt-8 max-w-2xl leading-relaxed font-normal">
-                Explore our export-grade knitted garment portfolio. Manufactured for international fashion brands, private labels, and retail distributors across our two specialized facilities in Tiruppur, India.
+              <p className="mt-7 max-w-2xl text-sm leading-7 text-off-white/70 sm:text-base sm:leading-8 lg:mt-8 lg:text-lg">
+                Explore export-ready knitwear for fashion labels, retailers and private brands. Choose a core style or develop a custom program with our Tiruppur team.
               </p>
-            </div>
 
-            <div className="p-8 bg-black/40 border border-white/10 backdrop-blur-md max-w-md flex-shrink-0">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
-                Manufacturing Highlights
-              </span>
-              <div className="space-y-2 text-xs font-mono text-off-white/80">
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span className="text-muted-gray">STANDARD MOQS</span>
-                  <span className="text-accent font-semibold">800 – 1,000 PCS</span>
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span className="text-muted-gray">PRODUCTION LEAD TIME</span>
-                  <span className="text-off-white">45 – 65 DAYS</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-gray">SAMPLING TURNAROUND</span>
-                  <span className="text-accent font-semibold">7 – 10 DAYS</span>
-                </div>
+              <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
+                <a
+                  href="#catalogue"
+                  className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent px-5 text-[10px] font-bold uppercase tracking-[0.14em] text-charcoal shadow-[0_12px_32px_rgba(193,158,96,.18)] transition-colors hover:bg-[#e5c78e] sm:px-6 sm:text-xs"
+                >
+                  Browse collections
+                  <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+                <Link
+                  href="#contact"
+                  className="inline-flex min-h-12 items-center rounded-full border border-white/15 px-5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/80 transition-colors hover:border-white/40 hover:text-white sm:px-6 sm:text-xs"
+                >
+                  Request a quote
+                </Link>
               </div>
             </div>
+
+            <figure className="catalogue-hero-visual motion-photo group relative isolate mx-auto aspect-[4/3] w-full max-w-[48rem] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#29251f] shadow-[0_32px_100px_rgba(0,0,0,.36)] lg:aspect-[1.25/1]">
+              <Image
+                src="/assets/images/hero_campaign.webp"
+                alt="Models wearing refined knitwear in neutral and olive tones"
+                fill
+                priority
+                sizes="(max-width: 1024px) 92vw, 48vw"
+                className="motion-photo-image object-cover object-[66%_center] transition-transform duration-700 motion-safe:group-hover:scale-[1.16]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#151411]/90 via-[#151411]/10 to-black/5" />
+              <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/35 px-3 py-2 text-[8px] font-mono font-semibold uppercase tracking-[0.16em] text-white/90 backdrop-blur-md sm:left-5 sm:top-5 sm:text-[9px]">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                Representative collection imagery
+              </div>
+              <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                <div className="grid grid-cols-3 divide-x divide-white/15 rounded-xl border border-white/15 bg-[#171614]/75 px-2 py-3 shadow-xl backdrop-blur-xl sm:px-4 sm:py-4">
+                  <div className="px-2 sm:px-3">
+                    <span className="block text-[8px] font-mono uppercase tracking-[0.14em] text-white/50 sm:text-[9px]">Typical MOQ</span>
+                    <span className="mt-1 block text-[10px] font-semibold text-white sm:text-xs">800–1,000 pcs</span>
+                  </div>
+                  <div className="px-2 sm:px-3">
+                    <span className="block text-[8px] font-mono uppercase tracking-[0.14em] text-white/50 sm:text-[9px]">Sampling</span>
+                    <span className="mt-1 block text-[10px] font-semibold text-white sm:text-xs">7–10 days</span>
+                  </div>
+                  <div className="px-2 sm:px-3">
+                    <span className="block text-[8px] font-mono uppercase tracking-[0.14em] text-white/50 sm:text-[9px]">Production</span>
+                    <span className="mt-1 block text-[10px] font-semibold text-white sm:text-xs">45–65 days</span>
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
 
       {/* Main Catalogue Section */}
-      <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
+      <section id="catalogue" className="scroll-mt-24 py-20 md:py-28 px-5 sm:px-8 md:px-16 lg:px-24">
         <div className="max-w-[90rem] mx-auto">
           {/* Category Filter Navigation */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pb-8 border-b border-charcoal/10">
@@ -258,10 +284,11 @@ export function ProductsClient() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveFilter(tab.id)}
-                  className={`px-5 py-2.5 text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
+                  aria-pressed={activeFilter === tab.id}
+                  className={`min-h-10 rounded-full border px-4 py-2.5 text-[10px] font-mono uppercase tracking-[0.1em] transition-all cursor-pointer motion-safe:hover:-translate-y-0.5 sm:px-5 sm:text-xs ${
                     activeFilter === tab.id
-                      ? 'bg-charcoal text-off-white font-bold'
-                      : 'bg-pure-white text-charcoal/70 border border-charcoal/10 hover:border-charcoal/30'
+                      ? 'border-charcoal bg-charcoal text-off-white font-bold shadow-[0_8px_20px_rgba(25,24,22,.12)]'
+                      : 'border-charcoal/10 bg-pure-white text-charcoal/70 hover:border-accent/60 hover:text-charcoal'
                   }`}
                 >
                   {tab.label}
@@ -282,7 +309,7 @@ export function ProductsClient() {
               return (
                 <div
                   key={product.id}
-                  className="group bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-2xl transition-all duration-500 overflow-hidden"
+                  className="product-card-reveal premium-card group bg-pure-white border border-charcoal/10 flex flex-col justify-between hover:border-accent hover:shadow-2xl transition-all duration-500 overflow-hidden"
                 >
                   <div>
                     {/* Real Commercial Photograph (3:4 ratio) */}
@@ -383,7 +410,7 @@ export function ProductsClient() {
                     </button>
 
                     <Link
-                      href="/#contact"
+                      href="#contact"
                       className="btn-shine block text-center w-full py-3 bg-charcoal hover:bg-accent hover:text-charcoal text-off-white text-[11px] font-mono uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer shadow-sm"
                     >
                       Request Quotation

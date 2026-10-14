@@ -86,7 +86,7 @@ export function CompanyStory() {
   }, []);
 
   return (
-    <section id="story" ref={containerRef} className="grain relative bg-charcoal text-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-white/10">
+    <section id="story" ref={containerRef} className="grain relative bg-charcoal text-off-white py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 border-b border-white/10">
       <div className="max-w-[90rem] mx-auto">
         {/* Editorial Eyebrow with numbering */}
         <div className="flex items-center gap-4 mb-6">
@@ -110,7 +110,7 @@ export function CompanyStory() {
             return (
               <div
                 key={milestone.phase}
-                className="group bg-[#161413] p-8 border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                className="premium-card group bg-[#161413] p-8 border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">

@@ -4,13 +4,13 @@ import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'About Us | Fashion Knits Leadership & Manufacturing History',
+  title: 'About Us | Fashion Knits Heritage & Production',
   description:
-    'Learn about Fashion Knits: company history, executive leadership, Tiruppur knitwear heritage across Angeripalayam Road and Netaji Apparel Park, ethical labor standards, and certified manufacturing milestones.',
+    'Learn about Fashion Knits: Tiruppur knitwear heritage, our Angeripalayam office and Netaji Apparel Park production facility, responsible workplace standards, and manufacturing milestones.',
   keywords: [
     'About Fashion Knits',
     'Tiruppur knitwear manufacturer',
-    'garment factory leadership',
+    'knitwear production Tiruppur',
     'Netaji Apparel Park unit 1',
     'ethical apparel manufacturer India',
   ],

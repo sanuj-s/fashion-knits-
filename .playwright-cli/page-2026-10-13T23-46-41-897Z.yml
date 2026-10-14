@@ -1,0 +1,527 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "Fashion Knits home" [ref=e5] [cursor=pointer]:
+        - /url: /
+        - text: Fashion Knits
+      - button "Open navigation menu" [ref=e7]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: "#sustainability"
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - button: Start an inquiry
+  - main [ref=e11]:
+    - generic [ref=e12]:
+      - img "Models wearing refined cotton knitwear in a warm editorial studio" [ref=e14]
+      - generic [ref=e17]:
+        - generic [ref=e18]: Fashion Knits // Tiruppur, India
+        - heading "Made for brands. Built for the world." [level=1] [ref=e21]:
+          - generic [ref=e22]: Made for brands.
+          - generic [ref=e24]: Built for the world.
+        - paragraph [ref=e26]: Precision knitwear development and manufacturing for international apparel brands, from yarn to export.
+        - generic [ref=e27]:
+          - button "Explore Products" [ref=e29] [cursor=pointer]
+          - button "Request a Quote" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]: NAP Unit-1 & Angeripalayam HQ
+      - generic [ref=e38]:
+        - region "Product and compliance highlights" [ref=e39]:
+          - generic [ref=e40]:
+            - generic [ref=e41]: GOTS & OCS Organic
+            - generic [ref=e43]: OEKO-TEX® Standard 100 Class I
+            - generic [ref=e45]: "amfori BSCI #9322"
+            - generic [ref=e47]: Polos
+            - generic [ref=e49]: T-Shirts
+            - generic [ref=e51]: Hoodies
+            - generic [ref=e53]: Sweatshirts
+            - generic [ref=e55]: Kidswear
+            - generic [ref=e57]: Sportswear
+            - generic [ref=e59]: Custom OEM
+            - generic [aria-hidden] [ref=e61]: GOTS & OCS Organic
+            - generic [aria-hidden] [ref=e63]: OEKO-TEX® Standard 100 Class I
+            - generic [aria-hidden] [ref=e65]: "amfori BSCI #9322"
+            - generic [aria-hidden] [ref=e67]: Polos
+            - generic [aria-hidden] [ref=e69]: T-Shirts
+            - generic [aria-hidden] [ref=e71]: Hoodies
+            - generic [aria-hidden] [ref=e73]: Sweatshirts
+            - generic [aria-hidden] [ref=e75]: Kidswear
+            - generic [aria-hidden] [ref=e77]: Sportswear
+            - generic [aria-hidden] [ref=e79]: Custom OEM
+        - button "Pause product and compliance highlights" [ref=e81]
+      - generic [ref=e85]: Scroll to explore
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]: About Fashion Knits
+          - heading "Made with care. Built around knitwear." [level=2] [ref=e96]:
+            - generic [ref=e97]: Made with care.
+            - generic [ref=e98]: Built around knitwear.
+        - generic [ref=e99]:
+          - paragraph [ref=e100]: Two Tiruppur locations. One connected knitwear partner, from first swatch to finished garment.
+          - link "Discover our company" [ref=e101] [cursor=pointer]:
+            - /url: /about
+      - generic [ref=e105]:
+        - article [ref=e106]:
+          - figure "Knitting · cutting · finishing 20,000+ sq. ft." [ref=e107]:
+            - img "Representative view of a sunlit knitwear production floor with circular knitting machines and cotton yarn" [ref=e108]
+            - generic [ref=e110]:
+              - generic [ref=e111]: Main plant · Unit 01
+              - generic [ref=e114]: Representative image
+            - generic [ref=e115]:
+              - generic [ref=e116]: Knitting · cutting · finishing
+              - generic [ref=e117]: 20,000+ sq. ft.
+          - generic [ref=e118]:
+            - paragraph [ref=e119]: Netaji Apparel Park, New Tiruppur
+            - heading "Production built around precision" [level=3] [ref=e120]
+            - generic [ref=e121]:
+              - generic [ref=e122]: Fashion Knits · Tiruppur
+              - generic [ref=e123]: 01 / 02
+        - article [ref=e124]:
+          - figure "Merchandising · sampling · liaison Tiruppur, India" [ref=e125]:
+            - img "Representative view of a knitwear sampling studio with fabric swatches and garment samples" [ref=e126]
+            - generic [ref=e128]:
+              - generic [ref=e129]: Corporate office · Sampling
+              - generic [ref=e134]: Representative image
+            - generic [ref=e135]:
+              - generic [ref=e136]: Merchandising · sampling · liaison
+              - generic [ref=e137]: Tiruppur, India
+          - generic [ref=e138]:
+            - paragraph [ref=e139]: Angeripalayam, Tiruppur
+            - heading "Ideas take shape here" [level=3] [ref=e140]
+            - generic [ref=e141]:
+              - generic [ref=e142]: Fashion Knits · Tiruppur
+              - generic [ref=e143]: 02 / 02
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - heading "Connected from yarn to shipment." [level=3] [ref=e146]
+          - generic [ref=e147]: Tiruppur, India
+        - generic [ref=e148]:
+          - heading "Two Tiruppur units" [level=4] [ref=e153]
+          - heading "Production, connected" [level=4] [ref=e159]
+          - heading "Certified materials" [level=4] [ref=e164]
+          - heading "Responsible standards" [level=4] [ref=e169]
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - paragraph [ref=e174]: Made in Tiruppur · 01—08
+          - heading "From yarn to world." [level=2] [ref=e176]
+        - generic [ref=e177]:
+          - paragraph [ref=e178]: Swipe or scroll to explore the journey.
+          - generic [ref=e181]: 01 / 08
+      - generic "Eight stages of knitwear production" [ref=e183]:
+        - generic [ref=e184]:
+          - article [ref=e185]:
+            - img "Cotton yarn prepared for knitwear production" [ref=e186]
+            - generic [aria-hidden] [ref=e188]: "01"
+            - generic [ref=e189]:
+              - generic [ref=e190]: Stage 01
+              - generic [ref=e191]: Certified fibers
+            - heading "Yarn sourcing" [level=3] [ref=e195]
+          - article [ref=e200]:
+            - img "Circular knitting machinery producing fabric" [ref=e201]
+            - generic [aria-hidden] [ref=e203]: "02"
+            - generic [ref=e204]:
+              - generic [ref=e205]: Stage 02
+              - generic [ref=e206]: Fabric construction
+            - heading "Circular knitting" [level=3] [ref=e210]
+          - article [ref=e215]:
+            - img "Fabric dyeing and color development" [ref=e216]
+            - generic [aria-hidden] [ref=e218]: "03"
+            - generic [ref=e219]:
+              - generic [ref=e220]: Stage 03
+              - generic [ref=e221]: Color control
+            - heading "Color & dyeing" [level=3] [ref=e225]
+          - article [ref=e230]:
+            - img "Automated cutting table preparing knit fabric panels" [ref=e231]
+            - generic [aria-hidden] [ref=e233]: "04"
+            - generic [ref=e234]:
+              - generic [ref=e235]: Stage 04
+              - generic [ref=e236]: Precision markers
+            - heading "CAD cutting" [level=3] [ref=e240]
+          - article [ref=e245]:
+            - img "Garment sewing line assembling knitwear" [ref=e246]
+            - generic [aria-hidden] [ref=e248]: "05"
+            - generic [ref=e249]:
+              - generic [ref=e250]: Stage 05
+              - generic [ref=e251]: Modular sewing
+            - heading "Garment assembly" [level=3] [ref=e255]
+          - article [ref=e260]:
+            - img "Finished fabric undergoing quality finishing" [ref=e261]
+            - generic [aria-hidden] [ref=e263]: "06"
+            - generic [ref=e264]:
+              - generic [ref=e265]: Stage 06
+              - generic [ref=e266]: Hand-feel & fit
+            - heading "Fabric finishing" [level=3] [ref=e270]
+          - article [ref=e275]:
+            - img "Quality inspection of finished knit garments" [ref=e276]
+            - generic [aria-hidden] [ref=e278]: "07"
+            - generic [ref=e279]:
+              - generic [ref=e280]: Stage 07
+              - generic [ref=e281]: AQL inspection
+            - heading "Quality control" [level=3] [ref=e285]
+          - article [ref=e290]:
+            - img "Export-ready knitwear being finished and packed" [ref=e291]
+            - generic [aria-hidden] [ref=e293]: "08"
+            - generic [ref=e294]:
+              - generic [ref=e295]: Stage 08
+              - generic [ref=e296]: Retail-ready packing
+            - heading "Ready for export" [level=3] [ref=e300]
+      - link "Explore production" [ref=e307] [cursor=pointer]:
+        - /url: /manufacturing
+    - generic [ref=e312]:
+      - generic [ref=e313]:
+        - generic [ref=e314]:
+          - paragraph [ref=e315]: The craft behind every piece
+          - heading "Built from the inside out." [level=2] [ref=e317]
+        - generic [ref=e318]:
+          - link "See the full process" [ref=e319] [cursor=pointer]:
+            - /url: /manufacturing
+          - generic [ref=e323]: Representative production imagery
+      - generic [ref=e324]:
+        - article [ref=e325]:
+          - img "Knitwear operator checking a circular knitting machine and ivory cotton jersey" [ref=e326]
+          - generic [aria-hidden] [ref=e328]: "01"
+          - generic [ref=e330]:
+            - generic [ref=e331]: Textile construction
+            - heading "Circular & flat knitting" [level=3] [ref=e332]
+        - article [ref=e337]:
+          - img "Textile technician comparing indigo knit swatches in a color laboratory" [ref=e338]
+          - generic [aria-hidden] [ref=e340]: "02"
+          - generic [ref=e342]:
+            - generic [ref=e343]: Responsible processing
+            - heading "Color & dyeing" [level=3] [ref=e344]
+        - article [ref=e349]:
+          - img "Specialist inspecting cotton knit layers on an automated cutting table" [ref=e350]
+          - generic [aria-hidden] [ref=e352]: "03"
+          - generic [ref=e354]:
+            - generic [ref=e355]: Precision engineering
+            - heading "CAD cutting" [level=3] [ref=e356]
+        - article [ref=e361]:
+          - img "Garment maker sewing a charcoal cotton knit top on a modular production line" [ref=e362]
+          - generic [aria-hidden] [ref=e364]: "04"
+          - generic [ref=e366]:
+            - generic [ref=e367]: Garment production
+            - heading "Assembly & finishing" [level=3] [ref=e368]
+      - generic [ref=e373]:
+        - paragraph [ref=e374]: Yarn / Fabric / Garment / Shipment
+        - generic [ref=e375]: End-to-end knitwear development
+    - generic [ref=e377]:
+      - generic [ref=e378]: 04 // Product Portfolio
+      - generic [ref=e381]:
+        - generic [ref=e382]:
+          - heading "PRODUCT" [level=2] [ref=e384]
+          - heading "PORTFOLIO." [level=2] [ref=e386]
+        - paragraph [ref=e387]: Precision knitted apparel manufactured for international fashion labels, retail chains, and private brands across categories.
+      - generic [ref=e388]:
+        - group "Filter product categories" [ref=e389]:
+          - button "All Categories" [pressed] [ref=e390] [cursor=pointer]
+          - button "Tops & Polos" [ref=e391] [cursor=pointer]
+          - button "Fleece & Terry" [ref=e392] [cursor=pointer]
+          - button "Activewear" [ref=e393] [cursor=pointer]
+          - button "Baby & Kids" [ref=e394] [cursor=pointer]
+          - button "Custom OEM" [ref=e395] [cursor=pointer]
+        - generic [ref=e396]: 8 Export Product Categories
+      - generic [ref=e397]:
+        - generic [ref=e398]:
+          - generic [ref=e399]:
+            - generic [ref=e400]:
+              - img "Fashion Knits T-Shirts production sample" [ref=e401]
+              - generic [ref=e402]: GOTS Organic
+              - generic [ref=e407]: 160 – 220 GSM Single Jersey
+            - heading "T-Shirts" [level=3] [ref=e409]
+          - generic [ref=e410]:
+            - button "Technical Specs" [ref=e411] [cursor=pointer]
+            - button "Enquire about this style" [ref=e415] [cursor=pointer]
+        - generic [ref=e416]:
+          - generic [ref=e417]:
+            - generic [ref=e418]:
+              - img "Fashion Knits Polos production sample" [ref=e419]
+              - generic [ref=e420]: GOTS Organic
+              - generic [ref=e425]: 220 – 260 GSM Pique Knit
+            - heading "Polos" [level=3] [ref=e427]
+          - generic [ref=e428]:
+            - button "Technical Specs" [ref=e429] [cursor=pointer]
+            - button "Enquire about this style" [ref=e433] [cursor=pointer]
+        - generic [ref=e434]:
+          - generic [ref=e435]:
+            - generic [ref=e436]:
+              - img "Fashion Knits Sweatshirts production sample" [ref=e437]
+              - generic [ref=e438]: GOTS Organic
+              - generic [ref=e443]: 320 – 380 GSM Heavyweight Terry
+            - heading "Sweatshirts" [level=3] [ref=e445]
+          - generic [ref=e446]:
+            - button "Technical Specs" [ref=e447] [cursor=pointer]
+            - button "Enquire about this style" [ref=e451] [cursor=pointer]
+        - generic [ref=e452]:
+          - generic [ref=e453]:
+            - generic [ref=e454]:
+              - img "Fashion Knits Hoodies production sample" [ref=e455]
+              - generic [ref=e456]: GOTS Organic
+              - generic [ref=e461]: 340 – 420 GSM Brushed Fleece
+            - heading "Hoodies" [level=3] [ref=e463]
+          - generic [ref=e464]:
+            - button "Technical Specs" [ref=e465] [cursor=pointer]
+            - button "Enquire about this style" [ref=e469] [cursor=pointer]
+        - generic [ref=e470]:
+          - generic [ref=e471]:
+            - generic [ref=e472]:
+              - img "Fashion Knits Sportswear & Active production sample" [ref=e473]
+              - generic [ref=e474]: 160 – 220 GSM Quick-Dry
+            - heading "Sportswear & Active" [level=3] [ref=e476]
+          - generic [ref=e477]:
+            - button "Technical Specs" [ref=e478] [cursor=pointer]
+            - button "Enquire about this style" [ref=e482] [cursor=pointer]
+        - generic [ref=e483]:
+          - generic [ref=e484]:
+            - generic [ref=e485]:
+              - img "Fashion Knits Casualwear & Lounge production sample" [ref=e486]
+              - generic [ref=e487]: GOTS Organic
+              - generic [ref=e492]: 240 – 340 GSM Loungewear Terry
+            - heading "Casualwear & Lounge" [level=3] [ref=e494]
+          - generic [ref=e495]:
+            - button "Technical Specs" [ref=e496] [cursor=pointer]
+            - button "Enquire about this style" [ref=e500] [cursor=pointer]
+        - generic [ref=e501]:
+          - generic [ref=e502]:
+            - generic [ref=e503]:
+              - img "Fashion Knits Kidswear & Babywear production sample" [ref=e504]
+              - generic [ref=e505]: GOTS Organic
+              - generic [ref=e510]: 160 – 260 GSM Rib, Interlock & Fleece
+            - heading "Kidswear & Babywear" [level=3] [ref=e512]
+          - generic [ref=e513]:
+            - button "Technical Specs" [ref=e514] [cursor=pointer]
+            - button "Enquire about this style" [ref=e518] [cursor=pointer]
+        - generic [ref=e519]:
+          - generic [ref=e520]:
+            - generic [ref=e521]:
+              - img "Fashion Knits Custom Programs & OEM production sample" [ref=e522]
+              - generic [ref=e523]: GOTS Organic
+              - generic [ref=e528]: Full Custom Grammages (120 to 450 GSM)
+            - heading "Custom Programs & OEM" [level=3] [ref=e530]
+          - generic [ref=e531]:
+            - button "Technical Specs" [ref=e532] [cursor=pointer]
+            - button "Enquire about this style" [ref=e536] [cursor=pointer]
+      - generic [ref=e537]:
+        - generic [ref=e538]: Looking for Custom Blends or Grammages?
+        - link "View Complete Product Catalogue" [ref=e539] [cursor=pointer]:
+          - /url: /products
+    - generic [ref=e544]:
+      - generic [ref=e545]:
+        - paragraph [ref=e546]: Responsible materials
+        - heading "Considered materials. Clear standards." [level=2] [ref=e548]
+        - paragraph [ref=e549]: We develop knitwear with fiber traceability, product safety and resource-aware processing in mind. Buyers can review the standards and scope certificates behind our material program.
+        - generic [ref=e550]:
+          - generic [ref=e551]:
+            - generic [ref=e552]: "01"
+            - generic [ref=e556]: Fiber sourcing
+            - generic [ref=e557]: GOTS · OCS
+          - generic [ref=e558]:
+            - generic [ref=e559]: "02"
+            - generic [ref=e563]: Product safety
+            - generic [ref=e564]: OEKO-TEX® · Class I
+          - generic [ref=e565]:
+            - generic [ref=e566]: "03"
+            - generic [ref=e570]: Dyeing process
+            - generic [ref=e571]: Low-liquor dyeing
+        - link "View standards & certificates" [ref=e572] [cursor=pointer]:
+          - /url: /quality#certificates
+      - figure "Material development Yarn, knit and color selection" [ref=e576]:
+        - img "Hands comparing knit fabric swatches beside cotton yarn and a color card" [ref=e577]
+        - generic [ref=e579]:
+          - generic [ref=e580]: Material development
+          - generic [ref=e581]: Yarn, knit and color selection
+    - generic [ref=e583]:
+      - generic [ref=e584]:
+        - generic [ref=e585]:
+          - paragraph [ref=e586]: Standards & certifications
+          - heading "Trust, documented." [level=2] [ref=e588]
+        - link "Explore all certificates" [ref=e589] [cursor=pointer]:
+          - /url: /quality#certificates
+      - generic [ref=e593]:
+        - link "Open GOTS certificate PDF" [ref=e594] [cursor=pointer]:
+          - /url: /assets/certificates/gots-organic-textile.pdf
+          - generic [ref=e595]:
+            - img "GOTS certificate preview" [ref=e596]
+            - generic [ref=e598]: View document
+            - generic [ref=e602]: "01"
+          - generic [ref=e604]:
+            - heading "GOTS" [level=3] [ref=e605]
+            - paragraph [ref=e606]: Organic textile standard
+        - link "Open OCS 100 certificate PDF" [ref=e610] [cursor=pointer]:
+          - /url: /assets/certificates/ocs-organic-content.pdf
+          - generic [ref=e611]:
+            - img "OCS 100 certificate preview" [ref=e612]
+            - generic [ref=e614]: View document
+            - generic [ref=e618]: "02"
+          - generic [ref=e620]:
+            - heading "OCS 100" [level=3] [ref=e621]
+            - paragraph [ref=e622]: Organic content standard
+        - link "Open OEKO-TEX® certificate PDF" [ref=e626] [cursor=pointer]:
+          - /url: /assets/certificates/oeko-tex-standard-100.pdf
+          - generic [ref=e627]:
+            - img "OEKO-TEX® certificate preview" [ref=e628]
+            - generic [ref=e630]: View document
+            - generic [ref=e634]: "03"
+          - generic [ref=e636]:
+            - heading "OEKO-TEX®" [level=3] [ref=e637]
+            - paragraph [ref=e638]: STANDARD 100 · Class I
+        - link "Open amfori BSCI certificate PDF" [ref=e642] [cursor=pointer]:
+          - /url: /assets/certificates/bsci-social-compliance.pdf
+          - generic [ref=e643]:
+            - img "amfori BSCI certificate preview" [ref=e644]
+            - generic [ref=e646]: View document
+            - generic [ref=e650]: "04"
+          - generic [ref=e652]:
+            - heading "amfori BSCI" [level=3] [ref=e653]
+            - paragraph [ref=e654]: Social compliance audit
+    - generic [ref=e659]:
+      - generic [ref=e660]:
+        - generic [ref=e661]:
+          - paragraph [ref=e662]: Export partnerships · Tiruppur, India
+          - heading "Let’s make what’s next." [level=2] [ref=e664]
+        - paragraph [ref=e665]: Share a few project details. Our knitwear team will help you find the right next step.
+      - generic [ref=e666]:
+        - complementary [ref=e667]:
+          - figure "From first swatch to finished garment Thoughtful work, made together." [ref=e668]:
+            - img "Apparel designers reviewing knitwear swatches in a sampling studio" [ref=e669]
+            - generic [ref=e671]: Representative studio image
+            - generic [ref=e672]:
+              - generic [ref=e673]: From first swatch to finished garment
+              - generic [ref=e674]: Thoughtful work, made together.
+          - generic [ref=e675]:
+            - link "Email our team export@fashionknits.com" [ref=e676] [cursor=pointer]:
+              - /url: mailto:export@fashionknits.com
+              - generic [ref=e681]:
+                - generic [ref=e682]: Email our team
+                - generic [ref=e683]: export@fashionknits.com
+            - link "Call the export desk +91 421 237 0000" [ref=e684] [cursor=pointer]:
+              - /url: tel:+914212370000
+              - generic [ref=e688]:
+                - generic [ref=e689]: Call the export desk
+                - generic [ref=e690]: +91 421 237 0000
+          - group [ref=e691]:
+            - generic "Office, factory & hours" [ref=e692] [cursor=pointer]
+        - generic [ref=e695]:
+          - generic [ref=e696]:
+            - generic [ref=e697]:
+              - paragraph [ref=e698]: Production inquiry
+              - heading "Tell us what you’re making." [level=3] [ref=e699]
+            - generic [ref=e700]: Tiruppur, India
+          - form "Tell us what you’re making." [ref=e704]:
+            - generic [ref=e705]:
+              - generic [ref=e706]:
+                - generic [ref=e707]: Your name *
+                - textbox "Your name *" [ref=e708]:
+                  - /placeholder: Name
+              - generic [ref=e709]:
+                - generic [ref=e710]: Company / brand *
+                - textbox "Company / brand *" [ref=e711]:
+                  - /placeholder: Brand or company
+            - generic [ref=e712]:
+              - generic [ref=e713]:
+                - generic [ref=e714]: Work email *
+                - textbox "Work email *" [ref=e715]:
+                  - /placeholder: you@company.com
+              - generic [ref=e716]:
+                - generic [ref=e717]: Country *
+                - textbox "Country *" [ref=e718]:
+                  - /placeholder: Your country
+            - generic [ref=e719]:
+              - generic [ref=e720]: What are you looking to make?
+              - combobox "What are you looking to make?" [ref=e721]:
+                - option "T-Shirts" [selected]
+                - option "Polo shirts"
+                - option "Sweatshirts"
+                - option "Hoodies"
+                - option "Sportswear & active"
+                - option "Casualwear / loungewear"
+                - option "Kidswear & babywear"
+                - option "Custom programs / OEM"
+            - generic [ref=e722]:
+              - generic [ref=e723]: A little about your project *
+              - textbox "A little about your project *" [ref=e724]:
+                - /placeholder: Product, fabric, quantity or timeline — whatever you know so far.
+            - group [ref=e725]:
+              - generic "Add optional details" [ref=e726] [cursor=pointer]
+            - button "Send inquiry" [ref=e729]
+            - paragraph [ref=e733]: We usually reply within one business day.
+    - generic [ref=e735]:
+      - generic [ref=e736]:
+        - generic [ref=e737]:
+          - generic [ref=e738]: FASHION KNITS
+          - paragraph [ref=e741]: Precision Knitwear & Garment Manufacturing
+          - paragraph [ref=e742]: Specialized circular knitting, CAD multi-ply cutting, modular lean garment assembly, enzyme finishing, and bonded export packing across two dedicated facilities in Tiruppur, India.
+          - generic [ref=e743]:
+            - generic [ref=e744]: Angeripalayam Main Road, Tiruppur – 641 603, Tamil Nadu, India (HQ)
+            - generic [ref=e749]: "Shed No: 29, Netaji Apparel Park, New Tirupur – 641 666 (Unit-1 Plant)"
+        - generic [ref=e754]:
+          - heading "Explore" [level=3] [ref=e755]
+          - list [ref=e756]:
+            - listitem [ref=e757]:
+              - link "Products" [ref=e758] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e759]:
+              - link "Manufacturing" [ref=e760] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e761]:
+              - link "Quality Assurance" [ref=e762] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e763]:
+              - link "Global Export" [ref=e764] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e765]:
+              - link "About Us" [ref=e766] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e767]:
+          - heading "Governance" [level=3] [ref=e768]
+          - list [ref=e769]:
+            - listitem [ref=e770]: GOTS Organic v7.0
+            - listitem [ref=e771]: OEKO-TEX® Class I
+            - listitem [ref=e772]: "amfori BSCI #9322"
+            - listitem [ref=e773]: Sedex SMETA Audited
+            - listitem [ref=e774]: Disney FAMA & LEGO
+        - generic [ref=e775]:
+          - heading "Export Desk" [level=3] [ref=e776]
+          - list [ref=e777]:
+            - listitem [ref=e778]:
+              - link "Start an Inquiry" [ref=e779] [cursor=pointer]:
+                - /url: "#contact"
+            - listitem [ref=e780]:
+              - link "export@fashionknits.com" [ref=e784] [cursor=pointer]:
+                - /url: mailto:export@fashionknits.com
+            - listitem [ref=e785]:
+              - link "+91 421 237 0000" [ref=e788] [cursor=pointer]:
+                - /url: tel:+914212370000
+      - generic [ref=e789]:
+        - generic [ref=e790]:
+          - generic [ref=e791]: Tiruppur, India // Export Knitwear Manufacturer
+          - button "Back To Top" [ref=e792] [cursor=pointer]
+        - heading "FASHION KNITS" [level=2] [ref=e798]
+      - generic [ref=e799]:
+        - generic [ref=e800]: © 2026 Fashion Knits. All rights reserved. Tiruppur, Tamil Nadu, India.
+        - generic [ref=e801]:
+          - generic [ref=e802]: GOTS Certified
+          - generic [ref=e803]: •
+          - generic [ref=e804]: OEKO-TEX® Standard 100
+          - generic [ref=e805]: •
+          - generic [ref=e806]: "amfori BSCI #9322"
+  - button "Open Next.js Dev Tools" [ref=e812] [cursor=pointer]

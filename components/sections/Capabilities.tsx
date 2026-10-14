@@ -1,233 +1,133 @@
 'use client';
 
 import React, { useLayoutEffect, useRef } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import { gsap } from '@/lib/animations';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Cpu, Sparkles, Package, Globe, Check } from 'lucide-react';
 
-interface PrimaryCapability {
-  name: string;
-  category: string;
-  summary: string;
-  image: string;
-  specs: string[];
-}
-
-const PRIMARY_CAPABILITIES: PrimaryCapability[] = [
+const CAPABILITIES = [
   {
-    name: 'Circular & Flat Knitting',
-    category: 'Textile Construction',
-    summary: 'High-gauge circular knitting for consistent loop geometry, dimensional stability, and zero spirality.',
-    image: '/assets/images/knitting_process.webp',
-    specs: ['Gauges: 20GG to 32GG', 'Single Jersey, Pique, Rib, Interlock, Fleece', 'Certified Organic Cotton & Modal'],
+    number: '01',
+    name: 'Circular & flat knitting',
+    category: 'Textile construction',
+    image: '/assets/images/capability_knitting_detail.webp',
+    alt: 'Knitwear operator checking a circular knitting machine and ivory cotton jersey',
+    detail: 'Yarn is knitted into jersey, rib, pique and fleece fabrics to the required gauge and weight.',
   },
   {
-    name: 'Eco-Friendly Dyeing',
-    category: 'Wet Processing',
-    summary: 'Low-liquor soft-flow dyeing vessels with automated computerized chemical and dyestuff dispensing.',
-    image: '/assets/images/dyeing_process.webp',
-    specs: ['Low Liquor-Ratio Eco Vessels', 'Delta-E < 0.5 Spectrophotometer Tolerance', 'OEKO-TEX® Class I Baby-Safe Dyes'],
+    number: '02',
+    name: 'Color & dyeing',
+    category: 'Responsible processing',
+    image: '/assets/images/capability_color_lab.webp',
+    alt: 'Textile technician comparing indigo knit swatches in a color laboratory',
+    detail: 'Lab dips and shade checks help match bulk fabric to the approved color standard.',
   },
   {
-    name: 'CAD Cutting & Assembly',
-    category: 'Garment Manufacturing',
-    summary: 'Computerized CAD marker optimization with multi-ply vacuum cutting tables and modular lean sewing lines.',
-    image: '/assets/images/cutting_process.webp',
-    specs: ['Precision Cut Tolerances ±0.5mm', 'Juki & Brother Programmable Stations', 'Overlock, Flatlock, & Twin-Needle'],
+    number: '03',
+    name: 'CAD cutting',
+    category: 'Precision engineering',
+    image: '/assets/images/capability_cutting.webp',
+    alt: 'Specialist inspecting cotton knit layers on an automated cutting table',
+    detail: 'Digital markers guide accurate cutting and help control unused fabric.',
   },
   {
-    name: 'In-House Testing Laboratory',
-    category: 'Quality Assurance',
-    summary: 'Physical and chemical textile testing verifying color fastness, shrinkage, and 100% metal detector scanning.',
-    image: '/assets/images/quality_process.webp',
-    specs: ['ISO Wash & Crocking Fastness Labs', 'Seam Burst & Pull-Force Testing', '100% Calibrated 0.8mm Needle Scan'],
-  },
-];
-
-interface SecondaryCapability {
-  title: string;
-  category: string;
-  summary: string;
-  icon: React.ComponentType<{ className?: string }>;
-  tag: string;
-}
-
-const SPECIALIZED_SERVICES: SecondaryCapability[] = [
-  {
-    title: 'Stenter & Fabric Compacting',
-    category: 'Dimensional Locking',
-    summary: 'Continuous relax drying and heat setting to lock residual shrinkage below 5% and eliminate skewing.',
-    icon: Cpu,
-    tag: 'Shrinkage < 5%',
-  },
-  {
-    title: 'Value-Added Printing & Embroidery',
-    category: 'Specialized Embellishment',
-    summary: 'All-over rotary printing, water-based pigment/discharge chest prints, and high-density multi-head embroidery.',
-    icon: Sparkles,
-    tag: 'AOP & High-Density',
-  },
-  {
-    title: 'Retail Compliance Packaging',
-    category: 'Finishing & Packing',
-    summary: 'Steam tunnel pressing, individual polybagging, flat or hanger packing, and verified barcode/RFID carton labeling.',
-    icon: Package,
-    tag: 'RFID & Drop-Tested',
-  },
-  {
-    title: 'Bonded Seaport & Air Logistics',
-    category: 'Worldwide Export',
-    summary: 'Direct container stuffing at Netaji Apparel Park connecting via bonded transit to Tuticorin, Chennai, and Cochin seaport hubs.',
-    icon: Globe,
-    tag: 'EDI Customs Ready',
+    number: '04',
+    name: 'Assembly & finishing',
+    category: 'Garment production',
+    image: '/assets/images/capability_assembly.webp',
+    alt: 'Garment maker sewing a charcoal cotton knit top on a modular production line',
+    detail: 'Sewn panels are pressed, inspected and prepared to the buyer’s packing requirements.',
   },
 ];
 
 export function Capabilities() {
-  const containerRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const ctx = gsap.context(() => {
-      if (gridRef.current) {
-        gsap.fromTo(
-          gridRef.current.children,
-          { y: 35, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.9,
-            stagger: 0.12,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: gridRef.current,
-              start: 'top 85%',
-              once: true,
-            },
-          }
-        );
-      }
-    }, containerRef);
-    return () => ctx.revert();
+    const context = gsap.context(() => {
+      if (!gridRef.current) return;
+      gsap.fromTo(
+        gridRef.current.children,
+        { y: 42, opacity: 0.6 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          stagger: 0.11,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: gridRef.current, start: 'top 83%', once: true },
+        }
+      );
+    }, sectionRef);
+    return () => context.revert();
   }, []);
 
   return (
-    <section id="capabilities" ref={containerRef} className="bg-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-charcoal/10 relative">
-      <div className="max-w-[90rem] mx-auto">
-        {/* Editorial Eyebrow with numbering */}
-        <div className="flex items-center gap-4 mb-6">
-          <span className="h-px w-10 bg-accent" />
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-            03 // Technical Capabilities
-          </span>
+    <section id="capabilities" ref={sectionRef} className="relative overflow-hidden border-b border-charcoal/10 bg-[#f2efe9] px-5 py-24 sm:px-8 lg:px-16 lg:py-32">
+      <div className="mx-auto max-w-[100rem]">
+        <div className="mb-10 flex flex-col justify-between gap-7 md:mb-14 md:flex-row md:items-end">
+          <div className="max-w-4xl">
+            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#907348] sm:text-xs">
+              <span className="h-px w-9 bg-accent" />
+              The craft behind every piece
+            </p>
+            <h2 className="max-w-4xl text-[clamp(2.6rem,6vw,6rem)] font-semibold leading-[0.91] tracking-[-0.065em] text-charcoal">
+              Built from the <span className="text-charcoal/42">inside out.</span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-charcoal/65 sm:text-base">
+              From fabric creation to export-ready garments, each capability shapes the next step in production.
+            </p>
+          </div>
+          <div className="flex flex-col items-start gap-3 md:items-end">
+            <Link href="/manufacturing" className="group inline-flex items-center gap-2 border-b border-charcoal/25 pb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-charcoal transition-colors hover:border-[#907348] hover:text-[#907348] sm:text-xs">
+              See the full process
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+            <span className="text-[9px] font-medium uppercase tracking-[0.14em] text-charcoal/45">Representative production imagery</span>
+          </div>
         </div>
 
-        {/* Section Heading with Masked Line Reveal */}
-        <SectionHeading
-          title={'ENGINEERED FOR\nPERFORMANCE.'}
-          subtitle="Precision manufacturing capabilities engineered to fulfill the stringent quality, speed-to-market, and compliance demands of international fashion brands."
-        />
-
-        {/* 4 Primary Capabilities Grid with Photography */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24">
-          {PRIMARY_CAPABILITIES.map((cap, idx) => (
-            <div
-              key={idx}
-              className="group bg-pure-white border border-charcoal/10 hover:border-accent hover:shadow-xl transition-all duration-500 flex flex-col justify-between overflow-hidden"
+        <div ref={gridRef} className="grid gap-5 sm:grid-cols-2 2xl:grid-cols-4 2xl:gap-4">
+          {CAPABILITIES.map((capability) => (
+            <article
+              key={capability.number}
+              className="group flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-charcoal/10 bg-white shadow-[0_10px_30px_rgba(26,24,20,0.035)] transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-[0_20px_46px_rgba(26,24,20,0.11)] motion-reduce:transform-none motion-reduce:hover:translate-y-0 motion-reduce:transition-none"
             >
-              <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-charcoal">
-                  <picture className="w-full h-full">
-                    <source type="image/webp" srcSet={cap.image} />
-                    <img
-                      src={cap.image.replace('.webp', '.jpg')}
-                      alt={cap.name}
-                      className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </picture>
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent" />
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="px-2.5 py-1 bg-charcoal/90 backdrop-blur-md border border-white/20 text-[10px] font-mono uppercase tracking-widest text-accent font-semibold">
-                      {cap.category}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="p-6 md:p-8">
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-charcoal mb-2 group-hover:text-accent transition-colors duration-300">
-                    {cap.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mb-6 font-normal">
-                    {cap.summary}
-                  </p>
-
-                  <div className="space-y-2 pt-4 border-t border-charcoal/10">
-                    {cap.specs.map((spec, sIdx) => (
-                      <div key={sIdx} className="flex items-start gap-2 text-xs font-mono text-charcoal/80">
-                        <Check className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                        <span>{spec}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <figure className="relative aspect-[4/3] w-full overflow-hidden bg-[#e6e1d8]">
+                <Image
+                  src={capability.image}
+                  alt={capability.alt}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                  className="visual-tile-image object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:group-hover:scale-100 motion-reduce:transition-none"
+                />
+                <span aria-hidden="true" className="absolute left-4 top-4 rounded-full border border-white/25 bg-charcoal/75 px-3 py-1.5 font-mono text-[10px] tracking-[0.12em] text-white backdrop-blur-sm">
+                  {capability.number} / 04
+                </span>
+              </figure>
+              <div className="flex flex-1 flex-col p-5 sm:p-6">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.17em] text-[#907348] sm:text-[10px]">
+                  {capability.category}
+                </p>
+                <h3 className="mt-2 min-h-[2.9rem] text-xl font-medium leading-tight tracking-[-0.035em] text-charcoal sm:text-[1.35rem]">
+                  {capability.name}
+                </h3>
+                <p className="mt-2.5 text-xs leading-6 text-charcoal/65 sm:text-[13px]">
+                  {capability.detail}
+                </p>
               </div>
-
-              <div className="p-6 md:p-8 pt-0">
-                <div className="pt-4 border-t border-charcoal/8 flex items-center justify-between text-[11px] font-mono text-muted-gray">
-                  <span>CAPABILITY 0{idx + 1}</span>
-                  <span className="w-1.5 h-1.5 bg-accent/60 rotate-45" />
-                </div>
-              </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* 4 Specialized Processing & Value-Added Services */}
-        <div className="mt-20 pt-16 border-t border-charcoal/10">
-          <div className="mb-8">
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent block mb-2 font-semibold">
-              Specialized Infrastructure
-            </span>
-            <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal">
-              Value-Added Finishing &amp; Global Logistics
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {SPECIALIZED_SERVICES.map((service, idx) => {
-              const Icon = service.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group bg-pure-white p-7 border border-charcoal/10 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-5">
-                      <div className="w-10 h-10 bg-charcoal text-accent flex items-center justify-center group-hover:bg-accent group-hover:text-charcoal transition-colors duration-300">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-accent font-bold px-2 py-0.5 border border-accent/30 bg-accent/5">
-                        {service.tag}
-                      </span>
-                    </div>
-
-                    <h4 className="text-base font-bold uppercase tracking-wider text-charcoal mb-2">
-                      {service.title}
-                    </h4>
-                    <p className="text-xs text-charcoal/70 leading-relaxed font-normal">
-                      {service.summary}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-charcoal/8 text-[11px] font-mono text-muted-gray">
-                    <span>{service.category}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-charcoal/15 pt-5">
+          <p className="text-[9px] font-semibold uppercase tracking-[0.16em] text-charcoal/45 sm:text-[10px]">
+            Yarn <span className="mx-2 text-accent">→</span> Fabric <span className="mx-2 text-accent">→</span> Cut panels <span className="mx-2 text-accent">→</span> Finished garments
+          </p>
+          <span className="font-mono text-[9px] uppercase tracking-[0.14em] text-charcoal/40 sm:text-[10px]">End-to-end knitwear development</span>
         </div>
       </div>
     </section>

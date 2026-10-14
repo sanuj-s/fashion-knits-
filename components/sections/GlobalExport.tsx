@@ -127,7 +127,7 @@ export function GlobalExport() {
   }, []);
 
   return (
-    <section id="global-reach" ref={containerRef} className="grain relative bg-charcoal text-off-white py-32 md:py-40 px-6 md:px-16 lg:px-24 border-b border-white/10">
+    <section id="global-reach" ref={containerRef} className="grain relative bg-charcoal text-off-white py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 border-b border-white/10">
       <div className="max-w-[90rem] mx-auto">
         {/* Editorial Eyebrow with numbering */}
         <div className="flex items-center gap-4 mb-6">
@@ -164,7 +164,7 @@ export function GlobalExport() {
               return (
                 <div
                   key={item.step}
-                  className="group p-8 bg-[#161413] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                  className="premium-card group p-8 bg-[#161413] border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-6">
@@ -220,7 +220,7 @@ export function GlobalExport() {
               return (
                 <div
                   key={idx}
-                  className="group p-8 bg-[#161413] border border-white/10 hover:border-accent transition-all duration-300 flex flex-col justify-between"
+                  className="premium-card group p-8 bg-[#161413] border border-white/10 hover:border-accent transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-12 h-12 bg-black/60 border border-white/10 flex items-center justify-center text-accent mb-6 group-hover:bg-accent group-hover:text-charcoal transition-colors duration-300">
