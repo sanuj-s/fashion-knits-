@@ -16,6 +16,18 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Quote enquiry delivery
+
+The contact form sends enquiries through Resend. Before enabling delivery, copy `.env.example` to `.env.local` and set:
+
+- `RESEND_API_KEY` to the account API key.
+- `RESEND_FROM_EMAIL` to a sender address verified with Resend.
+- `INQUIRY_TO_EMAIL` to the recipient address confirmed by Fashion Knits. Multiple recipients can be separated with commas.
+
+Restart the Next.js server after changing these values. Without all three settings the form explains that online delivery is unavailable and provides a prefilled email draft instead. A successful form response means Resend accepted the message for delivery; it does not confirm that a person received or read it. Test delivery using a controlled mailbox after deployment configuration, not a buyer address.
+
+The current public contact email, phone number and facility addresses should be confirmed by Fashion Knits before launch.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

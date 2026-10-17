@@ -4,14 +4,14 @@ import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'Global Export & Logistics | Fashion Knits Tiruppur',
+  title: 'Global Export & Logistics | Fashion Knits',
   description:
-    'Order-to-shipment workflow, seaport and air logistics corridors, export documentation, and international shipping capabilities from Fashion Knits, Tiruppur, India.',
+    'Explore Fashion Knits export and logistics coordination in Tiruppur, India, including warehousing, customs documentation, sea freight and air freight planning.',
   keywords: [
     'knitwear exporter India',
     'Tiruppur garment export',
-    'container logistics',
-    'FOB CIF export',
+    'international apparel logistics',
+    'garment export documentation',
   ],
 };
 
@@ -19,7 +19,7 @@ export default function ExportPage() {
   return (
     <>
       <ExportClient />
-      <Contact />
+      <Contact context="export" />
       <Footer />
     </>
   );

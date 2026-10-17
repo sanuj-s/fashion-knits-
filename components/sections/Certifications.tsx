@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { Download, ExternalLink, ShieldCheck } from 'lucide-react';
+import { Download, ExternalLink } from 'lucide-react';
 
 interface VerifiedScopeCertificate {
   id: string;
@@ -76,6 +76,8 @@ interface AccreditationItem {
   status: string;
   hasPdf?: string;
 }
+
+type AccreditationFilter = 'all' | 'social' | 'esg' | 'quality' | 'license';
 
 const ACCREDITATIONS: AccreditationItem[] = [
   {
@@ -197,7 +199,7 @@ const ACCREDITATIONS: AccreditationItem[] = [
 ];
 
 export function Certifications() {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'social' | 'esg' | 'quality' | 'license'>('all');
+  const [activeCategory, setActiveCategory] = useState<AccreditationFilter>('all');
 
   const filteredAccreditations =
     activeCategory === 'all'
@@ -311,16 +313,16 @@ export function Certifications() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              {[
+              {([
                 { id: 'all', label: 'All (16)' },
                 { id: 'esg', label: 'Organic & ESG' },
                 { id: 'social', label: 'Social Ethics' },
                 { id: 'quality', label: 'Quality & ISO' },
                 { id: 'license', label: 'Brand Licensing' },
-              ].map((tab) => (
+              ] satisfies { id: AccreditationFilter; label: string }[]).map((tab) => (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveCategory(tab.id as any)}
+                  onClick={() => setActiveCategory(tab.id)}
                   className={`px-3.5 py-1.5 text-xs font-mono uppercase tracking-wider transition-all cursor-pointer ${
                     activeCategory === tab.id
                       ? 'bg-accent text-charcoal font-bold'

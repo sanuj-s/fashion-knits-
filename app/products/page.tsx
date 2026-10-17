@@ -4,14 +4,14 @@ import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'Export Knitwear Product Catalogue | Fashion Knits Tiruppur',
+  title: 'Knitwear Products for Apparel Brands | Fashion Knits',
   description:
-    'Explore Fashion Knits commercial product catalogue: T-shirts, pique polos, heavyweight sweatshirts, hoodies, performance activewear, certified organic kidswear, and custom OEM garment development.',
+    'Explore knitwear categories presented by Fashion Knits in Tiruppur, India. Discuss garment development and order requirements with the team.',
   keywords: [
     'knitwear catalogue',
     'Tiruppur garment exporter',
     'custom polo manufacturer',
-    'organic babywear supplier',
+    'kidswear knitwear development',
     'fleece hoodie OEM',
     'activewear manufacturer India',
   ],

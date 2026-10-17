@@ -4,15 +4,15 @@ import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'About Us | Fashion Knits Heritage & Production',
+  title: 'About Fashion Knits | Knitwear Manufacturing in Tiruppur',
   description:
-    'Learn about Fashion Knits: Tiruppur knitwear heritage, our Angeripalayam office and Netaji Apparel Park production facility, responsible workplace standards, and manufacturing milestones.',
+    'Learn about Fashion Knits, a knitwear development and garment manufacturing business based in Tiruppur, India, and see company-supplied facility photographs.',
   keywords: [
     'About Fashion Knits',
     'Tiruppur knitwear manufacturer',
     'knitwear production Tiruppur',
     'Netaji Apparel Park unit 1',
-    'ethical apparel manufacturer India',
+    'apparel manufacturing Tiruppur',
   ],
 };
 

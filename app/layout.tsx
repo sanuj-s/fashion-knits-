@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Navbar from '@/components/navigation/Navbar';
-import { SmoothScroll } from '@/components/providers/SmoothScroll';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 export const viewport: Viewport = {
@@ -13,16 +12,13 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
   description:
-    'Premier knitwear and garment manufacturer in Tiruppur, India. Operating across our Angeripalayam Road corporate headquarters and Netaji Apparel Park manufacturing facility (Unit-1).',
+    'Knitwear manufacturing and export enquiries for apparel brands. Fashion Knits is based in Tiruppur, India.',
   keywords: [
     'Fashion Knits',
-    'garment manufacturing',
-    'knitwear exporter Tiruppur',
-    'circular knitting',
-    'apparel OEM India',
-    'Netaji Apparel Park',
-    'GOTS certified knitwear',
-    'sustainable textiles',
+    'knitwear manufacturer Tiruppur',
+    'apparel manufacturing India',
+    'knitwear export enquiries',
+    'custom knitwear for brands',
   ],
   authors: [{ name: 'Fashion Knits' }],
   robots: {
@@ -32,8 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
     description:
-      'Knitwear and garment manufacturing for international apparel brands across two specialized facilities in Tiruppur, India.',
-    url: 'https://fashionknits.com',
+      'Knitwear manufacturing and export enquiries for apparel brands. Based in Tiruppur, India.',
     siteName: 'Fashion Knits',
     locale: 'en_US',
     type: 'website',
@@ -42,7 +37,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Fashion Knits | Export Knitwear & Garment Manufacturer · Tiruppur',
     description:
-      'Knitwear and garment manufacturing for international apparel brands across two specialized facilities in Tiruppur, India.',
+      'Knitwear manufacturing and export enquiries for apparel brands. Based in Tiruppur, India.',
   },
 };
 
@@ -52,13 +47,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body className="min-h-screen bg-off-white text-charcoal font-sans selection:bg-accent selection:text-charcoal antialiased overflow-x-hidden">
-        <SmoothScroll>
-          <ScrollProgress />
-          <Navbar />
-          <main className="relative flex flex-col w-full">{children}</main>
-        </SmoothScroll>
+        <ScrollProgress />
+        <Navbar />
+        <main className="relative flex flex-col w-full">{children}</main>
       </body>
     </html>
   );

@@ -9,7 +9,6 @@ interface Stage {
   number: string;
   name: string;
   image: string;
-  standard: string;
   alt: string;
   description: string;
 }
@@ -17,67 +16,35 @@ interface Stage {
 const PRODUCTION_STAGES: Stage[] = [
   {
     number: '01',
-    name: 'Yarn sourcing',
-    image: '/assets/images/process-yarn-sourcing.webp',
-    standard: 'Fiber & yarn selection',
-    alt: 'Cotton yarn cones feeding winding equipment on a textile factory floor',
-    description: 'Yarn is selected to meet the buyer’s fiber, weight, and hand-feel targets, giving the fabric the right starting point.',
+    name: 'Product Development & Sampling',
+    image: '/assets/images/contact_sampling_studio.webp',
+    alt: 'Illustrative scene of a buyer and product developer reviewing knitwear samples and colour references',
+    description:
+      'A tech pack or reference garment anchors the discussion. Fit, measurements, construction, colour and material needs are agreed; samples are developed and reviewed when included in the program.',
   },
   {
     number: '02',
-    name: 'Circular knitting',
-    image: '/assets/images/process-circular-knitting.webp',
-    standard: 'Fabric construction',
-    alt: 'Circular knitting machine forming a continuous tube of cotton jersey fabric',
-    description: 'We knit the yarn into jersey, rib, pique, or fleece. Gauge and weight define the fabric’s surface, stretch, and body.',
+    name: 'Materials & Fabric',
+    image: '/assets/images/yarn_process.webp',
+    alt: 'Illustrative view of yarn cones and textile materials',
+    description:
+      'Yarn, fabric construction, shade references and processing needs are aligned with the buyer. Knitting and wet processing may use in-house or external operations; the route is confirmed for each order.',
   },
   {
     number: '03',
-    name: 'Color & dyeing',
-    image: '/assets/images/process-color-dyeing.webp',
-    standard: 'Approved shade',
-    alt: 'Worker checking deep navy fabric beside a stainless-steel dyeing vessel',
-    description: 'Color samples are approved before dyeing. In-process checks help keep the shade consistent across the order.',
+    name: 'Garment Manufacturing & Finishing',
+    image: '/assets/images/process-garment-assembly.webp',
+    alt: 'Illustrative view of knit garment panels being stitched and assembled',
+    description:
+      'The approved production plan guides cutting, sewing or assembly, trimming and pressing as required. The location of each operation, including any external supplier involvement, is agreed for the order.',
   },
   {
     number: '04',
-    name: 'CAD cutting',
-    image: '/assets/images/process-cad-cutting.webp',
-    standard: 'Pattern accuracy',
-    alt: 'Automated cutting head following garment pattern shapes across layered knit fabric',
-    description: 'Digital patterns are arranged across fabric layers before cutting. Accurate markers keep panels on spec and reduce unused fabric.',
-  },
-  {
-    number: '05',
-    name: 'Garment assembly',
-    image: '/assets/images/process-garment-assembly.webp',
-    standard: 'Seam construction',
-    alt: 'Garment operator sewing cotton knit panels together on an assembly line',
-    description: 'Cut panels are joined with the specified seams and stitches, shaping each garment and helping it hold up through wear.',
-  },
-  {
-    number: '06',
-    name: 'Garment finishing',
-    image: '/assets/images/process-garment-finishing.webp',
-    standard: 'Steam pressing',
-    alt: 'Worker steam-pressing a finished knit T-shirt at an industrial vacuum ironing table',
-    description: 'Garments are steam-pressed, trimmed, and shaped, with moisture checked before final inspection and packing.',
-  },
-  {
-    number: '07',
-    name: 'Quality control',
-    image: '/assets/images/process-quality-control.webp',
-    standard: 'Final inspection',
-    alt: 'Inspector measuring a finished knit top and comparing its fabric with an approved swatch',
-    description: 'Measurements, seams, workmanship, and appearance are checked to spec. Final sampling follows the agreed acceptable quality level (AQL).',
-  },
-  {
-    number: '08',
-    name: 'Ready for export',
+    name: 'Quality, Packing & Dispatch',
     image: '/assets/images/process-export-packing.webp',
-    standard: 'Export packing',
-    alt: 'Worker placing folded knit garments into unbranded cartons for export packing',
-    description: 'Garments are folded, labeled, assorted, and packed to buyer instructions, keeping each size and color ready for shipment.',
+    alt: 'Illustrative view of finished knitwear being folded and prepared for packing',
+    description:
+      'Finished garments are checked against the approved sample and specifications. Labels, packing details and order documents follow the agreed instructions before shipment handoff.',
   },
 ];
 
@@ -87,83 +54,66 @@ export function ManufacturingProcess() {
       id="manufacturing"
       className="process-story grain relative isolate overflow-hidden border-b border-white/10 bg-[#121110] text-off-white"
     >
-      <div className="mx-auto max-w-[100rem] px-5 pb-8 pt-28 sm:px-8 lg:px-16 lg:pb-7 lg:pt-24">
-        <div className="flex flex-col justify-between gap-8 border-b border-white/10 pb-7 lg:flex-row lg:items-end">
-          <div>
-            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-accent sm:text-xs">
-              <span className="h-px w-9 bg-accent" />
-              Made in Tiruppur · 01—08
+      <div className="mx-auto max-w-[100rem] px-5 pb-16 pt-24 sm:px-8 sm:pb-20 sm:pt-28 lg:px-16 lg:pb-24 lg:pt-32">
+        <div className="grid items-end gap-7 border-b border-white/10 pb-8 lg:grid-cols-12 lg:gap-10 lg:pb-10">
+          <div className="lg:col-span-7">
+            <p className="mb-5 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-accent sm:text-xs">
+              <span aria-hidden="true" className="h-px w-9 bg-accent" />
+              A buyer-led production route
             </p>
-            <h2 className="max-w-4xl text-[clamp(2.8rem,6.6vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.065em] text-white">
-              From yarn <span className="text-white/45">to world.</span>
+            <h2 className="max-w-5xl text-[clamp(2.65rem,5.9vw,6rem)] font-semibold leading-[0.92] tracking-[-0.065em] text-white">
+              From Buyer Brief <span className="text-white/45">to Finished Order.</span>
             </h2>
           </div>
 
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-8 lg:w-[30rem] lg:shrink-0">
-            <div className="max-w-[22rem]">
-              <p className="text-xs leading-relaxed text-white/65 sm:text-sm">
-                Eight connected stages take an order from selected yarn to packed garments. Each one shapes the fit, color, quality, and finish of the final piece.
-              </p>
-            </div>
-            <div className="flex shrink-0 items-center gap-3 border-t border-white/10 pt-3 sm:border-l sm:border-t-0 sm:pl-5 sm:pt-0">
-              <span className="font-mono text-2xl font-light tracking-[-0.06em] text-accent sm:text-3xl">08</span>
-              <span className="max-w-[8rem] text-[9px] font-semibold uppercase leading-relaxed tracking-[0.13em] text-white/45 sm:text-[10px]">
-                stages from yarn selection to export packing
-              </span>
-            </div>
-          </div>
+          <p className="max-w-2xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8 lg:col-span-5 lg:justify-self-end">
+            Fashion Knits works with buyers to define product requirements, coordinate materials and production, review quality against approved specifications, and prepare finished orders for dispatch.
+          </p>
         </div>
 
-        <p className="mb-4 mt-6 text-[9px] font-medium uppercase tracking-[0.13em] text-white/35 sm:text-[10px]">
-          Representative production imagery
-        </p>
-
-        <div className="grid gap-4 sm:grid-cols-2 2xl:grid-cols-4 2xl:gap-5">
+        <ol aria-label="Manufacturing journey" className="mt-8 grid gap-x-6 gap-y-9 sm:grid-cols-2 sm:gap-y-11 xl:mt-10 xl:grid-cols-4 xl:gap-x-0">
           {PRODUCTION_STAGES.map((stage) => (
-            <article
+            <li
               key={stage.number}
-              className="group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-white/10 bg-[#1a1917] transition-[border-color,box-shadow] duration-300 hover:border-accent/50 hover:shadow-[0_18px_40px_rgba(0,0,0,0.28)]"
+              className="group border-t border-white/15 pt-4 sm:pt-5 xl:border-l xl:px-6 xl:first:border-l-0 xl:first:pl-0 xl:last:pr-0"
             >
-              <figure className="relative aspect-[16/10] overflow-hidden bg-[#24221f]">
+              <div className="mb-4 flex items-center gap-3">
+                <span className="font-mono text-[11px] tracking-[0.12em] text-accent">
+                  {stage.number}
+                </span>
+                <span aria-hidden="true" className="h-px flex-1 bg-white/10" />
+              </div>
+
+              <figure className="relative aspect-[1.35/1] overflow-hidden rounded-[0.35rem] bg-[#24221f] sm:aspect-[1.42/1] xl:aspect-[1.08/1]">
                 <Image
                   src={stage.image}
                   alt={stage.alt}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
-                  className="process-card-image object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035] motion-reduce:group-hover:scale-100 motion-reduce:transition-none"
+                  sizes="(max-width: 639px) 100vw, (max-width: 1279px) 50vw, 25vw"
+                  className="process-card-image object-cover transition-transform duration-700 ease-out group-hover:scale-[1.025] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                 />
+                <figcaption className="absolute bottom-3 left-3 rounded-sm bg-[#121110]/75 px-2.5 py-1.5 text-[8px] font-semibold uppercase tracking-[0.12em] text-white/85 backdrop-blur-sm sm:text-[9px]">
+                  Illustrative process visual
+                </figcaption>
               </figure>
 
-              <div className="flex flex-1 flex-col p-5 sm:p-6">
-                <div className="mb-4 flex items-center justify-between gap-3 border-b border-white/10 pb-3">
-                  <span className="font-mono text-[9px] font-medium uppercase tracking-[0.15em] text-accent sm:text-[10px]">
-                    Stage {stage.number}
-                  </span>
-                  <span className="text-right text-[8px] font-semibold uppercase tracking-[0.12em] text-white/45 sm:text-[9px]">
-                    {stage.standard}
-                  </span>
-                </div>
-                <h3 className="text-xl font-medium leading-tight tracking-[-0.035em] text-white sm:text-[1.35rem]">
-                  {stage.name}
-                </h3>
-                <p className="mt-2.5 text-xs leading-6 text-white/65 sm:text-[13px]">
-                  {stage.description}
-                </p>
-              </div>
-            </article>
+              <h3 className="mt-5 max-w-[18rem] text-xl font-medium leading-[1.08] tracking-[-0.04em] text-white sm:text-[1.35rem]">
+                {stage.name}
+              </h3>
+              <p className="mt-3 max-w-[27rem] text-xs leading-6 text-white/65 sm:text-[13px]">
+                {stage.description}
+              </p>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-5 border-t border-white/10 pt-5">
-          <span className="text-[9px] font-semibold uppercase tracking-[0.15em] text-white/40 sm:text-[10px]">
-            Yarn <span className="mx-2 text-accent">→</span> Fabric <span className="mx-2 text-accent">→</span> Garment <span className="mx-2 text-accent">→</span> Shipment
-          </span>
+        <div className="mt-9 flex justify-end border-t border-white/10 pt-5 sm:mt-11 sm:pt-6">
           <Link
             href="/manufacturing"
-            className="group inline-flex shrink-0 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-accent sm:text-xs"
+            className="group inline-flex min-h-11 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/75 transition-colors hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-4 focus-visible:ring-offset-[#121110] sm:text-xs"
           >
-            Explore production
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            Explore Our Manufacturing Capabilities
+            <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none" />
           </Link>
         </div>
       </div>

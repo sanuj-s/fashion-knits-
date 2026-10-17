@@ -4,15 +4,12 @@ import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'Quality Control & Certified Compliance | Fashion Knits Tiruppur',
+  title: 'Quality Assurance & Certifications | Fashion Knits',
   description:
-    'Verified scope certificates and quality testing protocols at Fashion Knits. GOTS v7.0, OCS v3.0, OEKO-TEX® Standard 100 Class I, amfori BSCI social audit, and AQL 2.5 inline inspection.',
+    'Explore buyer-aligned quality planning for knitwear, from sample approval and workmanship checks to dispatch readiness and certification document scope.',
   keywords: [
-    'GOTS certified knitwear',
-    'OEKO-TEX Class 1 Tiruppur',
-    'BSCI audited garment factory',
-    'AQL 2.5 textile quality control',
-    'needle detector inspection India',
+    'garment quality planning India',
+    'knitwear inspection requirements',
     'apparel compliance certificates',
   ],
 };

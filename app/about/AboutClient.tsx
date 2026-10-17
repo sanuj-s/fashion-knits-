@@ -1,361 +1,62 @@
-'use client';
-
-import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Factory,
-  Building2,
-} from 'lucide-react';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
+import { ArrowRight, Building2, Factory, MapPin } from 'lucide-react';
 
-const MILESTONES = [
+const LOCATIONS = [
   {
-    phase: 'PHASE 01',
-    title: 'Textile Foundations in Tiruppur',
-    description:
-      'Established high-gauge circular knitting infrastructure in India\'s premier knitwear hub, engineering single jersey, pique, and interlock fabrics for regional apparel exporters.',
-    tag: 'Knitting Infrastructure',
+    title: 'Factory reference',
+    name: 'Netaji Apparel Park · Unit 01',
+    address: 'Shed 29, Netaji Apparel Park, New Tiruppur, India',
+    image: '/assets/facilities/factory_netaji_park_exterior.webp',
+    alt: 'Illustrative factory exterior concept based on a Fashion Knits reference photo',
+    icon: Factory,
   },
   {
-    phase: 'PHASE 02',
-    title: 'Certified Processing Partnerships',
-    description:
-      'Formed long-standing alliances with certified soft-flow dyeing and processing houses, ensuring computerized color matching, tight shrinkage control, and zero liquid discharge standards.',
-    tag: 'Certified Wet Processing',
-  },
-  {
-    phase: 'PHASE 03',
-    title: 'Netaji Apparel Park Expansion (Unit-1)',
-    description:
-      'Established our primary garment manufacturing plant at Shed No. 29, Netaji Apparel Park, scaling computer-aided CAD cutting, modular lean sewing lines, and export finishing.',
-    tag: 'NAP Unit-1 Expansion',
-  },
-  {
-    phase: 'PHASE 04',
-    title: 'Organic & Chemical Accreditations',
-    description:
-      'Attained verified GOTS Organic Cotton (v7.0), OCS 100, and OEKO-TEX® Standard 100 (Product Class I baby-safe) certifications, creating a verified non-toxic supply chain.',
-    tag: 'GOTS & OEKO-TEX',
-  },
-  {
-    phase: 'PHASE 05',
-    title: 'Social Audits & Character Licensing',
-    description:
-      'Achieved amfori BSCI and SMETA 4-pillar social compliance audits, alongside international facility authorizations including Disney FAMA and LEGO licensee approvals.',
-    tag: 'BSCI & Disney FAMA',
-  },
-];
-
-const CORE_VALUES = [
-  {
-    title: 'Integrity & Accountability',
-    description:
-      'We operate transparent supply chains. From yarn lot traceability to honest delivery timelines, buyers receive unfiltered operational visibility.',
-  },
-  {
-    title: 'Precision Craftsmanship',
-    description:
-      'Zero defect mindset. Every garment panel is inspected for stitch density, seam burst strength, and calibrated ±0.5cm tech pack tolerances.',
-  },
-  {
-    title: 'Ethical Workforce Governance',
-    description:
-      'Fair living wages, safe working environments, clean water, medical coverage, and complete prohibition of child or forced labor.',
-  },
-  {
-    title: 'Environmental Stewardship',
-    description:
-      'Prioritizing GOTS certified organic fibers, ZDHC-compliant non-toxic dyestuffs, and packaging made from FSC-certified or recycled paper.',
+    title: 'Office reference',
+    name: 'Angeripalayam',
+    address: 'Angeripalayam, Tiruppur, Tamil Nadu, India',
+    image: '/assets/facilities/office_angeripalayam_exterior.webp',
+    alt: 'Illustrative office exterior concept based on a Fashion Knits reference photo',
+    icon: Building2,
   },
 ];
 
 export function AboutClient() {
   return (
     <div className="bg-warm-white text-charcoal">
-      {/* Editorial Hero Header */}
-      <section className="grain relative bg-charcoal text-off-white pt-40 pb-28 px-6 md:px-16 lg:px-24 border-b border-white/10 overflow-hidden">
-        <div className="max-w-[90rem] mx-auto relative z-10">
-          {/* Breadcrumb */}
-          <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.25em] text-accent mb-8">
-            <Link href="/" className="hover:text-off-white transition-colors">
-              Home
-            </Link>
-            <span className="text-white/40">/</span>
-            <span className="text-off-white/80">About Us</span>
-          </div>
-
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-            <div className="max-w-4xl">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-white/5 border border-white/10 text-xs font-mono uppercase tracking-[0.2em] text-accent font-semibold mb-6">
-                <Factory className="w-3.5 h-3.5 text-accent" />
-                <span>Our Heritage &amp; Infrastructure</span>
-              </div>
-              <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-[0.95]">
-                <span className="block text-off-white">ABOUT</span>
-                <span className="mt-1 block text-accent">
-                  FASHION KNITS.
-                </span>
-              </h1>
-              <p className="text-base sm:text-xl text-off-white/75 mt-8 max-w-2xl leading-relaxed font-normal">
-                A dedicated knitwear and garment manufacturing company based in Tiruppur, India. Structured across our Angeripalayam Road corporate headquarters and our Netaji Apparel Park production facility (Unit-1) to serve international fashion brands.
-              </p>
-            </div>
-
-            <div className="p-8 bg-black/40 border border-white/10 backdrop-blur-md max-w-md flex-shrink-0">
-              <span className="text-xs font-mono uppercase tracking-widest text-accent font-semibold block mb-2">
-                Manufacturing Core
-              </span>
-              <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed font-mono">
-                Men&apos;s, Women&apos;s, Children&apos;s &amp; Infant Knits // GOTS &amp; OCS Certified Organic // OEKO-TEX® Class I // amfori BSCI Audited
-              </p>
-            </div>
+      <section className="border-b border-white/10 bg-charcoal px-5 pb-16 pt-28 text-off-white sm:px-8 sm:pb-20 sm:pt-32 lg:px-16 lg:pb-24">
+        <div className="mx-auto max-w-[90rem]">
+          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-accent sm:text-xs"><Link href="/" className="hover:text-white">Home</Link><span aria-hidden="true" className="text-white/35">/</span><span aria-current="page" className="text-white/75">About</span></nav>
+          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">Company profile · Tiruppur, India</p>
+          <h1 className="max-w-5xl text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.065em]">Fashion Knits, <span className="text-white/45">for apparel buyers.</span></h1>
+          <div className="mt-6 grid gap-5 md:grid-cols-12 md:items-end">
+            <p className="max-w-3xl text-sm leading-7 text-white/70 sm:text-base md:col-span-8">Fashion Knits is a knitwear development and garment manufacturing business based in Tiruppur, India. It works with apparel buyers on product briefs, samples and order-specific production plans.</p>
+            <Link href="/#contact" className="inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-accent px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-charcoal transition-colors hover:bg-[#e5c78e] md:col-span-4 md:justify-self-end">Discuss your requirements <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
 
-      {/* Facilities Showcase */}
-      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-10 bg-accent" />
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              01 // Two Strategic Facilities
-            </span>
-          </div>
-
-          <SectionHeading
-            title={'WHERE HEADQUARTERS\nMEETS PRODUCTION.'}
-            subtitle="Separating administrative focus from factory execution to guarantee dedicated client servicing and precision manufacturing."
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mt-16 md:mt-24">
-            {/* Unit 1 */}
-            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-                <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/factory_netaji_park_exterior.webp" />
-                  <img
-                    src="/assets/facilities/factory_netaji_park_exterior.jpg"
-                    alt="Exterior of the Netaji Apparel Park Plant"
-                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-charcoal/90 text-accent text-[10px] font-mono font-bold uppercase tracking-widest border border-white/20">
-                    <Factory className="w-3.5 h-3.5 text-accent" />
-                    Unit-1 Production Facility
-                  </span>
-                </div>
-                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
-                  Representative image
-                </span>
-              </div>
-              <div className="p-8 md:p-10">
-                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
-                  Netaji Apparel Park (Unit-1) Main Plant
-                </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Shed No. 29, Netaji Apparel Park: dedicated 20,000+ sq.ft production plant housing circular knitting, CAD multi-ply cutting, sewing assembly lines, and export packing.
-                </p>
-                <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-muted-gray">
-                  <span>CAPACITY: KNITTING &amp; SEWING</span>
-                  <span className="text-accent font-semibold">TIRUPPUR</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Corporate HQ */}
-            <div className="premium-card group bg-warm-white border border-charcoal/10 overflow-hidden shadow-sm hover:border-accent hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-charcoal">
-                <picture className="w-full h-full">
-                  <source type="image/webp" srcSet="/assets/facilities/office_angeripalayam_exterior.webp" />
-                  <img
-                    src="/assets/facilities/office_angeripalayam_exterior.jpg"
-                    alt="Exterior of the Fashion Knits Corporate Office in Angeripalayam"
-                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-                  />
-                </picture>
-                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/20 to-transparent" />
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-charcoal/90 text-accent text-[10px] font-mono font-bold uppercase tracking-widest border border-white/20">
-                    <Building2 className="w-3.5 h-3.5 text-accent" />
-                    Corporate HQ &amp; Showroom
-                  </span>
-                </div>
-                <span className="absolute top-4 right-4 z-10 rounded-full border border-charcoal/10 bg-warm-white/90 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.12em] text-charcoal/75 backdrop-blur-md">
-                  Representative image
-                </span>
-              </div>
-              <div className="p-8 md:p-10">
-                <h3 className="text-2xl font-bold uppercase tracking-tight text-charcoal mb-3 group-hover:text-accent transition-colors duration-300">
-                  Angeripalayam Corporate Office &amp; Sampling
-                </h3>
-                <p className="text-sm text-charcoal/70 leading-relaxed font-normal">
-                  Angeripalayam Main Road: central corporate headquarters managing technical merchandising, fabric swatch development, Pantone lab dips, proto sampling, and buyer liaisons.
-                </p>
-                <div className="mt-6 pt-4 border-t border-charcoal/10 flex items-center justify-between text-xs font-mono text-muted-gray">
-                  <span>MERCHANDISING &amp; SAMPLING</span>
-                  <span className="text-accent font-semibold">TIRUPPUR</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Production model */}
-      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-off-white border-b border-charcoal/10">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-10 bg-accent" />
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              02 // Our Production Model
-            </span>
-          </div>
-
-          <SectionHeading
-            title={'A CONSISTENT\nSTANDARD.'}
-            subtitle="A focused Tiruppur team coordinates development, production, quality, and export finishing across two facilities."
-          />
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start mt-16 md:mt-24">
-            {/* Production overview */}
-            <div className="lg:col-span-5 bg-pure-white p-8 sm:p-12 border border-charcoal/10 shadow-sm">
-              <div className="w-16 h-16 bg-charcoal text-accent flex items-center justify-center mb-6">
-                <Factory className="w-8 h-8" />
-              </div>
-
-              <span className="text-[10px] font-mono uppercase tracking-widest text-accent font-bold block mb-1">
-                Tiruppur, India
-              </span>
-              <h3 className="text-2xl font-bold uppercase tracking-wider text-charcoal">
-                Two Facilities. One Focused Team.
-              </h3>
-              <p className="text-xs font-mono text-muted-gray mt-1">
-                Development through export finishing
-              </p>
-
-              <div className="mt-6 pt-6 border-t border-charcoal/10 text-xs sm:text-sm text-charcoal/70 leading-relaxed space-y-3 font-normal">
-                <p>
-                  Our Angeripalayam office coordinates technical merchandising, fabric swatches, lab dips, prototype sampling, and buyer communication.
-                </p>
-                <p>
-                  At Netaji Apparel Park, knitting, CAD cutting, garment assembly, quality checks, and export packing bring each program through production.
-                </p>
-              </div>
-
-              <div className="mt-8 pt-4 border-t border-charcoal/10 text-[11px] font-mono text-charcoal/80">
-                <span>ANGERIPALAYAM HQ · NETAJI APPAREL PARK UNIT-1</span>
-              </div>
-            </div>
-
-            {/* Quality commitment */}
-            <div className="lg:col-span-7 space-y-8">
-              <div className="grain relative p-8 md:p-12 bg-charcoal text-off-white border border-white/10 shadow-xl overflow-hidden">
-                <h4 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight leading-snug">
-                  Consistency is the standard behind every order.
-                </h4>
-                <p className="text-xs sm:text-sm text-off-white/70 leading-relaxed mt-5">
-                  Precision knitting, CAD cutting, in-line quality checks, and audited processing guide production from development through dispatch.
-                </p>
-                <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-off-white/60">
-                  <span>QUALITY WORKFLOW</span>
-                  <span className="text-accent font-semibold">AQL 2.5 INSPECTION</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-pure-white border border-charcoal/10 shadow-sm">
-                <AnimatedCounter value={20000} suffix="+" label="Sq.Ft Facility" />
-                <AnimatedCounter value={100} suffix="%" label="Needle Detection" />
-                <AnimatedCounter value={2} prefix="AQL " suffix=".5" label="Quality Standard" />
-                <AnimatedCounter value={16} suffix=" Standards" label="Audited Roster" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Historical Milestones */}
-      <section className="grain relative py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-charcoal text-off-white border-b border-white/10">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-10 bg-accent" />
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              03 // Company Evolution
-            </span>
-          </div>
-
-          <SectionHeading
-            title={'MILESTONES &\nGROWTH.'}
-            subtitle="The evolution of Fashion Knits from regional circular knitting foundations to international certified apparel manufacturing."
-            light={true}
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mt-16 md:mt-24">
-            {MILESTONES.map((m) => (
-              <div
-                key={m.phase}
-                className="premium-card group bg-[#161413] p-8 border border-white/10 hover:border-accent hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div>
-                  <span className="text-xs font-mono uppercase tracking-widest text-accent font-bold block mb-4">
-                    {m.phase}
-                  </span>
-                  <h3 className="text-lg font-bold uppercase tracking-wider text-off-white mb-2 group-hover:text-accent transition-colors duration-300">
-                    {m.title}
-                  </h3>
-                  <p className="text-xs text-off-white/70 leading-relaxed font-normal">
-                    {m.description}
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/10 text-[11px] font-mono text-muted-gray">
-                  <span>{m.tag}</span>
-                </div>
-              </div>
+      <section className="px-5 py-14 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+        <div className="mx-auto max-w-[90rem]">
+          <div className="mb-8 max-w-3xl"><p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#907348]">Locations</p><h2 className="text-[clamp(2.2rem,5vw,4.5rem)] font-semibold leading-[0.94] tracking-[-0.06em]">The office and factory.</h2><p className="mt-4 text-sm leading-6 text-charcoal/65">For each buyer program, confirm the active site address, production scope and any specialist supplier involvement.</p></div>
+          <div className="grid gap-5 lg:grid-cols-2">
+            {LOCATIONS.map(({ title, name, address, image, alt, icon: Icon }) => (
+              <article key={title} className="overflow-hidden rounded-[1rem] border border-charcoal/10 bg-white">
+                <figure className="relative aspect-[1.55/1] overflow-hidden bg-[#e8e4dc]">
+                  <Image src={image} alt={alt} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" />
+                  <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/65 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-white"><Icon aria-hidden="true" className="h-3.5 w-3.5 text-[#dfbd7d]" />{title}</span>
+                </figure>
+                <div className="p-5 sm:p-6"><h3 className="text-xl font-medium tracking-[-0.03em] sm:text-2xl">{name}</h3><p className="mt-2 flex items-start gap-2 text-sm leading-6 text-charcoal/60"><MapPin aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-[#907348]" />{address}</p></div>
+              </article>
             ))}
           </div>
+          <p className="mt-5 max-w-3xl text-[11px] leading-5 text-charcoal/55">Buyer checklist: verify the current site address, in-house operations, and external suppliers against the route for your product.</p>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="py-20 sm:py-24 lg:py-32 px-6 md:px-16 lg:px-24 bg-pure-white border-b border-charcoal/10">
-        <div className="max-w-[90rem] mx-auto">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="h-px w-10 bg-accent" />
-            <span className="text-xs font-mono uppercase tracking-[0.25em] text-accent font-semibold">
-              04 // Operating Principles
-            </span>
-          </div>
-
-          <SectionHeading
-            title={'WHAT DEFINES\nFASHION KNITS.'}
-            subtitle="The ethical and operational benchmarks embedded across our organization."
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-16 md:mt-24">
-            {CORE_VALUES.map((val, idx) => (
-              <div
-                key={idx}
-                className="group p-8 bg-warm-white border border-charcoal/10 hover:border-accent hover:-translate-y-1 transition-all duration-300 shadow-sm"
-              >
-                <div className="w-10 h-10 bg-charcoal text-accent font-mono text-xs font-bold flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-charcoal transition-colors duration-300">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-lg font-bold uppercase tracking-wider text-charcoal mb-2">
-                  {val.title}
-                </h3>
-                <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed font-normal">
-                  {val.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section className="border-t border-charcoal/10 bg-[#f2efe9] px-5 py-12 sm:px-8 sm:py-16 lg:px-16">
+        <div className="mx-auto flex max-w-[90rem] flex-col justify-between gap-5 sm:flex-row sm:items-center"><div><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#907348]">Working together</p><h2 className="mt-2 text-2xl font-medium tracking-[-0.04em]">Bring a product brief or reference sample.</h2></div><Link href="/#contact" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-charcoal px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-white transition-colors hover:bg-[#907348]">Start a conversation <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link></div>
       </section>
-
     </div>
   );
 }
