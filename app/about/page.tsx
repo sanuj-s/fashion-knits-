@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { AboutClient } from './AboutClient';
-import { Contact } from '@/components/sections/Contact';
+import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function AboutPage() {
   return (
     <>
       <AboutClient />
-      <Contact />
+      <EnquiryCTA context="about" />
       <Footer />
     </>
   );

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useLayoutEffect, useRef } from 'react';
+import Link from 'next/link';
 import { gsap } from '@/lib/animations';
 import { ScrollIndicator } from './ScrollIndicator';
 import { ArrowRight, MapPin } from 'lucide-react';
@@ -91,9 +92,9 @@ export function Hero() {
             </a>
           </Magnetic>
           <Magnetic>
-            <a href="#contact" onClick={(event) => { event.preventDefault(); go('contact'); }} className="inline-flex items-center px-9 py-4 border border-off-white/30 backdrop-blur-sm text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 hover:bg-off-white hover:text-charcoal cursor-pointer">
+            <Link href="/get-a-quote" className="inline-flex items-center px-9 py-4 border border-off-white/30 backdrop-blur-sm text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 hover:bg-off-white hover:text-charcoal cursor-pointer">
               Request a Quote
-            </a>
+            </Link>
           </Magnetic>
         </div>
 

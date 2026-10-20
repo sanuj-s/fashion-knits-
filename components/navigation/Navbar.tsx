@@ -59,11 +59,6 @@ export default function Navbar() {
     else router.push(`/${hash}`);
   };
 
-  const handleInquiryClick = () => {
-    if (document.getElementById('contact')) scrollTo('contact');
-    else router.push('/#contact');
-  };
-
   return (
     <>
       <header
@@ -122,13 +117,12 @@ export default function Navbar() {
               );
             })}
 
-            <button
-              type="button"
-              onClick={handleInquiryClick}
+            <Link
+              href="/get-a-quote"
               className="btn-shine rounded-full border border-accent/65 bg-accent px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-charcoal transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#e0c38d] hover:shadow-[0_8px_24px_rgba(201,169,110,0.22)]"
             >
               Inquire
-            </button>
+            </Link>
           </nav>
 
           <button

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ExportClient } from './ExportClient';
-import { Contact } from '@/components/sections/Contact';
+import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function ExportPage() {
   return (
     <>
       <ExportClient />
-      <Contact context="export" />
+      <EnquiryCTA context="export" />
       <Footer />
     </>
   );

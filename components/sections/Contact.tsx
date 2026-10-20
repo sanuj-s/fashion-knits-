@@ -17,8 +17,41 @@ const INITIAL_FORM = {
   message: '',
 };
 
-export function Contact({ context = 'general' }: { context?: 'general' | 'export' }) {
-  const [formData, setFormData] = useState(INITIAL_FORM);
+const PRODUCT_INTEREST_OPTIONS = [
+  'T-Shirts',
+  'Polos',
+  'Sweatshirts',
+  'Hoodies',
+  'Sportswear & active',
+  'Casualwear / loungewear',
+  'Kidswear & babywear',
+  'Custom programs / OEM',
+];
+
+const PRODUCT_INTEREST_ALIASES: Record<string, string> = {
+  'casualwear & lounge': 'Casualwear / loungewear',
+  'custom programs & oem': 'Custom programs / OEM',
+};
+
+function normalizeProductInterest(value: string | null | undefined) {
+  if (!value) return null;
+  const normalized = value.trim().toLocaleLowerCase();
+  return PRODUCT_INTEREST_OPTIONS.find((option) => option.toLocaleLowerCase() === normalized)
+    ?? PRODUCT_INTEREST_ALIASES[normalized]
+    ?? null;
+}
+
+export function Contact({
+  context = 'general',
+  initialProductInterest,
+}: {
+  context?: 'general' | 'export';
+  initialProductInterest?: string;
+}) {
+  const [formData, setFormData] = useState(() => ({
+    ...INITIAL_FORM,
+    productInterest: normalizeProductInterest(initialProductInterest) ?? INITIAL_FORM.productInterest,
+  }));
   const [status, setStatus] = useState<FormStatus>('idle');
   const [deliveryReady, setDeliveryReady] = useState<boolean | null>(null);
   const [responseMessage, setResponseMessage] = useState('');
@@ -36,7 +69,7 @@ export function Contact({ context = 'general' }: { context?: 'general' | 'export
       });
 
     const handleProductInterest = (event: Event) => {
-      const productInterest = (event as CustomEvent<string>).detail;
+      const productInterest = normalizeProductInterest((event as CustomEvent<string>).detail);
       if (productInterest) setFormData((previous) => ({ ...previous, productInterest }));
     };
     window.addEventListener('fashion-knits:product-interest', handleProductInterest);
@@ -169,7 +202,7 @@ export function Contact({ context = 'general' }: { context?: 'general' | 'export
                   <div><label htmlFor="contact-country" className={labelClassName}>{context === 'export' ? 'Destination country *' : 'Country *'}</label><input id="contact-country" name="country" required autoComplete="country-name" maxLength={100} value={formData.country} onChange={(event) => setFormData((prev) => ({ ...prev, country: event.target.value }))} className={inputClassName} placeholder={context === 'export' ? 'Destination country' : 'Country'} /></div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div><label htmlFor="contact-product" className={labelClassName}>Product interest</label><select id="contact-product" name="productInterest" value={formData.productInterest} onChange={(event) => setFormData((prev) => ({ ...prev, productInterest: event.target.value }))} className={inputClassName}><option>T-Shirts</option><option>Polos</option><option>Sweatshirts</option><option>Hoodies</option><option>Sportswear &amp; active</option><option>Casualwear / loungewear</option><option>Kidswear &amp; babywear</option><option>Custom programs / OEM</option></select></div>
+                    <div><label htmlFor="contact-product" className={labelClassName}>Product interest</label><select id="contact-product" name="productInterest" value={formData.productInterest} onChange={(event) => setFormData((prev) => ({ ...prev, productInterest: event.target.value }))} className={inputClassName}>{PRODUCT_INTEREST_OPTIONS.map((product) => <option key={product}>{product}</option>)}</select></div>
                   <div><label htmlFor="contact-quantity" className={labelClassName}>Estimated quantity</label><input id="contact-quantity" name="targetQuantity" value={formData.targetQuantity} onChange={(event) => setFormData((prev) => ({ ...prev, targetQuantity: event.target.value }))} maxLength={100} className={inputClassName} placeholder="If known" /></div>
                 </div>
                 <div className="grid gap-4 sm:grid-cols-2">

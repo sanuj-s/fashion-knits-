@@ -38,7 +38,7 @@ export function Footer() {
           <div className="lg:col-span-5">
             <h2 className="mb-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">Discuss a production brief</h2>
             <p className="max-w-md text-sm leading-6 text-white/60">Send a reference, tech pack or a short description of your knitwear requirements.</p>
-            <Link href="/#contact" className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-charcoal transition-colors hover:bg-[#e5c78e]">
+            <Link href="/get-a-quote" className="mt-5 inline-flex min-h-12 items-center gap-2 rounded-full bg-accent px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-charcoal transition-colors hover:bg-[#e5c78e]">
               Get a quote <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
             </Link>
             <div className="mt-6 flex flex-col gap-3 text-xs text-white/65 sm:flex-row sm:flex-wrap sm:gap-x-6">

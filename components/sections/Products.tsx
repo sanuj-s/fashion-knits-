@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 
@@ -36,6 +37,7 @@ const FILTER_TABS = [
 
 export function Products() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const router = useRouter();
   const filteredProducts = activeFilter === 'all'
     ? PRODUCTS
     : PRODUCTS.filter((product) => product.type === activeFilter);
@@ -44,9 +46,7 @@ export function Products() {
     const product = PRODUCTS.find((item) => item.id === productId);
     if (!product) return;
     window.dispatchEvent(new CustomEvent('fashion-knits:product-interest', { detail: product.category }));
-    document.getElementById('contact')?.scrollIntoView({
-      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
-    });
+    router.push(`/get-a-quote?product=${encodeURIComponent(product.category)}`);
   };
 
   return (

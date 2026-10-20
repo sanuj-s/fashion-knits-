@@ -24,7 +24,7 @@ const navLinks = [
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([]);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
   const pathname = usePathname();
   const router = useRouter();
   const isHomePage = pathname === '/';
@@ -128,19 +128,6 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     }
   };
 
-  const handleInquiryClick = () => {
-    const contact = document.getElementById('contact');
-    onClose();
-    if (contact) {
-      window.setTimeout(() => {
-        const behavior = prefersReducedMotion ? 'auto' : 'smooth';
-        contact.scrollIntoView({ behavior });
-      }, prefersReducedMotion ? 0 : 420);
-    } else {
-      router.push('/#contact');
-    }
-  };
-
   return (
     <div
       id="mobile-navigation"
@@ -199,15 +186,15 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <span className="text-xs text-white/45">Knitwear development · Manufacturing · Export</span>
-          <button
+          <Link
             ref={buttonRef}
-            type="button"
-            onClick={handleInquiryClick}
+            href="/get-a-quote"
+            onClick={onClose}
             className="btn-shine inline-flex items-center justify-center gap-3 rounded-full bg-accent px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.17em] text-charcoal transition-colors hover:bg-[#e0c38d]"
           >
             Start an inquiry
             <ArrowUpRight className="h-4 w-4" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>

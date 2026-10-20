@@ -8,7 +8,7 @@ import { CertificateShowcase } from '@/components/sections/CertificateShowcase';
 import { About } from '@/components/sections/About';
 import { GlobalExport } from '@/components/sections/GlobalExport';
 import { Sustainability } from '@/components/sections/Sustainability';
-import { Contact } from '@/components/sections/Contact';
+import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
       <About />
       <GlobalExport />
       <Sustainability />
-      <Contact />
+      <EnquiryCTA />
       <Footer />
     </>
   );

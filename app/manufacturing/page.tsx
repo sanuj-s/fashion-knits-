@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { ManufacturingClient } from './ManufacturingClient';
-import { Contact } from '@/components/sections/Contact';
+import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function ManufacturingPage() {
   return (
     <>
       <ManufacturingClient />
-      <Contact />
+      <EnquiryCTA context="manufacturing" />
       <Footer />
     </>
   );

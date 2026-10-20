@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { QualityClient } from './QualityClient';
-import { Contact } from '@/components/sections/Contact';
+import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export default function QualityPage() {
   return (
     <>
       <QualityClient />
-      <Contact />
+      <EnquiryCTA context="quality" />
       <Footer />
     </>
   );
