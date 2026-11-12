@@ -1,0 +1,159 @@
+- generic [active] [ref=f16e1]:
+  - banner [ref=f16e2]:
+    - generic [ref=f16e3]:
+      - link "Fashion Knits home" [ref=f16e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f16e5]:
+          - generic [ref=f16e6]:
+            - generic [ref=f16e10]: FK
+            - generic [ref=f16e11]: We Design Your Dreams
+          - generic [ref=f16e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f16e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f16e17]:
+    - generic [ref=f16e19]:
+      - generic [ref=f16e20]:
+        - generic [ref=f16e21]:
+          - paragraph [ref=f16e22]: Get a quote · Tiruppur, India
+          - heading "Discuss your knitwear brief." [level=2] [ref=f16e24]
+        - paragraph [ref=f16e25]: Tell us the product, destination and approximate order quantity. A reference sample or tech pack helps us understand your requirements.
+      - generic [ref=f16e26]:
+        - complementary [ref=f16e27]:
+          - generic [ref=f16e28]:
+            - generic [ref=f16e30]: Fashion Knits · Tiruppur
+            - generic [ref=f16e37]:
+              - paragraph [ref=f16e38]: Head Office & Unit 2
+              - heading "81/82 Angeripalayam Main Road" [level=3] [ref=f16e39]
+              - paragraph [ref=f16e40]: Tiruppur 641 603, Tamil Nadu, India
+            - link "www.fashionknits.in" [ref=f16e41] [cursor=pointer]:
+              - /url: https://www.fashionknits.in
+          - link "Email raviramu@fashionknits.net" [ref=f16e42] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+            - generic [ref=f16e47]:
+              - generic [ref=f16e48]: Email
+              - text: raviramu@fashionknits.net
+        - generic [ref=f16e49]:
+          - heading "Tell us about your project" [level=3] [ref=f16e50]
+          - paragraph [ref=f16e51]: Name, company, work email, country and a short project description are required.
+          - form "Tell us about your project" [ref=f16e52]:
+            - generic [ref=f16e53]:
+              - generic [ref=f16e54]:
+                - generic [ref=f16e55]: Your name *
+                - textbox "Your name *" [ref=f16e56]:
+                  - /placeholder: Name
+              - generic [ref=f16e57]:
+                - generic [ref=f16e58]: Company / brand *
+                - textbox "Company / brand *" [ref=f16e59]:
+                  - /placeholder: Company or brand
+              - generic [ref=f16e60]:
+                - generic [ref=f16e61]: Work email *
+                - textbox "Work email *" [ref=f16e62]:
+                  - /placeholder: you@company.com
+              - generic [ref=f16e63]:
+                - generic [ref=f16e64]: Country *
+                - textbox "Country *" [ref=f16e65]:
+                  - /placeholder: Country
+            - generic [ref=f16e66]:
+              - generic [ref=f16e67]:
+                - generic [ref=f16e68]: Product interest
+                - combobox "Product interest" [ref=f16e69]:
+                  - option "Men's apparel"
+                  - option "Women's apparel"
+                  - option "Kids' apparel"
+                  - option "Babies & toddler"
+                  - option "T-Shirts" [selected]
+                  - option "Polos"
+                  - option "Sweatshirts"
+                  - option "Hoodies"
+                  - option "Sportswear & active"
+                  - option "Casualwear / loungewear"
+                  - option "Kidswear & babywear"
+                  - option "Custom programs / OEM"
+              - generic [ref=f16e70]:
+                - generic [ref=f16e71]: Estimated quantity
+                - textbox "Estimated quantity" [ref=f16e72]:
+                  - /placeholder: If known
+            - generic [ref=f16e74]:
+              - generic [ref=f16e75]: Phone (optional)
+              - textbox "Phone (optional)" [ref=f16e76]:
+                - /placeholder: Include country code
+            - generic [ref=f16e77]:
+              - generic [ref=f16e78]: Project details *
+              - textbox "Project details *" [ref=f16e79]:
+                - /placeholder: Product, fabric, destination, quantity or timeline — share what you know so far.
+            - button "Checking enquiry delivery…" [disabled] [ref=f16e80]
+            - paragraph [ref=f16e84]: A successful submission means the configured email provider accepted the message for delivery. It does not confirm that a person has read it.
+    - generic [ref=f16e86]:
+      - generic [ref=f16e87]:
+        - generic [ref=f16e88]:
+          - link "Fashion Knits home" [ref=f16e89] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f16e90]:
+              - generic [ref=f16e91]:
+                - generic [ref=f16e95]: FK
+                - generic [ref=f16e96]: We Design Your Dreams
+              - generic [ref=f16e97]: Fashion Knits
+          - paragraph [ref=f16e98]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f16e99]:
+            - paragraph [ref=f16e100]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f16e104]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f16e108]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f16e112]:
+          - heading "Explore" [level=2] [ref=f16e113]
+          - list [ref=f16e114]:
+            - listitem [ref=f16e115]:
+              - link "Products" [ref=f16e116] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f16e117]:
+              - link "Manufacturing" [ref=f16e118] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f16e119]:
+              - link "Quality" [ref=f16e120] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f16e121]:
+              - link "Sustainability" [ref=f16e122] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f16e123]:
+              - link "Export" [ref=f16e124] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f16e125]:
+              - link "About" [ref=f16e126] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f16e127]:
+          - heading "Discuss a production brief" [level=2] [ref=f16e128]
+          - paragraph [ref=f16e129]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f16e130] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f16e135] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f16e139]:
+        - paragraph [ref=f16e140]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f16e141] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f16e145]

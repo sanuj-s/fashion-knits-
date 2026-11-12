@@ -1,0 +1,471 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - navigation "Main navigation" [ref=e13]:
+        - link "Products" [ref=e14] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=e15] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=e16] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=e17] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=e18] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=e19] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=e20] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e21]:
+    - generic [ref=e22]:
+      - group "Hero background photos" [ref=e27]:
+        - generic [ref=e28]: Yarn machinery
+        - 'button "Show hero photo 1: Yarn machinery" [pressed] [ref=e29]'
+        - 'button "Show hero photo 2: Garment fitting" [ref=e31]'
+        - 'button "Show hero photo 3: Sewing production" [ref=e33]'
+      - generic [ref=e37]:
+        - generic [ref=e38]: Fashion Knits // Tiruppur, India
+        - heading "Knitwear that moves your brand forward." [level=1] [ref=e41]:
+          - generic [ref=e42]: Knitwear that moves
+          - generic [ref=e44]: your brand forward.
+        - paragraph [ref=e46]: From first swatch to finished garment, our Tiruppur team helps apparel brands shape a knitwear range around their brief, standards and production needs.
+        - generic [ref=e47]:
+          - link "Explore Products" [ref=e49] [cursor=pointer]:
+            - /url: "#products"
+          - link "Request a Quote" [ref=e53] [cursor=pointer]:
+            - /url: /get-a-quote
+        - generic [ref=e54]: NAP Unit-1 & Angeripalayam HQ
+      - list [ref=e59]:
+        - listitem [ref=e60]: Tiruppur, India
+        - listitem [ref=e61]: Knitwear manufacturing
+        - listitem [ref=e62]: Custom product programs
+        - listitem [ref=e63]: International buyer enquiries
+      - generic [ref=e64]: Scroll to explore
+    - region [ref=e68]:
+      - generic [ref=e69]:
+        - heading "Knitwear for your collection" [level=2] [ref=e70]
+        - paragraph [ref=e72]: Product categories | Men, women, children & babies
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - tablist "Shop product ranges" [ref=e76]:
+              - tab "Men's" [selected] [ref=e77]
+              - tab "Women's" [ref=e79]
+              - tab "Kids'" [ref=e80]
+              - tab "Babies & toddler" [ref=e81]
+            - generic [ref=e82]: 01 / 05
+          - tabpanel "Men's" [ref=e83]:
+            - listbox "Select a Men's garment category" [ref=e86]:
+              - generic [ref=e87]:
+                - 'option "Select Men''s apparel: T-shirts & polos" [selected] [ref=e88]':
+                  - generic [aria-hidden] [ref=e92]:
+                    - generic [ref=e93]: Men's
+                    - generic [ref=e94]: T-shirts & polos
+                - generic [ref=e100]: Men's apparel
+              - generic [ref=e103]:
+                - 'option "Select Men''s apparel: Hoodies & sweatshirts" [ref=e104]':
+                  - generic [aria-hidden] [ref=e108]:
+                    - generic [ref=e109]: Men's
+                    - generic [ref=e110]: Hoodies & sweatshirts
+                - generic [ref=e116]: Men's apparel
+              - generic [ref=e119]:
+                - 'option "Select Men''s apparel: Shorts & joggers" [ref=e120]':
+                  - generic [aria-hidden] [ref=e124]:
+                    - generic [ref=e125]: Men's
+                    - generic [ref=e126]: Shorts & joggers
+                - generic [ref=e132]: Men's apparel
+              - generic [ref=e135]:
+                - 'option "Select Men''s apparel: Jackets, coats & jumpers" [ref=e136]':
+                  - generic [aria-hidden] [ref=e140]:
+                    - generic [ref=e141]: Men's
+                    - generic [ref=e142]: Jackets, coats & jumpers
+                - generic [ref=e148]: Men's apparel
+              - generic [ref=e151]:
+                - 'option "Select Men''s apparel: Sleepwear & lounge wear" [ref=e152]':
+                  - generic [aria-hidden] [ref=e156]:
+                    - generic [ref=e157]: Men's
+                    - generic [ref=e158]: Sleepwear & lounge wear
+                - generic [ref=e164]: Men's apparel
+        - generic [ref=e167]:
+          - generic [ref=e169]:
+            - paragraph [ref=e170]: Men's / Men's apparel
+            - heading "T-shirts & polos" [level=3] [ref=e171]
+            - paragraph [ref=e172]: T-shirts and polos for men's apparel programs.
+          - button "Enquire about this product category" [ref=e173]
+          - paragraph [ref=e176]: Knit and woven apparel categories for men, women, children, toddlers and newborns.
+    - generic [ref=e177]:
+      - generic [ref=e179]:
+        - generic [ref=e180]:
+          - paragraph [ref=e181]: A buyer-led production route
+          - heading "From Buyer Brief to Finished Order" [level=2] [ref=e183]:
+            - generic [ref=e184]: From
+            - generic [ref=e186]: Buyer
+            - generic [ref=e188]: Brief
+            - generic [ref=e190]: to
+            - generic [ref=e192]: Finished
+            - generic [ref=e194]: Order
+          - paragraph [ref=e196]: Fashion Knits works with buyers to define product requirements, coordinate materials and production, review quality against approved specifications, and prepare finished orders for dispatch.
+          - generic [ref=e198]: Scroll to follow the order
+          - link "Explore Our Manufacturing Capabilities" [ref=e202]:
+            - /url: /manufacturing
+        - list "Manufacturing journey" [ref=e207]:
+          - listitem [ref=e208]:
+            - generic [ref=e210]:
+              - generic [aria-hidden] [ref=e211]: "01"
+              - generic [ref=e212]: Step 01
+            - img "Lectra fully automatic cutting machine" [ref=e216]
+            - heading [level=3] [ref=e217]:
+              - button "CAD Pattern & Cutting" [expanded] [ref=e218]
+            - paragraph [ref=e219]: In-house CAD supports pattern making and cutting. The listed cutting equipment includes Lectra and Bullmer E80 fully automatic machines.
+          - listitem [ref=e220]:
+            - generic [ref=e222]:
+              - generic [aria-hidden] [ref=e223]: "02"
+              - generic [ref=e224]: Step 02
+            - img "Kornit Storm 931 digital printing machine" [ref=e228]
+            - heading [level=3] [ref=e229]:
+              - button "Print & Embroider" [ref=e230]
+            - paragraph [ref=e231]: The facilities list five automatic printing machines and five embroidery machines, including Kornit, M&R, Sportsman, Barudan and Tajima equipment.
+          - listitem [ref=e232]:
+            - generic [ref=e234]:
+              - generic [aria-hidden] [ref=e235]: "03"
+              - generic [ref=e236]: Step 03
+            - generic [ref=e239]:
+              - generic "Blank interactive 3D preview placeholder. Drag to rotate the empty scene." [ref=e240]
+              - generic [aria-hidden]: +
+              - generic: DRAG TO ROTATE
+            - heading [level=3] [ref=e241]:
+              - button "Sewing & Finishing" [ref=e242]
+            - paragraph [ref=e243]: Product-focused lines and trained operators carry garments through sewing, trimming, checking, ironing and packaging. The stated monthly production capacity is approximately 350,000 pieces.
+          - listitem [ref=e244]:
+            - generic [ref=e246]:
+              - generic [aria-hidden] [ref=e247]: "04"
+              - generic [ref=e248]: Step 04
+            - heading [level=3] [ref=e252]:
+              - button "Quality, Packing & Dispatch" [ref=e253]
+            - paragraph [ref=e254]: Fabric inspection, in-house testing and final garment checks lead into metal detection and secure packing in export cartons ready for shipment.
+      - generic [aria-hidden]:
+        - generic: View
+    - region [ref=e255]:
+      - generic [ref=e256]:
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - paragraph [ref=e259]: Manufacturing capabilities
+            - heading "From CAD patterns to finished garments." [level=2] [ref=e261]
+            - paragraph [ref=e262]: Explore the equipment, processes and facilities behind Fashion Knits production.
+          - link "Explore manufacturing" [ref=e264] [cursor=pointer]:
+            - /url: /manufacturing
+        - generic [ref=e268]:
+          - group "Manufacturing process" [ref=e269]:
+            - button "01 Pattern & Cut" [pressed] [ref=e270]:
+              - generic [ref=e271]: "01"
+              - generic [ref=e272]: Pattern & Cut
+            - button "02 Print & Embroider" [ref=e275]:
+              - generic [ref=e276]: "02"
+              - generic [ref=e277]: Print & Embroider
+            - button "03 Sew & Finish" [ref=e280]:
+              - generic [ref=e281]: "03"
+              - generic [ref=e282]: Sew & Finish
+            - button "04 Workforce & Facilities" [ref=e285]:
+              - generic [ref=e286]: "04"
+              - generic [ref=e287]: Workforce & Facilities
+          - article [ref=e291]:
+            - generic [ref=e292]:
+              - generic [aria-hidden] [ref=e293]: "01"
+              - generic [ref=e294]:
+                - paragraph [ref=e295]: Process 01
+                - heading "In-house CAD. Automatic cutting." [level=3] [ref=e302]
+                - paragraph [ref=e303]: CAD supports pattern making and cutting planning, alongside fully automatic Lectra and Bullmer E80 cutting machines.
+              - list [ref=e304]:
+                - listitem [ref=e305]: In-house CAD for patterns
+                - listitem [ref=e307]: Lectra automatic cutter
+                - listitem [ref=e309]: Bullmer E80 automatic cutter
+            - img "Lectra automatic cutting machine" [ref=e312]
+        - generic [ref=e313]:
+          - paragraph [ref=e314]:
+            - generic [ref=e315]: Machine capacity
+            - strong [ref=e316]: ~2,000 machines
+            - generic [ref=e317]: 2026 figure
+          - paragraph [ref=e318]:
+            - generic [ref=e319]: Monthly production capacity
+            - strong [ref=e320]: ~350,000 pieces
+            - generic [ref=e321]: 2026 figure
+          - paragraph [ref=e322]:
+            - generic [ref=e323]: In-house decoration machines
+            - strong [ref=e324]: 5 printing · 5 embroidery
+            - generic [ref=e325]: 2026 figure
+    - generic [ref=e327]:
+      - generic [ref=e328]:
+        - paragraph [ref=e329]: Material evolution
+        - heading "BEYOND COTTON. INTO MAN-MADE FIBRES." [level=2] [ref=e331]:
+          - generic [ref=e332]: BEYOND COTTON.
+          - generic [ref=e333]: INTO MAN-MADE FIBRES.
+      - generic [ref=e334]:
+        - generic [ref=e335]:
+          - paragraph [ref=e336]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+          - paragraph [ref=e337]: Cotton and cotton blends remain established options.
+          - paragraph [ref=e338]: Performance-related requirements are considered against buyer specifications.
+          - link "Discuss Your Material Requirements" [ref=e339] [cursor=pointer]:
+            - /url: /#contact
+        - figure [ref=e343]:
+          - img "A material study of knitted fabrics in contrasting textures and colours" [ref=e345]
+    - region [ref=e346]:
+      - generic [ref=e347]:
+        - generic [ref=e348]:
+          - generic [ref=e349]:
+            - paragraph [ref=e350]: International customer relationships
+            - heading "Trusted by apparel brands." [level=2] [ref=e352]
+          - paragraph [ref=e353]: Fashion Knits has worked with apparel brands across men's, women's, children's and babywear categories.
+        - region "Brand logos" [ref=e354]:
+          - generic [ref=e355]:
+            - paragraph [ref=e356]:
+              - generic [ref=e357]: 1–6
+              - text: of 27 brands
+            - group "Carousel controls" [ref=e358]:
+              - button "Show previous brands" [disabled] [ref=e359]
+              - button "Show next brands" [ref=e362]
+          - generic [ref=e366]:
+            - group "Brands 1–6 of 27" [ref=e367]:
+              - listitem [ref=e368]:
+                - generic [ref=e371]: Next
+              - listitem [ref=e372]:
+                - generic [ref=e375]: Alana
+              - listitem [ref=e376]:
+                - generic [ref=e379]: Acanthé
+              - listitem [ref=e380]:
+                - generic [ref=e383]: Noppies
+              - listitem [ref=e384]:
+                - generic [ref=e387]: DW-Shop
+              - listitem [ref=e388]:
+                - generic [ref=e391]: Coop
+            - group [aria-hidden] [ref=e392]:
+              - listitem [ref=e393]:
+                - generic [ref=e396]: Beverly Hills Polo Club
+              - listitem [ref=e397]:
+                - generic [ref=e400]: BOSS
+              - listitem [ref=e401]:
+                - generic [ref=e404]: Zadig & Voltaire
+              - listitem [ref=e405]:
+                - generic [ref=e408]: Karl Lagerfeld
+              - listitem [ref=e409]:
+                - generic [ref=e412]: Billiebush
+              - listitem [ref=e413]:
+                - generic [ref=e416]: WE Fashion
+            - group [aria-hidden] [ref=e417]:
+              - listitem [ref=e418]:
+                - generic [ref=e421]: Esprit
+              - listitem [ref=e422]:
+                - generic [ref=e425]: La Fancée
+              - listitem [ref=e426]:
+                - generic [ref=e429]: Sun City
+              - listitem [ref=e430]:
+                - generic [ref=e433]: Keedo
+              - listitem [ref=e434]:
+                - generic [ref=e437]: DKNY
+              - listitem [ref=e438]:
+                - generic [ref=e441]: Sloggi
+            - group [aria-hidden] [ref=e442]:
+              - listitem [ref=e443]:
+                - generic [ref=e446]: Camp David
+              - listitem [ref=e447]:
+                - generic [ref=e450]: Sergent Major
+              - listitem [ref=e451]:
+                - generic [ref=e454]: Diesel
+              - listitem [ref=e455]:
+                - generic [ref=e458]: Lalique
+              - listitem [ref=e459]:
+                - generic [ref=e462]: Coopérative U
+              - listitem [ref=e463]:
+                - generic [ref=e466]: Marc O’Polo
+            - group [aria-hidden] [ref=e467]:
+              - listitem [ref=e468]:
+                - generic [ref=e471]: Aéropostale
+              - listitem [ref=e472]:
+                - generic [ref=e475]: Punto Blanco
+              - listitem [ref=e476]:
+                - generic [ref=e479]: Lodger
+          - group "Choose a brand slide" [ref=e480]:
+            - button "Show brand slide 1" [ref=e481]
+            - button "Show brand slide 2" [ref=e483]
+            - button "Show brand slide 3" [ref=e485]
+            - button "Show brand slide 4" [ref=e487]
+            - button "Show brand slide 5" [ref=e489]
+    - generic [ref=e492]:
+      - generic [ref=e493]:
+        - generic [ref=e494]:
+          - paragraph [ref=e495]: Certification & social compliance
+          - heading "Standards, scopes and dates." [level=2] [ref=e497]
+          - paragraph [ref=e498]: Review the named facility, product and process scope for each standard and monitoring record.
+        - link "All certification records" [ref=e499] [cursor=pointer]:
+          - /url: /quality#certificates
+      - list [ref=e503]:
+        - listitem [ref=e504]:
+          - generic [ref=e505]: "01"
+          - heading "OEKO-TEX® STANDARD 100" [level=3] [ref=e510]
+          - paragraph [ref=e511]: Fashion Knits (Printing Division) · Product Class I · valid through 30 November 2026.
+        - listitem [ref=e512]:
+          - generic [ref=e513]: "02"
+          - heading "WRAP Certificate of Compliance" [level=3] [ref=e519]
+          - paragraph [ref=e520]: Fashion Knits Branch · 1 June 2026 to 1 June 2027 · cutting, sewing, trimming, checking, ironing and packing.
+        - listitem [ref=e521]:
+          - generic [ref=e522]: "03"
+          - heading "amfori BSCI monitoring" [level=3] [ref=e528]
+          - paragraph [ref=e529]: Monitoring summary · overall rating B · monitoring period expires 9 March 2027.
+    - generic [ref=e531]:
+      - generic [ref=e532]:
+        - generic [ref=e533]:
+          - paragraph [ref=e534]: Fashion Knits · Tiruppur, India
+          - heading "Designing your dreams since 1990." [level=2] [ref=e536]
+        - generic [ref=e537]:
+          - paragraph [ref=e538]: A manufacturer of knitted and woven garments for men, women, children, toddlers and newborns. Fashion Knits is a Government-certified Two-Star Export House.
+          - link "About Fashion Knits" [ref=e539] [cursor=pointer]:
+            - /url: /about
+      - generic [ref=e543]:
+        - generic [ref=e544]:
+          - generic [ref=e545]: Established
+          - strong [ref=e546]: "1990"
+        - generic [ref=e547]:
+          - generic [ref=e548]: Export status
+          - strong [ref=e549]: Two-Star Export House
+        - generic [ref=e550]:
+          - generic [ref=e551]: Head office
+          - strong [ref=e552]: Tiruppur, India
+      - list [ref=e553]:
+        - listitem [ref=e554]:
+          - generic [ref=e555]: Quality
+          - paragraph [ref=e560]: Care across every thread, stitch and garment.
+        - listitem [ref=e561]:
+          - generic [ref=e562]: Partnership
+          - paragraph [ref=e566]: Long-term relationships with international apparel brands.
+        - listitem [ref=e567]:
+          - generic [ref=e568]: Service
+          - paragraph [ref=e575]: A practical focus on order requirements and on-time delivery.
+    - generic [ref=e577]:
+      - generic [ref=e578]:
+        - generic [ref=e579]:
+          - paragraph [ref=e580]: International apparel orders
+          - heading "From Tiruppur to apparel brands worldwide." [level=2] [ref=e582]
+          - paragraph [ref=e583]: Fashion Knits pairs garment manufacturing with export preparation for international buyers.
+        - link "Export details" [ref=e585] [cursor=pointer]:
+          - /url: /export
+      - list [ref=e588]:
+        - listitem [ref=e589]:
+          - generic [ref=e590]: "01"
+          - heading "Two-Star Export House" [level=3] [ref=e595]
+          - paragraph [ref=e596]: Government-certified export house based in Tiruppur, Tamil Nadu.
+        - listitem [ref=e597]:
+          - generic [ref=e598]: "02"
+          - heading "Knitted & woven apparel" [level=3] [ref=e602]
+          - paragraph [ref=e603]: Garments for men, women, children, toddlers and newborns.
+        - listitem [ref=e604]:
+          - generic [ref=e605]: "03"
+          - heading "Export-carton packing" [level=3] [ref=e612]
+          - paragraph [ref=e613]: Final checks, metal detection and secure carton packing before shipment.
+    - generic [ref=e615]:
+      - generic [ref=e616]:
+        - generic [ref=e617]:
+          - paragraph [ref=e618]: Environment & responsibility
+          - heading "A practical focus on energy, water and community." [level=2] [ref=e620]
+        - paragraph [ref=e621]: Material direction, resource use and community initiatives are part of Fashion Knits’ approach to responsible manufacturing.
+      - list [ref=e622]:
+        - listitem [ref=e623]:
+          - heading "Rooftop solar" [level=3] [ref=e630]
+          - paragraph [ref=e631]: A 200 kWp solar power system is installed at the Netaji Apparel Park factory.
+        - listitem [ref=e632]:
+          - heading "Water reuse" [level=3] [ref=e636]
+          - paragraph [ref=e637]: Treated water is used for gardening and landscaping.
+        - listitem [ref=e638]:
+          - heading "Tree planting" [level=3] [ref=e642]
+          - paragraph [ref=e643]: Fashion Knits took part in the Vanathukkul Tiruppur campaign, planting nearly 125,000 trees over two years.
+      - generic [ref=e644]:
+        - paragraph [ref=e645]: Explore environmental and material initiatives.
+        - link "See sustainability details" [ref=e646] [cursor=pointer]:
+          - /url: /sustainability
+    - region [ref=e650]:
+      - generic [ref=e652]:
+        - generic [ref=e653]:
+          - paragraph [ref=e654]: Start a conversation
+          - heading "Planning Your Next Knitwear Project?" [level=2] [ref=e656]
+          - paragraph [ref=e657]: Share your requirements with our team to discuss your manufacturing brief.
+        - link "Discuss Your Project" [ref=e659] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=e665]:
+      - generic [ref=e666]:
+        - generic [ref=e667]:
+          - link "Fashion Knits home" [ref=e668] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e669]:
+              - generic [ref=e670]:
+                - generic [ref=e674]: FK
+                - generic [ref=e675]: We Design Your Dreams
+              - generic [ref=e676]: Fashion Knits
+          - paragraph [ref=e677]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e678]:
+            - paragraph [ref=e679]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e683]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e687]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e691]:
+          - heading "Explore" [level=2] [ref=e692]
+          - list [ref=e693]:
+            - listitem [ref=e694]:
+              - link "Products" [ref=e695] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e696]:
+              - link "Manufacturing" [ref=e697] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e698]:
+              - link "Quality" [ref=e699] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e700]:
+              - link "Sustainability" [ref=e701] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e702]:
+              - link "Export" [ref=e703] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e704]:
+              - link "About" [ref=e705] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e706]:
+          - heading "Discuss a production brief" [level=2] [ref=e707]
+          - paragraph [ref=e708]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e709] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e714] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e718]:
+        - paragraph [ref=e719]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e720] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=e729] [cursor=pointer]

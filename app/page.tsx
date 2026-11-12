@@ -2,8 +2,9 @@ import { Hero } from '@/components/hero/Hero';
 import { Products } from '@/components/sections/Products';
 import { ManufacturingProcess } from '@/components/sections/ManufacturingProcess';
 import { Capabilities } from '@/components/sections/Capabilities';
+import { WorkforceScale } from '@/components/sections/WorkforceScale';
 import { MaterialInnovation } from '@/components/sections/MaterialInnovation';
-import { BrandStandards } from '@/components/sections/BrandStandards';
+import { BrandRail } from '@/components/sections/BrandRail';
 import { CertificateShowcase } from '@/components/sections/CertificateShowcase';
 import { About } from '@/components/sections/About';
 import { GlobalExport } from '@/components/sections/GlobalExport';
@@ -18,9 +19,10 @@ export default function Home() {
       <Products />
       <ManufacturingProcess />
       <Capabilities />
-      <MaterialInnovation />
-      <BrandStandards context="home" />
+      <WorkforceScale />
+      <MaterialInnovation showImageLabel={false} />
       <CertificateShowcase />
+      <BrandRail />
       <About />
       <GlobalExport />
       <Sustainability />

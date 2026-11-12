@@ -1,0 +1,3446 @@
+[     230ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     287ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  604205ms] [ERROR] ./app/about/AboutClient.tsx:7:1
+Error: Module not found: Can't resolve './AboutMotion'
+   5 | ... ABOUT_FACTS, ABOUT_LOCATION_DETAILS, ABOUT_SITE_CONTACT } from './...
+   6 | ... leadership, MD_NOTE, PUBLIC_APPOINTMENTS } from './leadership-cont...
+>  7 | ... AboutImageReveal, AboutListItemReveal, AboutReveal } from './About...
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   8 | ... AboutProofStrip } from './AboutProofStrip';
+   9 | ... AboutBuyersSection, AboutContinueExploring, AboutQualitySection, A...
+  10 | ...tyles from './about.module.css';
+
+Import trace:
+  Server Component:
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  604205ms] [ERROR] ./app/about/AboutProofStrip.tsx:5:1
+Error: Module not found: Can't resolve './AboutMotion'
+  3 | import { useEffect, useRef, useState } from 'react';
+  4 | import type { AboutFact } from './about-data';
+> 5 | import { AboutReveal } from './AboutMotion';
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  6 | import styles from './about.module.css';
+  7 |
+  8 | function CountUpValue({ value }: { value: string }) {
+
+Import trace:
+  Server Component:
+    ./app/about/AboutProofStrip.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  604205ms] [ERROR] ./app/about/AboutSupplementalSections.tsx:13:1
+Error: Module not found: Can't resolve './AboutMotion'
+  11 |   QUALITY_HIGHLIGHTS,
+  12 | } from './about-data';
+> 13 | import { AboutListItemReveal, AboutReveal } from './AboutMotion';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  14 | import styles from './about.module.css';
+  15 |
+  16 | const qualityIsReady = QUALITY_HIGHLIGHTS.length >= 3
+
+Import trace:
+  Server Component:
+    ./app/about/AboutSupplementalSections.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  604232ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  672096ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  672578ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  672579ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  702645ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  702645ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  702714ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  727878ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  727879ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  727936ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  727936ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  727955ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  733703ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  733703ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  733791ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  733792ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  739933ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  739934ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  739947ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  741360ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  741377ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  741377ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  761750ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  761750ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  761779ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  788132ms] [ERROR] ./app/about/AboutClient.tsx:327:27
+Error: Expected '</', got 'jsx text'
+  325 |                 Start a conversation <ArrowRight aria-hidden="true" c...
+  326 |               </Link>
+> 327 |             </AboutReveal>
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 328 |           </div>
+      | ^^^^^^^^^^
+  329 |
+  330 |           {showRolesStrip && (
+  331 |             <div className={styles.rolesStrip}>
+
+Parsing ecmascript source code failed
+
+Import trace:
+  Server Component:
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  788133ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  788133ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  788189ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  808707ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  808707ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  808765ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  876284ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  876284ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  876361ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  876366ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  876366ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  895665ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  895665ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  895686ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  900499ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  900499ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  900590ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  904432ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  904432ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  904506ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  923092ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923093ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923163ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923163ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923264ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923264ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923298ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923298ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923446ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923446ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923490ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923490ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923615ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923615ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923660ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923660ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923779ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923779ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923820ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  923820ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  931910ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  931910ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  931931ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  939427ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  939428ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  939493ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  962078ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962078ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962133ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962133ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962414ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962414ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962471ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962471ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962594ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962594ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962638ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962639ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962780ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962781ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962869ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  962869ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963004ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963004ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963143ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963143ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963188ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963188ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963329ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963329ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963377ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963377ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963511ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963511ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963558ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963558ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963849ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963850ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963902ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  963903ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  983912ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  983913ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  983913ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  983958ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  983958ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  984002ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-client] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  984003ms] [ERROR] ./app/about/AboutMotion.tsx:4:1
+Error: Export useSyncExternalStore doesn't exist in target module
+   2 |
+   3 | import Link from 'next/link';
+>  4 | import {
+     | ^^^^^^^
+>  5 |   motion,
+     | ^^^^^^^^^
+>  6 |   useInView,
+     | ^^^^^^^^^^^^
+>  7 |   useMotionValue,
+     | ^^^^^^^^^^^^^^^^^
+>  8 |   useReducedMotion,
+     | ^^^^^^^^^^^^^^^^^^^
+>  9 |   useScroll,
+     | ^^^^^^^^^^^^
+> 10 |   useSpring,
+     | ^^^^^^^^^^^^
+> 11 |   useSyncExternalStore,
+     | ^^^^^^^^^^^^^^^^^^^^^^^
+> 12 | } from 'motion/react';
+     | ^^^^^^^^^^^^^^^^^^^^^^
+  13 | import type { PointerEvent, ReactNode } from 'react';
+  14 | import { useEffect, useRef } from 'react';
+  15 | import styles from './about.module.css';
+
+The export useSyncExternalStore was not found in module [project]/node_modules/motion/dist/es/react.mjs [app-ssr] (ecmascript).
+Did you mean to import sync?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./app/about/AboutMotion.tsx
+    ./app/about/AboutClient.tsx
+    ./app/about/page.tsx @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053

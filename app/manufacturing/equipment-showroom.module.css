@@ -1,0 +1,1293 @@
+.section {
+  --showroom-ink: #1b1b1a;
+  --showroom-muted: #77756f;
+  --showroom-gold: #c8a668;
+  --showroom-paper: #f7f5f1;
+  --showroom-line: rgba(29, 28, 26, 0.14);
+  scroll-margin-top: 5.5rem;
+}
+
+.sectionHeading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.6fr);
+  align-items: end;
+  gap: 3rem;
+}
+
+.sectionIntro {
+  max-width: 34rem;
+  margin: 0 0 0.35rem auto;
+  color: var(--showroom-muted);
+  font-size: clamp(0.95rem, 1.2vw, 1.12rem);
+  line-height: 1.75;
+}
+
+.processNavigator {
+  margin-top: 2.2rem;
+  padding: 1.3rem 1.5rem 1rem;
+  color: #f7f5f1;
+  background: #1b1a18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navigatorHeading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.navigatorEyebrow,
+.machineRailEyebrow,
+.detailProcess,
+.tabEyebrow,
+.outcomeLabel {
+  color: var(--showroom-gold);
+  font-size: 0.59rem;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.navigatorNote {
+  margin-top: 0.25rem;
+  color: rgba(255, 255, 255, 0.67);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.routeNote {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.processTrack {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.6rem;
+  margin-top: 1.15rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: rgba(201, 169, 110, 0.48) transparent;
+  scrollbar-width: thin;
+}
+
+.processTrackBase,
+.processTrackProgress {
+  position: absolute;
+  z-index: 0;
+  top: 1.02rem;
+  left: 2.1%;
+  height: 1px;
+  pointer-events: none;
+}
+
+.mobileSwipeHint,
+.mobileMachineSwipeHint {
+  display: none;
+}
+
+.processTrackBase {
+  right: 2.1%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.processTrackProgress {
+  background: var(--showroom-gold);
+  transition: width 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stageButton {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-width: 9rem;
+  justify-items: start;
+  gap: 0.55rem;
+  padding: 0 0.5rem 0.7rem;
+  color: rgba(255, 255, 255, 0.65);
+  text-align: left;
+  cursor: pointer;
+}
+
+.stageButton:focus-visible,
+.machineOption:focus-visible,
+.stepControl:focus-visible,
+.hotspot:focus-visible,
+.dismissHotspot:focus-visible,
+.nextProcessButton:focus-visible,
+.detailTab:focus-visible,
+.sourceLink:focus-visible,
+.discussLink:focus-visible {
+  outline: 2px solid #d6bd8b;
+  outline-offset: 3px;
+}
+
+.stageMarker {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  color: #1b1a18;
+  background: #383733;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6rem;
+  transition: color 240ms ease, background-color 240ms ease, border-color 240ms ease, transform 240ms ease;
+}
+
+.stageButtonSelected .stageMarker {
+  color: #1b1a18;
+  background: #d6bd8b;
+  border-color: #d6bd8b;
+  transform: scale(1.05);
+}
+
+.stageCopy {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.stageLabel {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.73rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.stageButtonSelected .stageLabel {
+  color: #fff;
+}
+
+.stageCount {
+  color: rgba(255, 255, 255, 0.47);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.52rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.machineRail {
+  margin-top: 1.55rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--showroom-line);
+}
+
+.machineRailHeading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.machineRailEyebrow {
+  color: #9b7b49;
+}
+
+.machineRailStage {
+  color: #77756f;
+  font-size: 0.69rem;
+}
+
+.machineList {
+  display: flex;
+  gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.25rem 0.2rem 0.65rem;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: rgba(29, 28, 26, 0.25) transparent;
+  scrollbar-width: thin;
+}
+
+.machineOption {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  flex: 0 0 min(18rem, 44vw);
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.45rem;
+  padding: 0.65rem 0.85rem;
+  color: var(--showroom-ink);
+  background: rgba(255, 255, 255, 0.48);
+  border: 1px solid rgba(29, 28, 26, 0.12);
+  text-align: left;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.machineOption:hover {
+  border-color: rgba(29, 28, 26, 0.38);
+  transform: translateY(-1px);
+}
+
+.machineOptionSelected {
+  color: #f8f5ef;
+  background: #252421;
+  border-color: #252421;
+}
+
+.machineOptionNumber {
+  align-self: start;
+  padding-top: 0.1rem;
+  color: #9a7e50;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+}
+
+.machineOptionCopy {
+  display: grid;
+  min-width: 0;
+  gap: 0.22rem;
+}
+
+.machineOptionName {
+  overflow: hidden;
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.machineOptionMeta {
+  overflow: hidden;
+  color: #85827c;
+  font-size: 0.61rem;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.machineOptionSelected .machineOptionMeta {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+.machineOptionArrow {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: #ae8b55;
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.machineOptionSelected .machineOptionArrow,
+.machineOption:hover .machineOptionArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.keyboardHint {
+  margin: 0.25rem 0 0;
+  color: #89867f;
+  font-size: 0.61rem;
+}
+
+.showroomGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.86fr) minmax(21rem, 1fr);
+  align-items: stretch;
+  gap: 1.15rem;
+  margin-top: 1.4rem;
+}
+
+.visualColumn {
+  display: grid;
+  min-width: 0;
+  grid-template-rows: minmax(0, 1fr) auto;
+  margin: 0;
+  border: 1px solid rgba(29, 28, 26, 0.12);
+  background: #e9e5dd;
+}
+
+.visualStage {
+  --visual-height: clamp(26rem, 36vw, 34rem);
+  position: relative;
+  display: grid;
+  min-width: 0;
+  height: var(--visual-height);
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background-color: #e9e5dd;
+  background-image: linear-gradient(rgba(45, 43, 39, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 43, 39, 0.045) 1px, transparent 1px), radial-gradient(ellipse at 51% 54%, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0) 69%);
+  background-size: 34px 34px, 34px 34px, auto;
+}
+
+.visualMeta {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1.1rem;
+  right: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: rgba(39, 37, 33, 0.62);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.machineCanvas {
+  position: relative;
+  width: min(100%, calc(var(--visual-height) * var(--machine-aspect)));
+  aspect-ratio: var(--machine-aspect);
+  z-index: 1;
+}
+
+.machineImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.hotspotLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+
+.hotspotMarker {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  place-items: center;
+  color: #181715;
+  background: #d9bd83;
+  border: 2px solid rgba(255, 255, 255, 0.92);
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(22, 21, 18, 0.24);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  font-weight: 700;
+  transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.hotspot:hover .hotspotMarker,
+.hotspotSelected .hotspotMarker {
+  background: #f5ead1;
+  box-shadow: 0 0 0 5px rgba(200, 166, 104, 0.25), 0 2px 12px rgba(22, 21, 18, 0.22);
+  transform: scale(1.08);
+}
+
+.hotspotLabel {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 0.5rem);
+  width: max-content;
+  max-width: min(10rem, 30vw);
+  padding: 0.43rem 0.58rem;
+  color: #f7f5f1;
+  background: rgba(27, 26, 24, 0.93);
+  font-size: 0.62rem;
+  font-weight: 600;
+  line-height: 1.3;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(-3px);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.hotspot[data-label-side='left'] .hotspotLabel {
+  right: calc(100% + 0.5rem);
+  left: auto;
+  transform: translateY(-50%) translateX(3px);
+}
+
+.hotspot:hover .hotspotLabel,
+.hotspot:focus-visible .hotspotLabel,
+.hotspotSelected .hotspotLabel {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.imageCaption {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.72rem 1rem;
+  color: #6c6963;
+  background: #f0ede7;
+  border-top: 1px solid rgba(29, 28, 26, 0.1);
+  font-size: 0.63rem;
+  letter-spacing: 0.025em;
+}
+
+.captionRule {
+  width: 1.25rem;
+  height: 1px;
+  background: #9d7d48;
+}
+
+.visualControls {
+  display: grid;
+  grid-template-columns: 1fr minmax(5rem, 0.7fr) 1fr;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.8rem;
+  padding: 0.5rem 1rem;
+  background: #f7f5f1;
+}
+
+.stepControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  justify-self: start;
+  padding: 0.45rem 0;
+  color: #34322e;
+  font-size: 0.68rem;
+  cursor: pointer;
+}
+
+.stepControl:last-child {
+  justify-self: end;
+}
+
+.stepControl:disabled {
+  color: #aaa69f;
+  cursor: not-allowed;
+}
+
+.selectionProgress {
+  display: grid;
+  gap: 0.34rem;
+}
+
+.selectionCount {
+  display: flex;
+  justify-content: center;
+  gap: 0.3rem;
+  color: #77736c;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.57rem;
+}
+
+.selectionCount strong {
+  color: #282723;
+  font-weight: 700;
+}
+
+.selectionTrack {
+  height: 2px;
+  overflow: hidden;
+  background: rgba(29, 28, 26, 0.15);
+}
+
+.selectionTrack span {
+  display: block;
+  height: 100%;
+  background: #b18d55;
+}
+
+.detailPanel {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  color: #f5f3ef;
+  background: #1d1c1a;
+  border: 1px solid rgba(22, 21, 19, 0.4);
+}
+
+.detailPanelHeader {
+  padding: clamp(1.2rem, 2vw, 1.8rem) clamp(1.2rem, 2vw, 1.75rem) 1rem;
+}
+
+.detailTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.detailProcess {
+  color: #cfb37d;
+  letter-spacing: 0.12em;
+}
+
+.detailNumber {
+  flex: 0 0 auto;
+  color: rgba(255, 255, 255, 0.38);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.57rem;
+}
+
+.machineTitle {
+  margin: 0.9rem 0 0;
+  color: #f7f5f0;
+  font-size: clamp(1.38rem, 2vw, 2rem);
+  font-weight: 560;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+}
+
+.machineFunction {
+  margin: 0.45rem 0 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 0.75rem;
+  line-height: 1.55;
+}
+
+.detailTabs {
+  display: flex;
+  gap: 0.2rem;
+  margin: 0 1rem;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+
+.detailTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.detailTab {
+  position: relative;
+  display: inline-flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.38rem;
+  min-width: 5.5rem;
+  padding: 0.73rem 0.55rem 0.8rem;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 0.64rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.detailTab::after {
+  position: absolute;
+  right: 0.35rem;
+  bottom: -1px;
+  left: 0.35rem;
+  height: 2px;
+  background: transparent;
+  content: '';
+  transition: background-color 180ms ease;
+}
+
+.detailTab:hover,
+.detailTabSelected {
+  color: #f3e3c1;
+}
+
+.detailTabSelected::after {
+  background: #c8a668;
+}
+
+.detailTabIcon {
+  width: 0.82rem;
+  height: 0.82rem;
+  flex: 0 0 auto;
+}
+
+.tabPanel {
+  flex: 1;
+  min-height: 19.5rem;
+  padding: 1.25rem clamp(1.2rem, 2vw, 1.75rem) 1.45rem;
+  outline: none;
+}
+
+.tabPanel:focus-visible {
+  outline: 2px solid #c8a668;
+  outline-offset: -4px;
+}
+
+.tabEyebrow {
+  display: block;
+  margin: 0 0 0.7rem;
+  color: #b79a68;
+  font-size: 0.55rem;
+  letter-spacing: 0.13em;
+}
+
+.overviewLead {
+  margin: 0;
+  color: rgba(250, 248, 244, 0.9);
+  font-size: clamp(0.92rem, 1.1vw, 1rem);
+  line-height: 1.72;
+}
+
+.outcomeCard {
+  margin-top: 1.05rem;
+  padding: 0.85rem 0.95rem;
+  background: rgba(255, 255, 255, 0.055);
+  border-left: 2px solid #b8955c;
+}
+
+.outcomeLabel {
+  color: rgba(213, 188, 139, 0.84);
+  font-size: 0.5rem;
+  letter-spacing: 0.14em;
+}
+
+.outcomeCard p,
+.buyerPrompt p {
+  margin: 0.32rem 0 0;
+  color: rgba(250, 248, 244, 0.78);
+  font-size: 0.76rem;
+  line-height: 1.62;
+}
+
+.buyerPrompt {
+  margin-top: 1.05rem;
+}
+
+.buyerPrompt .tabEyebrow {
+  margin-bottom: 0;
+}
+
+.capabilityList,
+.howSteps {
+  display: grid;
+  gap: 0;
+}
+
+.capabilityItem,
+.howStep {
+  display: grid;
+  grid-template-columns: 1.65rem minmax(0, 1fr);
+  gap: 0.72rem;
+  padding: 0.82rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.capabilityNumber,
+.howStepNumber {
+  color: #c3a46c;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.58rem;
+  padding-top: 0.12rem;
+}
+
+.capabilityItem h4,
+.howStep h4,
+.hotspotCallout h4 {
+  margin: 0;
+  color: #f5f2ec;
+  font-size: 0.78rem;
+  font-weight: 620;
+  line-height: 1.4;
+}
+
+.capabilityItem p,
+.howStep p {
+  margin: 0.23rem 0 0;
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 0.69rem;
+  line-height: 1.58;
+}
+
+.capabilityScope {
+  display: inline-block;
+  margin-top: 0.4rem;
+  color: rgba(217, 196, 158, 0.68);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.49rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.hotspotCallout {
+  margin-top: 0.95rem;
+  padding: 0.85rem 0.9rem;
+  background: rgba(200, 166, 104, 0.09);
+  border: 1px solid rgba(200, 166, 104, 0.3);
+}
+
+.hotspotCalloutHeader {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.calloutIcon {
+  display: grid;
+  width: 1.9rem;
+  height: 1.9rem;
+  place-items: center;
+  color: #e4cb98;
+  background: rgba(200, 166, 104, 0.15);
+  border-radius: 50%;
+}
+
+.calloutIcon svg,
+.contextMark svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.hotspotCalloutHeader .tabEyebrow {
+  margin: 0 0 0.12rem;
+  font-size: 0.47rem;
+}
+
+.dismissHotspot {
+  display: grid;
+  width: 1.8rem;
+  height: 1.8rem;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.62);
+  cursor: pointer;
+}
+
+.hotspotCallout > p {
+  margin: 0.55rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.68rem;
+  line-height: 1.6;
+}
+
+.technicalFacts {
+  margin: 0;
+}
+
+.technicalFact {
+  display: grid;
+  grid-template-columns: minmax(6rem, 0.76fr) minmax(0, 1.24fr);
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.technicalFact dt {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.65rem;
+  line-height: 1.45;
+}
+
+.technicalFact dt span {
+  display: block;
+  margin-top: 0.24rem;
+  color: #b69a6c;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.48rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.technicalFact dd {
+  margin: 0;
+  color: #f1eee8;
+  font-size: 0.69rem;
+  line-height: 1.5;
+}
+
+.configurationContext {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.6rem;
+  margin-top: 0.55rem;
+  padding: 0.68rem 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.contextMark {
+  color: #c5a46b;
+}
+
+.configurationContext p {
+  margin: 0;
+  font-size: 0.62rem;
+  line-height: 1.55;
+}
+
+.sourceList {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.sourceList .tabEyebrow {
+  margin-bottom: 0.08rem;
+}
+
+.sourceLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  padding: 0.58rem 0.66rem;
+  color: #eee8dd;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.sourceLink:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(214, 189, 139, 0.4);
+}
+
+.sourceLink strong,
+.sourceLink small {
+  display: block;
+}
+
+.sourceLink strong {
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+.sourceLink small {
+  margin-top: 0.14rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.55rem;
+  line-height: 1.4;
+}
+
+.sourceLink > svg {
+  flex: 0 0 auto;
+  color: #d4b77f;
+}
+
+.detailPanelFooter {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding: 0.85rem 1rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+.discussLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  min-height: 3.35rem;
+  padding: 0.65rem 0.8rem;
+  color: #201e1a;
+  background: #d5b775;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.discussLink:hover {
+  background: #e2c98f;
+  transform: translateY(-1px);
+}
+
+.discussLink small,
+.discussLink strong {
+  display: block;
+}
+
+.discussLink small {
+  font-size: 0.55rem;
+  line-height: 1.4;
+}
+
+.discussLink strong {
+  margin-top: 0.16rem;
+  font-size: 0.7rem;
+  line-height: 1.35;
+}
+
+.nextProcessButton {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  color: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: left;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.nextProcessButton:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(214, 189, 139, 0.55);
+}
+
+.nextProcessButton span {
+  color: #b69a6c;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+
+.nextProcessButton strong {
+  overflow: hidden;
+  font-size: 0.68rem;
+  font-weight: 580;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nextProcessButton svg {
+  color: #cfb37d;
+}
+
+.productionJourney {
+  margin-top: 2.1rem;
+  padding: 1.3rem 0 1.1rem;
+  border-top: 1px solid var(--showroom-line);
+  border-bottom: 1px solid var(--showroom-line);
+}
+
+.journeyIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.7fr);
+  align-items: end;
+  gap: 2rem;
+}
+
+.journeyIntro > p {
+  max-width: 31rem;
+  margin: 0 0 0.2rem auto;
+  color: #77756f;
+  font-size: 0.76rem;
+  line-height: 1.65;
+}
+
+.journeySteps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journeyStep {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.8rem;
+  padding: 0.85rem 1.1rem 0.2rem 0;
+  border-top: 1px solid rgba(29, 28, 26, 0.17);
+}
+
+.journeyStep + .journeyStep {
+  padding-left: 1.1rem;
+  border-left: 1px solid rgba(29, 28, 26, 0.14);
+}
+
+.journeyStepActive {
+  border-top: 2px solid #a9854c;
+}
+
+.journeyNumber {
+  color: #9d7d48;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.57rem;
+}
+
+.journeyStep h4 {
+  margin: 0;
+  color: #24231f;
+  font-size: 0.73rem;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.journeyStep p {
+  margin: 0.28rem 0 0;
+  color: #77756f;
+  font-size: 0.66rem;
+  line-height: 1.58;
+}
+
+.operationalNotes {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 0.9rem;
+}
+
+.operationalNotes p {
+  margin: 0;
+  color: #77756f;
+  font-size: 0.64rem;
+  line-height: 1.5;
+}
+
+.operationalNotes strong {
+  color: #4e4b45;
+  font-weight: 650;
+}
+
+@media (min-width: 1900px) {
+  .showroomGrid {
+    grid-template-columns: minmax(0, 1.95fr) minmax(25rem, 1fr);
+    gap: 1.45rem;
+  }
+
+  .visualStage {
+    --visual-height: min(37vw, 41rem);
+  }
+
+  .detailPanelHeader {
+    padding-right: 2.1rem;
+    padding-left: 2.1rem;
+  }
+
+  .tabPanel {
+    padding-right: 2.1rem;
+    padding-left: 2.1rem;
+  }
+}
+
+@media (max-width: 1279px) {
+  .showroomGrid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .visualStage {
+    --visual-height: clamp(25rem, 55vw, 37rem);
+  }
+
+  .detailPanel {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tabPanel {
+    min-height: auto;
+  }
+
+  .detailPanelFooter {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .sectionHeading {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .sectionIntro {
+    max-width: 35rem;
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .processNavigator {
+    margin-top: 1.5rem;
+    padding: 1rem 0.85rem 0.75rem;
+  }
+
+  .navigatorHeading {
+    align-items: start;
+  }
+
+  .routeNote {
+    max-width: 8.5rem;
+    font-size: 0.59rem;
+  }
+
+  .processTrack {
+    grid-template-columns: repeat(4, minmax(8.1rem, 1fr));
+    gap: 0.15rem;
+    margin-right: -0.35rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .mobileSwipeHint,
+  .mobileMachineSwipeHint {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: #917247;
+    font-size: 0.58rem;
+    line-height: 1.4;
+  }
+
+  .mobileSwipeHint {
+    margin: 0.08rem 0 0 0.25rem;
+  }
+
+  .mobileSwipeHint svg,
+  .mobileMachineSwipeHint svg {
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
+  .stageButton {
+    min-width: 8.1rem;
+    padding-right: 0.25rem;
+    padding-left: 0.25rem;
+  }
+
+  .machineRail {
+    margin-top: 1.15rem;
+    padding-bottom: 0.85rem;
+  }
+
+  .mobileMachineSwipeHint {
+    margin: 0.05rem 0 0 0.2rem;
+  }
+
+  .keyboardHint {
+    display: none;
+  }
+
+  .machineOption {
+    flex-basis: min(15.5rem, 78vw);
+  }
+
+  .showroomGrid {
+    margin-top: 1rem;
+  }
+
+  .visualStage {
+    --visual-height: clamp(16rem, 74vw, 25rem);
+  }
+
+  .visualMeta {
+    top: 0.7rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    font-size: 0.47rem;
+  }
+
+  .hotspotLabel {
+    max-width: 28vw;
+    padding: 0.35rem 0.42rem;
+    font-size: 0.54rem;
+  }
+
+  .visualControls {
+    grid-template-columns: 1fr minmax(3.5rem, 0.65fr) 1fr;
+    gap: 0.35rem;
+    min-height: 3.35rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  .stepControl {
+    gap: 0.15rem;
+    font-size: 0.62rem;
+  }
+
+  .detailPanelHeader {
+    padding: 1.2rem 1rem 0.85rem;
+  }
+
+  .detailTabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 0.55rem;
+    overflow: visible;
+  }
+
+  .detailTab {
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 0.63rem 0.5rem;
+    font-size: 0.62rem;
+  }
+
+  .tabPanel {
+    padding: 1rem 1rem 1.15rem;
+  }
+
+  .detailPanelFooter {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 0.75rem 0.7rem 0.8rem;
+  }
+
+  .productionJourney {
+    margin-top: 1.45rem;
+    padding-top: 1.05rem;
+  }
+
+  .journeyIntro {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.65rem;
+  }
+
+  .journeyIntro > p {
+    max-width: 37rem;
+    margin: 0;
+    font-size: 0.7rem;
+  }
+
+  .journeySteps {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0.8rem;
+  }
+
+  .journeyStep,
+  .journeyStep + .journeyStep {
+    padding: 0.7rem 0;
+    border-left: 0;
+  }
+
+  .operationalNotes {
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .navigatorHeading {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .routeNote {
+    max-width: none;
+    text-align: left;
+  }
+
+  .detailTopline {
+    align-items: start;
+  }
+
+  .detailProcess {
+    max-width: 13rem;
+    font-size: 0.52rem;
+  }
+
+  .technicalFact {
+    grid-template-columns: minmax(5.2rem, 0.75fr) minmax(0, 1.25fr);
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stageMarker,
+  .machineOption,
+  .machineOptionArrow,
+  .hotspotMarker,
+  .hotspotLabel,
+  .detailTab,
+  .detailTab::after,
+  .sourceLink,
+  .discussLink,
+  .nextProcessButton {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

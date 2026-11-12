@@ -1,10 +1,30 @@
 'use client';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Globe2, Loader2, Mail } from 'lucide-react';
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
+
+interface SelectedGarmentContext {
+  id: string;
+  name: string;
+  category: string;
+  fabric?: string;
+  color?: string;
+  customizations?: string;
+}
+
+function formatSelectedGarmentDetails(garment?: SelectedGarmentContext) {
+  if (!garment) return '';
+  return [
+    `Selected showroom style: ${garment.name}`,
+    `Style reference ID: ${garment.id}`,
+    `Product category: ${garment.category}`,
+    garment.fabric ? `Proposed fabric direction: ${garment.fabric}` : '',
+    garment.color ? `Proposed colorway: ${garment.color}` : '',
+    garment.customizations ? `Customisation topics: ${garment.customizations}` : '',
+  ].filter(Boolean).join('\n');
+}
 
 const INITIAL_FORM = {
   name: '',
@@ -18,6 +38,10 @@ const INITIAL_FORM = {
 };
 
 const PRODUCT_INTEREST_OPTIONS = [
+  "Men's apparel",
+  "Women's apparel",
+  "Kids' apparel",
+  'Babies & toddler',
   'T-Shirts',
   'Polos',
   'Sweatshirts',
@@ -44,13 +68,16 @@ function normalizeProductInterest(value: string | null | undefined) {
 export function Contact({
   context = 'general',
   initialProductInterest,
+  initialGarment,
 }: {
   context?: 'general' | 'export';
   initialProductInterest?: string;
+  initialGarment?: SelectedGarmentContext;
 }) {
   const [formData, setFormData] = useState(() => ({
     ...INITIAL_FORM,
     productInterest: normalizeProductInterest(initialProductInterest) ?? INITIAL_FORM.productInterest,
+    message: formatSelectedGarmentDetails(initialGarment),
   }));
   const [status, setStatus] = useState<FormStatus>('idle');
   const [deliveryReady, setDeliveryReady] = useState<boolean | null>(null);
@@ -94,7 +121,7 @@ export function Contact({
       'Project details:',
       formData.message,
     ].join('\n');
-    return `mailto:export@fashionknits.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:raviramu@fashionknits.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   }, [context, formData]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -148,44 +175,43 @@ export function Contact({
 
         <div className="grid gap-5 lg:grid-cols-12 lg:gap-7">
           <aside className="lg:col-span-4">
-            {context === 'export' ? (
-              <div className="relative flex aspect-[4/3] flex-col justify-between overflow-hidden rounded-[1rem] bg-[#25231f] p-6 text-white sm:p-8 lg:aspect-[0.94/1]">
-                <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_0%,rgba(201,169,110,.22),transparent_58%)]" />
-                <div className="relative flex items-center justify-between">
-                  <span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/65">Export coordination</span>
-                  <Globe2 aria-hidden="true" className="h-5 w-5 text-[#d3b476]" />
-                </div>
-                <div className="relative max-w-sm">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#d3b476]">Tiruppur, India</p>
-                  <h3 className="mt-3 text-3xl font-medium leading-tight tracking-[-0.05em] sm:text-4xl">Start with the destination.</h3>
-                  <p className="mt-3 max-w-xs text-sm leading-6 text-white/65">Share your market and order details. The team can review the freight and documentation steps with you.</p>
-                </div>
-                <p className="relative border-t border-white/15 pt-4 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/55">Storage <span className="mx-2 text-[#d3b476]">/</span> Customs coordination <span className="mx-2 text-[#d3b476]">/</span> Freight</p>
-              </div>
-            ) : (
-              <figure className="relative aspect-[4/3] overflow-hidden rounded-[1rem] bg-[#302c25] lg:aspect-[0.94/1]">
-                <Image src="/assets/images/contact_sampling_studio.webp" alt="Illustrative studio scene representing a knitwear sampling discussion" fill sizes="(max-width: 1024px) 100vw, 34vw" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#171612]/75 via-transparent to-transparent" />
-                <figcaption className="absolute bottom-4 left-4 rounded-full border border-white/20 bg-black/40 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/90 backdrop-blur-sm">Illustrative studio image</figcaption>
-              </figure>
-            )}
-            <a href="mailto:export@fashionknits.com" className="mt-3 flex min-h-14 items-center gap-3 rounded-[0.8rem] border border-black/10 bg-white/75 px-4 text-sm transition-colors hover:border-[#aa8953]/50 hover:bg-white">
+            <div className="relative flex min-h-[18rem] flex-col justify-between overflow-hidden rounded-[1rem] bg-[#25231f] p-6 text-white sm:p-8 lg:min-h-[24rem]">
+              <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_100%_0%,rgba(201,169,110,.22),transparent_58%)]" />
+              <div className="relative flex items-center justify-between"><span className="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/65">{context === 'export' ? 'International enquiries' : 'Fashion Knits · Tiruppur'}</span><Globe2 aria-hidden="true" className="h-5 w-5 text-[#d3b476]" /></div>
+              <div className="relative max-w-sm"><p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#d3b476]">Head Office &amp; Unit 2</p><h3 className="mt-3 text-2xl font-medium leading-tight tracking-[-0.05em] sm:text-3xl">81/82 Angeripalayam Main Road</h3><p className="mt-2 text-sm leading-6 text-white/65">Tiruppur 641 603, Tamil Nadu, India</p></div>
+              <a href="https://www.fashionknits.in" className="relative border-t border-white/15 pt-4 text-xs text-white/65 transition-colors hover:text-white">www.fashionknits.in</a>
+            </div>
+            <a href="mailto:raviramu@fashionknits.net" className="mt-3 flex min-h-14 items-center gap-3 rounded-[0.8rem] border border-black/10 bg-white/75 px-4 text-sm transition-colors hover:border-[#aa8953]/50 hover:bg-white">
               <span className="grid h-9 w-9 place-items-center rounded-full bg-[#25231f] text-[#dfbd7d]"><Mail aria-hidden="true" className="h-4 w-4" /></span>
-              <span><span className="block text-[9px] font-semibold uppercase tracking-[0.13em] text-[#25231f]/50">Email</span><span className="font-medium">export@fashionknits.com</span></span>
+              <span><span className="block text-[9px] font-semibold uppercase tracking-[0.13em] text-[#25231f]/50">Email</span><span className="font-medium">raviramu@fashionknits.net</span></span>
             </a>
-            <p className="mt-3 text-[11px] leading-5 text-[#25231f]/55">The email address and phone number displayed on this site should be confirmed by Fashion Knits before launch.</p>
           </aside>
 
           <div className="rounded-[1rem] border border-black/10 bg-white p-5 shadow-[0_18px_60px_rgba(42,36,27,.06)] sm:p-7 lg:col-span-8 lg:p-8">
             <h3 id="contact-form-title" className="text-xl font-medium tracking-[-0.035em] sm:text-2xl">{context === 'export' ? 'Tell us about your export order' : 'Tell us about your project'}</h3>
             <p className="mt-2 text-xs leading-5 text-[#25231f]/55">{context === 'export' ? 'Name, company, work email, destination country and a short shipment description are required.' : 'Name, company, work email, country and a short project description are required.'}</p>
 
+            {initialGarment && (
+              <aside aria-label="Selected showroom style" className="mt-5 rounded-[0.8rem] border border-[#aa8953]/25 bg-[#f8f5ee] p-4 sm:p-5">
+                <p className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#806942]">Selected showroom style</p>
+                <h4 className="mt-1 text-base font-medium tracking-[-0.02em] text-[#25231f]">{initialGarment.name}</h4>
+                <p className="mt-1 font-mono text-[9px] text-[#71695d]">{initialGarment.id}</p>
+                <dl className="mt-3 grid gap-x-4 gap-y-2 text-[10px] sm:grid-cols-2">
+                  <div><dt className="text-[#25231f]/50">Category</dt><dd className="mt-0.5 text-[#25231f]/80">{initialGarment.category}</dd></div>
+                  {initialGarment.fabric && <div><dt className="text-[#25231f]/50">Proposed fabric</dt><dd className="mt-0.5 text-[#25231f]/80">{initialGarment.fabric}</dd></div>}
+                  {initialGarment.color && <div><dt className="text-[#25231f]/50">Proposed colorway</dt><dd className="mt-0.5 text-[#25231f]/80">{initialGarment.color}</dd></div>}
+                  {initialGarment.customizations && <div><dt className="text-[#25231f]/50">Customisation topics</dt><dd className="mt-0.5 text-[#25231f]/80">{initialGarment.customizations}</dd></div>}
+                </dl>
+                <p className="mt-3 text-[9px] leading-4 text-[#25231f]/55">This style reference is included in the editable project details below.</p>
+              </aside>
+            )}
+
             {status === 'success' ? (
               <div role="status" className="mt-6 rounded-[0.9rem] bg-[#25231f] p-5 text-white sm:p-7">
                 <div className="flex items-center gap-2 text-[#dfbd7d]"><CheckCircle2 aria-hidden="true" className="h-5 w-5" /><span className="text-sm font-semibold">Accepted for email delivery</span></div>
                 <p className="mt-3 text-sm leading-6 text-white/75">{responseMessage}</p>
                 {referenceId && <p className="mt-3 break-all font-mono text-[10px] text-[#dfbd7d]">Provider reference: {referenceId}</p>}
-                <p className="mt-3 text-xs leading-5 text-white/55">For time-sensitive requests, contact the export desk directly.</p>
+                <p className="mt-3 text-xs leading-5 text-white/55">For time-sensitive requests, email raviramu@fashionknits.net.</p>
                 <button type="button" onClick={() => setStatus('idle')} className="mt-5 inline-flex min-h-10 items-center gap-2 rounded-full border border-white/20 px-4 text-xs font-semibold transition-colors hover:bg-white hover:text-[#25231f]">Send another enquiry <ArrowRight aria-hidden="true" className="h-4 w-4" /></button>
               </div>
             ) : (

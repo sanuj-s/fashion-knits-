@@ -1,0 +1,168 @@
+- generic [active] [ref=f11e1]:
+  - banner [ref=f11e2]:
+    - generic [ref=f11e3]:
+      - link "Fashion Knits home" [ref=f11e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f11e5]:
+          - generic [ref=f11e6]:
+            - generic [ref=f11e10]: FK
+            - generic [ref=f11e11]: We Design Your Dreams
+          - generic [ref=f11e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f11e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f11e17]:
+    - generic [ref=f11e18]:
+      - generic [ref=f11e20]:
+        - navigation "Breadcrumb" [ref=f11e21]:
+          - link "Home" [ref=f11e22] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f11e23]: /
+          - generic [ref=f11e24]: Products
+        - paragraph [ref=f11e25]: Knitted & woven apparel
+        - heading "Products for every age." [level=1] [ref=f11e26]
+        - generic [ref=f11e27]:
+          - paragraph [ref=f11e28]: Fashion Knits makes knitted and woven apparel for men, women, children, toddlers and newborns. Explore the product categories and share your requirements with our team.
+          - link "Discuss your requirements" [ref=f11e29] [cursor=pointer]:
+            - /url: /#contact
+      - region [ref=f11e32]:
+        - generic [ref=f11e33]:
+          - generic [ref=f11e34]:
+            - generic [ref=f11e35]:
+              - heading "Product categories" [level=2] [ref=f11e36]
+              - paragraph [ref=f11e37]: Product details, material composition, quantities and delivery timing are agreed for each order.
+            - generic [ref=f11e38]: 4 segments
+          - group "Filter product categories" [ref=f11e39]:
+            - button "All segments" [pressed] [ref=f11e40]
+            - button "Men's" [ref=f11e41]
+            - button "Women's" [ref=f11e42]
+            - button "Kids'" [ref=f11e43]
+            - button "Babies & toddler" [ref=f11e44]
+          - generic [ref=f11e45]:
+            - article [ref=f11e46]:
+              - generic [ref=f11e48]: 01 / APPAREL
+              - generic [ref=f11e53]:
+                - heading "Men's apparel" [level=3] [ref=f11e54]
+                - list "Product types in Men's apparel" [ref=f11e55]:
+                  - listitem [ref=f11e56]: T-shirts & polos
+                  - listitem [ref=f11e57]: Hoodies & sweatshirts
+                  - listitem [ref=f11e58]: Shorts & joggers
+                  - listitem [ref=f11e59]: Jackets, coats & jumpers
+                  - listitem [ref=f11e60]: Sleepwear & lounge wear
+                - link "Discuss this category" [ref=f11e61] [cursor=pointer]:
+                  - /url: /#contact
+            - article [ref=f11e64]:
+              - generic [ref=f11e66]: 02 / APPAREL
+              - generic [ref=f11e71]:
+                - heading "Women's apparel" [level=3] [ref=f11e72]
+                - list "Product types in Women's apparel" [ref=f11e73]:
+                  - listitem [ref=f11e74]: T-shirts & tops
+                  - listitem [ref=f11e75]: Dresses & shirts
+                  - listitem [ref=f11e76]: Cardigans & sweaters
+                  - listitem [ref=f11e77]: Sweatshirts & hoodies
+                  - listitem [ref=f11e78]: Pre/post-maternity wear
+                - link "Discuss this category" [ref=f11e79] [cursor=pointer]:
+                  - /url: /#contact
+            - article [ref=f11e82]:
+              - generic [ref=f11e84]: 03 / APPAREL
+              - generic [ref=f11e89]:
+                - heading "Kids' apparel" [level=3] [ref=f11e90]
+                - list "Product types in Kids' apparel" [ref=f11e91]:
+                  - listitem [ref=f11e92]: T-shirts
+                  - listitem [ref=f11e93]: Shorts
+                  - listitem [ref=f11e94]: Sweaters & pullovers
+                  - listitem [ref=f11e95]: T-shirt and shorts sets
+                - link "Discuss this category" [ref=f11e96] [cursor=pointer]:
+                  - /url: /#contact
+            - article [ref=f11e99]:
+              - generic [ref=f11e101]: 04 / APPAREL
+              - generic [ref=f11e106]:
+                - heading "Babies & toddler apparel" [level=3] [ref=f11e107]
+                - list "Product types in Babies & toddler apparel" [ref=f11e108]:
+                  - listitem [ref=f11e109]: T-shirts
+                  - listitem [ref=f11e110]: Rompers & onesies
+                  - listitem [ref=f11e111]: Dresses & frocks
+                  - listitem [ref=f11e112]: Pajamas / nightwear
+                - link "Discuss this category" [ref=f11e113] [cursor=pointer]:
+                  - /url: /#contact
+    - region [ref=f11e116]:
+      - generic [ref=f11e118]:
+        - generic [ref=f11e119]:
+          - paragraph [ref=f11e120]: Product development
+          - heading "Planning Your Next Knitwear Collection?" [level=2] [ref=f11e122]
+          - paragraph [ref=f11e123]: Tell us which product categories and specifications you are developing.
+        - link "Discuss Your Project" [ref=f11e125] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f11e131]:
+      - generic [ref=f11e132]:
+        - generic [ref=f11e133]:
+          - link "Fashion Knits home" [ref=f11e134] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f11e135]:
+              - generic [ref=f11e136]:
+                - generic [ref=f11e140]: FK
+                - generic [ref=f11e141]: We Design Your Dreams
+              - generic [ref=f11e142]: Fashion Knits
+          - paragraph [ref=f11e143]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f11e144]:
+            - paragraph [ref=f11e145]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f11e149]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f11e153]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f11e157]:
+          - heading "Explore" [level=2] [ref=f11e158]
+          - list [ref=f11e159]:
+            - listitem [ref=f11e160]:
+              - link "Products" [ref=f11e161] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f11e162]:
+              - link "Manufacturing" [ref=f11e163] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f11e164]:
+              - link "Quality" [ref=f11e165] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f11e166]:
+              - link "Sustainability" [ref=f11e167] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f11e168]:
+              - link "Export" [ref=f11e169] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f11e170]:
+              - link "About" [ref=f11e171] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f11e172]:
+          - heading "Discuss a production brief" [level=2] [ref=f11e173]
+          - paragraph [ref=f11e174]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f11e175] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f11e180] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f11e184]:
+        - paragraph [ref=f11e185]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f11e186] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f11e190]

@@ -1,0 +1,675 @@
+[     318ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     367ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[     940ms] [WARNING] Image with src "/assets/facilities/angeripalayam-hq-exterior-enhanced.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   20676ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   20718ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   20771ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   21583ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   23585ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   25582ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   27584ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   29581ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   29891ms] [LOG] [Fast Refresh] done in 20164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   29933ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   29942ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  105703ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  105735ms] [LOG] [Fast Refresh] done in 24ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  106068ms] [LOG] [Fast Refresh] done in 24ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  106201ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  106221ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  106257ms] [WARNING] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  106278ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="about/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/about" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="about/page...">
+                <SegmentTrieNode>
+                <AboutPage>
+                  <AboutClient>
+                    <div className="bg-warm-wh...">
+                      <section className="relative i...">
+                        <div>
+                        <div className="relative m...">
+                          <nav>
+                          <div className="grid items...">
+                            <div className="relative z...">
+                              <AboutReveal delay={0.04}>
+                                <motion.div className={undefined} initial={false} whileInView={undefined} ...>
+                                  <div
+                                    className={undefined}
+                                    style={{
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                            <AboutImageReveal className="relative m...">
+                              <motion.div className="relative m..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="relative md:col-span-6 lg:col-span-7"
+                                  style={{
+-                                   opacity: "0"
+-                                   clip-path: "inset(0px 0px 8%)"
+-                                   transform: "translateY(18px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                      <section aria-label="Fashion Kn..." className="border-b b...">
+                        <div className="mx-auto gr...">
+                          <AboutReveal delay={0} className="grid grid-...">
+                            <motion.div className="grid grid-..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="grid grid-cols-[5rem_1fr] items-center gap-4 py-6 sm:grid-cols-[7rem_1fr] s..."
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                          <AboutReveal delay={0.08} className="grid grid-...">
+                            <motion.div className="grid grid-..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="grid grid-cols-[5rem_1fr] items-center gap-4 py-6 sm:grid-cols-[7rem_1fr] s..."
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                      <section aria-labelledby="company-st..." className="overflow-h...">
+                        <div className="mx-auto gr...">
+                          <AboutReveal className="relative m...">
+                            <motion.div className="relative m..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="relative md:col-span-6"
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                          <AboutReveal delay={0.1} className="md:col-spa...">
+                            <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="md:col-span-6 md:pt-10"
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                      <section id="manufacturing" aria-labelledby="manufactur..." className="relative o...">
+                        <div>
+                        <div className="relative m...">
+                          <div className="grid gap-6...">
+                            <AboutReveal className="md:col-span-7">
+                              <motion.div className="md:col-span-7" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-7"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.1} className="md:col-spa...">
+                              <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-5 md:pb-1"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <ol className="mt-11 grid...">
+                            <AboutReveal delay={0} className="about-modu...">
+                              <motion.div className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="about-module__-i9KWa__equipmentPanel group relative border-t border-charc..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.09} className="about-modu...">
+                              <motion.div className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="about-module__-i9KWa__equipmentPanel group relative border-t border-charc..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.18} className="about-modu...">
+                              <motion.div className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="about-module__-i9KWa__equipmentPanel group relative border-t border-charc..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          ...
+                      <section aria-labelledby="md-profile..." className="bg-charcoa...">
+                        <div className="mx-auto gr...">
+                          <AboutImageReveal className="md:col-spa...">
+                            <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="md:col-span-5 lg:col-span-4"
+                                style={{
+-                                 opacity: "0"
+-                                 clip-path: "inset(0px 0px 8%)"
+-                                 transform: "translateY(18px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                          <AboutReveal delay={0.08} className="md:col-spa...">
+                            <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="md:col-span-7 lg:col-span-8"
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                      <section aria-labelledby="md-note-title" className="bg-[#f8f6f...">
+                        <div className="mx-auto gr...">
+                          <AboutReveal className="md:col-span-4">
+                            <motion.div className="md:col-span-4" initial={false} whileInView={undefined} ...>
+                              <div
+                                className="md:col-span-4"
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                          <AboutReveal delay={0.08} className="md:col-spa...">
+                            <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                              <div
+                                className="md:col-span-8 md:border-l md:border-[#c9a96e]/70 md:pl-10 lg:pl-14"
+                                style={{
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                      <section aria-labelledby="leadership..." className="bg-charcoa...">
+                        <div className="mx-auto ma...">
+                          <div className="grid gap-6...">
+                            <AboutReveal className="md:col-span-8">
+                              <motion.div className="md:col-span-8" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-8"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.08} className="md:col-spa...">
+                              <motion.div className="md:col-spa..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-4 md:pb-1"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <ol className="mt-12 divi...">
+                            <AboutListItemReveal delay={0} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__appointmentRow grid gap-5 py-7 sm:grid-cols-[3rem_m..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.06} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__appointmentRow grid gap-5 py-7 sm:grid-cols-[3rem_m..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.12} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__appointmentRow grid gap-5 py-7 sm:grid-cols-[3rem_m..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          ...
+                      <section aria-labelledby="ecosystem-..." className="border-b b...">
+                        <div className="mx-auto ma...">
+                          <div className="grid gap-6...">
+                            <AboutReveal className="lg:col-span-7">
+                              <motion.div className="lg:col-span-7" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="lg:col-span-7"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.08} className="lg:col-span-5">
+                              <motion.div className="lg:col-span-5" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="lg:col-span-5"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <div className="mt-12 grid...">
+                            <AboutReveal delay={0} className="border-t b...">
+                              <motion.div className="border-t b..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="border-t border-charcoal/20 pt-5"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.07} className="border-t b...">
+                              <motion.div className="border-t b..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="border-t border-charcoal/20 pt-5"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.14} className="border-t b...">
+                              <motion.div className="border-t b..." initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="border-t border-charcoal/20 pt-5"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                      <section aria-labelledby="locations-..." className="bg-warm-wh...">
+                        <div className="mx-auto ma...">
+                          <div className="mb-9 grid ...">
+                            <AboutReveal className="md:col-span-7">
+                              <motion.div className="md:col-span-7" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-7"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.08} className="md:col-span-5">
+                              <motion.div className="md:col-span-5" initial={false} whileInView={undefined} ...>
+                                <div
+                                  className="md:col-span-5"
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <ul className="grid gap-4...">
+                            <AboutListItemReveal delay={0} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__locationCard overflow-hidden border border-charcoal..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.07} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__locationCard overflow-hidden border border-charcoal..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.14} className="about-modu...">
+                              <motion.li className="about-modu..." initial={false} whileInView={undefined} ...>
+                                <li
+                                  className="about-module__-i9KWa__locationCard overflow-hidden border border-charcoal..."
+                                  style={{
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          ...
+                  ...
+              ...
+            ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[  138465ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  138523ms] [LOG] [Fast Refresh] done in 86ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  140303ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  140358ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  140358ms] [WARNING] Image with src "/assets/facilities/angeripalayam-hq-exterior-enhanced.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  140398ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  148790ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  148878ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  149655ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  149738ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  150808ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  151719ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  152606ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  152681ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  152732ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  154487ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  154571ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  158961ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  160476ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  160911ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  160953ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  160969ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  179380ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  179452ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  179501ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  190677ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  190760ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  190772ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  190905ms] [WARNING] Image with src "/assets/facilities/angeripalayam-hq-exterior-enhanced.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  209329ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  209382ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  209434ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  217172ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  223539ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  238735ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  241361ms] [LOG] [Fast Refresh] done in 9ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  241551ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  241575ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  241704ms] [WARNING] Image with src "/assets/manufacturing-equipment/lectra-automatic-cutting.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  301340ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  301352ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  963010ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  963141ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  963186ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  967843ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  967909ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  978316ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  978485ms] [LOG] [Fast Refresh] done in 115ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  996301ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  996338ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1041281ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1082124ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1091108ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1091370ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1091495ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1095131ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1095222ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1095388ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1098548ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1098704ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1098890ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1101834ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1101977ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1102184ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1104760ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1104907ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1105088ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1105171ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1106613ms] [LOG] [Fast Refresh] done in 27ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1194213ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1194308ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1194384ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1206419ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1206685ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1210249ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1210442ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1213649ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1213751ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1213866ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1216066ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1216734ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1216898ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1219502ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1219711ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1220611ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1226251ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1268603ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1268640ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[ 1269577ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[31177856ms] [LOG] [Fast Refresh] done in 46ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[31346441ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37352074ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37352554ms] [LOG] [Fast Refresh] done in 564ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37352727ms] [LOG] [Fast Refresh] done in 564ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37406930ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37406962ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37445114ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37458260ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37458595ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37458913ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37462392ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37464275ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37464440ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37467799ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37469345ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37469530ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37472396ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37472590ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37475226ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[37475392ms] [LOG] [Fast Refresh] done in 58ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38137538ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38137564ms] [ERROR] ./app/manufacturing/ManufacturingClient.tsx:11:1
+Error: Module not found: Can't resolve './EquipmentShowroom'
+   9 | import { MaterialInnovation } from '@/components/sections/MaterialInnovation';
+  10 | import { ManufacturingHero } from './ManufacturingHero';
+> 11 | import { EquipmentShowroom } from './EquipmentShowroom';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | const PROCESS_AREAS = [
+  14 |   {
+
+Import trace:
+  Server Component:
+    ./app/manufacturing/ManufacturingClient.tsx
+    ./app/manufacturing/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38177682ms] [ERROR] ./app/manufacturing/ManufacturingClient.tsx:11:1
+Error: Module not found: Can't resolve './EquipmentShowroom'
+   9 | import { MaterialInnovation } from '@/components/sections/MaterialInnovation';
+  10 | import { ManufacturingHero } from './ManufacturingHero';
+> 11 | import { EquipmentShowroom } from './EquipmentShowroom';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  12 |
+  13 | const PROCESS_AREAS = [
+  14 |   {
+
+Import trace:
+  Server Component:
+    ./app/manufacturing/ManufacturingClient.tsx
+    ./app/manufacturing/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38177781ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38244447ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38244457ms] [ERROR] ./app/manufacturing/EquipmentShowroom.tsx:15:1
+Error: Module not found: Can't resolve './equipment-showroom.module.css'
+  13 |   type ShowroomMachine,
+  14 | } from './equipment-showroom-data';
+> 15 | import styles from './equipment-showroom.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  16 |
+  17 | const machineTransition = {
+  18 |   duration: 0.36,
+
+Import traces:
+  Client Component Browser:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38255464ms] [ERROR] ./app/manufacturing/EquipmentShowroom.tsx:14:1
+Error: Module not found: Can't resolve './equipment-showroom.module.css'
+  12 |   type ShowroomMachine,
+  13 | } from './equipment-showroom-data';
+> 14 | import styles from './equipment-showroom.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  15 |
+  16 | const machineTransition = {
+  17 |   duration: 0.36,
+
+Import traces:
+  Client Component Browser:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38255529ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38263152ms] [ERROR] ./app/manufacturing/EquipmentShowroom.tsx:14:1
+Error: Module not found: Can't resolve './equipment-showroom.module.css'
+  12 |   type ShowroomMachine,
+  13 | } from './equipment-showroom-data';
+> 14 | import styles from './equipment-showroom.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  15 |
+  16 | const machineTransition = {
+  17 |   duration: 0.36,
+
+Import traces:
+  Client Component Browser:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38263277ms] [ERROR] ./app/manufacturing/EquipmentShowroom.tsx:14:1
+Error: Module not found: Can't resolve './equipment-showroom.module.css'
+  12 |   type ShowroomMachine,
+  13 | } from './equipment-showroom-data';
+> 14 | import styles from './equipment-showroom.module.css';
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  15 |
+  16 | const machineTransition = {
+  17 |   duration: 0.36,
+
+Import traces:
+  Client Component Browser:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component Browser]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./app/manufacturing/EquipmentShowroom.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Client Component SSR]
+    ./app/manufacturing/ManufacturingClient.tsx [Server Component]
+    ./app/manufacturing/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1052
+[38336641ms] [LOG] [Fast Refresh] done in 81201ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38336725ms] [LOG] [Fast Refresh] done in 81201ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38337163ms] [LOG] [Fast Refresh] done in 81201ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38359173ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38359251ms] [LOG] [Fast Refresh] done in 3ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38387738ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38387790ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38387824ms] [LOG] [Fast Refresh] done in 7ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38405141ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38405220ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38413743ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38413796ms] [LOG] [Fast Refresh] done in 155ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38551018ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38552021ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38553024ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38554029ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38555034ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38560042ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38565054ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38570073ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38575101ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=EG6vzR_dTiT2JUZZx0el0' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38580216ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38580478ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38580519ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38823418ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38823575ms] [LOG] [Fast Refresh] done in 105ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38827429ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38827460ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38839694ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38839813ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38839927ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38859216ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38863754ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38868315ms] [LOG] [Fast Refresh] done in 2ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[38946870ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38947874ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38948878ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38949881ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38950887ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38955891ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38960909ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38965920ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38970958ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38976034ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38981125ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348
+[38986445ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/hmr?id=syOxYaWkVahGwbvjWs-yO' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_0_90u2t._.js:16348

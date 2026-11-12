@@ -4,9 +4,9 @@ import { EnquiryCTA } from '@/components/sections/EnquiryCTA';
 import { Footer } from '@/components/sections/Footer';
 
 export const metadata: Metadata = {
-  title: 'Global Export & Logistics | Fashion Knits',
+  title: 'Global Apparel Export & Logistics | Fashion Knits',
   description:
-    'Explore Fashion Knits export and logistics coordination in Tiruppur, India, including warehousing, customs documentation, sea freight and air freight planning.',
+    'Explore international market opportunities and export coordination, logistics, warehousing, customs and freight support from Fashion Knits in Tiruppur, India.',
   keywords: [
     'knitwear exporter India',
     'Tiruppur garment export',

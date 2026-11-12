@@ -3,13 +3,14 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import { BrandLogo } from '@/components/ui/BrandLogo';
 import MobileMenu from './MobileMenu';
 
 const navLinks = [
   { name: 'Products', href: '/products' },
   { name: 'Manufacturing', href: '/manufacturing' },
   { name: 'Quality', href: '/quality' },
-  { name: 'Sustainability', href: '#sustainability' },
+  { name: 'Sustainability', href: '/sustainability' },
   { name: 'Global Export', href: '/export' },
   { name: 'About Us', href: '/about' },
 ];
@@ -71,11 +72,10 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 sm:px-8 lg:px-16 xl:px-24">
           <Link
             href="/"
-            className="group inline-flex items-center gap-3 text-[13px] font-bold uppercase tracking-[0.22em] text-off-white transition-colors hover:text-white"
+            className="inline-flex shrink-0 items-center text-off-white transition-opacity hover:opacity-90"
             aria-label="Fashion Knits home"
           >
-            <span className="h-2 w-2 rotate-45 bg-accent transition-transform duration-300 group-hover:rotate-90" />
-            Fashion Knits
+            <BrandLogo id="header-brand" className="block h-10 w-[176px] sm:h-12 sm:w-[210px]" />
           </Link>
 
           <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex 2xl:gap-8">

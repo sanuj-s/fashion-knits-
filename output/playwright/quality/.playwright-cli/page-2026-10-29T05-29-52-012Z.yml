@@ -1,0 +1,379 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "Fashion Knits home" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f3e6]:
+          - generic [ref=f3e7]:
+            - generic [ref=f3e11]: FK
+            - generic [ref=f3e12]: We Design Your Dreams
+          - generic [ref=f3e13]: Fashion Knits
+      - button "Open navigation menu" [ref=f3e14]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f3e18]:
+    - generic [ref=f3e19]:
+      - generic [ref=f3e20]:
+        - img "Illustrative scene of a garment technician measuring a knit garment at an inspection table" [ref=f3e22]
+        - generic [ref=f3e25]:
+          - navigation "Breadcrumb" [ref=f3e26]:
+            - link "Home" [ref=f3e27] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=f3e28]: /
+            - generic [ref=f3e29]: Quality
+          - generic [ref=f3e32]:
+            - paragraph [ref=f3e33]: Quality & product assurance
+            - paragraph [ref=f3e35]: Illustrative image · not a Fashion Knits facility photograph
+            - heading "Every detail starts with the standard." [level=1] [ref=f3e36]
+            - paragraph [ref=f3e37]: From fabric and fit to construction and finishing, garment quality begins with a clear brief, agreed specifications and attention to the details that matter to the buyer.
+            - generic [ref=f3e38]:
+              - link "Discuss your quality requirements" [ref=f3e39] [cursor=pointer]:
+                - /url: /get-a-quote
+              - link "Explore our quality approach" [ref=f3e43] [cursor=pointer]:
+                - /url: "#quality-journey"
+      - region [ref=f3e46]:
+        - generic [ref=f3e47]:
+          - generic [ref=f3e48]:
+            - generic [ref=f3e49]:
+              - paragraph [ref=f3e50]: Before the first production decision
+              - heading "Quality begins before production." [level=2] [ref=f3e51]
+            - paragraph [ref=f3e52]: A clear product brief gives the buyer and production teams a common reference. Agreeing the details early helps reduce ambiguity as a garment programme develops.
+          - generic [ref=f3e53]:
+            - generic [ref=f3e55]:
+              - img "Illustrative close-up of a knit garment and hands checking a measurement reference" [ref=f3e56]
+              - generic [ref=f3e58]:
+                - paragraph [ref=f3e59]: A shared reference
+                - paragraph [ref=f3e60]: One approved brief. A clearer conversation at every stage.
+              - paragraph [ref=f3e61]: Illustrative image
+            - generic [ref=f3e62]:
+              - tablist "Product requirements to agree" [ref=f3e63]:
+                - tab "01 Approved sample & tech pack" [selected] [ref=f3e64]:
+                  - generic [ref=f3e65]: "01"
+                  - generic [ref=f3e66]: Approved sample & tech pack
+                - tab "02 Measurements & size specifications" [ref=f3e69]:
+                  - generic [ref=f3e70]: "02"
+                  - generic [ref=f3e71]: Measurements & size specifications
+                - tab "03 Fabric composition & materials" [ref=f3e74]:
+                  - generic [ref=f3e75]: "03"
+                  - generic [ref=f3e76]: Fabric composition & materials
+                - tab "04 Stitching, construction & finish" [ref=f3e79]:
+                  - generic [ref=f3e80]: "04"
+                  - generic [ref=f3e81]: Stitching, construction & finish
+                - tab "05 Colour, artwork & branding" [ref=f3e84]:
+                  - generic [ref=f3e85]: "05"
+                  - generic [ref=f3e86]: Colour, artwork & branding
+                - tab "06 Buyer tests & compliance" [ref=f3e89]:
+                  - generic [ref=f3e90]: "06"
+                  - generic [ref=f3e91]: Buyer tests & compliance
+              - tabpanel "01 Approved sample & tech pack" [ref=f3e94]:
+                - generic [ref=f3e95]:
+                  - paragraph [ref=f3e96]: Why agree it early
+                  - paragraph [ref=f3e97]: "Start with one shared product reference: the approved sample, current tech pack, construction notes and revision history."
+                  - paragraph [ref=f3e98]: "Useful reference: Agree which version is the controlling reference before production planning."
+              - paragraph [ref=f3e99]: These are buyer-planning considerations; the applicable requirements are agreed for each programme.
+      - region [ref=f3e100]:
+        - generic [ref=f3e101]:
+          - generic [ref=f3e102]:
+            - generic [ref=f3e103]:
+              - paragraph [ref=f3e104]: The quality journey
+              - heading "Four moments to align on the way." [level=2] [ref=f3e105]
+            - paragraph [ref=f3e106]: A practical framework for discussing where product requirements matter. Specific checks, timing and responsibility should be confirmed for each order.
+          - list [ref=f3e108]:
+            - listitem [ref=f3e109]:
+              - paragraph [ref=f3e112]: STAGE 01
+              - heading "Development & specification" [level=3] [ref=f3e113]
+              - paragraph [ref=f3e114]: The brief, approved sample and technical documents establish the intended product and the criteria that matter to the buyer.
+            - listitem [ref=f3e115]:
+              - paragraph [ref=f3e118]: STAGE 02
+              - heading "Production readiness" [level=3] [ref=f3e119]
+              - paragraph [ref=f3e120]: Material, construction, colour, components and any buyer-required tests are aligned before the order moves into bulk planning.
+            - listitem [ref=f3e121]:
+              - paragraph [ref=f3e124]: STAGE 03
+              - heading "In-production quality" [level=3] [ref=f3e125]
+              - paragraph [ref=f3e126]: Reviewing work during production can help teams notice workmanship or specification differences while there is time to respond.
+            - listitem [ref=f3e127]:
+              - paragraph [ref=f3e130]: STAGE 04
+              - heading "Finished garment review" [level=3] [ref=f3e131]
+              - paragraph [ref=f3e132]: Final visual, measurement, labelling and packing checks can be compared with the agreed order requirements.
+          - paragraph [ref=f3e133]: This journey is a planning framework, not a representation that every step is a formally documented Fashion Knits procedure or applies identically to every order.
+      - region [ref=f3e134]:
+        - generic [ref=f3e135]:
+          - generic [ref=f3e136]:
+            - generic [ref=f3e137]:
+              - paragraph [ref=f3e138]: Anatomy of an agreed standard
+              - heading "What quality means in a garment." [level=2] [ref=f3e139]
+            - paragraph [ref=f3e140]: Select a detail to see what buyers commonly define, why it matters and which reference can guide a clear conversation.
+          - generic [ref=f3e141]:
+            - tablist "Garment quality details" [ref=f3e142]:
+              - tab "01 Measurement & fit" [selected] [ref=f3e143]:
+                - generic [ref=f3e144]: "01"
+                - generic [ref=f3e145]: Measurement & fit
+              - tab "02 Stitching & seams" [ref=f3e148]:
+                - generic [ref=f3e149]: "02"
+                - generic [ref=f3e150]: Stitching & seams
+              - tab "03 Fabric appearance" [ref=f3e153]:
+                - generic [ref=f3e154]: "03"
+                - generic [ref=f3e155]: Fabric appearance
+              - tab "04 Colour & shade" [ref=f3e158]:
+                - generic [ref=f3e159]: "04"
+                - generic [ref=f3e160]: Colour & shade
+              - tab "05 Finishing & presentation" [ref=f3e163]:
+                - generic [ref=f3e164]: "05"
+                - generic [ref=f3e165]: Finishing & presentation
+              - tab "06 Labels, trims & branding" [ref=f3e168]:
+                - generic [ref=f3e169]: "06"
+                - generic [ref=f3e170]: Labels, trims & branding
+              - tab "07 Packing & order presentation" [ref=f3e173]:
+                - generic [ref=f3e174]: "07"
+                - generic [ref=f3e175]: Packing & order presentation
+            - tabpanel "01 Measurement & fit" [ref=f3e178]:
+              - generic [ref=f3e179]:
+                - generic [ref=f3e188]:
+                  - paragraph [ref=f3e189]: Selected detail
+                  - heading "Measurement & fit" [level=3] [ref=f3e190]
+                - generic [ref=f3e191]:
+                  - generic [ref=f3e192]:
+                    - paragraph [ref=f3e193]: What it means
+                    - paragraph [ref=f3e194]: Compare the garment with the approved specification using its stated points of measure and tolerances.
+                  - generic [ref=f3e195]:
+                    - paragraph [ref=f3e196]: Why it matters
+                    - paragraph [ref=f3e197]: Measurement consistency affects fit, grading and how a style performs across its size range.
+                  - generic [ref=f3e198]:
+                    - paragraph [ref=f3e199]: Useful buyer reference
+                    - paragraph [ref=f3e200]: Measurement chart, method, sample condition and tolerances for each point of measure.
+      - region [ref=f3e201]:
+        - generic [ref=f3e203]:
+          - generic [ref=f3e204]:
+            - generic [ref=f3e205]:
+              - paragraph [ref=f3e206]: Fabric & performance testing
+              - heading "Test what matters to the product." [level=2] [ref=f3e209]
+            - paragraph [ref=f3e210]: The relevant test plan depends on the product, material, function, market and buyer specification. Each programme should identify its methods, performance criteria and testing route.
+          - generic [ref=f3e211]:
+            - tablist "Examples of apparel tests to agree" [ref=f3e212]:
+              - tab "01 Dimensional stability" [selected] [ref=f3e213]:
+                - generic [ref=f3e214]: "01"
+                - generic [ref=f3e215]: Dimensional stability
+              - tab "02 Colourfastness" [ref=f3e218]:
+                - generic [ref=f3e219]: "02"
+                - generic [ref=f3e220]: Colourfastness
+              - tab "03 Composition & fabric weight" [ref=f3e223]:
+                - generic [ref=f3e224]: "03"
+                - generic [ref=f3e225]: Composition & fabric weight
+              - tab "04 Pilling & abrasion" [ref=f3e228]:
+                - generic [ref=f3e229]: "04"
+                - generic [ref=f3e230]: Pilling & abrasion
+              - tab "05 Restricted substances" [ref=f3e233]:
+                - generic [ref=f3e234]: "05"
+                - generic [ref=f3e235]: Restricted substances
+            - tabpanel "01 Dimensional stability" [ref=f3e238]:
+              - generic [ref=f3e239]:
+                - paragraph [ref=f3e240]: Testing may be relevant when specified
+                - heading "Dimensional stability" [level=3] [ref=f3e241]
+                - paragraph [ref=f3e242]: A buyer may specify shrinkage or dimensional-change evaluation after a defined care or conditioning process, especially where fabric relaxation can affect fit.
+                - paragraph [ref=f3e243]: "Agree in the brief: Agree the method, conditioning, sample and allowable change for the product."
+          - generic [ref=f3e244]:
+            - generic [ref=f3e245]:
+              - paragraph [ref=f3e246]: Inspection is not a laboratory test
+              - paragraph [ref=f3e247]: A production-floor inspection compares work with agreed visual or measurement requirements. A laboratory test uses a defined method to assess a sample. Where required, the buyer and supplier should agree whether testing is arranged through a qualified external laboratory.
+            - generic [ref=f3e248]:
+              - paragraph [ref=f3e249]: Start with the buyer’s current protocol
+              - paragraph [ref=f3e250]: AFIRM publishes apparel RSL and chemical guidance; individual buyers may set additional or different requirements. Fashion Knits does not claim AFIRM membership or blanket compliance with every buyer RSL.
+              - generic [ref=f3e251]:
+                - link "AFIRM RSL" [ref=f3e252] [cursor=pointer]:
+                  - /url: https://afirm-group.com/afirm-rsl/
+                - link "Chemical information sheets" [ref=f3e256] [cursor=pointer]:
+                  - /url: https://afirm-group.com/chemical-information-sheets/
+      - region [ref=f3e260]:
+        - generic [ref=f3e261]:
+          - generic [ref=f3e262]:
+            - paragraph [ref=f3e263]: Company-published information
+            - heading "A starting point for a buyer conversation." [level=2] [ref=f3e264]
+            - paragraph [ref=f3e265]: Fashion Knits’ current website describes the practices below. Their detailed scope, order-level application and alignment with a buyer’s protocol should be confirmed for each programme.
+          - generic [ref=f3e266]:
+            - list [ref=f3e267]:
+              - listitem [ref=f3e268]:
+                - paragraph [ref=f3e269]: Fabric inspection
+                - paragraph [ref=f3e270]: The site lists a four-point fabric inspection system.
+              - listitem [ref=f3e271]:
+                - paragraph [ref=f3e272]: Material testing
+                - paragraph [ref=f3e273]: The site lists an in-house testing lab for colourfastness, shrinkage and other physical attributes. Confirm available methods and programme scope.
+              - listitem [ref=f3e274]:
+                - paragraph [ref=f3e275]: Garment inspection
+                - paragraph [ref=f3e276]: The site refers to final inspection under “Global AQL” and lists AQL 1.5. Confirm the applicable sampling plan and order-level requirement with the buyer.
+              - listitem [ref=f3e277]:
+                - paragraph [ref=f3e278]: Metal detection
+                - paragraph [ref=f3e279]: Metal detection is listed for finished products before packing; applicability and protocol should be agreed for the product programme.
+              - listitem [ref=f3e280]:
+                - paragraph [ref=f3e281]: Export packing
+                - paragraph [ref=f3e282]: The site describes secure export-carton packing to customer requirements.
+            - paragraph [ref=f3e283]: These are company-published descriptions, not a claim that every check or test applies to every order.
+      - region [ref=f3e287]:
+        - generic [ref=f3e288]:
+          - generic [ref=f3e289]:
+            - generic [ref=f3e290]:
+              - paragraph [ref=f3e291]: If a deviation appears
+              - heading "A clear path from finding to learning." [level=2] [ref=f3e292]
+            - paragraph [ref=f3e293]: Select a stage in this general corrective-action cycle. It explains a recognised way to structure quality conversations; it is not a claim of a certified Fashion Knits system.
+          - generic [ref=f3e294]:
+            - tablist "Corrective action cycle" [ref=f3e295]:
+              - tab "01 Identify the deviation" [selected] [ref=f3e296]:
+                - generic [ref=f3e297]: "01"
+                - generic [ref=f3e298]: Identify the deviation
+              - tab "02 Compare with the agreed requirement" [ref=f3e301]:
+                - generic [ref=f3e302]: "02"
+                - generic [ref=f3e303]: Compare with the agreed requirement
+              - tab "03 Investigate the cause" [ref=f3e306]:
+                - generic [ref=f3e307]: "03"
+                - generic [ref=f3e308]: Investigate the cause
+              - tab "04 Agree corrective action" [ref=f3e311]:
+                - generic [ref=f3e312]: "04"
+                - generic [ref=f3e313]: Agree corrective action
+              - tab "05 Verify the result" [ref=f3e316]:
+                - generic [ref=f3e317]: "05"
+                - generic [ref=f3e318]: Verify the result
+            - tabpanel "01 Identify the deviation" [ref=f3e321]:
+              - generic [ref=f3e322]:
+                - paragraph [ref=f3e323]: Improvement cycle · 01
+                - heading "Identify the deviation" [level=3] [ref=f3e324]
+                - paragraph [ref=f3e325]: Describe the observed difference clearly and record the affected product, process or order reference.
+              - generic "Step 1 of 5" [ref=f3e326]: 01 / 05
+      - region [ref=f3e333]:
+        - generic [ref=f3e334]:
+          - generic [ref=f3e335]:
+            - generic [ref=f3e336]:
+              - paragraph [ref=f3e337]: Credentials & records
+              - heading "Scope matters as much as the name." [level=2] [ref=f3e341]
+            - paragraph [ref=f3e342]: The documents below apply only to the named entity, facility, processes and dates. A facility audit, an authorisation and a product certification are different kinds of records.
+          - generic [ref=f3e343]:
+            - article [ref=f3e344]:
+              - generic [ref=f3e345]:
+                - paragraph [ref=f3e346]: Product standard · scope-bound
+                - generic [ref=f3e347]: Valid to 30 Nov 2026
+              - heading "OEKO-TEX® STANDARD 100" [level=3] [ref=f3e348]
+              - paragraph [ref=f3e349]: Fashion Knits · Printing Division · Product Class I, Annex 6. The certificate scope covers specified commission printing on knitted and woven fabrics, including listed fibre types and print methods. It is not a blanket certificate for all Fashion Knits garments.
+              - link "View scope certificate" [ref=f3e350] [cursor=pointer]:
+                - /url: /assets/certificates/oeko-tex-standard-100.pdf
+            - article [ref=f3e357]:
+              - generic [ref=f3e358]:
+                - paragraph [ref=f3e359]: Facility certificate · named processes
+                - generic [ref=f3e360]: 1 Jun 2026 – 1 Jun 2027
+              - heading "WRAP Certificate of Compliance" [level=3] [ref=f3e361]
+              - paragraph [ref=f3e362]: "Fashion Knits Branch · WRAP #9322 · Shed 29, Netaji Apparel Park. The document lists cutting, sewing, trimming, checking, ironing and packing for the named facility during the stated period."
+              - link "View certificate" [ref=f3e363] [cursor=pointer]:
+                - /url: /assets/certificates/wrap-certificate-of-compliance.pdf
+          - generic [ref=f3e370]:
+            - generic [ref=f3e371]:
+              - paragraph [ref=f3e372]: Social monitoring record · not a product certificate
+              - heading "amfori BSCI monitoring summary" [level=3] [ref=f3e373]
+              - paragraph [ref=f3e374]: A Fashion Knits Branch summary in the project records describes full-monitoring activity beginning 25 February 2025 at Netaji Apparel Park. No rating or current certification claim is published here; request a verified current summary for buyer review.
+            - paragraph [ref=f3e375]: Dates above are transcribed from the supplied documents and reflect their stated periods. Buyers should confirm live status, product eligibility and transaction documentation with the relevant programme before making a product claim.
+          - group [ref=f3e378]:
+            - generic "Expired and historical records Open record notes" [ref=f3e379] [cursor=pointer]:
+              - generic [ref=f3e380]: Expired and historical records
+              - generic [ref=f3e381]: Open record notes
+      - region [ref=f3e385]:
+        - generic [ref=f3e386]:
+          - generic [ref=f3e387]:
+            - paragraph [ref=f3e388]: Quality & export preparation
+            - heading "Ready for the details beyond the garment." [level=2] [ref=f3e389]
+            - paragraph [ref=f3e390]: Final presentation can extend to buyer-specific labels and trims, folding, packing instructions, carton marks and shipment documents. Metal detection may also be required by the buyer or product programme. The right checks depend on the order brief.
+          - generic [ref=f3e391]:
+            - list [ref=f3e392]:
+              - listitem [ref=f3e393]:
+                - generic [ref=f3e394]: "01"
+                - generic [ref=f3e395]: Labels, trims & order identity
+              - listitem [ref=f3e396]:
+                - generic [ref=f3e397]: "02"
+                - generic [ref=f3e398]: Folding and packing instructions
+              - listitem [ref=f3e399]:
+                - generic [ref=f3e400]: "03"
+                - generic [ref=f3e401]: Carton marks and assortment details
+              - listitem [ref=f3e402]:
+                - generic [ref=f3e403]: "04"
+                - generic [ref=f3e404]: Metal detection where specified
+              - listitem [ref=f3e405]:
+                - generic [ref=f3e406]: "05"
+                - generic [ref=f3e407]: Shipment document requirements
+            - link "Explore global export preparation" [ref=f3e408] [cursor=pointer]:
+              - /url: /export
+    - region [ref=f3e411]:
+      - generic [ref=f3e413]:
+        - generic [ref=f3e414]:
+          - paragraph [ref=f3e415]: Quality planning
+          - heading "Your standards. Your specifications. A clear starting point." [level=2] [ref=f3e417]
+          - paragraph [ref=f3e418]: Share your tech pack, approved sample requirements or product brief with Fashion Knits to discuss the quality expectations for your garment programme.
+        - link "Discuss Your Quality Requirements" [ref=f3e420] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f3e426]:
+      - generic [ref=f3e427]:
+        - generic [ref=f3e428]:
+          - link "Fashion Knits home" [ref=f3e429] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f3e430]:
+              - generic [ref=f3e431]:
+                - generic [ref=f3e435]: FK
+                - generic [ref=f3e436]: We Design Your Dreams
+              - generic [ref=f3e437]: Fashion Knits
+          - paragraph [ref=f3e438]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f3e439]:
+            - paragraph [ref=f3e440]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f3e444]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f3e448]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f3e452]:
+          - heading "Explore" [level=2] [ref=f3e453]
+          - list [ref=f3e454]:
+            - listitem [ref=f3e455]:
+              - link "Products" [ref=f3e456] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f3e457]:
+              - link "Manufacturing" [ref=f3e458] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f3e459]:
+              - link "Quality" [ref=f3e460] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f3e461]:
+              - link "Sustainability" [ref=f3e462] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f3e463]:
+              - link "Export" [ref=f3e464] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f3e465]:
+              - link "About" [ref=f3e466] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f3e467]:
+          - heading "Discuss a production brief" [level=2] [ref=f3e468]
+          - paragraph [ref=f3e469]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f3e470] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f3e475] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f3e479]:
+        - paragraph [ref=f3e480]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f3e481] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=f3e490] [cursor=pointer]

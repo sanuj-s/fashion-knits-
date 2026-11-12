@@ -6,7 +6,7 @@ import { Footer } from '@/components/sections/Footer';
 export const metadata: Metadata = {
   title: 'Manufacturing & Production Planning | Fashion Knits',
   description:
-    'Understand the buyer workflow, production scope and supplier involvement to confirm for knitwear orders with Fashion Knits in Tiruppur, India.',
+    'Explore in-house CAD, automatic cutting, printing, embroidery, garment production lines, finishing and manufacturing equipment at Fashion Knits in Tiruppur, India.',
   keywords: [
     'garment manufacturing Tiruppur',
     'Netaji Apparel Park factory',

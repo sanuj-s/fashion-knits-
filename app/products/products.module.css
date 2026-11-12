@@ -1,0 +1,231 @@
+.heroImage {
+  object-fit: cover;
+  object-position: 67% 0%;
+  opacity: 0.9;
+  animation: hero-image-settle 1.2s cubic-bezier(0.2, 0.65, 0.25, 1) both;
+}
+
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(20, 20, 20, 0.91) 0%, rgba(20, 20, 20, 0.82) 24%, rgba(20, 20, 20, 0.55) 43%, rgba(20, 20, 20, 0.2) 67%, rgba(20, 20, 20, 0.06) 100%),
+    linear-gradient(0deg, rgba(20, 20, 20, 0.48) 0%, rgba(20, 20, 20, 0.1) 30%, transparent 60%);
+}
+
+.heroCopy {
+  animation: copy-rise 750ms cubic-bezier(0.2, 0.65, 0.25, 1) 90ms both;
+}
+
+.collectionCard {
+  overflow: hidden;
+}
+
+.collectionImage,
+.productImage,
+.trendImage,
+.inspirationImage,
+.studioImage,
+.detailImage,
+.materialImage {
+  transition: transform 650ms cubic-bezier(0.2, 0.65, 0.25, 1), opacity 300ms ease;
+}
+
+.collectionImage {
+  object-fit: contain;
+  padding: 2.5rem 1.25rem 1rem;
+  mix-blend-mode: multiply;
+  transform: scale(0.96);
+}
+
+.collectionCard:hover .collectionImage,
+.collectionCard:focus-within .collectionImage {
+  transform: scale(1.015);
+}
+
+.productCard {
+  min-width: 0;
+  animation: card-rise 520ms cubic-bezier(0.2, 0.65, 0.25, 1) both;
+}
+
+.productImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(0.96);
+}
+
+.productCard:hover .productImage,
+.productCard:focus-within .productImage {
+  transform: scale(1.015);
+}
+
+.materialImage {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.88;
+}
+
+.trendImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(0.98);
+}
+
+.group:hover .trendImage {
+  transform: scale(1.035);
+}
+
+.inspirationImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(0.96);
+}
+
+.group:hover .inspirationImage {
+  transform: scale(1.02);
+}
+
+.studioImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  transform: scale(0.96);
+}
+
+.detailDialog {
+  position: relative;
+  width: min(100%, 76rem);
+  max-height: min(92svh, 58rem);
+  overflow: hidden;
+  background: #f5f2ee;
+  color: #25231f;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.35);
+}
+
+.detailDialog > div {
+  max-height: min(92svh, 58rem);
+  overflow: hidden;
+}
+
+.detailDialog > div > div:first-child {
+  min-height: 32rem;
+}
+
+.detailDialog > div > div:last-child {
+  max-height: min(92svh, 58rem);
+  overflow-y: auto;
+}
+
+.detailImage {
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.materialDialog {
+  position: relative;
+  width: min(100%, 54rem);
+  max-height: 92svh;
+  overflow-y: auto;
+  background: #f5f2ee;
+  padding: 2rem;
+  color: #25231f;
+  box-shadow: 0 28px 100px rgba(0, 0, 0, 0.35);
+}
+
+.field {
+  display: block;
+  width: 100%;
+  min-height: 2.85rem;
+  appearance: none;
+  border: 1px solid rgba(37, 35, 31, 0.16);
+  border-radius: 999px;
+  background-color: #faf8f5;
+  padding: 0.65rem 2.75rem 0.65rem 1rem;
+  color: #25231f;
+  font-size: 0.75rem;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.field:focus-visible {
+  border-color: #907348;
+  box-shadow: 0 0 0 3px rgba(144, 115, 72, 0.14);
+}
+
+@keyframes hero-image-settle {
+  from { opacity: 0.55; transform: scale(1.035); }
+  to { opacity: 0.9; transform: scale(1); }
+}
+
+@keyframes copy-rise {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(0.65rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 639px) {
+  .heroImage {
+    object-position: 86% center;
+  }
+
+  .heroScrim {
+    background:
+      linear-gradient(90deg, rgba(20, 20, 20, 0.92) 0%, rgba(20, 20, 20, 0.8) 42%, rgba(20, 20, 20, 0.42) 76%, rgba(20, 20, 20, 0.24) 100%),
+      linear-gradient(0deg, rgba(20, 20, 20, 0.62) 0%, rgba(20, 20, 20, 0.18) 36%, transparent 65%);
+  }
+
+  .detailDialog {
+    max-height: 94svh;
+    border-radius: 1.15rem 1.15rem 0 0;
+  }
+
+  .detailDialog > div {
+    max-height: 94svh;
+    overflow-y: auto;
+  }
+
+  .detailDialog > div > div:first-child {
+    min-height: min(65vw, 24rem);
+    height: min(65vw, 24rem);
+  }
+
+  .detailDialog > div > div:last-child {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .materialDialog {
+    max-height: 92svh;
+    border-radius: 1.15rem 1.15rem 0 0;
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .detailDialog,
+  .materialDialog {
+    border-radius: 0.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroImage,
+  .heroCopy,
+  .productCard {
+    animation: none;
+  }
+
+  .heroImage,
+  .collectionImage,
+  .productImage,
+  .trendImage,
+  .inspirationImage,
+  .studioImage,
+  .detailImage,
+  .materialImage {
+    transition: none;
+  }
+}

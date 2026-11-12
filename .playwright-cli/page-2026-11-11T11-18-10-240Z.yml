@@ -1,0 +1,1137 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - navigation "Main navigation" [ref=e13]:
+        - link "Products" [ref=e14] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=e16] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=e17] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=e18] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=e19] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=e20] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=e21] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - img "Fashion models wearing neutral knitwear and relaxed apparel" [ref=e26]
+        - generic [ref=e28]:
+          - navigation "Breadcrumb" [ref=e29]:
+            - link "Home" [ref=e30] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=e31]: /
+            - generic [ref=e32]: Products
+          - generic [ref=e33]:
+            - paragraph [ref=e34]: Knitted & woven apparel · Tiruppur, India
+            - heading "Apparel crafted for every generation." [level=1] [ref=e36]:
+              - text: Apparel crafted
+              - generic [ref=e37]: for every
+              - text: generation.
+            - generic [ref=e38]:
+              - paragraph [ref=e39]: From everyday essentials to trend-led collections, explore knitwear and apparel concepts for brands building their next range.
+              - generic [ref=e40]:
+                - link "Explore collections" [ref=e41] [cursor=pointer]:
+                  - /url: "#collections"
+                - link "Develop your collection" [ref=e44] [cursor=pointer]:
+                  - /url: "#collection-studio"
+          - generic [ref=e47]:
+            - generic [ref=e48]: Tiruppur · India
+            - link "Scroll to explore" [ref=e49] [cursor=pointer]:
+              - /url: "#collections"
+            - generic [ref=e52]: A buyer-led product showroom
+      - region [ref=e53]:
+        - generic [ref=e54]:
+          - generic [ref=e55]:
+            - generic [ref=e56]:
+              - paragraph [ref=e57]: Product categories · four collections
+              - heading "A wardrobe of possibilities." [level=2] [ref=e59]
+            - paragraph [ref=e60]: Browse product directions across men's, women's, kids' and babywear. Each image is a visual concept to start a buyer-led development conversation.
+          - generic [ref=e61]:
+            - article [ref=e62]:
+              - button "Explore Men's apparel collection" [ref=e63]:
+                - generic [ref=e64]:
+                  - generic [ref=e65]: 01 / COLLECTION
+                  - img "Olive half-zip knit concept" [ref=e66]
+                - generic [ref=e71]:
+                  - generic [ref=e72]:
+                    - heading "Men's apparel" [level=3] [ref=e73]
+                    - paragraph [ref=e74]: 8 style directions
+                  - generic [ref=e75]: "01"
+            - article [ref=e76]:
+              - button "Explore Women's apparel collection" [ref=e77]:
+                - generic [ref=e78]:
+                  - generic [ref=e79]: 02 / COLLECTION
+                  - img "Striped knit polo concept" [ref=e80]
+                - generic [ref=e85]:
+                  - generic [ref=e86]:
+                    - heading "Women's apparel" [level=3] [ref=e87]
+                    - paragraph [ref=e88]: 7 style directions
+                  - generic [ref=e89]: "02"
+            - article [ref=e90]:
+              - button "Explore Kids' apparel collection" [ref=e91]:
+                - generic [ref=e92]:
+                  - generic [ref=e93]: 03 / COLLECTION
+                  - img "Colour-block rugby top concept" [ref=e94]
+                - generic [ref=e99]:
+                  - generic [ref=e100]:
+                    - heading "Kids' apparel" [level=3] [ref=e101]
+                    - paragraph [ref=e102]: 5 style directions
+                  - generic [ref=e103]: "03"
+            - article [ref=e104]:
+              - button "Explore Babies & toddler apparel collection" [ref=e105]:
+                - generic [ref=e106]:
+                  - generic [ref=e107]: 04 / COLLECTION
+                  - img "Striped infant romper concept" [ref=e108]
+                - generic [ref=e113]:
+                  - generic [ref=e114]:
+                    - heading "Babies & toddler apparel" [level=3] [ref=e115]
+                    - paragraph [ref=e116]: 5 style directions
+                  - generic [ref=e117]: "04"
+          - paragraph [ref=e118]: Style counts reflect the concepts shown in this digital catalogue; they are not a complete or confirmed production range.
+      - region [ref=e119]:
+        - generic [ref=e120]:
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - paragraph [ref=e123]: The catalogue · concept-led
+              - heading "Find a starting point." [level=2] [ref=e125]
+            - paragraph [ref=e126]: Search the current style concepts or narrow the range by audience and proposed fabric direction. Confirm composition, fit, weight and construction against an approved development brief.
+          - generic [ref=e127]:
+            - group "Filter by apparel collection" [ref=e128]:
+              - button "Men's" [pressed] [ref=e129]
+              - button "Women's" [ref=e130]
+              - button "Kids'" [ref=e131]
+              - button "Babies & toddler" [ref=e132]
+            - paragraph [ref=e133]: 8 style concepts
+          - generic [ref=e134]:
+            - generic [ref=e135]:
+              - generic [ref=e136]: Search products
+              - textbox "Search products" [ref=e140]:
+                - /placeholder: Search styles, garments or details
+            - generic [ref=e141]:
+              - generic [ref=e142]: Filter by proposed material
+              - combobox "Filter by proposed material" [ref=e143]:
+                - option "All proposed materials" [selected]
+                - option "Brushed cotton-rich fleece"
+                - option "Compact cotton jersey"
+                - option "Compact double-knit fabric"
+                - option "Compact ponte knit"
+                - option "Cotton interlock"
+                - option "Cotton jersey"
+                - option "Cotton jersey set"
+                - option "Cotton knit"
+                - option "Cotton loopback jersey"
+                - option "Cotton loopback terry"
+                - option "Cotton Milano knit"
+                - option "Cotton pique"
+                - option "Cotton rib jersey"
+                - option "Cotton rib knit"
+                - option "Cotton-acrylic blend knit"
+                - option "Cotton-merino blend knit"
+                - option "Cotton-merino knit"
+                - option "Cotton-modal jersey"
+                - option "Cotton-modal loopback"
+                - option "Cotton-modal rib"
+                - option "Cotton-rich fine-gauge knit"
+                - option "Cotton-rich interlock"
+                - option "Cotton-rich knit polo fabric"
+                - option "Cotton-rich stretch jersey"
+                - option "Cotton-viscose knit"
+                - option "Cotton-viscose textured knit"
+                - option "Lightweight cotton interlock"
+                - option "Lightweight cotton knit"
+                - option "Lightweight cotton rib"
+                - option "Lightweight loopback jersey"
+                - option "Lightweight rib jersey"
+                - option "Lightweight stretch jersey"
+                - option "Lightweight textured knit"
+                - option "Merino-rich fine-gauge knit"
+                - option "Merino-rich rib knit"
+                - option "Organic-cotton option for buyer review"
+                - option "Soft cotton interlock"
+                - option "Soft cotton jersey"
+                - option "Soft cotton rib"
+                - option "Soft cotton rib jersey"
+                - option "Soft loopback set"
+                - option "Stretch cotton jersey"
+                - option "Unbrushed cotton French terry"
+                - option "Unbrushed French terry"
+                - option "Viscose-blend rib knit"
+                - option "Viscose-rich stretch jersey"
+                - option "Wool-rich cardigan knit"
+                - option "Wool-rich fine-gauge knit"
+                - option "Wool-rich knit"
+            - generic [ref=e144]:
+              - generic [ref=e145]: Filter by garment type
+              - combobox "Filter by garment type" [ref=e146]:
+                - option "All garment types" [selected]
+                - option "Co-ord sets"
+                - option "Dresses"
+                - option "Joggers & shorts"
+                - option "Knitwear"
+                - option "Polos & rugby tops"
+                - option "Rompers & onesies"
+                - option "Sleepwear & loungewear"
+                - option "Sweatshirts & hoodies"
+                - option "T-shirts & tops"
+            - generic [ref=e147]:
+              - generic [ref=e148]: Filter by colour direction
+              - combobox "Filter by colour direction" [ref=e149]:
+                - option "All colour directions" [selected]
+                - option "Black"
+                - option "Bordeaux"
+                - option "Camel"
+                - option "Chalk"
+                - option "Charcoal"
+                - option "Cocoa"
+                - option "Cream"
+                - option "Deep navy"
+                - option "Deep olive"
+                - option "Dusty blue"
+                - option "Dusty blue & ecru"
+                - option "Ecru"
+                - option "Forest"
+                - option "Forest & chalk"
+                - option "Graphite"
+                - option "Heather grey"
+                - option "Ink"
+                - option "Ivory"
+                - option "Ivory & sage"
+                - option "Khaki"
+                - option "Midnight"
+                - option "Mocha"
+                - option "Natural"
+                - option "Navy"
+                - option "Navy & chalk"
+                - option "Navy & cream"
+                - option "Navy & ivory"
+                - option "Oat"
+                - option "Oatmeal"
+                - option "Olive"
+                - option "Petal"
+                - option "Pine"
+                - option "Poppy"
+                - option "Powder blue"
+                - option "Rose & oat"
+                - option "Rust & oat"
+                - option "Sage"
+                - option "Sage & cream"
+                - option "Sky"
+                - option "Slate"
+                - option "Soft grey"
+                - option "Soft rose"
+                - option "Stone"
+                - option "Terracotta & cream"
+                - option "Warm ivory"
+                - option "Washed black"
+            - generic [ref=e150]:
+              - generic [ref=e151]: Sort style concepts
+              - combobox "Sort style concepts" [ref=e152]:
+                - option "Featured order" [selected]
+                - option "Name A–Z"
+                - option "Category"
+            - button "Clear filters" [ref=e153]
+          - generic [ref=e154]:
+            - article [ref=e155]:
+              - button "View details for Compact jersey crew T-shirt" [ref=e156]:
+                - generic [ref=e157]:
+                  - generic [ref=e158]: Style concept
+                  - img "Compact jersey crew T-shirt style concept, front view" [ref=e161]
+                  - generic [ref=e163]: View concept
+                - generic [ref=e167]:
+                  - paragraph [ref=e168]: Men's apparel
+                  - heading "Compact jersey crew T-shirt" [level=3] [ref=e169]
+                  - generic [ref=e170]:
+                    - generic [ref=e171]: Compact cotton jersey
+                    - generic [ref=e172]: Cotton-rich stretch jersey
+                  - generic [ref=e173]:
+                    - generic [ref=e174]: 3 palette directions
+                    - generic [ref=e175]: Details
+            - article [ref=e178]:
+              - button "View details for Gallery print T-shirt" [ref=e179]:
+                - generic [ref=e180]:
+                  - generic [ref=e181]: Style concept
+                  - img "Gallery print T-shirt style concept, front view" [ref=e184]
+                  - generic [ref=e186]: View concept
+                - generic [ref=e190]:
+                  - paragraph [ref=e191]: Men's apparel
+                  - heading "Gallery print T-shirt" [level=3] [ref=e192]
+                  - generic [ref=e193]:
+                    - generic [ref=e194]: Soft cotton jersey
+                    - generic [ref=e195]: Compact cotton jersey
+                  - generic [ref=e196]:
+                    - generic [ref=e197]: 3 palette directions
+                    - generic [ref=e198]: Details
+            - article [ref=e201]:
+              - button "View details for Fine-gauge half-zip knit" [ref=e202]:
+                - generic [ref=e203]:
+                  - generic [ref=e204]: Style concept
+                  - img "Fine-gauge half-zip knit style concept, front view" [ref=e207]
+                  - generic [ref=e209]: View concept
+                - generic [ref=e213]:
+                  - paragraph [ref=e214]: Men's apparel
+                  - heading "Fine-gauge half-zip knit" [level=3] [ref=e215]
+                  - generic [ref=e216]:
+                    - generic [ref=e217]: Cotton knit
+                    - generic [ref=e218]: Cotton-merino blend knit
+                  - generic [ref=e219]:
+                    - generic [ref=e220]: 3 palette directions
+                    - generic [ref=e221]: Details
+            - article [ref=e224]:
+              - button "View details for Classic knit polo" [ref=e225]:
+                - generic [ref=e226]:
+                  - generic [ref=e227]: Style concept
+                  - img "Classic knit polo style concept, front view" [ref=e230]
+                  - generic [ref=e232]: View concept
+                - generic [ref=e236]:
+                  - paragraph [ref=e237]: Men's apparel
+                  - heading "Classic knit polo" [level=3] [ref=e238]
+                  - generic [ref=e239]:
+                    - generic [ref=e240]: Cotton pique
+                    - generic [ref=e241]: Cotton jersey
+                  - generic [ref=e242]:
+                    - generic [ref=e243]: 3 palette directions
+                    - generic [ref=e244]: Details
+            - article [ref=e247]:
+              - button "View details for Structured fleece hoodie" [ref=e248]:
+                - generic [ref=e249]:
+                  - generic [ref=e250]: Style concept
+                  - img "Structured fleece hoodie style concept, front view" [ref=e253]
+                  - generic [ref=e255]: View concept
+                - generic [ref=e259]:
+                  - paragraph [ref=e260]: Men's apparel
+                  - heading "Structured fleece hoodie" [level=3] [ref=e261]
+                  - generic [ref=e262]:
+                    - generic [ref=e263]: Cotton loopback terry
+                    - generic [ref=e264]: Brushed cotton-rich fleece
+                  - generic [ref=e265]:
+                    - generic [ref=e266]: 3 palette directions
+                    - generic [ref=e267]: Details
+            - article [ref=e270]:
+              - button "View details for Knit joggers & shorts" [ref=e271]:
+                - generic [ref=e272]:
+                  - generic [ref=e273]: Style concept
+                  - img "Knit joggers & shorts style concept, front view" [ref=e276]
+                  - generic [ref=e278]: View concept
+                - generic [ref=e282]:
+                  - paragraph [ref=e283]: Men's apparel
+                  - heading "Knit joggers & shorts" [level=3] [ref=e284]
+                  - generic [ref=e285]:
+                    - generic [ref=e286]: Cotton loopback terry
+                    - generic [ref=e287]: Cotton-rich interlock
+                  - generic [ref=e288]:
+                    - generic [ref=e289]: 3 palette directions
+                    - generic [ref=e290]: Details
+            - article [ref=e293]:
+              - button "View details for Soft knit zip jacket" [ref=e294]:
+                - generic [ref=e295]:
+                  - generic [ref=e296]: Style concept
+                  - img "Soft knit zip jacket style concept, front view" [ref=e299]
+                  - generic [ref=e301]: View concept
+                - generic [ref=e305]:
+                  - paragraph [ref=e306]: Men's apparel
+                  - heading "Soft knit zip jacket" [level=3] [ref=e307]
+                  - generic [ref=e308]:
+                    - generic [ref=e309]: Cotton Milano knit
+                    - generic [ref=e310]: Cotton-merino knit
+                  - generic [ref=e311]:
+                    - generic [ref=e312]: 3 palette directions
+                    - generic [ref=e313]: Details
+            - article [ref=e316]:
+              - button "View details for Relaxed lounge top" [ref=e317]:
+                - generic [ref=e318]:
+                  - generic [ref=e319]: Style concept
+                  - img "Relaxed lounge top style concept, front view" [ref=e322]
+                  - generic [ref=e324]: View concept
+                - generic [ref=e328]:
+                  - paragraph [ref=e329]: Men's apparel
+                  - heading "Relaxed lounge top" [level=3] [ref=e330]
+                  - generic [ref=e331]:
+                    - generic [ref=e332]: Cotton-modal jersey
+                    - generic [ref=e333]: Cotton interlock
+                  - generic [ref=e334]:
+                    - generic [ref=e335]: 3 palette directions
+                    - generic [ref=e336]: Details
+          - paragraph [ref=e339]: These are illustrative style concepts. Fabric names are proposed directions only. Composition, GSM, yarn, fit, size range, performance, construction and finishing are confirmed against the buyer's brief and approved sample.
+      - region [ref=e340]:
+        - generic [ref=e341]:
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - paragraph [ref=e344]: Materials · fibres & constructions
+              - heading "Explore our fabric & material library." [level=2] [ref=e346]
+            - paragraph [ref=e347]: Compare fibre and fabric construction directions. Availability, content, weight and performance depend on sourcing and development confirmation for each programme.
+          - generic [ref=e348]:
+            - generic [ref=e349]:
+              - img "Yarns arranged for knitwear development" [ref=e350]
+              - generic [ref=e352]:
+                - paragraph [ref=e353]: From fibre to construction
+                - paragraph [ref=e354]: A fabric decision starts with the intended hand, use and finish.
+            - generic [ref=e355]:
+              - group "Filter material directions" [ref=e356]:
+                - button "All directions" [pressed] [ref=e357]
+                - button "Natural fibres" [ref=e358]
+                - button "Recycled fibres" [ref=e359]
+                - button "Blended materials" [ref=e360]
+                - button "Lightweight" [ref=e361]
+                - button "Heavier constructions" [ref=e362]
+                - button "Stretch" [ref=e363]
+                - button "Soft touch" [ref=e364]
+              - generic [ref=e365]:
+                - article [ref=e366]:
+                  - generic [ref=e367]: 01 · Fibre direction
+                  - heading "Organic cotton" [level=3] [ref=e373]
+                  - paragraph [ref=e374]: Soft, familiar hand with a natural surface.
+                  - generic [ref=e375]:
+                    - generic [ref=e376]: Development possibility
+                    - button "More about Organic cotton" [ref=e377]: Details
+                  - button "Compare material" [ref=e381]
+                - article [ref=e383]:
+                  - generic [ref=e384]: 02 · Fibre direction
+                  - heading "Combed cotton" [level=3] [ref=e390]
+                  - paragraph [ref=e391]: Smooth, clean surface with a refined hand.
+                  - generic [ref=e392]:
+                    - generic [ref=e393]: Development possibility
+                    - button "More about Combed cotton" [ref=e394]: Details
+                  - button "Compare material" [ref=e398]
+                - article [ref=e400]:
+                  - generic [ref=e401]: 03 · Fibre direction
+                  - heading "Recycled polyester" [level=3] [ref=e407]
+                  - paragraph [ref=e408]: Can range from smooth to lightly textured.
+                  - generic [ref=e409]:
+                    - generic [ref=e410]: Development possibility
+                    - button "More about Recycled polyester" [ref=e411]: Details
+                  - button "Compare material" [ref=e415]
+                - article [ref=e417]:
+                  - generic [ref=e418]: 04 · Fibre direction
+                  - heading "Cotton–polyester blend" [level=3] [ref=e424]
+                  - paragraph [ref=e425]: Balanced surface that can be smooth or lightly brushed.
+                  - generic [ref=e426]:
+                    - generic [ref=e427]: Development possibility
+                    - button "More about Cotton–polyester blend" [ref=e428]: Details
+                  - button "Compare material" [ref=e432]
+                - article [ref=e434]:
+                  - generic [ref=e435]: 05 · Fibre direction
+                  - heading "Cotton–elastane" [level=3] [ref=e441]
+                  - paragraph [ref=e442]: Soft cotton hand with added recovery potential.
+                  - generic [ref=e443]:
+                    - generic [ref=e444]: Development possibility
+                    - button "More about Cotton–elastane" [ref=e445]: Details
+                  - button "Compare material" [ref=e449]
+                - article [ref=e451]:
+                  - generic [ref=e452]: 06 · Fabric construction
+                  - heading "French terry" [level=3] [ref=e458]
+                  - paragraph [ref=e459]: Smooth face with looped reverse.
+                  - generic [ref=e460]:
+                    - generic [ref=e461]: Development possibility
+                    - button "More about French terry" [ref=e462]: Details
+                  - button "Compare material" [ref=e466]
+                - article [ref=e468]:
+                  - generic [ref=e469]: 07 · Fabric construction
+                  - heading "Fleece" [level=3] [ref=e475]
+                  - paragraph [ref=e476]: Soft, brushed inner or outer face depending on finish.
+                  - generic [ref=e477]:
+                    - generic [ref=e478]: Development possibility
+                    - button "More about Fleece" [ref=e479]: Details
+                  - button "Compare material" [ref=e483]
+                - article [ref=e485]:
+                  - generic [ref=e486]: 08 · Fabric construction
+                  - heading "Single jersey" [level=3] [ref=e492]
+                  - paragraph [ref=e493]: Smooth face with a lighter, flexible drape.
+                  - generic [ref=e494]:
+                    - generic [ref=e495]: Development possibility
+                    - button "More about Single jersey" [ref=e496]: Details
+                  - button "Compare material" [ref=e500]
+                - article [ref=e502]:
+                  - generic [ref=e503]: 09 · Fabric construction
+                  - heading "Piqué" [level=3] [ref=e509]
+                  - paragraph [ref=e510]: Distinctive small-scale texture with a more structured hand.
+                  - generic [ref=e511]:
+                    - generic [ref=e512]: Development possibility
+                    - button "More about Piqué" [ref=e513]: Details
+                  - button "Compare material" [ref=e517]
+                - article [ref=e519]:
+                  - generic [ref=e520]: 010 · Fabric construction
+                  - heading "Rib knit" [level=3] [ref=e526]
+                  - paragraph [ref=e527]: Defined vertical texture with a close, flexible hand.
+                  - generic [ref=e528]:
+                    - generic [ref=e529]: Development possibility
+                    - button "More about Rib knit" [ref=e530]: Details
+                  - button "Compare material" [ref=e534]
+                - article [ref=e536]:
+                  - generic [ref=e537]: 011 · Fabric construction
+                  - heading "Interlock" [level=3] [ref=e543]
+                  - paragraph [ref=e544]: Smooth on both faces with a stable, substantial hand.
+                  - generic [ref=e545]:
+                    - generic [ref=e546]: Development possibility
+                    - button "More about Interlock" [ref=e547]: Details
+                  - button "Compare material" [ref=e551]
+                - article [ref=e553]:
+                  - generic [ref=e554]: 012 · Fibre direction
+                  - heading "Viscose" [level=3] [ref=e560]
+                  - paragraph [ref=e561]: Fluid, smooth hand with a soft drape.
+                  - generic [ref=e562]:
+                    - generic [ref=e563]: Development possibility
+                    - button "More about Viscose" [ref=e564]: Details
+                  - button "Compare material" [ref=e568]
+                - article [ref=e570]:
+                  - generic [ref=e571]: 013 · Fibre direction
+                  - heading "Modal" [level=3] [ref=e577]
+                  - paragraph [ref=e578]: Soft, smooth surface with a fluid feel.
+                  - generic [ref=e579]:
+                    - generic [ref=e580]: Development possibility
+                    - button "More about Modal" [ref=e581]: Details
+                  - button "Compare material" [ref=e585]
+                - article [ref=e587]:
+                  - generic [ref=e588]: 014 · Fibre direction
+                  - heading "Lyocell" [level=3] [ref=e594]
+                  - paragraph [ref=e595]: Smooth hand with a soft, fluid drape.
+                  - generic [ref=e596]:
+                    - generic [ref=e597]: Development possibility
+                    - button "More about Lyocell" [ref=e598]: Details
+                  - button "Compare material" [ref=e602]
+                - article [ref=e604]:
+                  - generic [ref=e605]: 015 · Fibre direction
+                  - heading "Linen blend" [level=3] [ref=e611]
+                  - paragraph [ref=e612]: Dry, natural texture with a relaxed surface.
+                  - generic [ref=e613]:
+                    - generic [ref=e614]: Development possibility
+                    - button "More about Linen blend" [ref=e615]: Details
+                  - button "Compare material" [ref=e619]
+                - article [ref=e621]:
+                  - generic [ref=e622]: 016 · Fibre direction
+                  - heading "Wool blend" [level=3] [ref=e628]
+                  - paragraph [ref=e629]: Can range from soft and fine to textured and warm.
+                  - generic [ref=e630]:
+                    - generic [ref=e631]: Development possibility
+                    - button "More about Wool blend" [ref=e632]: Details
+                  - button "Compare material" [ref=e636]
+          - paragraph [ref=e638]: Material directions are a starting library, not a statement of current inventory or guaranteed availability. Fibre content, yarn, GSM, care and performance values are not specified here; they must be agreed and verified for each approved sample.
+      - region [ref=e639]:
+        - generic [ref=e640]:
+          - generic [ref=e641]:
+            - generic [ref=e642]:
+              - paragraph [ref=e643]: Collection development · 2026
+              - heading "2026 fashion trends & inspiration." [level=2] [ref=e645]
+            - paragraph [ref=e646]: A set of directional prompts for collection planning across four audience groups. These are editorial development ideas, not measured market demand or a forecast guarantee.
+          - generic [ref=e647]:
+            - group "Filter trend directions by audience" [ref=e648]:
+              - button "All collections" [pressed] [ref=e649]
+              - button "Men's" [ref=e650]
+              - button "Women's" [ref=e651]
+              - button "Kids'" [ref=e652]
+              - button "Babies & toddler" [ref=e653]
+            - group "Filter trend directions by season" [ref=e654]:
+              - button "All directions" [pressed] [ref=e655]
+              - button "Spring / Summer 2026" [ref=e656]
+              - button "Autumn / Winter 2026" [ref=e657]
+              - button "Year-round essentials" [ref=e658]
+          - generic [ref=e659]:
+            - article [ref=e660]:
+              - generic [ref=e661]:
+                - img "Ivory graphic T-shirt concept with a buyer-replaceable art direction" [ref=e662]
+                - generic [ref=e663]: 01 / DIRECTION
+              - generic [ref=e664]:
+                - generic [ref=e665]:
+                  - generic [ref=e666]: Men's
+                  - generic [ref=e667]: Year-round essentials
+                - heading "Relaxed essentials" [level=3] [ref=e668]
+                - paragraph [ref=e669]: Easy proportions and considered surface details create a versatile base for a buyer-defined casualwear story.
+                - generic [ref=e670]:
+                  - generic [ref=e671]:
+                    - term [ref=e672]: Colour direction
+                    - definition [ref=e673]: Soft ivory · Earth brown · Sage
+                  - generic [ref=e674]:
+                    - term [ref=e675]: Suggested fabrics
+                    - definition [ref=e676]: Single jersey · French terry
+                  - generic [ref=e677]:
+                    - term [ref=e678]: Garment directions
+                    - definition [ref=e679]: Oversized tees · Relaxed co-ords
+            - article [ref=e680]:
+              - generic [ref=e681]:
+                - img "Classic knit polo product concept" [ref=e682]
+                - generic [ref=e683]: 02 / DIRECTION
+              - generic [ref=e684]:
+                - generic [ref=e685]:
+                  - generic [ref=e686]: Men's
+                  - generic [ref=e687]: Spring / Summer 2026
+                - heading "Texture in motion" [level=3] [ref=e688]
+                - paragraph [ref=e689]: Textured polos and stripe scale offer a refined alternative to a plain surface.
+                - generic [ref=e690]:
+                  - generic [ref=e691]:
+                    - term [ref=e692]: Colour direction
+                    - definition [ref=e693]: Marina blue · Soft ivory · Transformative teal
+                  - generic [ref=e694]:
+                    - term [ref=e695]: Suggested fabrics
+                    - definition [ref=e696]: Piqué · Cotton knit
+                  - generic [ref=e697]:
+                    - term [ref=e698]: Garment directions
+                    - definition [ref=e699]: Textured polos · Striped knitwear
+            - article [ref=e700]:
+              - generic [ref=e701]:
+                - img "Olive half-zip knit product concept" [ref=e702]
+                - generic [ref=e703]: 03 / DIRECTION
+              - generic [ref=e704]:
+                - generic [ref=e705]:
+                  - generic [ref=e706]: Men's
+                  - generic [ref=e707]: Autumn / Winter 2026
+                - heading "Quiet structure" [level=3] [ref=e708]
+                - paragraph [ref=e709]: A softly structured layer brings shape and a subtle tactile finish to a seasonal range.
+                - generic [ref=e710]:
+                  - generic [ref=e711]:
+                    - term [ref=e712]: Colour direction
+                    - definition [ref=e713]: Earth brown · Sage · Warm neutral
+                  - generic [ref=e714]:
+                    - term [ref=e715]: Suggested fabrics
+                    - definition [ref=e716]: Fine-gauge knit · Interlock
+                  - generic [ref=e717]:
+                    - term [ref=e718]: Garment directions
+                    - definition [ref=e719]: Half-zip pullovers · Knit jackets
+            - article [ref=e720]:
+              - generic [ref=e721]:
+                - img "Striped short-sleeve knit polo product concept" [ref=e722]
+                - generic [ref=e723]: 04 / DIRECTION
+              - generic [ref=e724]:
+                - generic [ref=e725]:
+                  - generic [ref=e726]: Women's
+                  - generic [ref=e727]: Spring / Summer 2026
+                - heading "Openwork softness" [level=3] [ref=e728]
+                - paragraph [ref=e729]: Pointelle and airy stitch directions add texture while keeping the silhouette light.
+                - generic [ref=e730]:
+                  - generic [ref=e731]:
+                    - term [ref=e732]: Colour direction
+                    - definition [ref=e733]: Soft ivory · Blue aura · Muskmelon
+                  - generic [ref=e734]:
+                    - term [ref=e735]: Suggested fabrics
+                    - definition [ref=e736]: Lightweight knit · Cotton-viscose knit
+                  - generic [ref=e737]:
+                    - term [ref=e738]: Garment directions
+                    - definition [ref=e739]: Openwork tops · Layered knitwear
+            - article [ref=e740]:
+              - generic [ref=e741]:
+                - img "Ribbed funnel-neck knit top product concept" [ref=e742]
+                - generic [ref=e743]: 05 / DIRECTION
+              - generic [ref=e744]:
+                - generic [ref=e745]:
+                  - generic [ref=e746]: Women's
+                  - generic [ref=e747]: Autumn / Winter 2026
+                - heading "Sculpted rib" [level=3] [ref=e748]
+                - paragraph [ref=e749]: A defined rib and raised neckline make a familiar layer feel more considered.
+                - generic [ref=e750]:
+                  - generic [ref=e751]:
+                    - term [ref=e752]: Colour direction
+                    - definition [ref=e753]: Berry · Earth brown · Soft ivory
+                  - generic [ref=e754]:
+                    - term [ref=e755]: Suggested fabrics
+                    - definition [ref=e756]: Rib knit · Cotton-modal jersey
+                  - generic [ref=e757]:
+                    - term [ref=e758]: Garment directions
+                    - definition [ref=e759]: Funnel-neck tops · Statement cardigans
+            - article [ref=e760]:
+              - generic [ref=e761]:
+                - img "Clean-cut sweatshirt product concept" [ref=e762]
+                - generic [ref=e763]: 06 / DIRECTION
+              - generic [ref=e764]:
+                - generic [ref=e765]:
+                  - generic [ref=e766]: Women's
+                  - generic [ref=e767]: Year-round essentials
+                - heading "Soft-set dressing" [level=3] [ref=e768]
+                - paragraph [ref=e769]: Coordinated pieces bring an easy, complete look to lounge and everyday collections.
+                - generic [ref=e770]:
+                  - generic [ref=e771]:
+                    - term [ref=e772]: Colour direction
+                    - definition [ref=e773]: Sage · Warm neutral · Berry
+                  - generic [ref=e774]:
+                    - term [ref=e775]: Suggested fabrics
+                    - definition [ref=e776]: Interlock · Soft jersey
+                  - generic [ref=e777]:
+                    - term [ref=e778]: Garment directions
+                    - definition [ref=e779]: Co-ord sets · Lounge layers
+            - article [ref=e780]:
+              - generic [ref=e781]:
+                - img "Colour-block kids rugby top product concept" [ref=e782]
+                - generic [ref=e783]: 07 / DIRECTION
+              - generic [ref=e784]:
+                - generic [ref=e785]:
+                  - generic [ref=e786]: Kids'
+                  - generic [ref=e787]: Spring / Summer 2026
+                - heading "Colour-block play" [level=3] [ref=e788]
+                - paragraph [ref=e789]: Balanced blocks and lively contrast give everyday shapes a playful collection point of view.
+                - generic [ref=e790]:
+                  - generic [ref=e791]:
+                    - term [ref=e792]: Colour direction
+                    - definition [ref=e793]: Marina blue · Acacia · Soft ivory
+                  - generic [ref=e794]:
+                    - term [ref=e795]: Suggested fabrics
+                    - definition [ref=e796]: Cotton jersey · Piqué
+                  - generic [ref=e797]:
+                    - term [ref=e798]: Garment directions
+                    - definition [ref=e799]: Rugby tops · Everyday tees
+            - article [ref=e800]:
+              - generic [ref=e801]:
+                - img "Kids coordinated T-shirt and short set concept" [ref=e802]
+                - generic [ref=e803]: 08 / DIRECTION
+              - generic [ref=e804]:
+                - generic [ref=e805]:
+                  - generic [ref=e806]: Kids'
+                  - generic [ref=e807]: Year-round essentials
+                - heading "Easy coordinates" [level=3] [ref=e808]
+                - paragraph [ref=e809]: Comfortable separates in a shared palette make matching sets feel relaxed and versatile.
+                - generic [ref=e810]:
+                  - generic [ref=e811]:
+                    - term [ref=e812]: Colour direction
+                    - definition [ref=e813]: Sage · Warm neutral · Muskmelon
+                  - generic [ref=e814]:
+                    - term [ref=e815]: Suggested fabrics
+                    - definition [ref=e816]: Single jersey · French terry
+                  - generic [ref=e817]:
+                    - term [ref=e818]: Garment directions
+                    - definition [ref=e819]: Tee and short sets · Pull-on bottoms
+            - article [ref=e820]:
+              - generic [ref=e821]:
+                - img "Kids crew-neck sweater product concept" [ref=e822]
+                - generic [ref=e823]: 09 / DIRECTION
+              - generic [ref=e824]:
+                - generic [ref=e825]:
+                  - generic [ref=e826]: Kids'
+                  - generic [ref=e827]: Autumn / Winter 2026
+                - heading "Comfort in layers" [level=3] [ref=e828]
+                - paragraph [ref=e829]: Soft sweats and familiar knits make room for seasonal layering and age-appropriate detail.
+                - generic [ref=e830]:
+                  - generic [ref=e831]:
+                    - term [ref=e832]: Colour direction
+                    - definition [ref=e833]: Blue aura · Soft ivory · Berry
+                  - generic [ref=e834]:
+                    - term [ref=e835]: Suggested fabrics
+                    - definition [ref=e836]: Fleece · Cotton knit
+                  - generic [ref=e837]:
+                    - term [ref=e838]: Garment directions
+                    - definition [ref=e839]: Sweatshirts · Crew sweaters
+            - article [ref=e840]:
+              - generic [ref=e841]:
+                - img "Soft baby top product concept" [ref=e842]
+                - generic [ref=e843]: 010 / DIRECTION
+              - generic [ref=e844]:
+                - generic [ref=e845]:
+                  - generic [ref=e846]: Babies & toddler
+                  - generic [ref=e847]: Year-round essentials
+                - heading "Soft everyday layers" [level=3] [ref=e848]
+                - paragraph [ref=e849]: Gentle colour and straightforward silhouettes shape a calm foundation for infant essentials.
+                - generic [ref=e850]:
+                  - generic [ref=e851]:
+                    - term [ref=e852]: Colour direction
+                    - definition [ref=e853]: Soft ivory · Sage · Blue aura
+                  - generic [ref=e854]:
+                    - term [ref=e855]: Suggested fabrics
+                    - definition [ref=e856]: Interlock · Cotton rib
+                  - generic [ref=e857]:
+                    - term [ref=e858]: Garment directions
+                    - definition [ref=e859]: Baby tops · Sleepsuits
+            - article [ref=e860]:
+              - generic [ref=e861]:
+                - img "Sage and cream striped baby romper concept" [ref=e862]
+                - generic [ref=e863]: 011 / DIRECTION
+              - generic [ref=e864]:
+                - generic [ref=e865]:
+                  - generic [ref=e866]: Babies & toddler
+                  - generic [ref=e867]: Spring / Summer 2026
+                - heading "A softer stripe" [level=3] [ref=e868]
+                - paragraph [ref=e869]: A quiet stripe brings just enough expression to a practical, easy-to-coordinate shape.
+                - generic [ref=e870]:
+                  - generic [ref=e871]:
+                    - term [ref=e872]: Colour direction
+                    - definition [ref=e873]: Sage · Soft ivory · Muskmelon
+                  - generic [ref=e874]:
+                    - term [ref=e875]: Suggested fabrics
+                    - definition [ref=e876]: Cotton rib · Single jersey
+                  - generic [ref=e877]:
+                    - term [ref=e878]: Garment directions
+                    - definition [ref=e879]: Rompers · Matching sets
+            - article [ref=e880]:
+              - generic [ref=e881]:
+                - img "Footed baby sleepsuit product concept" [ref=e882]
+                - generic [ref=e883]: 012 / DIRECTION
+              - generic [ref=e884]:
+                - generic [ref=e885]:
+                  - generic [ref=e886]: Babies & toddler
+                  - generic [ref=e887]: Autumn / Winter 2026
+                - heading "Practical little layers" [level=3] [ref=e888]
+                - paragraph [ref=e889]: Considered one-pieces and soft layers keep the focus on comfort, movement and a clear buyer brief.
+                - generic [ref=e890]:
+                  - generic [ref=e891]:
+                    - term [ref=e892]: Colour direction
+                    - definition [ref=e893]: Warm neutral · Blue aura · Berry
+                  - generic [ref=e894]:
+                    - term [ref=e895]: Suggested fabrics
+                    - definition [ref=e896]: Interlock · Cotton-modal jersey
+                  - generic [ref=e897]:
+                    - term [ref=e898]: Garment directions
+                    - definition [ref=e899]: Rompers · Sleepwear
+      - region [ref=e900]:
+        - generic [ref=e901]:
+          - generic [ref=e902]:
+            - generic [ref=e903]:
+              - paragraph [ref=e904]: Colour library · visual references
+              - heading "A considered palette." [level=2] [ref=e906]
+            - paragraph [ref=e907]: Explore screen-based colour directions and suggested pairings for range planning. The selected swatch is a visual reference only, not a lab dip or approved production shade.
+          - generic [ref=e908]:
+            - generic [ref=e909]:
+              - 'button "Transformative teal Pairs with Soft ivory · earth brown Screen reference · #176b70" [ref=e910]':
+                - generic [ref=e912]: Transformative teal
+                - generic [ref=e913]: Pairs with Soft ivory · earth brown
+                - generic [ref=e914]: "Screen reference · #176b70"
+              - 'button "Blue aura Pairs with Warm neutral · deep navy Screen reference · #a8bdc9" [ref=e915]':
+                - generic [ref=e917]: Blue aura
+                - generic [ref=e918]: Pairs with Warm neutral · deep navy
+                - generic [ref=e919]: "Screen reference · #a8bdc9"
+              - 'button "Marina blue Pairs with Soft ivory · acacia Screen reference · #496a86" [ref=e920]':
+                - generic [ref=e922]: Marina blue
+                - generic [ref=e923]: Pairs with Soft ivory · acacia
+                - generic [ref=e924]: "Screen reference · #496a86"
+              - 'button "Sage Pairs with Soft ivory · earth brown Screen reference · #adb7a5" [ref=e925]':
+                - generic [ref=e927]: Sage
+                - generic [ref=e928]: Pairs with Soft ivory · earth brown
+                - generic [ref=e929]: "Screen reference · #adb7a5"
+              - 'button "Acacia Pairs with Deep navy · warm neutral Screen reference · #c4a45a" [ref=e930]':
+                - generic [ref=e932]: Acacia
+                - generic [ref=e933]: Pairs with Deep navy · warm neutral
+                - generic [ref=e934]: "Screen reference · #c4a45a"
+              - 'button "Muskmelon Pairs with Soft ivory · sage Screen reference · #e49a7b" [ref=e935]':
+                - generic [ref=e937]: Muskmelon
+                - generic [ref=e938]: Pairs with Soft ivory · sage
+                - generic [ref=e939]: "Screen reference · #e49a7b"
+              - 'button "Berry Pairs with Soft ivory · warm neutral Screen reference · #915264" [ref=e940]':
+                - generic [ref=e942]: Berry
+                - generic [ref=e943]: Pairs with Soft ivory · warm neutral
+                - generic [ref=e944]: "Screen reference · #915264"
+              - 'button "Earth brown Pairs with Blue aura · soft ivory Screen reference · #75604f" [ref=e945]':
+                - generic [ref=e947]: Earth brown
+                - generic [ref=e948]: Pairs with Blue aura · soft ivory
+                - generic [ref=e949]: "Screen reference · #75604f"
+              - 'button "Soft ivory Pairs with Transformative teal · berry Screen reference · #e9e3d8" [pressed] [ref=e950]':
+                - generic [ref=e952]: Soft ivory
+                - generic [ref=e953]: Pairs with Transformative teal · berry
+                - generic [ref=e954]: "Screen reference · #e9e3d8"
+              - 'button "Warm neutral Pairs with Sage · deep navy Screen reference · #c9bdab" [ref=e955]':
+                - generic [ref=e957]: Warm neutral
+                - generic [ref=e958]: Pairs with Sage · deep navy
+                - generic [ref=e959]: "Screen reference · #c9bdab"
+              - 'button "Electric lime Pairs with Deep navy · soft ivory Screen reference · #c5d333" [ref=e960]':
+                - generic [ref=e962]: Electric lime
+                - generic [ref=e963]: Pairs with Deep navy · soft ivory
+                - generic [ref=e964]: "Screen reference · #c5d333"
+              - 'button "Signal coral Pairs with Marina blue · soft ivory Screen reference · #e16454" [ref=e965]':
+                - generic [ref=e967]: Signal coral
+                - generic [ref=e968]: Pairs with Marina blue · soft ivory
+                - generic [ref=e969]: "Screen reference · #e16454"
+            - complementary [ref=e970]:
+              - generic [ref=e971]:
+                - paragraph [ref=e972]: Selected colour direction
+                - heading "Soft ivory" [level=3] [ref=e973]
+                - paragraph [ref=e974]: Use this selection as a conversation prompt. Confirm shade, dye route, material and lab dip approval separately.
+              - generic [ref=e975]:
+                - paragraph [ref=e976]: Palette disclaimer
+                - paragraph [ref=e977]: Names are directional. HEX values are approximate screen samples only; they are not official Pantone references or production standards.
+      - region [ref=e978]:
+        - generic [ref=e979]:
+          - generic [ref=e980]:
+            - generic [ref=e981]:
+              - paragraph [ref=e982]: Style & market inspiration
+              - heading "Visual directions, open-ended." [level=2] [ref=e984]
+            - paragraph [ref=e985]: An editorial reference wall for discussing product language, texture and customer use. The concepts below do not represent brand partnerships, clients or endorsements.
+          - generic [ref=e986]:
+            - article [ref=e987]:
+              - generic [ref=e988]:
+                - img "Folded jersey and polo garment concepts" [ref=e989]
+                - generic [ref=e990]: "01"
+              - generic [ref=e991]:
+                - paragraph [ref=e992]: Everyday essentials
+                - heading "Premium basics" [level=3] [ref=e993]
+                - paragraph [ref=e994]: Precise proportions, quiet surfaces and thoughtful finishing.
+            - article [ref=e995]:
+              - generic [ref=e996]:
+                - img "Textured cardigan product concept" [ref=e997]
+                - generic [ref=e998]: "02"
+              - generic [ref=e999]:
+                - paragraph [ref=e1000]: Modern knit
+                - heading "Textured knitwear" [level=3] [ref=e1001]
+                - paragraph [ref=e1002]: Stitch, stripe and rib become the defining detail.
+            - article [ref=e1003]:
+              - generic [ref=e1004]:
+                - img "Dark hoodie product concept" [ref=e1005]
+                - generic [ref=e1006]: "03"
+              - generic [ref=e1007]:
+                - paragraph [ref=e1008]: Casualwear
+                - heading "Sport-inspired casual" [level=3] [ref=e1009]
+                - paragraph [ref=e1010]: Functional shapes with a comfortable, relaxed hand.
+            - article [ref=e1011]:
+              - generic [ref=e1012]:
+                - img "Colour-block kids rugby top concept" [ref=e1013]
+                - generic [ref=e1014]: "04"
+              - generic [ref=e1015]:
+                - paragraph [ref=e1016]: Kidswear
+                - heading "Playful kidswear" [level=3] [ref=e1017]
+                - paragraph [ref=e1018]: Simple silhouettes with confident colour and graphic placement.
+            - article [ref=e1019]:
+              - generic [ref=e1020]:
+                - img "Infant romper product concept" [ref=e1021]
+                - generic [ref=e1022]: "05"
+              - generic [ref=e1023]:
+                - paragraph [ref=e1024]: Babywear
+                - heading "Soft infant layers" [level=3] [ref=e1025]
+                - paragraph [ref=e1026]: Gentle palettes and practical shapes for everyday dressing.
+          - paragraph [ref=e1027]: All imagery on this page presents product or style concepts. No third-party brand marks are used to imply a commercial relationship.
+      - region [ref=e1028]:
+        - generic [ref=e1029]:
+          - generic [ref=e1030]:
+            - generic [ref=e1031]:
+              - paragraph [ref=e1032]: Product customisation · buyer brief
+              - heading "Build your own apparel collection." [level=2] [ref=e1034]
+            - paragraph [ref=e1035]: Shape a development brief from the available style concepts. Your selections are carried into the existing quote form as editable project notes.
+          - generic [ref=e1036]:
+            - generic [ref=e1037]:
+              - generic [ref=e1038]:
+                - generic [ref=e1039]: Collection
+                - combobox "Collection" [ref=e1040]:
+                  - option "Men's apparel" [selected]
+                  - option "Women's apparel"
+                  - option "Kids' apparel"
+                  - option "Babies & toddler"
+              - generic [ref=e1041]:
+                - generic [ref=e1042]: Style direction
+                - combobox "Style direction" [ref=e1043]:
+                  - option "Compact jersey crew T-shirt" [selected]
+                  - option "Gallery print T-shirt"
+                  - option "Fine-gauge half-zip knit"
+                  - option "Classic knit polo"
+                  - option "Structured fleece hoodie"
+                  - option "Knit joggers & shorts"
+                  - option "Soft knit zip jacket"
+                  - option "Relaxed lounge top"
+              - generic [ref=e1044]:
+                - generic [ref=e1045]: Fabric direction
+                - combobox "Fabric direction" [ref=e1046]:
+                  - option "Compact cotton jersey" [selected]
+                  - option "Cotton-rich stretch jersey"
+                  - option "Lightweight loopback jersey"
+              - generic [ref=e1047]:
+                - generic [ref=e1048]: Colour direction
+                - combobox "Colour direction" [ref=e1049]:
+                  - option "Ink" [selected]
+                  - option "Chalk"
+                  - option "Graphite"
+                  - option "Soft ivory · palette studio"
+              - generic [ref=e1050]:
+                - generic [ref=e1051]: Fit direction
+                - combobox "Fit direction" [ref=e1052]:
+                  - option "Relaxed" [selected]
+                  - option "Regular"
+                  - option "Close fit"
+                  - option "To buyer size specification"
+                  - option "To be discussed"
+              - generic [ref=e1053]:
+                - generic [ref=e1054]: Print method
+                - combobox "Print method" [ref=e1055]:
+                  - option "Not selected" [selected]
+                  - option "Screen print · to be reviewed"
+                  - option "Digital print · to be reviewed"
+                  - option "Buyer artwork · method to be confirmed"
+                  - option "No print direction"
+              - generic [ref=e1056]:
+                - generic [ref=e1057]: Embroidery
+                - combobox "Embroidery" [ref=e1058]:
+                  - option "Discuss during development" [selected]
+                  - option "Explore embroidery placement"
+                  - option "No embroidery direction"
+                  - option "Buyer artwork to review"
+              - generic [ref=e1059]:
+                - generic [ref=e1060]: Neck & sleeve details
+                - combobox "Neck & sleeve details" [ref=e1061]:
+                  - option "As shown in concept" [selected]
+                  - option "Explore alternate neckline"
+                  - option "Explore alternate sleeve"
+                  - option "To buyer specification"
+              - generic [ref=e1062]:
+                - generic [ref=e1063]: Labels
+                - combobox "Labels" [ref=e1064]:
+                  - option "Buyer label direction to discuss" [selected]
+                  - option "Explore printed label"
+                  - option "Explore woven label"
+                  - option "To buyer specification"
+              - generic [ref=e1065]:
+                - generic [ref=e1066]: Packaging
+                - combobox "Packaging" [ref=e1067]:
+                  - option "To be agreed" [selected]
+                  - option "Buyer packaging brief to review"
+                  - option "Retail-ready packaging direction"
+                  - option "To buyer specification"
+            - complementary [ref=e1068]:
+              - generic [ref=e1069]:
+                - img "Compact jersey crew T-shirt concept preview" [ref=e1070]
+                - generic [ref=e1071]: Silhouette concept · front view
+              - generic [ref=e1072]:
+                - generic [ref=e1073]:
+                  - paragraph [ref=e1074]: Live brief summary
+                  - heading "Compact jersey crew T-shirt" [level=3] [ref=e1075]
+                  - paragraph [ref=e1076]: Men's apparel
+                - 'generic "Selected colour: Ink" [ref=e1077]'
+              - generic [ref=e1078]:
+                - paragraph [ref=e1079]:
+                  - text: Fabric
+                  - generic [ref=e1080]: Compact cotton jersey
+                - paragraph [ref=e1081]:
+                  - text: Colour
+                  - generic [ref=e1082]: Ink
+                - paragraph [ref=e1083]:
+                  - text: Fit
+                  - generic [ref=e1084]: Relaxed
+                - paragraph [ref=e1085]:
+                  - text: Finish details
+                  - generic [ref=e1086]: Not selected; Discuss during development
+              - link "Send this specification" [ref=e1087] [cursor=pointer]:
+                - /url: /get-a-quote?product=Men%27s+apparel&productId=mens-concept-minimal-logo-tee&productName=Compact+jersey+crew+T-shirt&productCategory=Men%27s+apparel&fabric=Compact+cotton+jersey&color=Ink&customizations=Fit+direction%3A+Relaxed+%C2%B7+Print%3A+Not+selected+%C2%B7+Embroidery%3A+Discuss+during+development+%C2%B7+Neck+%2F+sleeve%3A+As+shown+in+concept+%C2%B7+Label%3A+Buyer+label+direction+to+discuss+%C2%B7+Packaging%3A+To+be+agreed+%C2%B7+Colour-library+direction%3A+Soft+ivory
+              - paragraph [ref=e1090]: Preview shows the concept silhouette only. It is not a colour-accurate or production-ready technical design. Your selections open in the editable inquiry form.
+      - region [ref=e1091]:
+        - generic [ref=e1092]:
+          - generic [ref=e1093]:
+            - generic [ref=e1094]:
+              - paragraph [ref=e1095]: Development pathway · from brief to dispatch
+              - heading "From fabric choice to finished apparel." [level=2] [ref=e1097]
+            - paragraph [ref=e1098]: A typical buyer-led pathway, with scope and approvals agreed for each programme. The sequence below describes development stages, not a promise of timing or production capacity.
+          - list [ref=e1099]:
+            - listitem [ref=e1100]:
+              - generic [aria-hidden] [ref=e1101]: "01"
+              - heading "Product concept" [level=3] [ref=e1102]
+              - paragraph [ref=e1103]: Align the silhouette, use and visual direction.
+              - generic [aria-hidden] [ref=e1104]: →
+            - listitem [ref=e1105]:
+              - generic [aria-hidden] [ref=e1106]: "02"
+              - heading "Fabric & yarn" [level=3] [ref=e1107]
+              - paragraph [ref=e1108]: Review fibre, construction, hand-feel and colour.
+              - generic [aria-hidden] [ref=e1109]: →
+            - listitem [ref=e1110]:
+              - generic [aria-hidden] [ref=e1111]: "03"
+              - heading "Sampling" [level=3] [ref=e1112]
+              - paragraph [ref=e1113]: Develop a sample against the buyer brief.
+              - generic [aria-hidden] [ref=e1114]: →
+            - listitem [ref=e1115]:
+              - generic [aria-hidden] [ref=e1116]: "04"
+              - heading "Pattern & fit" [level=3] [ref=e1117]
+              - paragraph [ref=e1118]: Review measurements, proportions and size set.
+              - generic [aria-hidden] [ref=e1119]: →
+            - listitem [ref=e1120]:
+              - generic [aria-hidden] [ref=e1121]: "05"
+              - heading "Garment production" [level=3] [ref=e1122]
+              - paragraph [ref=e1123]: Confirm the approved construction and order plan.
+              - generic [aria-hidden] [ref=e1124]: →
+            - listitem [ref=e1125]:
+              - generic [aria-hidden] [ref=e1126]: "06"
+              - heading "Quality review" [level=3] [ref=e1127]
+              - paragraph [ref=e1128]: Agree checks against the approved specification.
+              - generic [aria-hidden] [ref=e1129]: →
+            - listitem [ref=e1130]:
+              - generic [aria-hidden] [ref=e1131]: "07"
+              - heading "Finishing & pack" [level=3] [ref=e1132]
+              - paragraph [ref=e1133]: Confirm labels, trims and packaging details.
+              - generic [aria-hidden] [ref=e1134]: →
+            - listitem [ref=e1135]:
+              - generic [aria-hidden] [ref=e1136]: "08"
+              - heading "Dispatch planning" [level=3] [ref=e1137]
+              - paragraph [ref=e1138]: Align shipment details with the confirmed order.
+          - generic [ref=e1139]:
+            - link "Explore manufacturing" [ref=e1140] [cursor=pointer]:
+              - /url: /manufacturing
+            - link "Explore quality" [ref=e1144] [cursor=pointer]:
+              - /url: /quality
+    - region "Planning Your Next Knitwear Collection?" [ref=e1148]:
+      - generic [ref=e1150]:
+        - generic [ref=e1151]:
+          - paragraph [ref=e1152]: Product development
+          - heading "Planning Your Next Knitwear Collection?" [level=2] [ref=e1154]
+          - paragraph [ref=e1155]: Tell us which product categories and specifications you are developing.
+        - link "Discuss Your Project" [ref=e1157] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=e1163]:
+      - generic [ref=e1164]:
+        - generic [ref=e1165]:
+          - link "Fashion Knits home" [ref=e1166] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e1167]:
+              - generic [ref=e1168]:
+                - generic [ref=e1172]: FK
+                - generic [ref=e1173]: We Design Your Dreams
+              - generic [ref=e1174]: Fashion Knits
+          - paragraph [ref=e1175]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e1176]:
+            - paragraph [ref=e1177]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e1181]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e1185]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e1189]:
+          - heading "Explore" [level=2] [ref=e1190]
+          - list [ref=e1191]:
+            - listitem [ref=e1192]:
+              - link "Products" [ref=e1193] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e1194]:
+              - link "Manufacturing" [ref=e1195] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e1196]:
+              - link "Quality" [ref=e1197] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e1198]:
+              - link "Sustainability" [ref=e1199] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e1200]:
+              - link "Export" [ref=e1201] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e1202]:
+              - link "About" [ref=e1203] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e1204]:
+          - heading "Discuss a production brief" [level=2] [ref=e1205]
+          - paragraph [ref=e1206]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e1207] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e1212] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e1216]:
+        - paragraph [ref=e1217]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e1218] [cursor=pointer]:
+          - /url: /#hero

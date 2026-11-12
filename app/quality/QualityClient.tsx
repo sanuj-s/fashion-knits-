@@ -1,428 +1,521 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ReactNode } from 'react';
-import { BrandStandards } from '@/components/sections/BrandStandards';
+import { useState, type KeyboardEvent, type ReactNode } from 'react';
 import {
-  ArrowDown,
+  ArrowRight,
   ArrowUpRight,
   Check,
+  ChevronRight,
   ClipboardCheck,
   FileText,
   FlaskConical,
+  PackageCheck,
   Ruler,
+  Search,
+  ShieldCheck,
   Shirt,
   SwatchBook,
 } from 'lucide-react';
+import { motion, useReducedMotion } from 'motion/react';
 
-const PROCESS_STAGES = [
+const QUALITY_INPUTS = [
   {
-    number: '01',
-    title: 'Set the specification',
-    detail: 'Align the tech pack or reference garment, material direction, shade standard and inspection requirements.',
+    title: 'Approved sample & tech pack',
+    detail: 'Start with one shared product reference: the approved sample, current tech pack, construction notes and revision history.',
+    reference: 'Agree which version is the controlling reference before production planning.',
   },
   {
-    number: '02',
-    title: 'Review materials',
-    detail: 'Agree what to verify at receipt: fabric identity, colour, condition and any buyer-required testing.',
+    title: 'Measurements & size specifications',
+    detail: 'Define the points of measure, size range, measurement method and tolerances for the garment programme.',
+    reference: 'Share the buyer’s measurement chart and confirm tolerances for each point of measure.',
   },
   {
-    number: '03',
-    title: 'Approve the sample',
-    detail: 'Confirm fit, construction, measurements, trims and labels on the approved sample before bulk production.',
+    title: 'Fabric composition & materials',
+    detail: 'Clarify fibre content, fabric construction, weight, hand feel and any material restrictions relevant to the order.',
+    reference: 'Identify the approved material reference and any required verification or test method.',
   },
   {
-    number: '04',
-    title: 'Plan production checks',
-    detail: 'Set review points, acceptance criteria, record format and the route for resolving a finding.',
+    title: 'Stitching, construction & finish',
+    detail: 'Document seam and stitch expectations, garment construction, trims and the finish expected on the approved sample.',
+    reference: 'Use the sample, construction details and workmanship notes as the agreed comparison point.',
   },
   {
-    number: '05',
-    title: 'Finish & final review',
-    detail: 'Agree checks for garment appearance, measurements, workmanship and presentation before packing.',
+    title: 'Colour, artwork & branding',
+    detail: 'Align colour references, artwork placement, print or embellishment details, labels and branding components.',
+    reference: 'Record approved shade, artwork and component references, including placement where specified.',
   },
   {
-    number: '06',
-    title: 'Prepare for dispatch',
-    detail: 'Review agreed quality records, labels, carton details and destination documents before shipment handoff.',
-  },
-];
-
-const DOCUMENTS = [
-  {
-    name: 'GOTS scope certificate',
-    kind: 'Organic textile standard · Scope certificate',
-    status: 'Local copy expired · 27 Sep 2026',
-    statusTone: 'expired',
-    preview: '/assets/certificates/previews/preview_gots.webp',
-    previewAlt: 'First page preview of the Fashion Knits GOTS scope certificate',
-    href: '/assets/certificates/gots-organic-textile.pdf',
-    scope: [
-      'Entity: Fashion Knits. The facility appendix lists 81/82 Angeripalayam Main Road and Shed No. 29, Nethaji Apparel Park, Tiruppur.',
-      'Products include knitted and dyed fabrics, apparel and greige yarn. Listed processes include knitting, dyeing, finishing, pre-treatment, manufacturing, embroidery and embellishment; starred processes may be subcontracted.',
-      'Local PDF states validity through 27 September 2026. Scope certificates do not prove that a specific shipment is certified; transaction documents are needed for applicable goods.',
-    ],
-  },
-  {
-    name: 'OCS scope certificate',
-    kind: 'Organic Content Standard · Scope certificate',
-    status: 'Local copy expired · 13 Oct 2026',
-    statusTone: 'expired',
-    preview: '/assets/certificates/previews/preview_ocs.webp',
-    previewAlt: 'First page preview of the Fashion Knits OCS scope certificate',
-    href: '/assets/certificates/ocs-organic-content.pdf',
-    scope: [
-      'Entity: Fashion Knits. The facility appendix lists 81/82 Angeripalayam Main Road and Shed No. 29, Nethaji Apparel Park, Tiruppur.',
-      'Products include apparel, dyed fabrics and greige fabrics. Listed processes include knitting, dyeing, finishing, pre-treatment, printing, manufacturing, embroidery and embellishment; starred processes may be subcontracted.',
-      'Local PDF states validity through 13 October 2026. A valid transaction certificate or equivalent is required to support an OCS claim for specific goods.',
-    ],
-  },
-  {
-    name: 'OEKO-TEX® STANDARD 100',
-    kind: 'Product certification · Printing Division',
-    status: 'Local copy states validity to 30 Nov 2026',
-    statusTone: 'stated',
-    preview: '/assets/certificates/previews/preview_oekotex.png',
-    previewAlt: 'First page preview of the Fashion Knits OEKO-TEX STANDARD 100 certificate',
-    href: '/assets/certificates/oeko-tex-standard-100.pdf',
-    scope: [
-      'Entity and facility: Fashion Knits (Printing Division), 81/82 Angeripalayam Main Road, Gandhi Nagar Post, Tiruppur.',
-      'Scope: commission printing on knitted/woven fabrics of cotton (including organic/recycled), modal, polyester (including recycled), viscose and blends of these fibres, with or without elastane. Listed print processes: pigment, non-PVC and discharge (including AOP). Product Class I (Annex 6).',
-      'The local copy states validity to 30 November 2026. Issuer status has not been independently checked; this scope is limited to the printing division and specified products.',
-    ],
-  },
-  {
-    name: 'WRAP Certificate of Compliance',
-    kind: 'Facility compliance certificate · WRAP certificate',
-    status: 'Period on copy · 1 Jun 2026–1 Jun 2027',
-    statusTone: 'stated',
-    preview: '/assets/certificates/previews/preview_bsci.webp',
-    previewAlt: 'First page preview of a WRAP Certificate of Compliance for Fashion Knits Branch',
-    href: '/assets/certificates/bsci-social-compliance.pdf',
-    scope: [
-      'The supplied PDF is a WRAP Certificate of Compliance, not an amfori BSCI audit record. It names Fashion Knits Branch at Survey No. 5, Door No./Shed No. 29, Apparel Park, Eettiveerampalayam, Avinashi, Tiruppur.',
-      'Listed processes: cutting, sewing, trimming, checking, ironing and packing. The copy shows WRAP number 9322 and a certification period of 1 June 2026 to 1 June 2027.',
-      'The certificate and issuer status have not been independently verified. Request a current copy and confirm that the facility and production processes for the order are covered.',
-    ],
+    title: 'Buyer tests & compliance',
+    detail: 'Identify product, destination-market and buyer-specific test or restricted-substance requirements early.',
+    reference: 'Confirm the buyer protocol, applicable RSL version, test method and who will arrange testing.',
   },
 ] as const;
 
-function SectionEyebrow({ children, tone = 'light' }: { children: ReactNode; tone?: 'light' | 'dark' }) {
+const QUALITY_JOURNEY = [
+  {
+    title: 'Development & specification',
+    description: 'The brief, approved sample and technical documents establish the intended product and the criteria that matter to the buyer.',
+  },
+  {
+    title: 'Production readiness',
+    description: 'Material, construction, colour, components and any buyer-required tests are aligned before the order moves into bulk planning.',
+  },
+  {
+    title: 'In-production quality',
+    description: 'Reviewing work during production can help teams notice workmanship or specification differences while there is time to respond.',
+  },
+  {
+    title: 'Finished garment review',
+    description: 'Final visual, measurement, labelling and packing checks can be compared with the agreed order requirements.',
+  },
+] as const;
+
+const GARMENT_DETAILS = [
+  {
+    title: 'Measurement & fit',
+    icon: Ruler,
+    what: 'Compare the garment with the approved specification using its stated points of measure and tolerances.',
+    why: 'Measurement consistency affects fit, grading and how a style performs across its size range.',
+    agree: 'Measurement chart, method, sample condition and tolerances for each point of measure.',
+  },
+  {
+    title: 'Stitching & seams',
+    icon: Search,
+    what: 'Review seam construction, stitch appearance, joins and visible workmanship against the approved construction.',
+    why: 'Construction details influence appearance, comfort and garment performance in wear.',
+    agree: 'Construction notes, approved sample and any buyer workmanship reference.',
+  },
+  {
+    title: 'Fabric appearance',
+    icon: SwatchBook,
+    what: 'Look at the fabric surface, construction, hand feel and visible condition in the finished garment.',
+    why: 'Surface character and fabric behaviour help define how the product looks and feels.',
+    agree: 'Approved material reference, composition, weight and any relevant visual criteria.',
+  },
+  {
+    title: 'Colour & shade',
+    icon: SwatchBook,
+    what: 'Compare colour with the agreed reference and identify whether shade testing is required for the product.',
+    why: 'Shade variation can change the look of a style across panels, components or production lots.',
+    agree: 'Approved shade standard, tolerance and buyer-required test method where applicable.',
+  },
+  {
+    title: 'Finishing & presentation',
+    icon: Shirt,
+    what: 'Review the garment’s visible condition and presentation against the approved sample and finishing notes.',
+    why: 'Finishing details shape the first impression of a garment when it reaches the buyer or wearer.',
+    agree: 'Finishing reference, garment condition criteria and any presentation requirements.',
+  },
+  {
+    title: 'Labels, trims & branding',
+    icon: ClipboardCheck,
+    what: 'Check the specified labels and trims, their identity and placement against the buyer’s instructions.',
+    why: 'Correct components and placement support product identification and brand presentation.',
+    agree: 'Approved component list, artwork, label content and placement references.',
+  },
+  {
+    title: 'Packing & order presentation',
+    icon: PackageCheck,
+    what: 'Align folding, polybag or other packing, carton information and assortment details with the order.',
+    why: 'Clear packing instructions help keep finished goods organised for receipt and onward handling.',
+    agree: 'Packing method, labels, carton marks, assortment and shipment documentation requirements.',
+  },
+] as const;
+
+const TEST_TOPICS = [
+  {
+    title: 'Dimensional stability',
+    description: 'A buyer may specify shrinkage or dimensional-change evaluation after a defined care or conditioning process, especially where fabric relaxation can affect fit.',
+    reference: 'Agree the method, conditioning, sample and allowable change for the product.',
+  },
+  {
+    title: 'Colourfastness',
+    description: 'Colour transfer or change may need assessment for the intended use, material, colour and care conditions.',
+    reference: 'Confirm the relevant exposure, test method, performance level and shade reference.',
+  },
+  {
+    title: 'Composition & fabric weight',
+    description: 'Fibre composition and fabric weight can be important to product description, material approval and buyer specification.',
+    reference: 'Agree the verified material reference, sampling approach and applicable method.',
+  },
+  {
+    title: 'Pilling & abrasion',
+    description: 'Surface wear testing may be relevant for fabrics expected to experience repeated rubbing or regular use.',
+    reference: 'Select the method and required performance in line with the garment’s intended use.',
+  },
+  {
+    title: 'Restricted substances',
+    description: 'Chemical requirements may be set by the destination market and the individual buyer’s current Restricted Substances List (RSL).',
+    reference: 'Confirm the buyer’s current RSL, product scope, test protocol and approved laboratory route.',
+  },
+] as const;
+
+const IMPROVEMENT_STEPS = [
+  {
+    title: 'Identify the deviation',
+    description: 'Describe the observed difference clearly and record the affected product, process or order reference.',
+  },
+  {
+    title: 'Compare with the agreed requirement',
+    description: 'Check the approved sample, specification, method or buyer instruction that applies to the case.',
+  },
+  {
+    title: 'Investigate the cause',
+    description: 'Look for contributing factors in material, method, machine, measurement, handling or communication.',
+  },
+  {
+    title: 'Agree corrective action',
+    description: 'Define a practical response with the relevant team and buyer, including ownership where needed.',
+  },
+  {
+    title: 'Verify the result',
+    description: 'Where appropriate, review the next relevant output against the agreed requirement and record the learning.',
+  },
+] as const;
+
+function Reveal({ children, className = '', delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  const reduceMotion = useReducedMotion();
   return (
-    <p className={`mb-4 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] sm:text-[11px] ${tone === 'dark' ? 'text-[#d1b373]' : 'text-[#795d34]'}`}>
-      <span aria-hidden="true" className={`h-px w-8 ${tone === 'dark' ? 'bg-[#d1b373]' : 'bg-[#9e7a41]'}`} />
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: reduceMotion ? 0 : 0.58, delay: reduceMotion ? 0 : delay, ease: [0.22, 1, 0.36, 1] }}
+    >
       {children}
-    </p>
+    </motion.div>
   );
 }
 
-function RepresentativeFigure({
-  src,
-  alt,
-  caption,
-  className = '',
-  priority = false,
-}: {
-  src: string;
-  alt: string;
-  caption: string;
-  className?: string;
-  priority?: boolean;
-}) {
-  return (
-    <figure className={`relative isolate overflow-hidden rounded-[1.2rem] bg-[#d6d0c5] ${className}`}>
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 44vw"
-        className="object-cover"
-        {...(priority ? { preload: true } : { loading: 'lazy' as const })}
-      />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#191815]/70 via-transparent to-[#191815]/15" />
-      <span className="absolute left-4 top-4 rounded-full border border-white/30 bg-[#1b1a17]/55 px-3 py-2 text-[9px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm sm:left-5 sm:top-5">
-        Representative image
-      </span>
-      <figcaption className="absolute bottom-4 left-4 right-4 text-xs font-medium leading-5 text-white sm:bottom-5 sm:left-5 sm:right-5 sm:text-sm">
-        {caption}
-      </figcaption>
-    </figure>
-  );
+function handleTabKeyDown(
+  event: KeyboardEvent<HTMLButtonElement>,
+  index: number,
+  count: number,
+  select: (value: number) => void,
+) {
+  if (!['ArrowRight', 'ArrowDown', 'ArrowLeft', 'ArrowUp', 'Home', 'End'].includes(event.key)) return;
+  event.preventDefault();
+  const next = event.key === 'Home'
+    ? 0
+    : event.key === 'End'
+      ? count - 1
+      : (index + (event.key === 'ArrowRight' || event.key === 'ArrowDown' ? 1 : count - 1)) % count;
+  select(next);
+  event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[next]?.focus();
 }
 
 export function QualityClient() {
+  const [activeInput, setActiveInput] = useState(0);
+  const [activeDetail, setActiveDetail] = useState(0);
+  const [activeTest, setActiveTest] = useState(0);
+  const [activeImprovement, setActiveImprovement] = useState(0);
+  const reduceMotion = useReducedMotion();
+
+  const currentInput = QUALITY_INPUTS[activeInput];
+  const currentDetail = GARMENT_DETAILS[activeDetail];
+  const currentTest = TEST_TOPICS[activeTest];
+  const currentImprovement = IMPROVEMENT_STEPS[activeImprovement];
+
   return (
-    <div className="overflow-hidden bg-[#faf8f5] text-[#25231f]">
-      <section className="relative isolate overflow-hidden bg-[#171614] px-5 pb-12 pt-28 text-[#faf8f5] sm:px-8 sm:pb-16 sm:pt-32 lg:px-16 lg:pb-20 lg:pt-36">
-        <Image
-          src="/assets/images/quality-hero-inspection.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          aria-hidden="true"
-          className="z-0 object-cover object-[center_48%]"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 z-0 bg-[linear-gradient(90deg,rgba(23,22,20,0.98)_0%,rgba(23,22,20,0.95)_38%,rgba(23,22,20,0.84)_68%,rgba(23,22,20,0.66)_100%),linear-gradient(0deg,rgba(23,22,20,0.82)_0%,rgba(23,22,20,0.18)_55%,rgba(23,22,20,0.34)_100%)]"
-        />
-        <div className="relative z-10 mx-auto flex min-h-[34rem] max-w-[88rem] flex-col justify-between sm:min-h-[38rem] lg:min-h-[39rem]">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/55">
-            <Link href="/" className="transition-colors hover:text-white">Home</Link>
-            <span aria-hidden="true" className="text-white/30">/</span>
-            <span aria-current="page" className="text-white/85">Quality</span>
+    <div className="overflow-hidden bg-[#f2efe9] text-[#24221e]">
+      <section className="relative isolate min-h-[820px] overflow-hidden bg-[#1b1a18] text-[#faf8f3] sm:min-h-[820px] lg:min-h-[790px]">
+        <motion.div
+          className="absolute inset-x-0 top-16 -z-20 h-[32rem] w-full sm:h-[42rem] lg:inset-y-0 lg:left-0 lg:right-auto lg:h-auto lg:w-[min(60vw,72rem)]"
+          initial={{ opacity: 0.55, scale: 1.045 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: reduceMotion ? 0 : 1.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Image
+            src="/assets/images/quality-hero-garment-inspection.webp"
+            alt="Illustrative scene of a garment technician examining a knit sweater, with another worker in the background"
+            fill
+            priority
+            sizes="(min-width: 1024px) 60vw, 100vw"
+            className="object-cover object-[49%_40%] sm:object-[52%_42%] lg:object-center"
+          />
+        </motion.div>
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgba(22,21,19,.18)_0%,rgba(22,21,19,.24)_34%,rgba(22,21,19,.88)_100%)] lg:bg-[linear-gradient(90deg,rgba(22,21,19,.02)_0%,rgba(22,21,19,.1)_36%,rgba(22,21,19,.82)_61%,#1b1a18_100%)]" />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-[#1b1a18] to-transparent lg:hidden" />
+
+        <div className="mx-auto flex min-h-[820px] max-w-[100rem] flex-col justify-between px-5 pb-10 pt-28 sm:min-h-[820px] sm:px-8 sm:pb-12 sm:pt-32 lg:min-h-[790px] lg:px-16 lg:pb-16 lg:pt-32">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-white/75 sm:text-xs">
+            <Link href="/" className="transition-colors hover:text-[#e0c58f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d2b473]">Home</Link>
+            <span aria-hidden="true" className="text-white/40">/</span>
+            <span aria-current="page" className="text-white">Quality</span>
           </nav>
 
-          <div className="flex flex-1 items-center py-12 sm:py-16 lg:py-20">
-            <div className="max-w-[54rem] py-2">
-              <SectionEyebrow tone="dark">Quality assurance · Tiruppur, India</SectionEyebrow>
-              <h1 className="max-w-4xl text-[clamp(3rem,7.8vw,7.2rem)] font-semibold leading-[0.9] tracking-[-0.07em]">
-                Quality Built Into <span className="block text-white/55">Every Stage.</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8">
-                We work with apparel brands to align knitwear specifications, approved samples and inspection plans before bulk production. Each order has a clear reference for what to check and when.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Link href="#contact" className="inline-flex min-h-12 items-center gap-3 rounded-full bg-[#cfad70] px-6 text-[10px] font-bold uppercase tracking-[0.13em] text-[#201d17] transition-colors hover:bg-[#e1c58e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfad70]">
-                  Discuss Your Quality Requirements <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-                </Link>
-                <a href="#quality-process" className="inline-flex min-h-11 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-white/65 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfad70]">
-                  See the process <ArrowDown aria-hidden="true" className="h-3.5 w-3.5" />
-                </a>
-              </div>
-              <p className="mt-8 flex items-center gap-2 text-[10px] font-medium uppercase tracking-[0.14em] text-white/65">
-                <ClipboardCheck aria-hidden="true" className="h-4 w-4 text-[#cfad70]" />
-                Buyer-aligned requirements · Order by order
-              </p>
-            </div>
-          </div>
-          <div className="mt-10 grid grid-cols-3 border-t border-white/15 pt-5 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/50 sm:mt-14 sm:text-[10px]">
-            <span>Materials</span><span className="text-center">Workmanship</span><span className="text-right">Dispatch readiness</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="quality-process" className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-[88rem]">
-          <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <SectionEyebrow>01 / The order journey</SectionEyebrow>
-              <h2 className="max-w-4xl text-[clamp(2.35rem,5vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.065em]">One clear standard, carried through the order.</h2>
-            </div>
-            <p className="max-w-xl text-sm leading-6 text-[#25231f]/65 lg:col-span-4 lg:pb-1">
-              Set the product reference and inspection expectations early, then carry them through sample approval, production and shipment preparation.
-            </p>
-          </div>
-
-          <ol className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3 xl:grid-cols-6">
-            {PROCESS_STAGES.map((stage) => (
-              <li key={stage.number} className="relative rounded-[1rem] border border-[#25231f]/10 bg-white p-5 sm:p-6 xl:min-h-[17rem]">
-                <span className="font-mono text-[10px] tracking-[0.12em] text-[#795d34]">{stage.number} <span className="text-[#25231f]/70">/ 06</span></span>
-                <h3 className="mt-7 text-lg font-medium leading-snug tracking-[-0.035em]">{stage.title}</h3>
-                <p className="mt-3 text-xs leading-5 text-[#25231f]/70">{stage.detail}</p>
-                {stage.number !== '06' && <span aria-hidden="true" className="absolute right-5 top-5 hidden h-px w-7 bg-[#c5a56d] xl:block" />}
-              </li>
-            ))}
-          </ol>
-          <p className="mt-5 max-w-4xl text-[11px] leading-5 text-[#5f5b54]">Inspection points, acceptance criteria and records are agreed for the buyer’s product and order; a single fixed sampling level is not assumed.</p>
-        </div>
-      </section>
-
-      <section className="border-y border-[#25231f]/8 bg-[#f1eee8] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-2 lg:gap-16">
-          <RepresentativeFigure
-            src="/assets/images/capability_assembly.webp"
-            alt="Representative close view of garment construction at a sewing machine"
-            caption="Construction and seam finish are reviewed against the approved sample"
-            className="aspect-[1.13/1] sm:aspect-[1.4/1] lg:aspect-[1.08/1]"
-          />
-          <div className="lg:py-8">
-            <SectionEyebrow>02 / Material &amp; workmanship</SectionEyebrow>
-            <h2 className="max-w-2xl text-[clamp(2.3rem,4.8vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.065em]">Make the details measurable.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#25231f]/65">
-              The check plan follows the approved sample and technical pack. Buyers can define the material, garment and workmanship points that matter to their product.
-            </p>
-            <ul className="mt-7 divide-y divide-[#25231f]/12 border-y border-[#25231f]/12">
-              <li className="flex gap-4 py-4"><SwatchBook aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#967644]" /><p className="text-sm leading-6"><strong className="font-semibold">Material and shade.</strong> Confirm fabric construction, visible condition and colour against the approved reference.</p></li>
-              <li className="flex gap-4 py-4"><Ruler aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#967644]" /><p className="text-sm leading-6"><strong className="font-semibold">Measurement and fit.</strong> Use the agreed points, size set and tolerances from the order specification.</p></li>
-              <li className="flex gap-4 py-4"><Shirt aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-[#967644]" /><p className="text-sm leading-6"><strong className="font-semibold">Construction and finish.</strong> Review seams, stitches, joins, trims, labels and overall appearance against the approved sample.</p></li>
-            </ul>
-            <p className="mt-4 text-[10px] leading-5 text-[#5f5b54]">Check methods, tolerances and required records are confirmed with the buyer for each style.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-[1fr_0.88fr] lg:gap-16">
-          <div className="order-2 lg:order-1">
-                <SectionEyebrow>03 / Testing &amp; technical verification</SectionEyebrow>
-            <h2 className="max-w-3xl text-[clamp(2.3rem,4.8vw,4.5rem)] font-semibold leading-[0.95] tracking-[-0.065em]">Test to the product brief.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#25231f]/65">
-              Test requirements depend on the material, end use and destination. Agree the test method, sample, standard and report needed before bulk production.
-            </p>
-            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-              <article className="rounded-[0.9rem] border border-[#25231f]/10 bg-white p-5">
-                <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#82673e]"><ClipboardCheck aria-hidden="true" className="h-4 w-4" /> In-house</p>
-                <p className="mt-3 text-sm leading-6 text-[#25231f]/70">The material reviewed does not confirm an in-house laboratory or test equipment. Confirm any requested in-house checks for the specific order.</p>
-              </article>
-              <article className="rounded-[0.9rem] border border-[#25231f]/10 bg-white p-5">
-                <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#82673e]"><FlaskConical aria-hidden="true" className="h-4 w-4" /> External testing</p>
-                <p className="mt-3 text-sm leading-6 text-[#25231f]/70">External lab testing can be discussed on request. Confirm the laboratory, method, scope, timing and report with the team before placing the order.</p>
-              </article>
-            </div>
-            <p className="mt-4 text-[10px] leading-5 text-[#5f5b54]">No laboratory accreditation or blanket test capability is claimed on this page.</p>
-          </div>
-          <RepresentativeFigure
-            src="/assets/images/capability_color_lab.webp"
-            alt="Representative scene of a textile colour sample being reviewed beside testing equipment"
-            caption="Illustrative technical verification setting; equipment and location are not identified as Fashion Knits facilities"
-            className="order-1 aspect-[1.16/1] sm:aspect-[1.35/1] lg:order-2 lg:aspect-[0.96/1]"
-          />
-        </div>
-      </section>
-
-      <section className="border-y border-white/10 bg-[#22211e] px-5 py-16 text-[#faf8f5] sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-          <RepresentativeFigure
-            src="/assets/images/contact_sampling_studio.webp"
-            alt="Representative knitwear sample review with fabric swatches and colour references"
-            caption="An approved sample and clear specification give the order a shared reference"
-            className="aspect-[1.25/1] sm:aspect-[1.55/1] lg:aspect-[1.05/1]"
-          />
-          <div className="lg:py-6">
-            <SectionEyebrow tone="dark">04 / Specification &amp; inspection planning</SectionEyebrow>
-            <h2 className="max-w-3xl text-[clamp(2.3rem,4.7vw,4.35rem)] font-semibold leading-[0.95] tracking-[-0.065em]">Agree the reference before the run.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-white/65">Before bulk, bring the product brief and buyer requirements into one order plan. This helps the production and inspection teams work from the same approved details.</p>
-            <div className="mt-7 grid gap-x-6 sm:grid-cols-2">
-              {[
-                ['Tech pack & sample', 'Approved construction, fit and reference garment.'],
-                ['Measurements', 'Points of measure, size set and tolerances.'],
-                ['Inspection criteria', 'Buyer requirements, sample plan and reporting format.'],
-                ['Labels & packing', 'Label placement, folding, assortment and carton details.'],
-              ].map(([title, detail]) => (
-                <div key={title} className="border-t border-white/15 py-4">
-                  <h3 className="text-sm font-medium">{title}</h3>
-                  <p className="mt-1 text-xs leading-5 text-white/65">{detail}</p>
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="max-w-2xl lg:col-start-8 lg:col-span-5">
+              <Reveal>
+                <p className="mb-3 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.23em] text-[#ddbd7e] sm:text-xs">
+                  <span aria-hidden="true" className="h-px w-9 bg-[#c7a569]" />Quality &amp; product assurance
+                </p>
+                <p className="mb-5 text-[9px] uppercase tracking-[0.1em] text-white/58">Illustrative image · not a Fashion Knits facility photograph</p>
+                <h1 className="max-w-[13ch] text-[clamp(3.4rem,7vw,7.25rem)] font-medium leading-[0.86] tracking-[-0.075em]">Every detail starts with <span className="font-serif font-normal italic text-[#e2c992]">the standard.</span></h1>
+                <p className="mt-7 max-w-xl text-sm leading-7 text-white/78 sm:text-base sm:leading-8">From fabric and fit to construction and finishing, garment quality begins with a clear brief, agreed specifications and attention to the details that matter to the buyer.</p>
+                <div className="mt-8 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+                  <Link href="/get-a-quote" className="group inline-flex min-h-12 items-center justify-between gap-7 border-b border-[#d2b473] pb-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#eed9aa] transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d2b473] sm:min-w-[16rem]">
+                    Discuss your quality requirements <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </Link>
+                  <a href="#quality-journey" className="group inline-flex min-h-11 items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d2b473]">Explore our quality approach <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" /></a>
                 </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quality-approach" aria-labelledby="quality-inputs-title" className="scroll-mt-24 px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-7 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">Before the first production decision</p>
+              <h2 id="quality-inputs-title" className="max-w-4xl text-[clamp(2.6rem,5.5vw,5.2rem)] font-medium leading-[0.91] tracking-[-0.07em]">Quality begins <span className="font-serif font-normal italic text-[#9a7a48]">before production.</span></h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#24221e]/67 lg:col-span-5 lg:pb-1 sm:text-base">A clear product brief gives the buyer and production teams a common reference. Agreeing the details early helps reduce ambiguity as a garment programme develops.</p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-10 lg:mt-16 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-6">
+              <div className="relative min-h-[360px] overflow-hidden bg-[#d9d1c3] sm:min-h-[510px]">
+                <Image src="/assets/images/quality-hero-inspection.webp" alt="Illustrative close-up of a knit garment and hands checking a measurement reference" fill sizes="(min-width: 1024px) 48vw, 100vw" className="object-cover object-center" />
+                <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(25,23,20,.02)_35%,rgba(25,23,20,.72)_100%)]" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white sm:p-8">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#e2c992]">A shared reference</p>
+                  <p className="mt-2 max-w-md font-serif text-2xl leading-tight sm:text-3xl">One approved brief. A clearer conversation at every stage.</p>
+                </div>
+                <p className="absolute right-3 top-3 bg-[#1b1a18]/70 px-2.5 py-1.5 text-[8px] uppercase tracking-[0.12em] text-white/75 backdrop-blur-sm">Illustrative image</p>
+              </div>
+            </Reveal>
+
+            <div className="lg:col-span-6">
+              <div role="tablist" aria-label="Product requirements to agree" className="border-t border-[#24221e]/15">
+                {QUALITY_INPUTS.map((item, index) => (
+                  <button
+                    key={item.title}
+                    id={`quality-input-tab-${index}`}
+                    role="tab"
+                    aria-selected={activeInput === index}
+                    aria-controls="quality-input-panel"
+                    tabIndex={activeInput === index ? 0 : -1}
+                    onClick={() => setActiveInput(index)}
+                    onKeyDown={(event) => handleTabKeyDown(event, index, QUALITY_INPUTS.length, setActiveInput)}
+                    className={`group flex min-h-[3.7rem] w-full items-center gap-4 border-b border-[#24221e]/15 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#9a7a48] ${activeInput === index ? 'text-[#24221e]' : 'text-[#24221e]/52 hover:text-[#24221e]'}`}
+                  >
+                    <span className={`w-8 shrink-0 font-mono text-[10px] tracking-[0.14em] ${activeInput === index ? 'text-[#967543]' : 'text-[#24221e]/35'}`}>0{index + 1}</span>
+                    <span className="flex-1 text-sm font-medium sm:text-base">{item.title}</span>
+                    <ChevronRight aria-hidden="true" className={`h-4 w-4 shrink-0 transition-transform duration-300 ${activeInput === index ? 'translate-x-0 text-[#967543]' : '-translate-x-1 text-transparent group-hover:translate-x-0 group-hover:text-[#967543]'}`} />
+                  </button>
+                ))}
+              </div>
+              <div id="quality-input-panel" role="tabpanel" aria-labelledby={`quality-input-tab-${activeInput}`} aria-live="polite" className="min-h-[205px] pt-6 sm:min-h-[220px]">
+                <motion.div key={activeInput} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.3 }}>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#80643b]">Why agree it early</p>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-[#24221e]/75 sm:text-base">{currentInput.detail}</p>
+                  <p className="mt-4 border-l border-[#b69a66] pl-3 text-xs leading-5 text-[#24221e]/60"><span className="font-semibold text-[#24221e]/80">Useful reference:</span> {currentInput.reference}</p>
+                </motion.div>
+              </div>
+              <p className="mt-3 text-[10px] leading-5 text-[#24221e]/48">These are buyer-planning considerations; the applicable requirements are agreed for each programme.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quality-journey" aria-labelledby="quality-journey-title" className="scroll-mt-24 border-y border-[#24221e]/8 bg-white px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-7 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">The quality journey</p>
+              <h2 id="quality-journey-title" className="max-w-4xl text-[clamp(2.6rem,5.2vw,5rem)] font-medium leading-[0.92] tracking-[-0.07em]">Four moments to align <span className="font-serif font-normal italic text-[#9a7a48]">on the way.</span></h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#24221e]/65 lg:col-span-5 lg:pb-1">A practical framework for discussing where product requirements matter. Specific checks, timing and responsibility should be confirmed for each order.</p>
+          </Reveal>
+          <div className="relative mt-12 lg:mt-16">
+            <div aria-hidden="true" className="absolute left-[4%] right-[4%] top-4 hidden h-px bg-[#b69a66]/45 lg:block" />
+            <ol className="relative grid gap-9 before:absolute before:bottom-6 before:left-[13px] before:top-3 before:w-px before:bg-[#b69a66]/50 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-12 sm:before:hidden lg:grid-cols-4 lg:gap-9">
+            {QUALITY_JOURNEY.map((stage, index) => (
+              <motion.li key={stage.title} initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: reduceMotion ? 0 : 0.52, delay: reduceMotion ? 0 : index * 0.08, ease: [0.22, 1, 0.36, 1] }} className="relative pl-11 sm:pl-0">
+                <span aria-hidden="true" className="absolute left-[6px] top-2 h-4 w-4 rounded-full border border-[#9b7b49] bg-white ring-4 ring-white sm:static sm:mb-6 sm:block sm:h-8 sm:w-8 sm:ring-0">
+                  <span className="absolute left-[5px] top-[5px] h-1.5 w-1.5 rounded-full bg-[#9b7b49] sm:left-[10px] sm:top-[10px] sm:h-2 sm:w-2" />
+                </span>
+                <p className="font-mono text-[10px] tracking-[0.15em] text-[#967543]">STAGE 0{index + 1}</p>
+                <h3 className="mt-3 max-w-[15ch] text-xl font-medium leading-tight tracking-[-0.04em] sm:text-2xl">{stage.title}</h3>
+                <p className="mt-3 max-w-md text-sm leading-6 text-[#24221e]/65">{stage.description}</p>
+              </motion.li>
+            ))}
+            </ol>
+          </div>
+          <p className="mt-10 border-t border-[#24221e]/10 pt-4 text-[10px] leading-5 text-[#24221e]/55">This journey is a planning framework, not a representation that every step is a formally documented Fashion Knits procedure or applies identically to every order.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="garment-details-title" className="px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-32">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-7 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7">
+              <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">Anatomy of an agreed standard</p>
+              <h2 id="garment-details-title" className="max-w-4xl text-[clamp(2.6rem,5.2vw,5rem)] font-medium leading-[0.92] tracking-[-0.07em]">What quality means <span className="font-serif font-normal italic text-[#9a7a48]">in a garment.</span></h2>
+            </div>
+            <p className="max-w-xl text-sm leading-7 text-[#24221e]/65 lg:col-span-5 lg:pb-1">Select a detail to see what buyers commonly define, why it matters and which reference can guide a clear conversation.</p>
+          </Reveal>
+
+          <div className="mt-11 grid border-t border-[#24221e]/15 lg:mt-14 lg:grid-cols-12">
+            <div role="tablist" aria-label="Garment quality details" className="lg:col-span-5">
+              {GARMENT_DETAILS.map((item, index) => (
+                <button key={item.title} id={`garment-tab-${index}`} role="tab" aria-selected={activeDetail === index} aria-controls="garment-detail-panel" tabIndex={activeDetail === index ? 0 : -1} onClick={() => setActiveDetail(index)} onKeyDown={(event) => handleTabKeyDown(event, index, GARMENT_DETAILS.length, setActiveDetail)} className={`group flex min-h-[4.2rem] w-full items-center gap-4 border-b border-[#24221e]/15 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#9a7a48] ${activeDetail === index ? 'text-[#24221e]' : 'text-[#24221e]/53 hover:text-[#24221e]'}`}>
+                  <span className="w-8 shrink-0 font-mono text-[10px] tracking-[0.15em] text-[#967543]">0{index + 1}</span>
+                  <span className="flex-1 text-sm font-medium sm:text-base">{item.title}</span>
+                  <ChevronRight aria-hidden="true" className={`h-4 w-4 shrink-0 transition-transform duration-300 ${activeDetail === index ? 'text-[#967543]' : '-translate-x-1 text-transparent group-hover:translate-x-0 group-hover:text-[#967543]'}`} />
+                </button>
               ))}
             </div>
-            <p className="mt-2 text-[10px] leading-5 text-white/65">Inspection scope and records are set for each order, not treated as one universal checklist.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="certificates" className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-[88rem]">
-          <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
-              <SectionEyebrow>05 / Certifications &amp; compliance</SectionEyebrow>
-              <h2 className="max-w-4xl text-[clamp(2.35rem,5vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.065em]">Documents, with scope in view.</h2>
+            <div id="garment-detail-panel" role="tabpanel" aria-labelledby={`garment-tab-${activeDetail}`} aria-live="polite" className="min-h-[380px] border-b border-[#24221e]/15 py-8 lg:col-span-7 lg:border-l lg:border-b-0 lg:pl-12 lg:py-9 xl:pl-20">
+              <motion.div key={activeDetail} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.32 }}>
+                <div className="flex items-start gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#ad9160]/55 text-[#856a3e]"><currentDetail.icon aria-hidden="true" className="h-5 w-5" /></span>
+                  <div><p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#80643b]">Selected detail</p><h3 className="mt-2 text-2xl font-medium tracking-[-0.05em] sm:text-3xl">{currentDetail.title}</h3></div>
+                </div>
+                <div className="mt-7 grid gap-5 sm:grid-cols-2">
+                  <div><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#80643b]">What it means</p><p className="mt-2 text-sm leading-6 text-[#24221e]/72">{currentDetail.what}</p></div>
+                  <div><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#80643b]">Why it matters</p><p className="mt-2 text-sm leading-6 text-[#24221e]/72">{currentDetail.why}</p></div>
+                  <div className="border-t border-[#24221e]/12 pt-4 sm:col-span-2"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#80643b]">Useful buyer reference</p><p className="mt-2 text-sm leading-6 text-[#24221e]/72">{currentDetail.agree}</p></div>
+                </div>
+              </motion.div>
             </div>
-            <p className="max-w-xl text-sm leading-6 text-[#25231f]/70 lg:col-span-4 lg:pb-1">Review the facility, activities and product coverage on each document. A certificate or audit record does not automatically cover every product or shipment.</p>
-          </div>
-
-          <ul className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {DOCUMENTS.map((document) => (
-              <li key={document.name} className="flex flex-col overflow-hidden rounded-[1rem] border border-[#25231f]/10 bg-white shadow-[0_14px_45px_rgba(42,36,27,.035)]">
-                <div className="relative h-48 bg-[#f2efe9] sm:h-56">
-                  <Image src={document.preview} alt={document.previewAlt} fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" loading="lazy" className="object-contain p-4" />
-                  <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-[#25231f]/10 bg-white/95 px-3 py-2 text-[8px] font-bold uppercase tracking-[0.1em] text-[#25231f]/70 shadow-sm">
-                    <FileText aria-hidden="true" className="h-3.5 w-3.5 text-[#967644]" /> {document.kind.split(' · ')[1] ?? document.kind}
-                  </span>
-                </div>
-                <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <span className={`w-fit rounded-full px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.08em] ${document.statusTone === 'expired' ? 'bg-[#f5e9e4] text-[#844636]' : 'bg-[#f2efe6] text-[#765e37]'}`}>
-                    {document.status}
-                  </span>
-                  <h3 className="mt-4 text-lg font-medium leading-snug tracking-[-0.03em]">{document.name}</h3>
-                  <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.1em] text-[#6b665e]">{document.kind.split(' · ')[0]}</p>
-                  <details className="group mt-4 border-t border-[#25231f]/10 pt-3">
-                    <summary className="flex min-h-10 cursor-pointer list-none items-center justify-between gap-3 text-[10px] font-bold uppercase tracking-[0.1em] text-[#755d36] marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#967644] [&::-webkit-details-marker]:hidden">
-                      Scope &amp; facility details
-                      <span aria-hidden="true" className="text-lg leading-none transition-transform group-open:rotate-45">+</span>
-                    </summary>
-                    <ul className="mt-2 space-y-2 text-[11px] leading-[1.55] text-[#25231f]/68">
-                      {document.scope.map((detail) => <li key={detail}>{detail}</li>)}
-                    </ul>
-                  </details>
-                  <a href={document.href} target="_blank" rel="noreferrer" className="mt-5 inline-flex min-h-10 items-center gap-2 border-t border-[#25231f]/10 pt-3 text-[10px] font-bold uppercase tracking-[0.11em] text-[#25231f] transition-colors hover:text-[#8d6c39] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#967644]">
-                    Open original PDF <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 max-w-5xl border-l-2 border-[#c5a56d] pl-4 text-[11px] leading-5 text-[#5f5b54]">
-            Dates and scope above are transcribed from the local copies reviewed on 15 October 2026. Current issuer status has not been independently verified. Request updated documents before presenting any certification or compliance claim as current.
-          </p>
-        </div>
-      </section>
-
-      <section className="border-y border-[#25231f]/10 bg-[#f1eee8] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-[88rem] gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-20">
-          <div>
-            <SectionEyebrow>06 / Traceability &amp; corrective action</SectionEyebrow>
-            <h2 className="max-w-2xl text-[clamp(2.3rem,4.6vw,4.2rem)] font-semibold leading-[0.95] tracking-[-0.065em]">Make findings clear and actionable.</h2>
-            <p className="mt-5 max-w-xl text-sm leading-7 text-[#25231f]/65">
-              Agree the record and review path for the order before production starts. If a check identifies a difference, compare it with the approved specification and agree the next step with the responsible team and buyer where required.
-            </p>
-            <p className="mt-4 text-[10px] leading-5 text-[#5f5b54]">Record format, decision owner and approval route are defined per order; no specific digital tracking system is assumed.</p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-3 lg:pt-2">
-            {[
-              { number: '01', title: 'Record', detail: 'Connect the observation to the style, sample and agreed check.' },
-              { number: '02', title: 'Review', detail: 'Assess the difference against the buyer-approved requirement.' },
-              { number: '03', title: 'Resolve', detail: 'Agree disposition, corrective action and any approval needed.' },
-            ].map((item) => (
-              <article key={item.number} className="rounded-[1rem] border border-[#25231f]/10 bg-white p-5 sm:p-6">
-                <span className="font-mono text-[10px] tracking-[0.1em] text-[#967644]">{item.number}</span>
-                <h3 className="mt-6 text-xl font-medium tracking-[-0.04em]">{item.title}</h3>
-                <p className="mt-3 text-xs leading-5 text-[#25231f]/70">{item.detail}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-          <RepresentativeFigure
-            src="/assets/images/process-garment-finishing.webp"
-            alt="Representative image of a finished knit garment being pressed and smoothed"
-            caption="Finishing is followed by a review against the buyer’s agreed order requirements"
-            className="aspect-[1.25/1] sm:aspect-[1.55/1] lg:aspect-[1.18/1]"
-          />
-          <div>
-            <SectionEyebrow>07 / Final inspection &amp; dispatch readiness</SectionEyebrow>
-            <h2 className="max-w-3xl text-[clamp(2.3rem,4.7vw,4.3rem)] font-semibold leading-[0.95] tracking-[-0.065em]">Ready against the order brief.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#25231f]/65">Before shipment, review the points agreed for the finished garment and its presentation. The order plan defines inspection criteria, records and packing checks.</p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                'Appearance and workmanship',
-                'Measurements and size assortment',
-                'Labels, folding and presentation',
-                'Carton details and required documents',
-              ].map((item) => <li key={item} className="flex gap-3 rounded-[0.75rem] border border-[#25231f]/10 bg-white p-4 text-xs font-medium leading-5"><Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#967644]" />{item}</li>)}
+      <section aria-labelledby="testing-title" className="relative isolate overflow-hidden bg-[#1c1b19] px-5 py-20 text-[#f6f3ed] sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+        <div aria-hidden="true" className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_88%_12%,rgba(194,163,104,.12),transparent_34%),linear-gradient(110deg,rgba(255,255,255,.02),transparent_58%)]" />
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7"><p className="mb-4 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#d6b777]"><FlaskConical aria-hidden="true" className="h-4 w-4" />Fabric &amp; performance testing</p><h2 id="testing-title" className="max-w-4xl text-[clamp(2.5rem,5.2vw,5rem)] font-medium leading-[0.92] tracking-[-0.07em]">Test what matters <span className="font-serif font-normal italic text-[#dfc48f]">to the product.</span></h2></div>
+            <p className="max-w-xl text-sm leading-7 text-white/65 lg:col-span-5">The relevant test plan depends on the product, material, function, market and buyer specification. Each programme should identify its methods, performance criteria and testing route.</p>
+          </Reveal>
+
+          <div className="mt-11 grid border-t border-white/15 lg:mt-14 lg:grid-cols-12">
+            <div role="tablist" aria-label="Examples of apparel tests to agree" className="lg:col-span-4">
+              {TEST_TOPICS.map((topic, index) => <button key={topic.title} id={`test-tab-${index}`} role="tab" aria-selected={activeTest === index} aria-controls="test-panel" tabIndex={activeTest === index ? 0 : -1} onClick={() => setActiveTest(index)} onKeyDown={(event) => handleTabKeyDown(event, index, TEST_TOPICS.length, setActiveTest)} className={`group flex min-h-[3.7rem] w-full items-center gap-4 border-b border-white/15 py-3 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#d6b777] ${activeTest === index ? 'text-white' : 'text-white/52 hover:text-white'}`}>
+                <span className="w-8 shrink-0 font-mono text-[10px] tracking-[0.15em] text-[#d6b777]">0{index + 1}</span><span className="flex-1 text-sm font-medium sm:text-base">{topic.title}</span><ChevronRight aria-hidden="true" className={`h-4 w-4 shrink-0 transition-transform duration-300 ${activeTest === index ? 'text-[#d6b777]' : '-translate-x-1 text-transparent group-hover:translate-x-0 group-hover:text-[#d6b777]'}`} />
+              </button>)}
+            </div>
+            <div id="test-panel" role="tabpanel" aria-labelledby={`test-tab-${activeTest}`} aria-live="polite" className="min-h-[290px] border-b border-white/15 py-7 sm:py-9 lg:col-span-8 lg:border-b-0 lg:border-l lg:pl-10 xl:pl-16">
+              <motion.div key={activeTest} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.32 }}>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#d6b777]">Testing may be relevant when specified</p>
+                <h3 className="mt-3 text-2xl font-medium tracking-[-0.04em] sm:text-3xl">{currentTest.title}</h3>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">{currentTest.description}</p>
+                <p className="mt-5 max-w-2xl border-l border-[#c6a568] pl-4 text-sm leading-6 text-white/55"><span className="font-semibold text-white/80">Agree in the brief:</span> {currentTest.reference}</p>
+              </motion.div>
+            </div>
+          </div>
+
+          <div className="mt-9 grid gap-7 border-t border-white/12 pt-7 md:grid-cols-2 md:gap-10">
+            <div><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#d6b777]">Inspection is not a laboratory test</p><p className="mt-3 max-w-xl text-sm leading-6 text-white/62">A production-floor inspection compares work with agreed visual or measurement requirements. A laboratory test uses a defined method to assess a sample. Where required, the buyer and supplier should agree whether testing is arranged through a qualified external laboratory.</p></div>
+            <div><p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#d6b777]">Start with the buyer’s current protocol</p><p className="mt-3 max-w-xl text-sm leading-6 text-white/62">AFIRM publishes apparel RSL and chemical guidance; individual buyers may set additional or different requirements. Fashion Knits does not claim AFIRM membership or blanket compliance with every buyer RSL.</p><div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.1em]"><a href="https://afirm-group.com/afirm-rsl/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[#e0c58f] underline decoration-[#b9995e]/70 underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d6b777]">AFIRM RSL <ArrowUpRight aria-hidden="true" className="h-3 w-3" /></a><a href="https://afirm-group.com/chemical-information-sheets/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[#e0c58f] underline decoration-[#b9995e]/70 underline-offset-4 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#d6b777]">Chemical information sheets <ArrowUpRight aria-hidden="true" className="h-3 w-3" /></a></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section aria-labelledby="published-quality-title" className="border-b border-[#24221e]/10 bg-[#e8e3d9] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
+        <div className="mx-auto grid max-w-[92rem] gap-8 lg:grid-cols-12 lg:items-start lg:gap-14">
+          <Reveal className="lg:col-span-5">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">Company-published information</p>
+            <h2 id="published-quality-title" className="text-[clamp(2.4rem,4.7vw,4.35rem)] font-medium leading-[0.94] tracking-[-0.07em]">A starting point for a <span className="font-serif font-normal italic text-[#9a7a48]">buyer conversation.</span></h2>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-[#24221e]/65">Fashion Knits’ current website describes the practices below. Their detailed scope, order-level application and alignment with a buyer’s protocol should be confirmed for each programme.</p>
+          </Reveal>
+          <div className="lg:col-span-7">
+            <ul className="divide-y divide-[#24221e]/15 border-y border-[#24221e]/15">
+              <li className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-5"><p className="text-sm font-medium">Fabric inspection</p><p className="text-sm leading-6 text-[#24221e]/65">The site lists a four-point fabric inspection system.</p></li>
+              <li className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-5"><p className="text-sm font-medium">Material testing</p><p className="text-sm leading-6 text-[#24221e]/65">The site lists an in-house testing lab for colourfastness, shrinkage and other physical attributes. Confirm available methods and programme scope.</p></li>
+              <li className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-5"><p className="text-sm font-medium">Garment inspection</p><p className="text-sm leading-6 text-[#24221e]/65">The site refers to final inspection under “Global AQL” and lists AQL 1.5. Confirm the applicable sampling plan and order-level requirement with the buyer.</p></li>
+              <li className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-5"><p className="text-sm font-medium">Metal detection</p><p className="text-sm leading-6 text-[#24221e]/65">Metal detection is listed for finished products before packing; applicability and protocol should be agreed for the product programme.</p></li>
+              <li className="grid gap-2 py-4 sm:grid-cols-[13rem_1fr] sm:gap-5"><p className="text-sm font-medium">Export packing</p><p className="text-sm leading-6 text-[#24221e]/65">The site describes secure export-carton packing to customer requirements.</p></li>
             </ul>
-            <p className="mt-4 text-[10px] leading-5 text-[#5f5b54]">Buyer-specific inspection sampling and acceptance levels are confirmed for each order.</p>
+            <p className="mt-4 flex items-start gap-2 text-[10px] leading-5 text-[#24221e]/55"><ShieldCheck aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#8d7042]" />These are company-published descriptions, not a claim that every check or test applies to every order.</p>
           </div>
         </div>
       </section>
 
-      <BrandStandards context="quality" />
+      <section aria-labelledby="improvement-title" className="px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-7 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7"><p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">If a deviation appears</p><h2 id="improvement-title" className="max-w-4xl text-[clamp(2.6rem,5.2vw,5rem)] font-medium leading-[0.92] tracking-[-0.07em]">A clear path from <span className="font-serif font-normal italic text-[#9a7a48]">finding to learning.</span></h2></div>
+            <p className="max-w-xl text-sm leading-7 text-[#24221e]/65 lg:col-span-5 lg:pb-1">Select a stage in this general corrective-action cycle. It explains a recognised way to structure quality conversations; it is not a claim of a certified Fashion Knits system.</p>
+          </Reveal>
 
-      <section className="bg-[#1b1a18] px-5 py-16 text-[#faf8f5] sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto flex max-w-[88rem] flex-col gap-7 border-t border-white/15 pt-8 sm:pt-10 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-4xl">
-            <SectionEyebrow>Discuss an order</SectionEyebrow>
-            <h2 className="text-[clamp(2.5rem,5.8vw,5.5rem)] font-semibold leading-[0.93] tracking-[-0.07em]">Let’s Define the Quality Your Brand Expects.</h2>
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/60">Share your tech pack, reference sample, inspection criteria and testing requirements with the Fashion Knits team.</p>
+          <div className="mt-12 grid gap-9 border-t border-[#24221e]/15 pt-8 lg:grid-cols-12 lg:gap-12">
+            <div role="tablist" aria-label="Corrective action cycle" className="grid gap-1 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
+              {IMPROVEMENT_STEPS.map((step, index) => <button key={step.title} id={`improvement-tab-${index}`} role="tab" aria-selected={activeImprovement === index} aria-controls="improvement-panel" tabIndex={activeImprovement === index ? 0 : -1} onClick={() => setActiveImprovement(index)} onKeyDown={(event) => handleTabKeyDown(event, index, IMPROVEMENT_STEPS.length, setActiveImprovement)} className={`group flex min-h-[3.5rem] items-center gap-4 border-b border-[#24221e]/12 px-2 py-2 text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-inset focus-visible:outline-[#9a7a48] ${activeImprovement === index ? 'text-[#24221e]' : 'text-[#24221e]/55 hover:text-[#24221e]'}`}><span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border font-mono text-[9px] ${activeImprovement === index ? 'border-[#9a7a48] text-[#80643b]' : 'border-[#24221e]/20'}`}>0{index + 1}</span><span className="text-sm font-medium">{step.title}</span><ChevronRight aria-hidden="true" className={`ml-auto h-4 w-4 transition-transform duration-300 ${activeImprovement === index ? 'text-[#967543]' : '-translate-x-1 text-transparent group-hover:translate-x-0 group-hover:text-[#967543]'}`} /></button>)}
+            </div>
+            <div id="improvement-panel" role="tabpanel" aria-labelledby={`improvement-tab-${activeImprovement}`} aria-live="polite" className="flex min-h-[265px] flex-col justify-between bg-[#e8e3d9] p-6 sm:p-8 lg:col-span-7 lg:p-10">
+              <motion.div key={activeImprovement} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: reduceMotion ? 0 : 0.3 }}>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.17em] text-[#80643b]">Improvement cycle · 0{activeImprovement + 1}</p><h3 className="mt-4 max-w-xl text-2xl font-medium leading-tight tracking-[-0.045em] sm:text-3xl">{currentImprovement.title}</h3><p className="mt-4 max-w-2xl text-sm leading-7 text-[#24221e]/70">{currentImprovement.description}</p>
+              </motion.div>
+              <div className="mt-9 flex items-center gap-2 border-t border-[#24221e]/15 pt-5" aria-label={`Step ${activeImprovement + 1} of ${IMPROVEMENT_STEPS.length}`}>
+                {IMPROVEMENT_STEPS.map((step, index) => <span key={step.title} className={`h-[2px] flex-1 transition-colors duration-300 ${index <= activeImprovement ? 'bg-[#967543]' : 'bg-[#24221e]/15'}`} />)}
+                <span className="ml-2 font-mono text-[9px] tracking-[0.14em] text-[#24221e]/55">0{activeImprovement + 1} / 05</span>
+              </div>
+            </div>
           </div>
-          <Link href="#contact" className="inline-flex min-h-12 w-fit shrink-0 items-center gap-3 rounded-full bg-[#cfad70] px-6 text-[10px] font-bold uppercase tracking-[0.13em] text-[#201d17] transition-colors hover:bg-[#e1c58e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#cfad70]">
-            Discuss Your Requirements <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-          </Link>
         </div>
-        <p className="mx-auto mt-8 max-w-[88rem] text-[9px] font-semibold uppercase tracking-[0.13em] text-white/65">Fashion Knits · Tiruppur, India</p>
+      </section>
+
+      <section id="certificates" aria-labelledby="credentials-title" className="scroll-mt-24 border-y border-[#24221e]/8 bg-white px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal className="grid gap-7 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-7"><p className="mb-4 flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]"><FileText aria-hidden="true" className="h-4 w-4" />Credentials &amp; records</p><h2 id="credentials-title" className="max-w-4xl text-[clamp(2.5rem,5.1vw,4.8rem)] font-medium leading-[0.92] tracking-[-0.07em]">Scope matters as much <span className="font-serif font-normal italic text-[#9a7a48]">as the name.</span></h2></div>
+            <p className="max-w-xl text-sm leading-7 text-[#24221e]/65 lg:col-span-5 lg:pb-1">The documents below apply only to the named entity, facility, processes and dates. A facility audit, an authorisation and a product certification are different kinds of records.</p>
+          </Reveal>
+
+          <div className="mt-11 grid border-y border-[#24221e]/15 lg:mt-14 lg:grid-cols-2">
+            <article className="py-7 lg:pr-10 lg:py-9">
+              <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#80643b]">Product standard · scope-bound</p><span className="border border-[#a48859]/50 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#715b37]">Valid to 30 Nov 2026</span></div>
+              <h3 className="mt-5 text-xl font-medium tracking-[-0.04em] sm:text-2xl">OEKO-TEX® STANDARD 100</h3>
+              <p className="mt-3 text-sm leading-6 text-[#24221e]/65"><span className="font-semibold text-[#24221e]/80">Fashion Knits · Printing Division · Product Class I, Annex 6.</span> The certificate scope covers specified commission printing on knitted and woven fabrics, including listed fibre types and print methods. It is not a blanket certificate for all Fashion Knits garments.</p>
+              <a href="/assets/certificates/oeko-tex-standard-100.pdf" target="_blank" rel="noreferrer" className="mt-5 inline-flex min-h-10 items-center gap-2 border-b border-[#24221e]/20 pb-2 text-[9px] font-bold uppercase tracking-[0.13em] transition-colors hover:border-[#967543] hover:text-[#80643b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#967543]">View scope certificate <FileText aria-hidden="true" className="h-3.5 w-3.5" /><ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></a>
+            </article>
+            <article className="border-t border-[#24221e]/15 py-7 lg:border-l lg:border-t-0 lg:pl-10 lg:py-9">
+              <div className="flex flex-wrap items-center justify-between gap-3"><p className="text-[9px] font-bold uppercase tracking-[0.17em] text-[#80643b]">Facility certificate · named processes</p><span className="border border-[#a48859]/50 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#715b37]">1 Jun 2026 – 1 Jun 2027</span></div>
+              <h3 className="mt-5 text-xl font-medium tracking-[-0.04em] sm:text-2xl">WRAP Certificate of Compliance</h3>
+              <p className="mt-3 text-sm leading-6 text-[#24221e]/65"><span className="font-semibold text-[#24221e]/80">Fashion Knits Branch · WRAP #9322 · Shed 29, Netaji Apparel Park.</span> The document lists cutting, sewing, trimming, checking, ironing and packing for the named facility during the stated period.</p>
+              <a href="/assets/certificates/wrap-certificate-of-compliance.pdf" target="_blank" rel="noreferrer" className="mt-5 inline-flex min-h-10 items-center gap-2 border-b border-[#24221e]/20 pb-2 text-[9px] font-bold uppercase tracking-[0.13em] transition-colors hover:border-[#967543] hover:text-[#80643b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#967543]">View certificate <FileText aria-hidden="true" className="h-3.5 w-3.5" /><ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></a>
+            </article>
+          </div>
+
+          <div className="mt-8 grid gap-7 md:grid-cols-2">
+            <div className="border-l border-[#a48859] pl-4"><p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#80643b]">Social monitoring record · not a product certificate</p><h3 className="mt-2 text-base font-medium">amfori BSCI monitoring summary</h3><p className="mt-2 text-xs leading-5 text-[#24221e]/62">A Fashion Knits Branch summary in the project records describes full-monitoring activity beginning 25 February 2025 at Netaji Apparel Park. No rating or current certification claim is published here; request a verified current summary for buyer review.</p></div>
+            <p className="flex items-start gap-2 text-[10px] leading-5 text-[#24221e]/55"><Check aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-[#8d7042]" />Dates above are transcribed from the supplied documents and reflect their stated periods. Buyers should confirm live status, product eligibility and transaction documentation with the relevant programme before making a product claim.</p>
+          </div>
+
+          <details className="group mt-10 border-t border-[#24221e]/15 pt-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-2 text-sm font-medium marker:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#967543] [&::-webkit-details-marker]:hidden"><span>Expired and historical records</span><span className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.12em] text-[#80643b]"><span>Open record notes</span><ChevronRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-open:rotate-90" /></span></summary>
+            <div className="grid gap-6 border-t border-[#24221e]/10 py-6 md:grid-cols-3">
+              <div><p className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#8a5c4a]">Expired · 27 Sep 2026</p><h3 className="mt-2 text-sm font-medium">GOTS Scope Certificate · Version 7.0</h3><p className="mt-2 text-xs leading-5 text-[#24221e]/62">Scope certificate for listed apparel and textile products and processes. Some marked processes may be subcontracted. A scope certificate alone does not certify shipped goods; the applicable transaction certificate is required.</p><a href="/assets/certificates/gots-organic-textile.pdf" target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.1em] text-[#80643b] underline underline-offset-4">Open expired record <ArrowUpRight aria-hidden="true" className="h-3 w-3" /></a></div>
+              <div><p className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#8a5c4a]">Expired · 13 Oct 2026</p><h3 className="mt-2 text-sm font-medium">OCS Scope Certificate · Version 3.0</h3><p className="mt-2 text-xs leading-5 text-[#24221e]/62">Scope certificate for listed apparel and textile processes; some marked processes may be subcontracted. Goods claims require applicable transaction documentation.</p><a href="/assets/certificates/ocs-organic-content.pdf" target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-[0.1em] text-[#80643b] underline underline-offset-4">Open expired record <ArrowUpRight aria-hidden="true" className="h-3 w-3" /></a></div>
+              <div><p className="text-[8px] font-bold uppercase tracking-[0.15em] text-[#8a5c4a]">Historical · one-year term</p><h3 className="mt-2 text-sm font-medium">Disney FAMA facility authorisation</h3><p className="mt-2 text-xs leading-5 text-[#24221e]/62">Issued 4 November 2024 for Fashion Knits Unit 2, Netaji Apparel Park, and named licensee Sun City. This was facility- and licensee-specific authorisation, not a product certification; it is not current.</p></div>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <section aria-labelledby="export-quality-title" className="bg-[#e8e3d9] px-5 py-20 sm:px-8 sm:py-24 lg:px-16 lg:py-28">
+        <div className="mx-auto grid max-w-[92rem] gap-10 lg:grid-cols-12 lg:items-center lg:gap-14">
+          <Reveal className="lg:col-span-7">
+            <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#80643b]">Quality &amp; export preparation</p>
+            <h2 id="export-quality-title" className="max-w-4xl text-[clamp(2.5rem,5.1vw,4.8rem)] font-medium leading-[0.92] tracking-[-0.07em]">Ready for the details <span className="font-serif font-normal italic text-[#9a7a48]">beyond the garment.</span></h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-[#24221e]/68">Final presentation can extend to buyer-specific labels and trims, folding, packing instructions, carton marks and shipment documents. Metal detection may also be required by the buyer or product programme. The right checks depend on the order brief.</p>
+          </Reveal>
+          <div className="lg:col-span-5">
+            <ul className="border-y border-[#24221e]/15">
+              {['Labels, trims & order identity', 'Folding and packing instructions', 'Carton marks and assortment details', 'Metal detection where specified', 'Shipment document requirements'].map((item, index) => <li key={item} className="flex items-center gap-4 border-b border-[#24221e]/12 py-3 last:border-0"><span className="font-mono text-[9px] tracking-[0.14em] text-[#967543]">0{index + 1}</span><span className="text-sm text-[#24221e]/75">{item}</span></li>)}
+            </ul>
+            <Link href="/export" className="group mt-7 inline-flex items-center gap-3 border-b border-[#967543]/60 pb-2 text-[10px] font-bold uppercase tracking-[0.13em] text-[#24221e] transition-colors hover:border-[#24221e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#967543]">Explore global export preparation <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" /></Link>
+          </div>
+        </div>
       </section>
     </div>
   );

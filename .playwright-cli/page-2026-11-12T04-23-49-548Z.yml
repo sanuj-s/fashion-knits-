@@ -1,0 +1,328 @@
+- generic [active] [ref=f8e1]:
+  - banner [ref=f8e3]:
+    - generic [ref=f8e4]:
+      - link "Fashion Knits home" [ref=f8e5] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f8e6]:
+          - generic [ref=f8e7]:
+            - generic [ref=f8e11]: FK
+            - generic [ref=f8e12]: We Design Your Dreams
+          - generic [ref=f8e13]: Fashion Knits
+      - navigation "Main navigation" [ref=f8e14]:
+        - link "Products" [ref=f8e15] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=f8e16] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=f8e17] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=f8e18] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=f8e19] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=f8e20] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=f8e22] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f8e23]:
+    - generic [ref=f8e24]:
+      - generic [ref=f8e26]:
+        - navigation "Breadcrumb" [ref=f8e27]:
+          - link "Home" [ref=f8e28] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f8e29]: /
+          - generic [ref=f8e30]: About
+        - generic [ref=f8e31]:
+          - generic [ref=f8e33]:
+            - paragraph [ref=f8e35]: Apparel manufacturing · Tiruppur, India
+            - heading "Fashion Knits ." [level=1] [ref=f8e37]:
+              - generic [ref=f8e38]: Fashion
+              - generic [ref=f8e40]:
+                - generic [ref=f8e41]: Knits
+                - generic [ref=f8e42]: .
+            - paragraph [ref=f8e43]: Garment making, grounded in Tiruppur.
+            - paragraph [ref=f8e44]: Since 1990, Fashion Knits has made knitted and woven garments for men, women, children, toddlers and newborns.
+            - link "Explore our capabilities" [ref=f8e45] [cursor=pointer]:
+              - /url: "#manufacturing"
+          - figure "Exterior visualization, not documentary photography Tiruppur · Tamil Nadu" [ref=f8e49]:
+            - generic [ref=f8e50]:
+              - img "AI-enhanced visual reference based on the Fashion Knits Head Office and Unit 2 exterior in Angeripalayam, Tiruppur" [ref=f8e53]
+              - generic [ref=f8e55]: AI-enhanced visual reference
+              - paragraph [ref=f8e56]: Head Office & Unit 2 · Angeripalayam
+            - generic [ref=f8e58]:
+              - generic [ref=f8e59]: Exterior visualization, not documentary photography
+              - generic [ref=f8e60]: Tiruppur · Tamil Nadu
+      - region "Fashion Knits at a glance" [ref=f8e61]:
+        - generic [ref=f8e62]:
+          - generic [ref=f8e63]:
+            - paragraph [ref=f8e64]:
+              - generic "1990" [ref=f8e65]
+            - generic [ref=f8e66]:
+              - paragraph [ref=f8e67]: Fashion Knits in Tiruppur
+              - paragraph [ref=f8e68]: Company history · Tiruppur
+          - generic [ref=f8e69]:
+            - paragraph [ref=f8e70]:
+              - generic "03" [ref=f8e71]
+            - generic [ref=f8e72]:
+              - paragraph [ref=f8e73]: Listed Tiruppur locations
+              - paragraph [ref=f8e74]: Head Office & Unit 2 · Unit 1 · Unit 3
+      - region "Fashion Knits, rooted in Tiruppur." [ref=f8e75]:
+        - generic [ref=f8e76]:
+          - generic [ref=f8e77]:
+            - paragraph [ref=f8e78]: Company story · Tiruppur
+            - paragraph [aria-hidden] [ref=f8e79]: "1990"
+            - heading "Fashion Knits, rooted in Tiruppur." [level=2] [ref=f8e80]
+          - generic [ref=f8e81]:
+            - paragraph [ref=f8e82]: Fashion Knits is a Tiruppur-based maker of knitted and woven garments for men, women, children, toddlers and newborns. The company dates its presence in Tiruppur to 1990.
+            - paragraph [ref=f8e83]: Its published locations include the Head Office & Unit 2 in Angeripalayam, Unit 1 at Netaji Apparel Park, and Unit 3 on P.N. Road.
+            - paragraph [ref=f8e84]: Knitted & woven apparel · Tiruppur, Tamil Nadu
+      - region "Ramu Raj" [ref=f8e85]:
+        - generic [ref=f8e86]:
+          - generic [ref=f8e87]:
+            - figure "Fashion Knits Tiruppur, India" [ref=f8e90]:
+              - img "Ramu Raj, Managing Director of Fashion Knits" [ref=f8e92]
+              - generic [ref=f8e94]:
+                - generic [ref=f8e95]: Fashion Knits
+                - generic [ref=f8e96]: Tiruppur, India
+            - generic [ref=f8e98]:
+              - paragraph [ref=f8e99]: Leadership · Fashion Knits
+              - heading "Ramu Raj" [level=2] [ref=f8e100]:
+                - generic [ref=f8e101]: Ramu
+                - generic [ref=f8e102]: Raj
+              - paragraph [ref=f8e103]: Managing Director, Fashion Knits
+              - generic [ref=f8e104]:
+                - paragraph [ref=f8e105]: From Fashion Knits
+                - heading "A Note from the Managing Director" [level=3] [ref=f8e106]
+                - note [ref=f8e107]:
+                  - text: Proposed copy · awaiting Managing Director approval
+                  - generic [ref=f8e108]: REVIEW
+                - generic [ref=f8e109]:
+                  - paragraph [ref=f8e110]: Since 1990, Fashion Knits has been shaped by the people, skills and enterprise that make Tiruppur an important centre for apparel manufacturing. We believe lasting partnerships are built on product understanding, consistent workmanship, transparent communication and a commitment to our buyers' requirements.
+                  - paragraph [ref=f8e111]: Our responsibility extends beyond completing an order. It is to understand each buyer's expectations, work closely with the people and partners involved in production, and build relationships that can grow over time.
+                  - paragraph [ref=f8e112]: As the apparel industry evolves, we remain focused on strengthening our capabilities, responding to changing material and product requirements, and contributing positively to the industry ecosystem in which we operate.
+                - generic [ref=f8e115]:
+                  - paragraph [ref=f8e116]:
+                    - text: Proposed sign-off
+                    - generic [ref=f8e117]: REVIEW
+                  - paragraph [ref=f8e118]: Ramu Raj
+                  - paragraph [ref=f8e119]: Managing Director, Fashion Knits
+              - link "Start a conversation" [ref=f8e121] [cursor=pointer]:
+                - /url: /get-a-quote
+          - generic [ref=f8e124]:
+            - paragraph [ref=f8e125]: Alongside his responsibilities at Fashion Knits, public organisation records list Ramu or R. Ramu in roles connected to exporter representation, apparel skills and industrial infrastructure. The records and their confirmation notes appear below.
+            - heading "Industry Leadership & Appointments" [level=3] [ref=f8e126]
+            - list [ref=f8e127]:
+              - listitem [ref=f8e128]:
+                - group [ref=f8e129]:
+                  - generic "Executive Committee Member Tiruppur Exporters' Association (TEA) R. Ramu" [ref=f8e130] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f8e131]: "01"
+                    - generic [ref=f8e132]: Executive Committee Member
+                    - generic [ref=f8e133]: Tiruppur Exporters' Association (TEA)
+                    - generic [ref=f8e134]: R. Ramu
+              - listitem [ref=f8e137]:
+                - group [ref=f8e138]:
+                  - generic "Director · Board of Directors Apparel, Made-Ups & Home Furnishing Sector Skill Council (AMHSSC) Shri R. Ramu · Fashion Knits" [ref=f8e139] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f8e140]: "02"
+                    - generic [ref=f8e141]: Director · Board of Directors
+                    - generic [ref=f8e142]: Apparel, Made-Ups & Home Furnishing Sector Skill Council (AMHSSC)
+                    - generic [ref=f8e143]: Shri R. Ramu · Fashion Knits
+              - listitem [ref=f8e146]:
+                - group [ref=f8e147]:
+                  - generic "Director Netaji Apparel Park R. Ramu" [ref=f8e148] [cursor=pointer]:
+                    - generic [aria-hidden] [ref=f8e149]: "03"
+                    - generic [ref=f8e150]: Director
+                    - generic [ref=f8e151]: Netaji Apparel Park
+                    - generic [ref=f8e152]: R. Ramu
+            - paragraph [ref=f8e155]: The organisations have distinct roles in Tiruppur’s apparel sector. These notes describe their published remits, not individual achievements.
+            - paragraph [ref=f8e156]:
+              - text: The linked records use the names “Ramu” or “R. Ramu”; they do not consistently expand the name or specify service periods.
+              - generic [ref=f8e157]:
+                - generic [ref=f8e158]: REVIEW
+                - text: Confirm the identity match and current status with Fashion Knits.
+              - text: These records do not imply endorsement or authority beyond each listed role.
+      - region "Tools for precise garment making." [ref=f8e159]:
+        - generic [ref=f8e160]:
+          - generic [ref=f8e161]:
+            - generic [ref=f8e162]:
+              - paragraph [ref=f8e163]: Manufacturing capabilities
+              - heading "Tools for precise garment making." [level=2] [ref=f8e164]
+            - paragraph [ref=f8e166]: A selection from Fashion Knits’ published equipment list, spanning pattern and cutting work, printing and embroidery.
+          - list [ref=f8e167]:
+            - listitem [ref=f8e168]:
+              - generic [ref=f8e169]:
+                - img "Lectra fully automatic cutting machine" [ref=f8e170]
+                - generic [ref=f8e171]: 01 / EQUIPMENT
+              - generic [ref=f8e173]:
+                - paragraph [ref=f8e174]: Pattern & cutting
+                - heading "Lectra fully automatic cutting machine" [level=3] [ref=f8e175]
+              - paragraph [ref=f8e177]: The company equipment list includes Lectra and Bullmer E80 fully automatic cutting machines.
+            - listitem [ref=f8e178]:
+              - generic [ref=f8e179]:
+                - img "Kornit Storm 931 digital printing machine" [ref=f8e181]
+                - generic [ref=f8e182]: 02 / EQUIPMENT
+              - generic [ref=f8e184]:
+                - paragraph [ref=f8e185]: Printing
+                - heading "Kornit Storm 931 digital printing machine" [level=3] [ref=f8e186]
+              - paragraph [ref=f8e188]: The equipment list includes Kornit, M&R and Sportsman printing machines.
+            - listitem [ref=f8e189]:
+              - generic [ref=f8e190]:
+                - img "Barudan embroidery machine" [ref=f8e192]
+                - generic [ref=f8e193]: 03 / EQUIPMENT
+              - generic [ref=f8e195]:
+                - paragraph [ref=f8e196]: Embroidery
+                - heading "Barudan embroidery machine" [level=3] [ref=f8e197]
+              - paragraph [ref=f8e199]: Barudan and Tajima embroidery machines are listed among the company’s equipment.
+          - generic [ref=f8e200]:
+            - generic [ref=f8e201]:
+              - text: Authentic photography requested
+              - generic [ref=f8e203]: REVIEW
+            - paragraph [ref=f8e204]: A current, wide photograph of a Fashion Knits production floor is needed to replace equipment reference imagery with an on-site view.
+      - region "Three listed locations." [ref=f8e205]:
+        - generic [ref=f8e206]:
+          - generic [ref=f8e207]:
+            - generic [ref=f8e208]:
+              - paragraph [ref=f8e209]: Tiruppur · Tamil Nadu · India
+              - heading "Three listed locations." [level=2] [ref=f8e210]
+            - paragraph [ref=f8e212]: The site list includes the Head Office & Unit 2, Unit 1 and Unit 3. Each address is shown as recorded in Fashion Knits’ company information.
+          - list [ref=f8e213]:
+            - listitem [ref=f8e214]:
+              - figure "Exterior visualization, not documentary photography" [ref=f8e215]:
+                - generic [ref=f8e216]:
+                  - img "AI-enhanced visual reference of the Fashion Knits Head Office and Unit 2 exterior in Angeripalayam, Tiruppur" [ref=f8e217]
+                  - generic [ref=f8e218]: AI-enhanced visual reference
+              - generic [ref=f8e220]:
+                - generic [ref=f8e221]: 01 / Location
+                - heading "Head Office & Unit 2" [level=3] [ref=f8e222]
+                - generic [ref=f8e223]: Fashion Knits, 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+                - link "Open in Maps" [ref=f8e224] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=Fashion%20Knits%2C%2081%2F82%20Angeripalayam%20Main%20Road%2C%20Tiruppur%20641%20603%2C%20Tamil%20Nadu%2C%20India.
+            - listitem [ref=f8e228]:
+              - figure "Exterior visualization, not documentary photography" [ref=f8e229]:
+                - generic [ref=f8e230]:
+                  - img "AI-enhanced visual reference of the Fashion Knits Unit 1 exterior at Netaji Apparel Park" [ref=f8e231]
+                  - generic [ref=f8e232]: AI-enhanced visual reference
+              - generic [ref=f8e234]:
+                - generic [ref=f8e235]: 02 / Location
+                - heading "Unit 1" [level=3] [ref=f8e236]
+                - generic [ref=f8e237]: Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666, Tamil Nadu, India.
+                - link "Open in Maps" [ref=f8e238] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=Shed%20No.%2029%2C%20Netaji%20Apparel%20Park%2C%20New%20Tiruppur%20641%20666%2C%20Tamil%20Nadu%2C%20India.
+            - listitem [ref=f8e242]:
+              - generic [aria-hidden] [ref=f8e243]:
+                - generic [ref=f8e244]:
+                  - generic [ref=f8e245]: Fashion Knits
+                  - generic [ref=f8e246]: 03 / Tiruppur
+                - generic [ref=f8e251]:
+                  - paragraph [ref=f8e252]: Unit 3
+                  - paragraph [ref=f8e253]: P.N. Road · Tiruppur
+              - generic [ref=f8e255]:
+                - generic [ref=f8e256]: 03 / Location
+                - heading "Unit 3" [level=3] [ref=f8e257]
+                - generic [ref=f8e258]: SF No. 275, P.N. Road, Tiruppur, Tamil Nadu, India.
+                - link "Open in Maps" [ref=f8e259] [cursor=pointer]:
+                  - /url: https://www.google.com/maps/search/?api=1&query=SF%20No.%20275%2C%20P.N.%20Road%2C%20Tiruppur%2C%20Tamil%20Nadu%2C%20India.
+      - region "Bring a product brief or reference sample." [ref=f8e263]:
+        - generic [ref=f8e264]:
+          - generic [ref=f8e265]:
+            - paragraph [ref=f8e266]: Working together
+            - heading "Bring a product brief or reference sample." [level=2] [ref=f8e268]
+          - generic [ref=f8e269]:
+            - generic "Fashion Knits contact details" [ref=f8e270]:
+              - link "Email raviramu@fashionknits.net" [ref=f8e271] [cursor=pointer]:
+                - /url: mailto:raviramu@fashionknits.net
+                - generic [ref=f8e272]: Email
+                - text: raviramu@fashionknits.net
+            - link "Start a conversation" [ref=f8e274] [cursor=pointer]:
+              - /url: /get-a-quote
+        - navigation "Continue exploring" [ref=f8e278]:
+          - paragraph [ref=f8e279]: Continue exploring
+          - list [ref=f8e280]:
+            - listitem [ref=f8e281]:
+              - link "Products" [ref=f8e282] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f8e285]:
+              - link "Manufacturing" [ref=f8e286] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f8e289]:
+              - link "Quality" [ref=f8e290] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f8e293]:
+              - link "Sustainability" [ref=f8e294] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f8e297]:
+              - link "Global Export" [ref=f8e298] [cursor=pointer]:
+                - /url: /export
+    - generic [ref=f8e302]:
+      - generic [ref=f8e303]:
+        - generic [ref=f8e304]:
+          - link "Fashion Knits home" [ref=f8e305] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f8e306]:
+              - generic [ref=f8e307]:
+                - generic [ref=f8e311]: FK
+                - generic [ref=f8e312]: We Design Your Dreams
+              - generic [ref=f8e313]: Fashion Knits
+          - paragraph [ref=f8e314]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f8e315]:
+            - paragraph [ref=f8e316]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f8e320]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f8e324]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f8e328]:
+          - heading "Explore" [level=2] [ref=f8e329]
+          - list [ref=f8e330]:
+            - listitem [ref=f8e331]:
+              - link "Products" [ref=f8e332] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f8e333]:
+              - link "Manufacturing" [ref=f8e334] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f8e335]:
+              - link "Quality" [ref=f8e336] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f8e337]:
+              - link "Sustainability" [ref=f8e338] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f8e339]:
+              - link "Export" [ref=f8e340] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f8e341]:
+              - link "About" [ref=f8e342] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f8e343]:
+          - heading "Discuss a production brief" [level=2] [ref=f8e344]
+          - paragraph [ref=f8e345]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f8e346] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f8e351] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f8e355]:
+        - paragraph [ref=f8e356]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f8e357] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=f8e366] [cursor=pointer]

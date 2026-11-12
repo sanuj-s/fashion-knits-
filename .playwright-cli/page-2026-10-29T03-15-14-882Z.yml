@@ -1,0 +1,359 @@
+- generic [active] [ref=f3e1]:
+  - banner [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - link "Fashion Knits home" [ref=f3e5] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f3e6]:
+          - generic [ref=f3e7]:
+            - generic [ref=f3e11]: FK
+            - generic [ref=f3e12]: We Design Your Dreams
+          - generic [ref=f3e13]: Fashion Knits
+      - button "Open navigation menu" [ref=f3e14]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f3e18]:
+    - generic [ref=f3e19]:
+      - generic [ref=f3e20]:
+        - generic [ref=f3e23]:
+          - navigation "Breadcrumb" [ref=f3e24]:
+            - link "Home" [ref=f3e25] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=f3e26]: /
+            - generic [ref=f3e27]: Manufacturing
+          - generic [ref=f3e28]: Manufacturing · Tiruppur, India
+          - heading "From CAD Patterns to Finished Garments." [level=1] [ref=f3e32]:
+            - generic [ref=f3e33]: From CAD Patterns
+            - generic [ref=f3e35]: to Finished Garments.
+          - generic [ref=f3e38]:
+            - img "Industrial precision sewing machine stitching gold knit fabric at Fashion Knits manufacturing facility" [ref=f3e40]
+            - generic [ref=f3e41]:
+              - generic [ref=f3e42]: ISO 4915 · 301 Lockstitch
+              - generic [ref=f3e43]: Precision Seam
+          - paragraph [ref=f3e44]: Fashion Knits combines in-house CAD for cutting and pattern making, print and embroidery facilities, product-focused production lines and garment finishing across its Tiruppur locations.
+          - generic [ref=f3e45]:
+            - link "Discuss a production brief" [ref=f3e46] [cursor=pointer]:
+              - /url: /#contact
+            - link "Quality Standards" [ref=f3e49] [cursor=pointer]:
+              - /url: /quality
+        - generic [ref=f3e52]:
+          - article [ref=f3e54]:
+            - paragraph [ref=f3e55]: Machine capacity
+            - paragraph [ref=f3e56]: ~2,000
+            - paragraph [ref=f3e57]: machines · 2026 figure
+          - article [ref=f3e59]:
+            - paragraph [ref=f3e60]: Production capacity
+            - paragraph [ref=f3e61]: ~350,000
+            - paragraph [ref=f3e62]: pieces per month · 2026 figure
+          - article [ref=f3e64]:
+            - paragraph [ref=f3e65]: Decoration equipment
+            - paragraph [ref=f3e66]: 5 + 5
+            - paragraph [ref=f3e67]: automatic printing + embroidery machines · 2026 figure
+      - region [ref=f3e68]:
+        - generic [ref=f3e69]:
+          - generic [ref=f3e70]:
+            - generic [ref=f3e71]:
+              - paragraph [ref=f3e72]: Manufacturing capabilities
+              - heading "Pattern, decoration, construction and finish." [level=2] [ref=f3e73]
+            - paragraph [ref=f3e74]: Explore the equipment and processes that shape a Fashion Knits garment program.
+          - generic [ref=f3e75]:
+            - group "Manufacturing process areas" [ref=f3e76]:
+              - button "01 Pattern & Cut" [pressed] [ref=f3e77]:
+                - generic [ref=f3e78]: "01"
+                - generic [ref=f3e79]: Pattern & Cut
+              - button "02 Print & Embroider" [ref=f3e82]:
+                - generic [ref=f3e83]: "02"
+                - generic [ref=f3e84]: Print & Embroider
+              - button "03 Sew & Finish" [ref=f3e87]:
+                - generic [ref=f3e88]: "03"
+                - generic [ref=f3e89]: Sew & Finish
+              - button "04 Workforce & Facilities" [ref=f3e92]:
+                - generic [ref=f3e93]: "04"
+                - generic [ref=f3e94]: Workforce & Facilities
+            - article [ref=f3e97]:
+              - generic [aria-hidden] [ref=f3e98]: "01"
+              - generic [ref=f3e99]:
+                - paragraph [ref=f3e100]: Process 01
+                - heading "Pattern & Cut" [level=3] [ref=f3e107]
+                - paragraph [ref=f3e108]: In-house CAD supports pattern making and cutting as the garment moves from buyer specification to production.
+              - list [ref=f3e109]:
+                - listitem [ref=f3e110]: In-house CAD for pattern making
+                - listitem [ref=f3e112]: Lectra fully automatic cutting machine
+                - listitem [ref=f3e114]: Bullmer E80 fully automatic cutting machine
+          - generic [ref=f3e116]:
+            - paragraph [ref=f3e117]: Each production route is organized around the garment and buyer requirements.
+            - link "Explore quality & testing" [ref=f3e121] [cursor=pointer]:
+              - /url: /quality
+      - region [ref=f3e125]:
+        - generic [ref=f3e126]:
+          - generic [ref=f3e127]:
+            - generic [ref=f3e128]:
+              - paragraph [ref=f3e129]: Manufacturing equipment · Interactive showroom
+              - heading "Equipment & technology." [level=2] [ref=f3e130]
+            - paragraph [ref=f3e131]: Choose a process, inspect a listed machine, and see how it supports a garment program.
+          - generic [ref=f3e132]:
+            - generic [ref=f3e133]:
+              - generic [ref=f3e134]:
+                - paragraph [ref=f3e135]: Production process navigator
+                - paragraph [ref=f3e136]: Choose a stage to filter the machines below.
+              - paragraph [ref=f3e137]: Routes vary by garment and buyer brief
+            - group "Filter machines by production process" [ref=f3e138]:
+              - button "Pattern & cut, 2 listed machines" [pressed] [ref=f3e139] [cursor=pointer]:
+                - generic [ref=f3e143]: Pattern & cut
+                - generic [ref=f3e144]: 2 machines
+              - button "Digital printing, 1 listed machine" [ref=f3e145] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e146]: "02"
+                - generic [ref=f3e147]: Digital printing
+                - generic [ref=f3e148]: 1 machine
+              - button "Screen printing, 3 listed machines" [ref=f3e149] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e150]: "03"
+                - generic [ref=f3e151]: Screen printing
+                - generic [ref=f3e152]: 3 machines
+              - button "Embroidery, 2 listed machines" [ref=f3e153] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f3e154]: "04"
+                - generic [ref=f3e155]: Embroidery
+                - generic [ref=f3e156]: 2 machines
+          - generic [ref=f3e157]:
+            - navigation "Pattern & cut machine selector" [ref=f3e158]:
+              - generic [ref=f3e159]:
+                - paragraph [ref=f3e160]: Machines in this process
+                - paragraph [ref=f3e161]: Pattern & cut
+              - group "Select a Pattern & cut machine" [ref=f3e162]:
+                - button "01 Lectra fully automatic cutting machine Lectra · Not specified in the company equipment list" [pressed] [ref=f3e163] [cursor=pointer]:
+                  - generic [ref=f3e164]: "01"
+                  - generic [ref=f3e165]:
+                    - generic [ref=f3e166]: Lectra fully automatic cutting machine
+                    - generic [ref=f3e167]: Lectra · Not specified in the company equipment list
+                - button "02 Bullmer E80 fully automatic cutting machine Bullmer · E80" [ref=f3e170] [cursor=pointer]:
+                  - generic [ref=f3e171]: "02"
+                  - generic [ref=f3e172]:
+                    - generic [ref=f3e173]: Bullmer E80 fully automatic cutting machine
+                    - generic [ref=f3e174]: Bullmer · E80
+              - paragraph [ref=f3e177]: "Keyboard: use arrow keys, Home or End to select a machine."
+            - figure "Lectra fully automatic cutting machine image and component controls" [ref=f3e178]:
+              - generic [ref=f3e179]:
+                - generic [ref=f3e180]:
+                  - paragraph [ref=f3e181]: Selected equipment
+                  - paragraph [ref=f3e182]: Process 01 · Pattern & cut
+                - generic [ref=f3e183]: Equipment reference image
+              - generic [ref=f3e184]:
+                - generic [ref=f3e185]:
+                  - img "Lectra fully automatic cutting machine equipment reference image" [ref=f3e186]
+                  - group "Inspectable components of Lectra fully automatic cutting machine" [ref=f3e187]:
+                    - button "Inspect Cutting head on Lectra fully automatic cutting machine" [ref=f3e188] [cursor=pointer]:
+                      - generic: Cutting head
+                    - button "Inspect Cutting surface on Lectra fully automatic cutting machine" [ref=f3e190] [cursor=pointer]:
+                      - generic: Cutting surface
+                - paragraph: Still image · not live demonstration footage
+              - generic [ref=f3e192]:
+                - button "Previous machine" [disabled] [ref=f3e193]: Previous
+                - generic [ref=f3e196]:
+                  - generic [ref=f3e197]:
+                    - strong [ref=f3e198]: "01"
+                    - generic [ref=f3e199]: / 08
+                  - progressbar "Selected machine" [ref=f3e200]
+                - button "Next machine" [ref=f3e202] [cursor=pointer]: Next
+              - status [ref=f3e205]: "Selected Lectra fully automatic cutting machine, machine 1 of 8. Process: Pattern & cut."
+            - complementary "Selected machine details" [ref=f3e206]:
+              - generic [ref=f3e207]:
+                - generic [ref=f3e208]:
+                  - generic [ref=f3e209]: Pattern & cut
+                  - generic [ref=f3e210]: 01 / 08
+                - heading "Lectra fully automatic cutting machine" [level=3] [ref=f3e211]
+                - generic [ref=f3e212]:
+                  - generic [ref=f3e213]:
+                    - term [ref=f3e214]: Manufacturer
+                    - definition [ref=f3e215]: Lectra
+                  - generic [ref=f3e216]:
+                    - term [ref=f3e217]: Model in company list
+                    - definition [ref=f3e218]: Not specified in the company equipment list
+                - generic [ref=f3e219]:
+                  - paragraph [ref=f3e220]: Primary function
+                  - paragraph [ref=f3e221]: Automatic fabric cutting
+                  - paragraph [ref=f3e222]: Turns prepared pattern layouts into fabric components for the next production stages.
+                - generic [ref=f3e223]:
+                  - generic [ref=f3e224]:
+                    - paragraph [ref=f3e225]: Supported operation
+                    - paragraph [ref=f3e226]: Cutting garment panels from fabric according to a prepared cutting plan.
+                  - generic [ref=f3e227]:
+                    - paragraph [ref=f3e228]: Garment application
+                    - paragraph [ref=f3e229]: Garment styles that require fabric panels to be cut before assembly.
+                  - generic [ref=f3e230]:
+                    - paragraph [ref=f3e231]: Why it matters to a buyer
+                    - paragraph [ref=f3e232]: Shows a listed cutting capability that supports component preparation for garment construction.
+                - generic [ref=f3e233]:
+                  - paragraph [ref=f3e234]: Technical specifications
+                  - paragraph [ref=f3e235]: No installed configuration, speed, output rate or dimensions are published with this equipment record.
+                - paragraph [ref=f3e236]: The company equipment list confirms a Lectra fully automatic cutting machine; the installed model and configuration are not listed.
+                - paragraph [ref=f3e238]: Select a marked component on the image to inspect its role.
+                - link "Lectra · apparel cutting overview" [ref=f3e239] [cursor=pointer]:
+                  - /url: https://www.lectra.com/en/fashion/products/vector-fashion
+              - button "Explore next process Digital printing" [ref=f3e243] [cursor=pointer]:
+                - generic [ref=f3e244]: Explore next process
+                - generic [ref=f3e245]: Digital printing
+          - generic [ref=f3e248]:
+            - generic [ref=f3e249]:
+              - generic [ref=f3e250]:
+                - paragraph [ref=f3e251]: Where equipment fits
+                - heading "A route through garment production." [level=3] [ref=f3e252]
+              - paragraph [ref=f3e253]: Decoration steps are selected to suit the style and buyer brief; a garment does not necessarily pass through every process shown.
+            - list [ref=f3e254]:
+              - listitem [ref=f3e255]:
+                - generic [ref=f3e256]: "01"
+                - generic [ref=f3e257]:
+                  - heading "Pattern preparation & cutting" [level=4] [ref=f3e258]
+                  - paragraph [ref=f3e259]: Prepare pattern data and cut fabric components for construction.
+              - listitem [ref=f3e260]:
+                - generic [ref=f3e261]: "02"
+                - generic [ref=f3e262]:
+                  - heading "Decoration, when specified" [level=4] [ref=f3e263]
+                  - paragraph [ref=f3e264]: Digital print, screen print or embroidery, according to the garment program.
+              - listitem [ref=f3e265]:
+                - generic [ref=f3e266]: "03"
+                - generic [ref=f3e267]:
+                  - heading "Sew & finish" [level=4] [ref=f3e268]
+                  - paragraph [ref=f3e269]: Garment assembly followed by checking, ironing and packing.
+          - generic [ref=f3e270]:
+            - paragraph [ref=f3e271]:
+              - strong [ref=f3e272]: "In-house decoration:"
+              - text: five automatic printing machines and five embroidery machines.
+            - paragraph [ref=f3e273]:
+              - strong [ref=f3e274]: "Production flow:"
+              - text: cutting, sewing, trimming, checking, ironing and packing.
+      - region [ref=f3e275]:
+        - generic [ref=f3e276]:
+          - generic [ref=f3e277]:
+            - paragraph [ref=f3e278]: Workforce & locations
+            - heading "Built around people and production." [level=2] [ref=f3e279]
+            - paragraph [ref=f3e280]: Skilled operators are trained for specific product categories. Worker facilities include hostel accommodation, catering and transport.
+          - generic [ref=f3e281]:
+            - heading "Fashion Knits locations" [level=3] [ref=f3e282]
+            - list [ref=f3e283]:
+              - listitem [ref=f3e284]:
+                - img "Exterior of Fashion Knits Head Office and Unit 2 in Angeripalayam" [ref=f3e286]
+                - generic [ref=f3e287]:
+                  - heading "Head Office & Unit 2" [level=4] [ref=f3e288]
+                  - generic [ref=f3e289]: Fashion Knits, 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+              - listitem [ref=f3e290]:
+                - img "Exterior of Fashion Knits Unit 1 at Netaji Apparel Park" [ref=f3e292]
+                - generic [ref=f3e293]:
+                  - heading "Unit 1" [level=4] [ref=f3e294]
+                  - generic [ref=f3e295]: Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666, Tamil Nadu, India.
+              - listitem [ref=f3e296]:
+                - generic [ref=f3e297]:
+                  - heading "Unit 3" [level=4] [ref=f3e298]
+                  - generic [ref=f3e299]: SF No. 275, P.N. Road, Tiruppur, Tamil Nadu, India.
+      - region [ref=f3e300]:
+        - generic [ref=f3e301]:
+          - generic [ref=f3e302]:
+            - paragraph [ref=f3e303]: Sewing facilities
+            - heading "A production plan built for each product." [level=2] [ref=f3e304]
+            - paragraph [ref=f3e305]: Dedicated, product-focused lines across the plants convert customer designs into garments in a range of sizes, shapes and colours. Each garment moves through final checking, ironing and packaging to match customer requirements.
+          - generic [ref=f3e306]:
+            - article [ref=f3e307]:
+              - paragraph [ref=f3e308]: Monthly capacity
+              - paragraph [ref=f3e309]: ~350,000
+              - paragraph [ref=f3e310]: pieces per month · 2026 figure
+            - article [ref=f3e311]:
+              - paragraph [ref=f3e312]: Machine capacity
+              - paragraph [ref=f3e313]: ~2,000
+              - paragraph [ref=f3e314]: machines · 2026 figure
+            - link "See quality, testing & compliance" [ref=f3e316] [cursor=pointer]:
+              - /url: /quality
+      - generic [ref=f3e321]:
+        - generic [ref=f3e322]:
+          - paragraph [ref=f3e323]: Material evolution
+          - heading "BEYOND COTTON. INTO MAN-MADE FIBRES." [level=2] [ref=f3e325]:
+            - generic [ref=f3e326]: BEYOND COTTON.
+            - generic [ref=f3e327]:
+              - generic [ref=f3e328]: INTO MAN-MADE
+              - generic [ref=f3e329]: FIBRES.
+        - generic [ref=f3e330]:
+          - generic [ref=f3e331]:
+            - paragraph [ref=f3e332]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - paragraph [ref=f3e333]: Cotton and cotton blends remain established options.
+            - paragraph [ref=f3e334]: Performance-related requirements are considered against buyer specifications.
+            - link "Discuss Your Material Requirements" [ref=f3e335] [cursor=pointer]:
+              - /url: /#contact
+          - figure "Material study" [ref=f3e339]:
+            - img "A material study of knitted fabrics in contrasting textures and colours" [ref=f3e341]
+    - region [ref=f3e343]:
+      - generic [ref=f3e345]:
+        - generic [ref=f3e346]:
+          - paragraph [ref=f3e347]: Production planning
+          - heading "Planning Your Next Production Run?" [level=2] [ref=f3e349]
+          - paragraph [ref=f3e350]: Share your product scope and order requirements with our manufacturing team.
+        - link "Discuss Your Project" [ref=f3e352] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f3e358]:
+      - generic [ref=f3e359]:
+        - generic [ref=f3e360]:
+          - link "Fashion Knits home" [ref=f3e361] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f3e362]:
+              - generic [ref=f3e363]:
+                - generic [ref=f3e367]: FK
+                - generic [ref=f3e368]: We Design Your Dreams
+              - generic [ref=f3e369]: Fashion Knits
+          - paragraph [ref=f3e370]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f3e371]:
+            - paragraph [ref=f3e372]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f3e376]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f3e380]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f3e384]:
+          - heading "Explore" [level=2] [ref=f3e385]
+          - list [ref=f3e386]:
+            - listitem [ref=f3e387]:
+              - link "Products" [ref=f3e388] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f3e389]:
+              - link "Manufacturing" [ref=f3e390] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f3e391]:
+              - link "Quality" [ref=f3e392] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f3e393]:
+              - link "Sustainability" [ref=f3e394] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f3e395]:
+              - link "Export" [ref=f3e396] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f3e397]:
+              - link "About" [ref=f3e398] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f3e399]:
+          - heading "Discuss a production brief" [level=2] [ref=f3e400]
+          - paragraph [ref=f3e401]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f3e402] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f3e407] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f3e411]:
+        - paragraph [ref=f3e412]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f3e413] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=f3e422] [cursor=pointer]

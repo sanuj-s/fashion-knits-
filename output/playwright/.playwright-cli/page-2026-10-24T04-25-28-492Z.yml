@@ -1,0 +1,244 @@
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - generic [ref=f12e3]:
+      - link "Fashion Knits home" [ref=f12e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f12e5]:
+          - generic [ref=f12e6]:
+            - generic [ref=f12e10]: FK
+            - generic [ref=f12e11]: We Design Your Dreams
+          - generic [ref=f12e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f12e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f12e17]:
+    - generic [ref=f12e18]:
+      - generic [ref=f12e20]:
+        - navigation "Breadcrumb" [ref=f12e21]:
+          - link "Home" [ref=f12e22] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f12e23]: /
+          - generic [ref=f12e24]: Quality
+        - paragraph [ref=f12e25]: Quality & product standards
+        - generic [ref=f12e27]:
+          - heading "Quality, checked at every stage." [level=1] [ref=f12e28]
+          - paragraph [ref=f12e29]: Fabric inspection, in-house material testing, AQL garment inspection, metal detection and export-carton packing.
+        - link "Explore quality checks" [ref=f12e30] [cursor=pointer]:
+          - /url: "#quality-process"
+      - region [ref=f12e33]:
+        - generic [ref=f12e34]:
+          - generic [ref=f12e35]:
+            - generic [ref=f12e36]:
+              - paragraph [ref=f12e37]: Quality process
+              - heading "From fabric inspection to export cartons." [level=2] [ref=f12e38]
+            - paragraph [ref=f12e39]: Quality checks follow the garment through testing, production, final inspection and packing.
+          - list [ref=f12e40]:
+            - listitem [ref=f12e41]:
+              - generic [ref=f12e42]: 01 / 06
+              - heading "Inspect fabric" [level=3] [ref=f12e43]
+              - paragraph [ref=f12e44]: A four-point fabric inspection system checks fabric condition before garment production.
+            - listitem [ref=f12e45]:
+              - generic [ref=f12e46]: 02 / 06
+              - heading "Test materials" [level=3] [ref=f12e47]
+              - paragraph [ref=f12e48]: The in-house testing lab checks colour fastness, shrinkage and other physical attributes.
+            - listitem [ref=f12e49]:
+              - generic [ref=f12e50]: 03 / 06
+              - heading "Check each stage" [level=3] [ref=f12e51]
+              - paragraph [ref=f12e52]: Quality checks are carried through the production stages for the garment program.
+            - listitem [ref=f12e53]:
+              - generic [ref=f12e54]: 04 / 06
+              - heading "Inspect finished garments" [level=3] [ref=f12e55]
+              - paragraph [ref=f12e56]: Final garment inspection follows Global AQL standards, with AQL 1.5 stated for garment inspection.
+            - listitem [ref=f12e57]:
+              - generic [ref=f12e58]: 05 / 06
+              - heading "Detect metal" [level=3] [ref=f12e59]
+              - paragraph [ref=f12e60]: Finished products pass through metal detection before packing.
+            - listitem [ref=f12e61]:
+              - generic [ref=f12e62]: 06 / 06
+              - heading "Pack for shipment" [level=3] [ref=f12e63]
+              - paragraph [ref=f12e64]: Garments are securely packed in export cartons according to customer requirements.
+      - region [ref=f12e65]:
+        - generic [ref=f12e66]:
+          - generic [ref=f12e67]:
+            - generic [ref=f12e68]:
+              - paragraph [ref=f12e69]: Inspection & testing
+              - heading "Make the details measurable." [level=2] [ref=f12e70]
+            - paragraph [ref=f12e71]: Fabric and garment checks carry the agreed product requirements through the production process.
+          - list [ref=f12e72]:
+            - listitem [ref=f12e73]:
+              - heading "Fabric & colour" [level=3] [ref=f12e78]
+              - paragraph [ref=f12e79]: Four-point fabric inspection, colour fastness testing and shade review.
+            - listitem [ref=f12e80]:
+              - heading "Dimensional stability" [level=3] [ref=f12e87]
+              - paragraph [ref=f12e88]: Shrinkage and other physical attributes are tested in the in-house lab.
+            - listitem [ref=f12e89]:
+              - heading "Garment workmanship" [level=3] [ref=f12e92]
+              - paragraph [ref=f12e93]: Final inspection reviews garment condition against Global AQL standards and the agreed product requirements.
+          - paragraph [ref=f12e94]: AQL 1.5 is the garment inspection level listed for Fashion Knits.
+      - region [ref=f12e99]:
+        - generic [ref=f12e100]:
+          - generic [ref=f12e101]:
+            - paragraph [ref=f12e102]: In-house testing lab
+            - heading "Test the material. Check the garment." [level=2] [ref=f12e103]
+            - paragraph [ref=f12e104]: The testing lab covers colour fastness, shrinkage and other physical attributes. The final garment also passes metal detection before export-carton packing.
+          - generic [ref=f12e105]:
+            - article [ref=f12e106]:
+              - heading "Fabric inspection" [level=3] [ref=f12e110]
+              - paragraph [ref=f12e111]: Four-point system for fabric inspection.
+            - article [ref=f12e112]:
+              - heading "Final inspection & packing" [level=3] [ref=f12e118]
+              - paragraph [ref=f12e119]: Fashion Knits final inspection follows Global AQL standards; finished products pass metal detection and are packed securely in export cartons.
+      - region [ref=f12e120]:
+        - generic [ref=f12e121]:
+          - generic [ref=f12e122]:
+            - generic [ref=f12e123]:
+              - paragraph [ref=f12e124]: Certification & compliance records
+              - heading "Scopes, facilities and validity." [level=2] [ref=f12e125]
+            - paragraph [ref=f12e126]: Each record identifies its own facility, products, processes and dates. Organic shipment claims require the applicable transaction documents.
+          - list [ref=f12e127]:
+            - listitem [ref=f12e128]:
+              - generic [ref=f12e129]: Valid through 30 November 2026
+              - heading "OEKO-TEX® STANDARD 100" [level=3] [ref=f12e130]
+              - paragraph [ref=f12e131]: Fashion Knits · Printing Division · Product Class I, Annex 6
+              - paragraph [ref=f12e132]: Commission printing for knitted and woven fabrics in cotton (including organic and recycled), modal, polyester (including recycled), viscose and their blends, with or without elastane; pigment, non-PVC and discharge printing, including AOP.
+              - link "Open record PDF" [ref=f12e133] [cursor=pointer]:
+                - /url: /assets/certificates/oeko-tex-standard-100.pdf
+            - listitem [ref=f12e140]:
+              - generic [ref=f12e141]: 1 June 2026 to 1 June 2027
+              - heading "WRAP Certificate of Compliance" [level=3] [ref=f12e142]
+              - paragraph [ref=f12e143]: "Fashion Knits Branch · WRAP #9322"
+              - paragraph [ref=f12e144]: "Cutting, sewing, trimming, checking, ironing and packing. Facility: Survey No. 5, Door No. / Shed No. 29, Apparel Park, Eettiveerampalayam, Avinashi, Tiruppur, Tamil Nadu, India."
+              - link "Open record PDF" [ref=f12e145] [cursor=pointer]:
+                - /url: /assets/certificates/wrap-certificate-of-compliance.pdf
+            - listitem [ref=f12e152]:
+              - generic [ref=f12e153]: Monitoring period expires 9 March 2027
+              - heading "amfori BSCI monitoring summary" [level=3] [ref=f12e154]
+              - paragraph [ref=f12e155]: Fashion Knits Branch · overall rating B
+              - paragraph [ref=f12e156]: Full monitoring activity began 25 February 2025 at the Netaji Apparel Park branch. This is a monitoring summary, not a certificate.
+            - listitem [ref=f12e157]:
+              - generic [ref=f12e158]: Expired 27 September 2026
+              - heading "GOTS scope certificate" [level=3] [ref=f12e159]
+              - paragraph [ref=f12e160]: Global Organic Textile Standard · Version 7.0
+              - paragraph [ref=f12e161]: The listed scope covers children’s, men’s, women’s and babies’ apparel, greige yarns and related textile processing. Knitting, dyeing, finishing and pre-treatment are marked as potentially subcontracted.
+              - link "Open record PDF" [ref=f12e162] [cursor=pointer]:
+                - /url: /assets/certificates/gots-organic-textile.pdf
+            - listitem [ref=f12e169]:
+              - generic [ref=f12e170]: Expired 13 October 2026
+              - heading "OCS scope certificate" [level=3] [ref=f12e171]
+              - paragraph [ref=f12e172]: Organic Content Standard · Version 3.0
+              - paragraph [ref=f12e173]: The listed scope covers apparel, dyed and greige fabrics, with knitting, dyeing, finishing, pre-treatment and printing marked as potentially subcontracted. Shipment claims require applicable transaction documentation.
+              - link "Open record PDF" [ref=f12e174] [cursor=pointer]:
+                - /url: /assets/certificates/ocs-organic-content.pdf
+            - listitem [ref=f12e181]:
+              - generic [ref=f12e182]: Historical · issued 4 November 2024 · one-year term
+              - heading "Disney FAMA facility authorization" [level=3] [ref=f12e183]
+              - paragraph [ref=f12e184]: Fashion Knits Unit 2 · Netaji Apparel Park
+              - paragraph [ref=f12e185]: Facility-specific authorization for Disney-branded products, issued to licensee Sun City. The authorization was limited to its named licensee and facility and is not current.
+          - paragraph [ref=f12e186]: GOTS and OCS certificates shown here have passed their stated end dates and are marked expired.
+      - region [ref=f12e189]:
+        - generic [ref=f12e191]:
+          - generic [ref=f12e192]:
+            - paragraph [ref=f12e193]: Buyer requirements
+            - heading "Clear details. A shared standard." [level=2] [ref=f12e195]:
+              - text: Clear details.
+              - generic [ref=f12e196]: A shared standard.
+            - paragraph [ref=f12e197]: Product and quality expectations are set with the buyer, then carried through the approved sample and order plan.
+            - link "Discuss your requirements" [ref=f12e198] [cursor=pointer]:
+              - /url: /#contact
+          - list "Buyer requirements for each order" [ref=f12e202]:
+            - listitem [ref=f12e203]:
+              - generic [ref=f12e204]:
+                - generic [ref=f12e205]: "01"
+                - heading "Product specifications" [level=3] [ref=f12e206]
+              - paragraph [ref=f12e207]: Bring style details, materials and construction together in the approved product brief.
+            - listitem [ref=f12e208]:
+              - generic [ref=f12e209]:
+                - generic [ref=f12e210]: "02"
+                - heading "Workmanship & inspection" [level=3] [ref=f12e211]
+              - paragraph [ref=f12e212]: Define the reference sample, checkpoints and acceptance criteria for the order.
+            - listitem [ref=f12e213]:
+              - generic [ref=f12e214]:
+                - generic [ref=f12e215]: "03"
+                - heading "Packing & documentation" [level=3] [ref=f12e216]
+              - paragraph [ref=f12e217]: Align labels, presentation, carton details and shipment paperwork before dispatch.
+    - region [ref=f12e218]:
+      - generic [ref=f12e220]:
+        - generic [ref=f12e221]:
+          - paragraph [ref=f12e222]: Quality planning
+          - heading "Planning Your Next Knitwear Project?" [level=2] [ref=f12e224]
+          - paragraph [ref=f12e225]: Share your quality requirements and approval process with our team.
+        - link "Discuss Your Project" [ref=f12e227] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f12e233]:
+      - generic [ref=f12e234]:
+        - generic [ref=f12e235]:
+          - link "Fashion Knits home" [ref=f12e236] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f12e237]:
+              - generic [ref=f12e238]:
+                - generic [ref=f12e242]: FK
+                - generic [ref=f12e243]: We Design Your Dreams
+              - generic [ref=f12e244]: Fashion Knits
+          - paragraph [ref=f12e245]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f12e246]:
+            - paragraph [ref=f12e247]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f12e251]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f12e255]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f12e259]:
+          - heading "Explore" [level=2] [ref=f12e260]
+          - list [ref=f12e261]:
+            - listitem [ref=f12e262]:
+              - link "Products" [ref=f12e263] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f12e264]:
+              - link "Manufacturing" [ref=f12e265] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f12e266]:
+              - link "Quality" [ref=f12e267] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f12e268]:
+              - link "Sustainability" [ref=f12e269] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f12e270]:
+              - link "Export" [ref=f12e271] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f12e272]:
+              - link "About" [ref=f12e273] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f12e274]:
+          - heading "Discuss a production brief" [level=2] [ref=f12e275]
+          - paragraph [ref=f12e276]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f12e277] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f12e282] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f12e286]:
+        - paragraph [ref=f12e287]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f12e288] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f12e292]

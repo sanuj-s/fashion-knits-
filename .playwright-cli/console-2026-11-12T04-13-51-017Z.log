@@ -1,0 +1,524 @@
+[     219ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     272ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     427ms] [WARNING] Invalid keyframe value for property clipPath: inset(0 0 100 0) @ http://localhost:3000/_next/static/chunks/node_modules_0gkvqdm._.js:6711
+[   25384ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[   25419ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[   25501ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[   40384ms] [LOG] [Fast Refresh] done in 10ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[   40464ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[   40474ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  215437ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  215471ms] [LOG] [Fast Refresh] done in 6ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  215548ms] [LOG] [Fast Refresh] done in 6ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  226388ms] [LOG] [Fast Refresh] done in 6ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  226467ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  226477ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  269027ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  269141ms] [LOG] [Fast Refresh] done in 51ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  282039ms] [LOG] [Fast Refresh] done in 51ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  282128ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  282136ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  330193ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  330260ms] [LOG] [Fast Refresh] done in 5ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  343380ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  343562ms] [LOG] [Fast Refresh] done in 52ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  362733ms] [LOG] [Fast Refresh] done in 52ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  362807ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  362823ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  496527ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  496543ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  496579ms] [WARNING] You have Reduced Motion enabled on your device. Animations may not appear as expected.. For more information and steps for solving, visit https://motion.dev/troubleshooting/reduced-motion-disabled @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  496633ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="about/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={undefined} forbidden={undefined} unauthorized={undefined}>
+        <RedirectBoundary>
+          <RedirectErrorBoundary router={{...}}>
+            <InnerLayoutRouter url="/about" tree={[...]} params={{}} cacheNode={{rsc:{...}, ...}} segmentPath={[...]} ...>
+              <SegmentViewNode type="page" pagePath="about/page...">
+                <SegmentTrieNode>
+                <AboutPage>
+                  <AboutClient>
+                    <div className="bg-warm-wh...">
+                      ...
+                        <div className="grid items...">
+                          <div className="relative z...">
+                            <div>
+                              <AboutHeroEntry>
+                                <motion.div className="about-modu..." initial={{opacity:0}} animate={{opacity:1}} ...>
+                                  <div
+                                    className="about-module__-i9KWa__motionReveal"
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(24px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                              <h1 className="mt-6 max-w...">
+                                <span className="block over...">
+                                  <AboutHeroWord delay={0.08}>
+                                    <motion.span className="inline-block" initial={{opacity:0}} animate={{opacity:1}} ...>
+                                      <span
+                                        className="inline-block"
+                                        style={{
++                                         opacity: 0
+-                                         opacity: "0"
+-                                         transform: "translateY(24px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Fashion
+                                <span className="block over...">
+                                  <AboutHeroWord delay={0.16}>
+                                    <motion.span className="inline-block" initial={{opacity:0}} animate={{opacity:1}} ...>
+                                      <span
+                                        className="inline-block"
+                                        style={{
++                                         opacity: 0
+-                                         opacity: "0"
+-                                         transform: "translateY(24px)"
+                                        }}
+                                        ref={function useMotionRef.useCallback}
+                                      >
++                                       Knits
+                                  <span className="text-accent">
+                                    <AboutHeroDot>
+                                      <motion.span className="inline-blo..." initial={{opacity:0}} animate={{opacity:1}} ...>
+                                        <span
+                                          className="inline-block origin-center"
++                                         style={{opacity:0}}
+-                                         style={{transform:"scale(0)"}}
+                                          ref={function useMotionRef.useCallback}
+                                        >
++                                         .
+                              ...
+                          ...
+                            <AboutHeroImageReveal className="about-modu...">
+                              <motion.div className="about-modu..." initial={{opacity:0}} animate={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionImageReveal about-module__-i9KWa__heroImageClip"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "1"
+-                                   clip-path: "inset(0% 0% 100%)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                                  <AboutHeroImageParallax className="about-modu...">
+                                    <motion.div ref={{current:null}} className="about-modu..." style={undefined} ...>
+                                      <div
+                                        className="about-module__-i9KWa__heroImageScale"
++                                       style={{}}
+-                                       style={{transform:"scale(1.12)"}}
+                                        ref={function useMotionRef.useCallback}
+                                      >
+                      <AboutProofStrip facts={[...]}>
+                        <section id="proof-strip" aria-label="Fashion Kn..." className="relative b...">
+                          <AboutSectionSeam>
+                            <span ref={{current:null}} aria-hidden="true" className="about-modu...">
+                              <motion.span className="about-modu..." initial={{opacity:0}} animate={undefined} ...>
+                                <span
+                                  className="about-module__-i9KWa__sectionSeam"
++                                 style={{opacity:0}}
+-                                 style={{transform:"scaleX(0)"}}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <div className="about-modu...">
+                            <AboutReveal delay={0} className="about-modu...">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__proofItem grid i..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.08} className="about-modu...">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__proofItem grid i..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                      <section id="story" aria-labelledby="company-st..." className="overflow-h...">
+                        <div className="mx-auto gr...">
+                          <AboutReveal amount={0.3} className="relative m...">
+                            <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                              <div
+                                className="about-module__-i9KWa__motionReveal relative md:col-span-6"
+                                style={{
++                                 opacity: 0
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                                <p>
+                                <AboutStoryYear className="font-serif...">
+                                  <motion.p ref={{current:null}} aria-hidden="true" className="about-modu..." ...>
+                                    <p
+                                      aria-hidden="true"
+                                      className="about-module__-i9KWa__storyYear font-serif text-[clamp(6rem,15vw,13re..."
+                                      style={{
+-                                       opacity: "0.35"
+-                                       transform: "translateY(10px)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     1990
+                                ...
+                          <AboutReveal delay={0.1} amount={0.3} className="md:col-spa...">
+                            <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                              <div
+                                className="about-module__-i9KWa__motionReveal md:col-span-6 md:pt-10"
+                                style={{
++                                 opacity: 0
+-                                 opacity: "0"
+-                                 transform: "translateY(20px)"
+                                }}
+                                ref={function useMotionRef.useCallback}
+                              >
+                      <section id="leadership" aria-labelledby="md-profile..." className="relative b...">
+                        <AboutSectionSeam>
+                          <span ref={{current:null}} aria-hidden="true" className="about-modu...">
+                            <motion.span className="about-modu..." initial={{opacity:0}} animate={undefined} ...>
+                              <span
+                                className="about-module__-i9KWa__sectionSeam"
++                               style={{opacity:0}}
+-                               style={{transform:"scaleX(0)"}}
+                                ref={function useMotionRef.useCallback}
+                              >
+                        <div className="mx-auto ma...">
+                          <div className="grid items...">
+                            <AboutPortraitReveal className="md:col-spa...">
+                              <div ref={{current:null}} className="md:col-spa...">
+                                <motion.div className="about-modu..." initial={{opacity:0}} animate={{opacity:0}} ...>
+                                  <div
+                                    className="about-module__-i9KWa__motionImageReveal"
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "1"
+-                                     clip-path: "inset(100% 0% 0%)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                                    ...
+                                      <span ref={{current:null}} aria-hidden="true" className="about-modu...">
+                                        <motion.span className="about-modu..." initial={{opacity:0}} animate={undefined} ...>
+                                          <span
+                                            className="about-module__-i9KWa__drawnLine"
++                                           style={{opacity:0}}
+-                                           style={{transform:"scaleX(0)"}}
+                                            ref={function useMotionRef.useCallback}
+                                          >
+                            <div className="md:col-spa...">
+                              <p>
+                              <h2 id="md-profile..." className="flex flex-...">
+                                <AboutNameWord>
+                                  <motion.span className="inline-block" initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                    <span
+                                      className="inline-block"
+                                      style={{
++                                       opacity: 0
+-                                       opacity: "0"
+-                                       transform: "translateY(24px)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Ramu
+                                <AboutNameWord delay={0.1}>
+                                  <motion.span className="inline-block" initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                    <span
+                                      className="inline-block"
+                                      style={{
++                                       opacity: 0
+-                                       opacity: "0"
+-                                       transform: "translateY(24px)"
+                                      }}
+                                      ref={function useMotionRef.useCallback}
+                                    >
++                                     Raj
+                              <p>
+                              <AboutReveal className="about-modu...">
+                                <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                  <div
+                                    className="about-module__-i9KWa__motionReveal about-module__-i9KWa__mdNote mt-8 bo..."
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                              <AboutReveal delay={0.1} className="mt-7">
+                                <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                  <div
+                                    className="about-module__-i9KWa__motionReveal mt-7"
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                          <div className="about-modu...">
+                            <p>
+                            <h3>
+                            <ol className="about-modu...">
+                              <AboutListItemReveal delay={0} className="about-modu...">
+                                <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                  <li
+                                    className="about-module__-i9KWa__motionReveal about-module__-i9KWa__appointmentLis..."
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                              <AboutListItemReveal delay={0.06} className="about-modu...">
+                                <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                  <li
+                                    className="about-module__-i9KWa__motionReveal about-module__-i9KWa__appointmentLis..."
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                              <AboutListItemReveal delay={0.12} className="about-modu...">
+                                <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                  <li
+                                    className="about-module__-i9KWa__motionReveal about-module__-i9KWa__appointmentLis..."
+                                    style={{
++                                     opacity: 0
+-                                     opacity: "0"
+-                                     transform: "translateY(20px)"
+                                    }}
+                                    ref={function useMotionRef.useCallback}
+                                  >
+                            ...
+                      <section id="capabilities" aria-labelledby="manufactur..." className="about-modu...">
+                        <AboutSectionSeam>
+                          <span ref={{current:null}} aria-hidden="true" className="about-modu...">
+                            <motion.span className="about-modu..." initial={{opacity:0}} animate={undefined} ...>
+                              <span
+                                className="about-module__-i9KWa__sectionSeam"
++                               style={{opacity:0}}
+-                               style={{transform:"scaleX(0)"}}
+                                ref={function useMotionRef.useCallback}
+                              >
+                        <span>
+                        <div>
+                        <div className="relative m...">
+                          <div className="grid gap-6...">
+                            <AboutReveal className="md:col-span-7">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal md:col-span-7"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.1} className="md:col-spa...">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal md:col-span-5 md:pb-1"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <ol className="mt-11 grid...">
+                            <AboutListItemReveal delay={0} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__equipmentPanel g..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.09} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__equipmentPanel g..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.18} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__equipmentPanel g..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          ...
+                      <section id="locations" aria-labelledby="locations-..." className="bg-warm-wh...">
+                        <div className="mx-auto ma...">
+                          <div className="mb-9 grid ...">
+                            <AboutReveal className="md:col-span-7">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal md:col-span-7"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutReveal delay={0.08} className="md:col-span-5">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal md:col-span-5"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          <ul className="about-modu...">
+                            <AboutListItemReveal delay={0} hoverLift={true} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__locationCard ove..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.07} hoverLift={true} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__locationCard ove..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                            <AboutListItemReveal delay={0.14} hoverLift={true} className="about-modu...">
+                              <motion.li className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <li
+                                  className="about-module__-i9KWa__motionReveal about-module__-i9KWa__locationCard ove..."
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                      <section id="cta" aria-labelledby="about-cta-..." className="relative b...">
+                        <AboutSectionSeam>
+                          <span ref={{current:null}} aria-hidden="true" className="about-modu...">
+                            <motion.span className="about-modu..." initial={{opacity:0}} animate={undefined} ...>
+                              <span
+                                className="about-module__-i9KWa__sectionSeam"
++                               style={{opacity:0}}
+-                               style={{transform:"scaleX(0)"}}
+                                ref={function useMotionRef.useCallback}
+                              >
+                        <div className="mx-auto gr...">
+                          <div>
+                            <p>
+                            <AboutReveal amount={0.3} className="mt-2">
+                              <motion.div className="about-modu..." initial={{opacity:0}} whileInView={{opacity:1}} ...>
+                                <div
+                                  className="about-module__-i9KWa__motionReveal mt-2"
+                                  style={{
++                                   opacity: 0
+-                                   opacity: "0"
+-                                   transform: "translateY(20px)"
+                                  }}
+                                  ref={function useMotionRef.useCallback}
+                                >
+                          ...
+                        ...
+                  ...
+              ...
+            ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:1053
+[  532316ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  532375ms] [LOG] [Fast Refresh] done in 79ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  532404ms] ReferenceError: useReducedMotion is not defined
+    at AboutSectionSeam (http://localhost:3000/_next/static/chunks/app_about_1_p6lox._.js?id=%255Bproject%255D/app/about/AboutMotion.tsx+%255Bapp-client%255D+(ecmascript):635:29)
+    at Object.react_stack_bottom_frame (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:14894:24)
+    at renderWithHooks (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:4425:24)
+    at updateFunctionComponent (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:5892:21)
+    at beginWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:6518:24)
+    at runWithFiberInDEV (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:761:74)
+    at performUnitOfWork (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9385:97)
+    at workLoopSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9279:40)
+    at renderRootSync (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:9263:13)
+    at performWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:8928:47)
+    at performSyncWorkOnRoot (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10093:9)
+    at flushSyncWorkAcrossRoots_impl (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10009:316)
+    at processRootScheduleInMicrotask (http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10030:106)
+    at http://localhost:3000/_next/static/chunks/node_modules_next_dist_compiled_react-dom_096_9a-._.js:10104:158
+[  532453ms] [LOG] [Fast Refresh] done in 79ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  541410ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  541413ms] [WARNING] [Fast Refresh] performing full reload because your application had an unrecoverable error @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  541536ms] [LOG] [Fast Refresh] done in 4ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  541647ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  541659ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  547373ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  547386ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  598457ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  598470ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  614493ms] [WARNING] Image with src "/assets/manufacturing-equipment/lectra-automatic-cutting.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  750193ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  750236ms] [LOG] [Fast Refresh] done in 52ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  750332ms] [LOG] [Fast Refresh] done in 52ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  757072ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  757112ms] [LOG] [Fast Refresh] done in 55ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  764969ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  765041ms] [LOG] [Fast Refresh] done in 11ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  781181ms] [LOG] [Fast Refresh] done in 11ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  781257ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  781272ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  812484ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  812495ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  913806ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[  913817ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[ 1036691ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[ 1036702ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777

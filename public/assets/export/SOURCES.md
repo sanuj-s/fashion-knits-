@@ -1,6 +1,6 @@
 # Global export page imagery and market references
 
-Every photograph on this page is representative stock imagery. None documents Fashion Knits' own staff, facilities, shipments, ports, forwarders, routes or delivery arrangements. The map dots show locations referenced in Tiruppur knitwear industry coverage; they do not show Fashion Knits shipment activity or routes.
+Every photograph on this page is representative stock imagery. None documents Fashion Knits' own staff, facilities, shipments, ports, forwarders, routes or delivery arrangements. The redesigned map uses approximate city and regional reference points; it does not show Fashion Knits shipment activity or routes.
 
 ## Photographs
 
@@ -21,3 +21,9 @@ Every photograph on this page is representative stock imagery. None documents Fa
 - [Apparel Views industry coverage](https://www.apparelviews.com/wp-content/uploads/2024/09/AV_August_2024_Web.pdf) reports Tiruppur exports to the USA, Australia, Korea, Japan and Europe among markets on the rise.
 
 These are Tiruppur cluster-level market references, not a verified Fashion Knits customer or destination list.
+
+## Global page redesign assets
+
+- The redesign folder contains optimized WebP derivatives of the representative photographs listed above. The source JPEGs remain unchanged.
+- The flags folder contains rectangular ISO country flag icons from the flag-icons project, version 7.5.0. They are distributed under the MIT License; the license and copyright notice are included in the flags folder.
+- The country selector is a broad market-landscape illustration. Country entries and map references do not identify confirmed customers, export destinations or Fashion Knits shipment routes.

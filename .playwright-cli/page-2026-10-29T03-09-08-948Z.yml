@@ -1,0 +1,368 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - button "Open navigation menu" [ref=e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - generic [ref=e21]:
+          - generic [ref=e22]:
+            - navigation "Breadcrumb" [ref=e23]:
+              - link "Home" [ref=e24] [cursor=pointer]:
+                - /url: /
+              - generic [aria-hidden] [ref=e25]: /
+              - generic [ref=e26]: Manufacturing
+            - generic [ref=e27]: Manufacturing · Tiruppur, India
+            - heading "From CAD Patterns to Finished Garments." [level=1] [ref=e32]:
+              - generic [ref=e33]: From CAD Patterns
+              - generic [ref=e35]: to Finished Garments.
+            - paragraph [ref=e37]: Fashion Knits combines in-house CAD for cutting and pattern making, print and embroidery facilities, product-focused production lines and garment finishing across its Tiruppur locations.
+            - generic [ref=e38]:
+              - link "Discuss a production brief" [ref=e39] [cursor=pointer]:
+                - /url: /#contact
+              - link "Quality Standards" [ref=e42] [cursor=pointer]:
+                - /url: /quality
+            - generic [ref=e43]:
+              - generic [ref=e44]: Lectra & Bullmer Automated Cutting
+              - generic [ref=e48]: ·
+              - generic [ref=e49]: 10 Decoration Lines
+              - generic [ref=e50]: ·
+              - generic [ref=e51]: Tiruppur Hub
+          - generic [ref=e53]:
+            - img "Industrial precision sewing machine stitching gold knit fabric at Fashion Knits manufacturing facility" [ref=e56]
+            - generic [ref=e57]: In-House Assembly
+            - generic [ref=e59]: + + +
+            - generic [ref=e62]:
+              - generic [ref=e65]:
+                - paragraph [ref=e66]: Process Spec
+                - paragraph [ref=e67]: Automatic Stitch Precision
+              - generic [ref=e68]:
+                - paragraph [ref=e69]: Standard
+                - paragraph [ref=e70]: ISO 4915 · 301
+            - generic [aria-hidden]: ⌞
+            - generic [aria-hidden]: ⌝
+        - generic [ref=e73]:
+          - article [ref=e75]:
+            - paragraph [ref=e76]: Machine capacity
+            - paragraph [ref=e77]: ~590
+            - paragraph [ref=e78]: machines · 2026 figure
+          - article [ref=e81]:
+            - paragraph [ref=e82]: Production capacity
+            - paragraph [ref=e83]: ~350,000
+            - paragraph [ref=e84]: pieces per month · 2026 figure
+          - article [ref=e87]:
+            - paragraph [ref=e88]: Decoration equipment
+            - paragraph [ref=e89]: 5 + 5
+            - paragraph [ref=e90]: automatic printing + embroidery machines · 2026 figure
+      - region [ref=e91]:
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - paragraph [ref=e95]: Manufacturing capabilities
+              - heading "Pattern, decoration, construction and finish." [level=2] [ref=e96]
+            - paragraph [ref=e97]: Explore the equipment and processes that shape a Fashion Knits garment program.
+          - generic [ref=e98]:
+            - group "Manufacturing process areas" [ref=e99]:
+              - button "01 Pattern & Cut" [pressed] [ref=e100]:
+                - generic [ref=e101]: "01"
+                - generic [ref=e102]: Pattern & Cut
+              - button "02 Print & Embroider" [ref=e105]:
+                - generic [ref=e106]: "02"
+                - generic [ref=e107]: Print & Embroider
+              - button "03 Sew & Finish" [ref=e110]:
+                - generic [ref=e111]: "03"
+                - generic [ref=e112]: Sew & Finish
+              - button "04 Workforce & Facilities" [ref=e115]:
+                - generic [ref=e116]: "04"
+                - generic [ref=e117]: Workforce & Facilities
+            - article [ref=e120]:
+              - generic [aria-hidden] [ref=e121]: "01"
+              - generic [ref=e122]:
+                - paragraph [ref=e123]: Process 01
+                - heading "Pattern & Cut" [level=3] [ref=e130]
+                - paragraph [ref=e131]: In-house CAD supports pattern making and cutting as the garment moves from buyer specification to production.
+              - list [ref=e132]:
+                - listitem [ref=e133]: In-house CAD for pattern making
+                - listitem [ref=e135]: Lectra fully automatic cutting machine
+                - listitem [ref=e137]: Bullmer E80 fully automatic cutting machine
+          - generic [ref=e139]:
+            - paragraph [ref=e140]: Each production route is organized around the garment and buyer requirements.
+            - link "Explore quality & testing" [ref=e144] [cursor=pointer]:
+              - /url: /quality
+      - region [ref=e148]:
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - paragraph [ref=e152]: Manufacturing equipment · Interactive showroom
+              - heading "Equipment & technology." [level=2] [ref=e153]
+            - paragraph [ref=e154]: Choose a process, inspect a listed machine, and see how it supports a garment program.
+          - generic [ref=e155]:
+            - generic [ref=e156]:
+              - generic [ref=e157]:
+                - paragraph [ref=e158]: Production process navigator
+                - paragraph [ref=e159]: Choose a stage to filter the machines below.
+              - paragraph [ref=e160]: Routes vary by garment and buyer brief
+            - group "Filter machines by production process" [ref=e161]:
+              - button "Pattern & cut, 2 listed machines" [ref=e162] [cursor=pointer]:
+                - generic [aria-hidden] [ref=e163]: "01"
+                - generic [ref=e166]: Pattern & cut
+                - generic [ref=e167]: 2 machines
+              - button "Digital printing, 1 listed machine" [active] [pressed] [ref=e168] [cursor=pointer]:
+                - generic [ref=e170]: Digital printing
+                - generic [ref=e171]: 1 machine
+              - button "Screen printing, 3 listed machines" [ref=e172] [cursor=pointer]:
+                - generic [aria-hidden] [ref=e173]: "03"
+                - generic [ref=e174]: Screen printing
+                - generic [ref=e175]: 3 machines
+              - button "Embroidery, 2 listed machines" [ref=e176] [cursor=pointer]:
+                - generic [aria-hidden] [ref=e177]: "04"
+                - generic [ref=e178]: Embroidery
+                - generic [ref=e179]: 2 machines
+          - generic [ref=e180]:
+            - navigation "Digital printing machine selector" [ref=e451]:
+              - generic [ref=e182]:
+                - paragraph [ref=e183]: Machines in this process
+                - paragraph [ref=e184]: Digital printing
+              - group "Select a Digital printing machine" [ref=e452]:
+                - button "03 Kornit Storm 931 digital printing machine Kornit Digital · Storm 931" [pressed] [ref=e453] [cursor=pointer]:
+                  - generic [ref=e454]: "03"
+                  - generic [ref=e455]:
+                    - generic [ref=e456]: Kornit Storm 931 digital printing machine
+                    - generic [ref=e457]: Kornit Digital · Storm 931
+              - paragraph [ref=e200]: "Keyboard: use arrow keys, Home or End to select a machine."
+            - figure "Kornit Storm 931 digital printing machine image and component controls" [ref=e460]:
+              - generic [ref=e202]:
+                - generic [ref=e203]:
+                  - paragraph [ref=e204]: Selected equipment
+                  - paragraph [ref=e205]: Process 02 · Digital printing
+                - generic [ref=e206]: Equipment reference image
+              - generic [ref=e207]:
+                - generic [ref=e461]:
+                  - img "Kornit Storm 931 digital printing machine equipment reference image" [ref=e462]
+                  - group "Inspectable components of Kornit Storm 931 digital printing machine" [ref=e463]:
+                    - button "Inspect Print area on Kornit Storm 931 digital printing machine" [ref=e464] [cursor=pointer]:
+                      - generic: Print area
+                    - button "Inspect Operator display on Kornit Storm 931 digital printing machine" [ref=e466] [cursor=pointer]:
+                      - generic: Operator display
+                - paragraph: Still image · not live demonstration footage
+              - generic [ref=e215]:
+                - button "Previous machine" [ref=e216] [cursor=pointer]: Previous
+                - generic [ref=e219]:
+                  - generic [ref=e220]:
+                    - strong [ref=e221]: "03"
+                    - generic [ref=e222]: / 08
+                  - progressbar "Selected machine" [ref=e223]
+                - button "Next machine" [ref=e225] [cursor=pointer]: Next
+              - status [ref=e228]: "Selected Kornit Storm 931 digital printing machine, machine 3 of 8. Process: Digital printing."
+            - complementary "Selected machine details" [ref=e229]:
+              - generic [ref=e468]:
+                - generic [ref=e469]:
+                  - generic [ref=e470]: Digital printing
+                  - generic [ref=e471]: 03 / 08
+                - heading "Kornit Storm 931 digital printing machine" [level=3] [ref=e472]
+                - generic [ref=e473]:
+                  - generic [ref=e474]:
+                    - term [ref=e475]: Manufacturer
+                    - definition [ref=e476]: Kornit Digital
+                  - generic [ref=e477]:
+                    - term [ref=e478]: Model in company list
+                    - definition [ref=e479]: Storm 931
+                - generic [ref=e480]:
+                  - paragraph [ref=e481]: Primary function
+                  - paragraph [ref=e482]: Digital garment printing
+                  - paragraph [ref=e483]: Adds approved artwork digitally to a garment or textile surface where the production route calls for printing.
+                - generic [ref=e484]:
+                  - generic [ref=e485]:
+                    - paragraph [ref=e486]: Supported operation
+                    - paragraph [ref=e487]: Digital printing; material, artwork, and setup requirements depend on the confirmed job.
+                  - generic [ref=e488]:
+                    - paragraph [ref=e489]: Garment application
+                    - paragraph [ref=e490]: Styles with approved printed artwork.
+                  - generic [ref=e491]:
+                    - paragraph [ref=e492]: Why it matters to a buyer
+                    - paragraph [ref=e493]: The listed digital-printing system can support a print option in a garment program; it does not mean every style is printed.
+                - generic [ref=e494]:
+                  - paragraph [ref=e495]: Technical specifications
+                  - paragraph [ref=e496]: No installed configuration, speed, output rate or dimensions are published with this equipment record.
+                - paragraph [ref=e497]: The company list names Kornit Storm 931. Kornit’s own history describes the 930/931 lineage as direct-to-garment systems; installed configuration details are not listed.
+                - paragraph [ref=e499]: Select a marked component on the image to inspect its role.
+                - link "Kornit · Storm 931 product history" [ref=e500] [cursor=pointer]:
+                  - /url: https://www.kornit.com/magazine/kornit-digital-history/
+              - button "Explore next process Screen printing" [ref=e504] [cursor=pointer]:
+                - generic [ref=e267]: Explore next process
+                - generic [ref=e268]: Screen printing
+          - generic [ref=e271]:
+            - generic [ref=e272]:
+              - generic [ref=e273]:
+                - paragraph [ref=e274]: Where equipment fits
+                - heading "A route through garment production." [level=3] [ref=e275]
+              - paragraph [ref=e276]: Decoration steps are selected to suit the style and buyer brief; a garment does not necessarily pass through every process shown.
+            - list [ref=e277]:
+              - listitem [ref=e278]:
+                - generic [ref=e279]: "01"
+                - generic [ref=e280]:
+                  - heading "Pattern preparation & cutting" [level=4] [ref=e281]
+                  - paragraph [ref=e282]: Prepare pattern data and cut fabric components for construction.
+              - listitem [ref=e283]:
+                - generic [ref=e284]: "02"
+                - generic [ref=e285]:
+                  - heading "Decoration, when specified" [level=4] [ref=e286]
+                  - paragraph [ref=e287]: Digital print, screen print or embroidery, according to the garment program.
+              - listitem [ref=e288]:
+                - generic [ref=e289]: "03"
+                - generic [ref=e290]:
+                  - heading "Sew & finish" [level=4] [ref=e291]
+                  - paragraph [ref=e292]: Garment assembly followed by checking, ironing and packing.
+          - generic [ref=e293]:
+            - paragraph [ref=e294]:
+              - strong [ref=e295]: "In-house decoration:"
+              - text: five automatic printing machines and five embroidery machines.
+            - paragraph [ref=e296]:
+              - strong [ref=e297]: "Production flow:"
+              - text: cutting, sewing, trimming, checking, ironing and packing.
+      - region [ref=e298]:
+        - generic [ref=e299]:
+          - generic [ref=e300]:
+            - paragraph [ref=e301]: Workforce & locations
+            - heading "Built around people and production." [level=2] [ref=e302]
+            - paragraph [ref=e303]: Skilled operators are trained for specific product categories. Worker facilities include hostel accommodation, catering and transport.
+          - generic [ref=e304]:
+            - heading "Fashion Knits locations" [level=3] [ref=e305]
+            - list [ref=e306]:
+              - listitem [ref=e307]:
+                - img "Exterior of Fashion Knits Head Office and Unit 2 in Angeripalayam" [ref=e309]
+                - generic [ref=e310]:
+                  - heading "Head Office & Unit 2" [level=4] [ref=e311]
+                  - generic [ref=e312]: Fashion Knits, 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+              - listitem [ref=e313]:
+                - img "Exterior of Fashion Knits Unit 1 at Netaji Apparel Park" [ref=e315]
+                - generic [ref=e316]:
+                  - heading "Unit 1" [level=4] [ref=e317]
+                  - generic [ref=e318]: Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666, Tamil Nadu, India.
+              - listitem [ref=e319]:
+                - generic [ref=e320]:
+                  - heading "Unit 3" [level=4] [ref=e321]
+                  - generic [ref=e322]: SF No. 275, P.N. Road, Tiruppur, Tamil Nadu, India.
+      - region [ref=e323]:
+        - generic [ref=e324]:
+          - generic [ref=e325]:
+            - paragraph [ref=e326]: Sewing facilities
+            - heading "A production plan built for each product." [level=2] [ref=e327]
+            - paragraph [ref=e328]: Dedicated, product-focused lines across the plants convert customer designs into garments in a range of sizes, shapes and colours. Each garment moves through final checking, ironing and packaging to match customer requirements.
+          - generic [ref=e329]:
+            - article [ref=e330]:
+              - paragraph [ref=e331]: Monthly capacity
+              - paragraph [ref=e332]: ~350,000
+              - paragraph [ref=e333]: pieces per month · 2026 figure
+            - article [ref=e334]:
+              - paragraph [ref=e335]: Machine capacity
+              - paragraph [ref=e336]: ~2,000
+              - paragraph [ref=e337]: machines · 2026 figure
+            - link "See quality, testing & compliance" [ref=e339] [cursor=pointer]:
+              - /url: /quality
+      - generic [ref=e344]:
+        - generic [ref=e345]:
+          - paragraph [ref=e346]: Material evolution
+          - heading "BEYOND COTTON. INTO MAN-MADE FIBRES." [level=2] [ref=e348]:
+            - generic [ref=e349]: BEYOND COTTON.
+            - generic [ref=e350]: INTO MAN-MADE FIBRES.
+        - generic [ref=e351]:
+          - generic [ref=e352]:
+            - paragraph [ref=e353]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - paragraph [ref=e354]: Cotton and cotton blends remain established options.
+            - paragraph [ref=e355]: Performance-related requirements are considered against buyer specifications.
+            - link "Discuss Your Material Requirements" [ref=e356] [cursor=pointer]:
+              - /url: /#contact
+          - figure "Material study" [ref=e360]:
+            - img "A material study of knitted fabrics in contrasting textures and colours" [ref=e362]
+    - region [ref=e364]:
+      - generic [ref=e366]:
+        - generic [ref=e367]:
+          - paragraph [ref=e368]: Production planning
+          - heading "Planning Your Next Production Run?" [level=2] [ref=e370]
+          - paragraph [ref=e371]: Share your product scope and order requirements with our manufacturing team.
+        - link "Discuss Your Project" [ref=e373] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=e379]:
+      - generic [ref=e380]:
+        - generic [ref=e381]:
+          - link "Fashion Knits home" [ref=e382] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e383]:
+              - generic [ref=e384]:
+                - generic [ref=e388]: FK
+                - generic [ref=e389]: We Design Your Dreams
+              - generic [ref=e390]: Fashion Knits
+          - paragraph [ref=e391]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e392]:
+            - paragraph [ref=e393]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e397]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e401]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e405]:
+          - heading "Explore" [level=2] [ref=e406]
+          - list [ref=e407]:
+            - listitem [ref=e408]:
+              - link "Products" [ref=e409] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e410]:
+              - link "Manufacturing" [ref=e411] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e412]:
+              - link "Quality" [ref=e413] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e414]:
+              - link "Sustainability" [ref=e415] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e416]:
+              - link "Export" [ref=e417] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e418]:
+              - link "About" [ref=e419] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e420]:
+          - heading "Discuss a production brief" [level=2] [ref=e421]
+          - paragraph [ref=e422]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e423] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e428] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e432]:
+        - paragraph [ref=e433]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e434] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=e443] [cursor=pointer]
+  - alert [ref=e447]

@@ -16,7 +16,7 @@ const navLinks = [
   { name: 'Products', href: '/products' },
   { name: 'Manufacturing', href: '/manufacturing' },
   { name: 'Quality', href: '/quality' },
-  { name: 'Sustainability', href: '#sustainability' },
+  { name: 'Sustainability', href: '/sustainability' },
   { name: 'Global Export', href: '/export' },
   { name: 'About Us', href: '/about' },
 ];

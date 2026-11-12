@@ -6,7 +6,7 @@
  */
 export function ScrollIndicator() {
   return (
-    <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20">
+    <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 z-20 md:flex">
       {/* Label */}
       <span className="text-[10px] tracking-[0.3em] uppercase text-off-white/40 select-none">
         Scroll to explore

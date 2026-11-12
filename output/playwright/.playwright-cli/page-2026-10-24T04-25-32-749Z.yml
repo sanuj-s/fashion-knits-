@@ -1,0 +1,164 @@
+- generic [active] [ref=f14e1]:
+  - banner [ref=f14e2]:
+    - generic [ref=f14e3]:
+      - link "Fashion Knits home" [ref=f14e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f14e5]:
+          - generic [ref=f14e6]:
+            - generic [ref=f14e10]: FK
+            - generic [ref=f14e11]: We Design Your Dreams
+          - generic [ref=f14e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f14e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f14e17]:
+    - generic [ref=f14e18]:
+      - generic [ref=f14e20]:
+        - navigation "Breadcrumb" [ref=f14e21]:
+          - link "Home" [ref=f14e22] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f14e23]: /
+          - generic [ref=f14e24]: Global Export
+        - generic [ref=f14e25]:
+          - generic [ref=f14e26]:
+            - paragraph [ref=f14e27]: International apparel orders · Tiruppur, India
+            - heading "A garment exporter ready for international orders." [level=1] [ref=f14e29]
+            - paragraph [ref=f14e30]: Fashion Knits is a Government-certified Two-Star Export House, making knitted and woven garments for apparel brands and international buyers.
+            - link "See export preparation" [ref=f14e31] [cursor=pointer]:
+              - /url: "#export-planning"
+          - generic [ref=f14e34]:
+            - paragraph [ref=f14e39]: Government-certified
+            - paragraph [ref=f14e40]: Two-Star Export House
+            - paragraph [ref=f14e41]: Fashion Knits · Tiruppur, Tamil Nadu, India
+      - region [ref=f14e42]:
+        - generic [ref=f14e43]:
+          - generic [ref=f14e44]:
+            - generic [ref=f14e45]:
+              - paragraph [ref=f14e46]: Order & shipment preparation
+              - heading "From order details to export cartons." [level=2] [ref=f14e47]
+            - paragraph [ref=f14e48]: A clear product brief, order instructions and packing plan help keep the shipment preparation aligned with buyer requirements.
+          - list [ref=f14e49]:
+            - listitem [ref=f14e50]:
+              - generic [ref=f14e51]: "01"
+              - heading "Set the product brief" [level=3] [ref=f14e57]
+              - paragraph [ref=f14e58]: Agree the style, material, quantity, quality checks and packing instructions for the order.
+            - listitem [ref=f14e59]:
+              - generic [ref=f14e60]: "02"
+              - heading "Confirm the order details" [level=3] [ref=f14e67]
+              - paragraph [ref=f14e68]: Align destination, labels, carton information and the documents required for the shipment.
+            - listitem [ref=f14e69]:
+              - generic [ref=f14e70]: "03"
+              - heading "Prepare finished garments" [level=3] [ref=f14e77]
+              - paragraph [ref=f14e78]: Final checking, metal detection and secure packing in export cartons prepare garments for shipment.
+      - region [ref=f14e79]:
+        - generic [ref=f14e80]:
+          - generic [ref=f14e81]:
+            - paragraph [ref=f14e82]: Manufacturing at a glance
+            - heading "Ready for apparel buyers worldwide." [level=2] [ref=f14e83]
+            - paragraph [ref=f14e84]: Based in Tiruppur, Fashion Knits manufactures for men, women, children, toddlers and newborns, with final checking and export-carton packing.
+          - generic [ref=f14e85]:
+            - generic [ref=f14e86]:
+              - term [ref=f14e87]:
+                - generic [ref=f14e88]: "01"
+                - text: Head office
+              - definition [ref=f14e89]: 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+            - generic [ref=f14e90]:
+              - term [ref=f14e91]:
+                - generic [ref=f14e92]: "02"
+                - text: Export status
+              - definition [ref=f14e93]: Government-certified Two-Star Export House.
+            - generic [ref=f14e94]:
+              - term [ref=f14e95]:
+                - generic [ref=f14e96]: "03"
+                - text: Product range
+              - definition [ref=f14e97]: Knitted and woven apparel for men, women, children, toddlers and newborns.
+            - generic [ref=f14e98]:
+              - term [ref=f14e99]:
+                - generic [ref=f14e100]: "04"
+                - text: Shipment preparation
+              - definition [ref=f14e101]: Finished garments are checked, ironed, metal detected and packed in export cartons.
+        - generic [ref=f14e102]:
+          - paragraph [ref=f14e103]: Planning an international knitwear order?
+          - link "Share your requirements" [ref=f14e104] [cursor=pointer]:
+            - /url: /#contact
+    - region [ref=f14e108]:
+      - generic [ref=f14e110]:
+        - generic [ref=f14e111]:
+          - paragraph [ref=f14e112]: International enquiry
+          - heading "Planning Your Next Export Order?" [level=2] [ref=f14e114]
+          - paragraph [ref=f14e115]: Share your destination, order details and delivery requirements with our team.
+        - link "Discuss Your Project" [ref=f14e117] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f14e123]:
+      - generic [ref=f14e124]:
+        - generic [ref=f14e125]:
+          - link "Fashion Knits home" [ref=f14e126] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f14e127]:
+              - generic [ref=f14e128]:
+                - generic [ref=f14e132]: FK
+                - generic [ref=f14e133]: We Design Your Dreams
+              - generic [ref=f14e134]: Fashion Knits
+          - paragraph [ref=f14e135]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f14e136]:
+            - paragraph [ref=f14e137]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f14e141]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f14e145]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f14e149]:
+          - heading "Explore" [level=2] [ref=f14e150]
+          - list [ref=f14e151]:
+            - listitem [ref=f14e152]:
+              - link "Products" [ref=f14e153] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f14e154]:
+              - link "Manufacturing" [ref=f14e155] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f14e156]:
+              - link "Quality" [ref=f14e157] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f14e158]:
+              - link "Sustainability" [ref=f14e159] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f14e160]:
+              - link "Export" [ref=f14e161] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f14e162]:
+              - link "About" [ref=f14e163] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f14e164]:
+          - heading "Discuss a production brief" [level=2] [ref=f14e165]
+          - paragraph [ref=f14e166]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f14e167] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f14e172] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f14e176]:
+        - paragraph [ref=f14e177]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f14e178] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f14e182]

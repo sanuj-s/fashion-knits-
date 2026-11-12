@@ -1,0 +1,549 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - button "Open navigation menu" [ref=e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e17]:
+    - generic [ref=e18]:
+      - region [ref=e19]:
+        - generic [ref=e24]:
+          - navigation "Breadcrumb" [ref=e25]:
+            - link "Home" [ref=e26] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=e27]: /
+            - generic [ref=e28]: Global export
+          - paragraph [ref=e29]: Apparel export · global logistics support
+          - heading "APPAREL. WITHOUT BORDERS." [level=1] [ref=e31]:
+            - generic [ref=e32]: APPAREL.
+            - generic [ref=e33]: WITHOUT BORDERS.
+          - generic [ref=e34]:
+            - paragraph [ref=e35]: Connecting apparel manufacturing with international markets through export coordination, logistics, and global trade support.
+            - generic [ref=e36]:
+              - link "Explore Our Global Reach" [ref=e37] [cursor=pointer]:
+                - /url: "#markets"
+              - link "Our Export Capabilities" [ref=e40] [cursor=pointer]:
+                - /url: "#export-capabilities"
+          - generic [ref=e43]:
+            - generic [ref=e44]: From Tiruppur, India
+            - generic [ref=e45]: Export coordination · freight · global markets
+            - generic [ref=e46]: 11° N 77° E
+        - link "Scroll to global markets" [ref=e47] [cursor=pointer]:
+          - /url: "#markets"
+          - generic [ref=e48]: Scroll to explore
+        - generic [ref=e51]: Representative port image · illustrative routes only
+      - region [ref=e52]:
+        - generic [ref=e53]:
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - paragraph [ref=e56]: 01 / International market landscape
+              - heading "A WORLD OF OPPORTUNITY" [level=2] [ref=e57]
+            - paragraph [ref=e58]: Built for international apparel trade, with export coordination and logistics support designed to connect businesses across borders.
+          - figure [ref=e59]:
+            - generic [ref=e60]:
+              - generic [ref=e61]:
+                - text: Geographic view
+                - paragraph [ref=e62]: A connected world of apparel trade
+              - generic [ref=e63]: Market landscape
+            - img [aria-hidden] [ref=e67]:
+              - generic [ref=e87]: TIRUPPUR · INDIA
+              - generic [ref=e88]: 11° N · 77° E
+            - generic [ref=e89]:
+              - paragraph [ref=e90]: Choose a country to focus its representative location on the map.
+              - paragraph [ref=e91]: Lines and markers are illustrative geography only. They do not represent confirmed Fashion Knits customers, export destinations, shipment history or active trade lanes.
+          - generic [ref=e92]:
+            - generic [ref=e93]:
+              - generic [ref=e94]:
+                - paragraph [ref=e95]: Explore the market landscape
+                - paragraph [ref=e96]: 49 countries shown · select a flag to focus the map
+              - paragraph [ref=e97]: Country focus
+            - group "Filter countries by region" [ref=e99]:
+              - button "All regions" [pressed] [ref=e100] [cursor=pointer]
+              - button "Europe" [ref=e101] [cursor=pointer]
+              - button "North America" [ref=e102] [cursor=pointer]
+              - button "Asia-Pacific" [ref=e103] [cursor=pointer]
+              - button "Middle East" [ref=e104] [cursor=pointer]
+              - button "Africa" [ref=e105] [cursor=pointer]
+              - button "Latin America" [ref=e106] [cursor=pointer]
+            - list "Countries in the global market landscape" [ref=e107]:
+              - listitem [ref=e108]:
+                - button "Show United Kingdom (GB) on the illustrative map" [ref=e109] [cursor=pointer]:
+                  - generic [ref=e112]:
+                    - generic [ref=e113]: United Kingdom
+                    - generic [ref=e114]: GB · Europe
+              - listitem [ref=e118]:
+                - button "Show Germany (DE) on the illustrative map" [ref=e119] [cursor=pointer]:
+                  - generic [ref=e122]:
+                    - generic [ref=e123]: Germany
+                    - generic [ref=e124]: DE · Europe
+              - listitem [ref=e128]:
+                - button "Show France (FR) on the illustrative map" [ref=e129] [cursor=pointer]:
+                  - generic [ref=e132]:
+                    - generic [ref=e133]: France
+                    - generic [ref=e134]: FR · Europe
+              - listitem [ref=e138]:
+                - button "Show Italy (IT) on the illustrative map" [ref=e139] [cursor=pointer]:
+                  - generic [ref=e142]:
+                    - generic [ref=e143]: Italy
+                    - generic [ref=e144]: IT · Europe
+              - listitem [ref=e148]:
+                - button "Show Spain (ES) on the illustrative map" [ref=e149] [cursor=pointer]:
+                  - generic [ref=e152]:
+                    - generic [ref=e153]: Spain
+                    - generic [ref=e154]: ES · Europe
+              - listitem [ref=e158]:
+                - button "Show Netherlands (NL) on the illustrative map" [ref=e159] [cursor=pointer]:
+                  - generic [ref=e162]:
+                    - generic [ref=e163]: Netherlands
+                    - generic [ref=e164]: NL · Europe
+              - listitem [ref=e168]:
+                - button "Show Belgium (BE) on the illustrative map" [ref=e169] [cursor=pointer]:
+                  - generic [ref=e172]:
+                    - generic [ref=e173]: Belgium
+                    - generic [ref=e174]: BE · Europe
+              - listitem [ref=e178]:
+                - button "Show Portugal (PT) on the illustrative map" [ref=e179] [cursor=pointer]:
+                  - generic [ref=e182]:
+                    - generic [ref=e183]: Portugal
+                    - generic [ref=e184]: PT · Europe
+              - listitem [ref=e188]:
+                - button "Show Poland (PL) on the illustrative map" [ref=e189] [cursor=pointer]:
+                  - generic [ref=e192]:
+                    - generic [ref=e193]: Poland
+                    - generic [ref=e194]: PL · Europe
+              - listitem [ref=e198]:
+                - button "Show Sweden (SE) on the illustrative map" [ref=e199] [cursor=pointer]:
+                  - generic [ref=e202]:
+                    - generic [ref=e203]: Sweden
+                    - generic [ref=e204]: SE · Europe
+              - listitem [ref=e208]:
+                - button "Show Denmark (DK) on the illustrative map" [ref=e209] [cursor=pointer]:
+                  - generic [ref=e212]:
+                    - generic [ref=e213]: Denmark
+                    - generic [ref=e214]: DK · Europe
+              - listitem [ref=e218]:
+                - button "Show Norway (NO) on the illustrative map" [ref=e219] [cursor=pointer]:
+                  - generic [ref=e222]:
+                    - generic [ref=e223]: Norway
+                    - generic [ref=e224]: NO · Europe
+              - listitem [ref=e228]:
+                - button "Show Finland (FI) on the illustrative map" [ref=e229] [cursor=pointer]:
+                  - generic [ref=e232]:
+                    - generic [ref=e233]: Finland
+                    - generic [ref=e234]: FI · Europe
+              - listitem [ref=e238]:
+                - button "Show Switzerland (CH) on the illustrative map" [ref=e239] [cursor=pointer]:
+                  - generic [ref=e242]:
+                    - generic [ref=e243]: Switzerland
+                    - generic [ref=e244]: CH · Europe
+              - listitem [ref=e248]:
+                - button "Show Austria (AT) on the illustrative map" [ref=e249] [cursor=pointer]:
+                  - generic [ref=e252]:
+                    - generic [ref=e253]: Austria
+                    - generic [ref=e254]: AT · Europe
+              - listitem [ref=e258]:
+                - button "Show Ireland (IE) on the illustrative map" [ref=e259] [cursor=pointer]:
+                  - generic [ref=e262]:
+                    - generic [ref=e263]: Ireland
+                    - generic [ref=e264]: IE · Europe
+              - listitem [ref=e268]:
+                - button "Show Turkey (TR) on the illustrative map" [ref=e269] [cursor=pointer]:
+                  - generic [ref=e272]:
+                    - generic [ref=e273]: Turkey
+                    - generic [ref=e274]: TR · Europe
+              - listitem [ref=e278]:
+                - button "Show Greece (GR) on the illustrative map" [ref=e279] [cursor=pointer]:
+                  - generic [ref=e282]:
+                    - generic [ref=e283]: Greece
+                    - generic [ref=e284]: GR · Europe
+              - listitem [ref=e288]:
+                - button "Show Czechia (CZ) on the illustrative map" [ref=e289] [cursor=pointer]:
+                  - generic [ref=e292]:
+                    - generic [ref=e293]: Czechia
+                    - generic [ref=e294]: CZ · Europe
+              - listitem [ref=e298]:
+                - button "Show Romania (RO) on the illustrative map" [ref=e299] [cursor=pointer]:
+                  - generic [ref=e302]:
+                    - generic [ref=e303]: Romania
+                    - generic [ref=e304]: RO · Europe
+              - listitem [ref=e308]:
+                - button "Show Hungary (HU) on the illustrative map" [ref=e309] [cursor=pointer]:
+                  - generic [ref=e312]:
+                    - generic [ref=e313]: Hungary
+                    - generic [ref=e314]: HU · Europe
+              - listitem [ref=e318]:
+                - button "Show United States (US) on the illustrative map" [ref=e319] [cursor=pointer]:
+                  - generic [ref=e322]:
+                    - generic [ref=e323]: United States
+                    - generic [ref=e324]: US · North America
+              - listitem [ref=e328]:
+                - button "Show Canada (CA) on the illustrative map" [ref=e329] [cursor=pointer]:
+                  - generic [ref=e332]:
+                    - generic [ref=e333]: Canada
+                    - generic [ref=e334]: CA · North America
+              - listitem [ref=e338]:
+                - button "Show Australia (AU) on the illustrative map" [ref=e339] [cursor=pointer]:
+                  - generic [ref=e342]:
+                    - generic [ref=e343]: Australia
+                    - generic [ref=e344]: AU · Asia-Pacific
+              - listitem [ref=e348]:
+                - button "Show New Zealand (NZ) on the illustrative map" [ref=e349] [cursor=pointer]:
+                  - generic [ref=e352]:
+                    - generic [ref=e353]: New Zealand
+                    - generic [ref=e354]: NZ · Asia-Pacific
+              - listitem [ref=e358]:
+                - button "Show Japan (JP) on the illustrative map" [ref=e359] [cursor=pointer]:
+                  - generic [ref=e362]:
+                    - generic [ref=e363]: Japan
+                    - generic [ref=e364]: JP · Asia-Pacific
+              - listitem [ref=e368]:
+                - button "Show South Korea (KR) on the illustrative map" [ref=e369] [cursor=pointer]:
+                  - generic [ref=e372]:
+                    - generic [ref=e373]: South Korea
+                    - generic [ref=e374]: KR · Asia-Pacific
+              - listitem [ref=e378]:
+                - button "Show China (CN) on the illustrative map" [ref=e379] [cursor=pointer]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]: China
+                    - generic [ref=e384]: CN · Asia-Pacific
+              - listitem [ref=e388]:
+                - button "Show Hong Kong (HK) on the illustrative map" [ref=e389] [cursor=pointer]:
+                  - generic [ref=e392]:
+                    - generic [ref=e393]: Hong Kong
+                    - generic [ref=e394]: HK · Asia-Pacific
+              - listitem [ref=e398]:
+                - button "Show Singapore (SG) on the illustrative map" [ref=e399] [cursor=pointer]:
+                  - generic [ref=e402]:
+                    - generic [ref=e403]: Singapore
+                    - generic [ref=e404]: SG · Asia-Pacific
+              - listitem [ref=e408]:
+                - button "Show Malaysia (MY) on the illustrative map" [ref=e409] [cursor=pointer]:
+                  - generic [ref=e412]:
+                    - generic [ref=e413]: Malaysia
+                    - generic [ref=e414]: MY · Asia-Pacific
+              - listitem [ref=e418]:
+                - button "Show Thailand (TH) on the illustrative map" [ref=e419] [cursor=pointer]:
+                  - generic [ref=e422]:
+                    - generic [ref=e423]: Thailand
+                    - generic [ref=e424]: TH · Asia-Pacific
+              - listitem [ref=e428]:
+                - button "Show Indonesia (ID) on the illustrative map" [ref=e429] [cursor=pointer]:
+                  - generic [ref=e432]:
+                    - generic [ref=e433]: Indonesia
+                    - generic [ref=e434]: ID · Asia-Pacific
+              - listitem [ref=e438]:
+                - button "Show Vietnam (VN) on the illustrative map" [ref=e439] [cursor=pointer]:
+                  - generic [ref=e442]:
+                    - generic [ref=e443]: Vietnam
+                    - generic [ref=e444]: VN · Asia-Pacific
+              - listitem [ref=e448]:
+                - button "Show Philippines (PH) on the illustrative map" [ref=e449] [cursor=pointer]:
+                  - generic [ref=e452]:
+                    - generic [ref=e453]: Philippines
+                    - generic [ref=e454]: PH · Asia-Pacific
+              - listitem [ref=e458]:
+                - button "Show Bangladesh (BD) on the illustrative map" [ref=e459] [cursor=pointer]:
+                  - generic [ref=e462]:
+                    - generic [ref=e463]: Bangladesh
+                    - generic [ref=e464]: BD · Asia-Pacific
+              - listitem [ref=e468]:
+                - button "Show Sri Lanka (LK) on the illustrative map" [ref=e469] [cursor=pointer]:
+                  - generic [ref=e472]:
+                    - generic [ref=e473]: Sri Lanka
+                    - generic [ref=e474]: LK · Asia-Pacific
+              - listitem [ref=e478]:
+                - button "Show United Arab Emirates (AE) on the illustrative map" [ref=e479] [cursor=pointer]:
+                  - generic [ref=e482]:
+                    - generic [ref=e483]: United Arab Emirates
+                    - generic [ref=e484]: AE · Middle East
+              - listitem [ref=e488]:
+                - button "Show Saudi Arabia (SA) on the illustrative map" [ref=e489] [cursor=pointer]:
+                  - generic [ref=e492]:
+                    - generic [ref=e493]: Saudi Arabia
+                    - generic [ref=e494]: SA · Middle East
+              - listitem [ref=e498]:
+                - button "Show Qatar (QA) on the illustrative map" [ref=e499] [cursor=pointer]:
+                  - generic [ref=e502]:
+                    - generic [ref=e503]: Qatar
+                    - generic [ref=e504]: QA · Middle East
+              - listitem [ref=e508]:
+                - button "Show Kuwait (KW) on the illustrative map" [ref=e509] [cursor=pointer]:
+                  - generic [ref=e512]:
+                    - generic [ref=e513]: Kuwait
+                    - generic [ref=e514]: KW · Middle East
+              - listitem [ref=e518]:
+                - button "Show Oman (OM) on the illustrative map" [ref=e519] [cursor=pointer]:
+                  - generic [ref=e522]:
+                    - generic [ref=e523]: Oman
+                    - generic [ref=e524]: OM · Middle East
+              - listitem [ref=e528]:
+                - button "Show South Africa (ZA) on the illustrative map" [ref=e529] [cursor=pointer]:
+                  - generic [ref=e532]:
+                    - generic [ref=e533]: South Africa
+                    - generic [ref=e534]: ZA · Africa
+              - listitem [ref=e538]:
+                - button "Show Egypt (EG) on the illustrative map" [ref=e539] [cursor=pointer]:
+                  - generic [ref=e542]:
+                    - generic [ref=e543]: Egypt
+                    - generic [ref=e544]: EG · Africa
+              - listitem [ref=e548]:
+                - button "Show Kenya (KE) on the illustrative map" [ref=e549] [cursor=pointer]:
+                  - generic [ref=e552]:
+                    - generic [ref=e553]: Kenya
+                    - generic [ref=e554]: KE · Africa
+              - listitem [ref=e558]:
+                - button "Show Brazil (BR) on the illustrative map" [ref=e559] [cursor=pointer]:
+                  - generic [ref=e562]:
+                    - generic [ref=e563]: Brazil
+                    - generic [ref=e564]: BR · Latin America
+              - listitem [ref=e568]:
+                - button "Show Mexico (MX) on the illustrative map" [ref=e569] [cursor=pointer]:
+                  - generic [ref=e572]:
+                    - generic [ref=e573]: Mexico
+                    - generic [ref=e574]: MX · Latin America
+              - listitem [ref=e578]:
+                - button "Show Chile (CL) on the illustrative map" [ref=e579] [cursor=pointer]:
+                  - generic [ref=e582]:
+                    - generic [ref=e583]: Chile
+                    - generic [ref=e584]: CL · Latin America
+              - listitem [ref=e588]:
+                - button "Show Argentina (AR) on the illustrative map" [ref=e589] [cursor=pointer]:
+                  - generic [ref=e592]:
+                    - generic [ref=e593]: Argentina
+                    - generic [ref=e594]: AR · Latin America
+            - paragraph [ref=e598]: This broad country set illustrates potential international market reach. It is not a verified list of Fashion Knits customers or established export destinations.
+      - region [ref=e599]:
+        - generic [ref=e600]:
+          - generic [ref=e601]:
+            - generic [ref=e602]:
+              - paragraph [ref=e603]: 02 / Export capabilities
+              - heading "Every border has its own details." [level=2] [ref=e605]
+              - paragraph [ref=e606]:
+                - text: Government-certified Two-Star Export House
+                - generic [ref=e610]: · Tiruppur, India
+            - paragraph [ref=e611]: International apparel trade brings together documentation, storage, customs procedures and freight movement. Support is coordinated around each order and its requirements.
+          - generic [ref=e612]:
+            - generic [ref=e613]:
+              - article [ref=e615]:
+                - generic [ref=e616]: "01"
+                - generic [ref=e622]:
+                  - heading "Export coordination" [level=3] [ref=e623]
+                  - paragraph [ref=e624]: An export team can coordinate shipment preparation, buyer communication and the steps agreed for each order.
+              - article [ref=e629]:
+                - generic [ref=e630]: "02"
+                - generic [ref=e634]:
+                  - heading "Customs clearance" [level=3] [ref=e635]
+                  - paragraph [ref=e636]: Support through customs procedures and the related documentation, with responsibilities confirmed for each shipment.
+              - article [ref=e641]:
+                - generic [ref=e642]: "03"
+                - generic [ref=e646]:
+                  - heading "Warehousing & storage" [level=3] [ref=e647]
+                  - paragraph [ref=e648]: Storage and cargo coordination can support organized inventory handling and export readiness where arranged.
+              - article [ref=e653]:
+                - generic [ref=e654]: "04"
+                - generic [ref=e657]:
+                  - heading "International freight" [level=3] [ref=e658]
+                  - paragraph [ref=e659]: Sea and air freight options can be discussed around cargo, destination and order requirements.
+              - article [ref=e664]:
+                - generic [ref=e665]: "05"
+                - generic [ref=e669]:
+                  - heading "Export documentation" [level=3] [ref=e670]
+                  - paragraph [ref=e671]: Documentation support follows the requirements agreed for each order, destination and delivery term.
+              - article [ref=e676]:
+                - generic [ref=e677]: "06"
+                - generic [ref=e682]:
+                  - heading "Shipment coordination" [level=3] [ref=e683]
+                  - paragraph [ref=e684]: Shipment information and logistics communication can be aligned with the relevant parties as responsibilities are confirmed.
+            - generic [ref=e688]:
+              - figure "Export coordination Representative image" [ref=e689]:
+                - img "Representative stock photograph of a logistics worker reviewing shipment paperwork; the person shown is not Fashion Knits staff." [ref=e690]
+                - generic [ref=e691]:
+                  - generic [ref=e695]: Export coordination
+                  - generic [ref=e696]: Representative image
+              - paragraph [ref=e697]: Route, carrier, timing and responsibilities depend on the shipment and agreed delivery terms.
+      - region [ref=e698]:
+        - generic [ref=e699]:
+          - generic [ref=e700]:
+            - generic [ref=e701]:
+              - paragraph [ref=e702]: 03 / Logistics workflow
+              - heading "BEYOND THE BORDER" [level=2] [ref=e703]
+            - paragraph [ref=e704]: International trade involves more than moving cargo. It requires coordination across documentation, storage, customs procedures, and freight movement.
+          - list [ref=e708]:
+            - listitem [ref=e709]:
+              - generic [ref=e710]: "01"
+              - heading "Export planning" [level=3] [ref=e715]
+            - listitem [ref=e716]:
+              - generic [ref=e717]: "02"
+              - heading "Documentation preparation" [level=3] [ref=e722]
+            - listitem [ref=e723]:
+              - generic [ref=e724]: "03"
+              - heading "Warehousing & cargo coordination" [level=3] [ref=e729]
+            - listitem [ref=e730]:
+              - generic [ref=e731]: "04"
+              - heading "Customs clearance" [level=3] [ref=e736]
+            - listitem [ref=e737]:
+              - generic [ref=e738]: "05"
+              - heading "Freight dispatch" [level=3] [ref=e744]
+            - listitem [ref=e745]:
+              - generic [ref=e746]: "06"
+              - heading "International shipment coordination" [level=3] [ref=e753]
+          - paragraph [ref=e754]: Sequence is illustrative. Requirements, responsibilities and order can differ by shipment and destination.
+      - region [ref=e755]:
+        - generic [ref=e756]:
+          - generic [ref=e757]:
+            - generic [ref=e758]:
+              - paragraph [ref=e759]: 04 / Global trade gallery
+              - heading "From inland storage to international air." [level=2] [ref=e761]
+            - paragraph [ref=e762]: A closer look at the logistics settings and coordination points behind international cargo movement.
+          - generic [ref=e763]:
+            - figure "01 Storage & cargo handling" [ref=e765]:
+              - img "Representative warehouse aisle with cargo storage and handling equipment." [ref=e766]
+              - generic [ref=e767]:
+                - generic [ref=e768]: "01"
+                - generic [ref=e769]: Storage & cargo handling
+            - figure "02 Air freight operations" [ref=e774]:
+              - img "Representative cargo aircraft being loaded with freight at an airport." [ref=e775]
+              - generic [ref=e776]:
+                - generic [ref=e777]: "02"
+                - generic [ref=e778]: Air freight operations
+            - figure "03 Export documentation" [ref=e783]:
+              - img "Representative close view of a logistics worker completing shipment paperwork." [ref=e784]
+              - generic [ref=e785]:
+                - generic [ref=e786]: "03"
+                - generic [ref=e787]: Export documentation
+          - paragraph [ref=e791]: All gallery photographs are representative stock imagery. They do not depict Fashion Knits staff, facilities, shipments or logistics partners.
+      - region [ref=e792]:
+        - generic [ref=e793]:
+          - generic [ref=e794]:
+            - generic [ref=e795]:
+              - paragraph [ref=e796]: 05 / Connected export ecosystem
+              - heading "One conversation. Many moving parts." [level=2] [ref=e797]
+            - paragraph [ref=e798]: Export coordination brings different requirements and participants into view, while the details and responsibilities vary from one shipment to another.
+          - img [aria-hidden] [ref=e800]:
+            - generic [ref=e820]: TIRUPPUR · INDIA
+          - list "Illustrative export coordination areas" [ref=e821]:
+            - listitem [ref=e822]:
+              - generic [ref=e823]: "01"
+              - text: Buyer requirements
+            - listitem [ref=e827]:
+              - generic [ref=e828]: "02"
+              - text: Export coordination
+            - listitem [ref=e832]:
+              - generic [ref=e833]: "03"
+              - text: Documentation
+            - listitem [ref=e837]:
+              - generic [ref=e838]: "04"
+              - text: Customs procedures
+            - listitem [ref=e842]:
+              - generic [ref=e843]: "05"
+              - text: Warehousing & cargo
+            - listitem [ref=e847]:
+              - generic [ref=e848]: "06"
+              - text: Freight options
+            - listitem [ref=e852]:
+              - generic [ref=e853]: "07"
+              - text: Market opportunities
+            - listitem [ref=e857]:
+              - generic [ref=e858]: "08"
+              - text: Shipment communication
+          - paragraph [ref=e862]: An editorial illustration of connected export activities. No live shipment counts, vessel positions, customer orders or tracking data are shown.
+      - region [ref=e863]:
+        - generic [ref=e867]:
+          - paragraph [ref=e868]: Take business beyond borders
+          - heading "YOUR NEXT MARKET STARTS HERE." [level=2] [ref=e870]:
+            - text: YOUR NEXT MARKET
+            - generic [ref=e871]: STARTS HERE.
+          - paragraph [ref=e872]: Explore how Fashion Knits can support your international apparel business through manufacturing expertise, export coordination, and logistics support.
+          - generic [ref=e873]:
+            - link "Contact Our Export Team" [ref=e874] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Explore Our Capabilities" [ref=e877] [cursor=pointer]:
+              - /url: "#export-capabilities"
+          - paragraph [ref=e881]: Representative shipping image · shipment arrangements are confirmed order by order.
+    - region [ref=e882]:
+      - generic [ref=e884]:
+        - generic [ref=e885]:
+          - paragraph [ref=e886]: International enquiry
+          - heading "Planning Your Next Export Order?" [level=2] [ref=e888]
+          - paragraph [ref=e889]: Share your destination, order details and delivery requirements with our team.
+        - link "Discuss Your Project" [ref=e891] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=e897]:
+      - generic [ref=e898]:
+        - generic [ref=e899]:
+          - link "Fashion Knits home" [ref=e900] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e901]:
+              - generic [ref=e902]:
+                - generic [ref=e906]: FK
+                - generic [ref=e907]: We Design Your Dreams
+              - generic [ref=e908]: Fashion Knits
+          - paragraph [ref=e909]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e910]:
+            - paragraph [ref=e911]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e915]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e919]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e923]:
+          - heading "Explore" [level=2] [ref=e924]
+          - list [ref=e925]:
+            - listitem [ref=e926]:
+              - link "Products" [ref=e927] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e928]:
+              - link "Manufacturing" [ref=e929] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e930]:
+              - link "Quality" [ref=e931] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e932]:
+              - link "Sustainability" [ref=e933] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e934]:
+              - link "Export" [ref=e935] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e936]:
+              - link "About" [ref=e937] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e938]:
+          - heading "Discuss a production brief" [level=2] [ref=e939]
+          - paragraph [ref=e940]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e941] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e946] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e950]:
+        - paragraph [ref=e951]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e952] [cursor=pointer]:
+          - /url: /#hero

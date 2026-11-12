@@ -1,0 +1,175 @@
+- generic [active] [ref=f13e1]:
+  - banner [ref=f13e2]:
+    - generic [ref=f13e3]:
+      - link "Fashion Knits home" [ref=f13e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f13e5]:
+          - generic [ref=f13e6]:
+            - generic [ref=f13e10]: FK
+            - generic [ref=f13e11]: We Design Your Dreams
+          - generic [ref=f13e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f13e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f13e17]:
+    - generic [ref=f13e18]:
+      - generic [ref=f13e20]:
+        - navigation "Breadcrumb" [ref=f13e21]:
+          - link "Home" [ref=f13e22] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f13e23]: /
+          - generic [ref=f13e24]: Sustainability
+        - generic [ref=f13e25]:
+          - generic [ref=f13e26]:
+            - paragraph [ref=f13e27]: Materials · Energy · Community
+            - heading "Better choices for what comes next." [level=1] [ref=f13e29]
+          - paragraph [ref=f13e30]: From material exploration to solar energy and local environmental initiatives, Fashion Knits is working across the choices that shape responsible apparel manufacturing.
+      - region [ref=f13e31]:
+        - generic [ref=f13e32]:
+          - figure [ref=f13e33]:
+            - img "Knitted fabric swatches and yarns in contrasting textures" [ref=f13e35]
+          - generic [ref=f13e36]:
+            - paragraph [ref=f13e37]: Material direction
+            - heading "Beyond cotton. Into man-made fibres." [level=2] [ref=f13e38]
+            - paragraph [ref=f13e39]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - list [ref=f13e40]:
+              - listitem [ref=f13e41]:
+                - generic [ref=f13e42]: Established options
+                - heading "Cotton & cotton blends" [level=3] [ref=f13e47]
+                - paragraph [ref=f13e48]: Established choices for knitwear programs, with fibre content and construction set for each product.
+              - listitem [ref=f13e49]:
+                - generic [ref=f13e50]: Under exploration
+                - heading "Polyester, nylon, viscose & blends" [level=3] [ref=f13e55]
+                - paragraph [ref=f13e56]: Man-made fibres and blended knitwear are being evaluated for evolving apparel requirements.
+            - paragraph [ref=f13e57]: Performance-related requirements remain subject to buyer specifications and supporting evidence.
+      - region [ref=f13e58]:
+        - generic [ref=f13e59]:
+          - generic [ref=f13e60]:
+            - generic [ref=f13e61]:
+              - paragraph [ref=f13e62]: Energy & infrastructure
+              - heading "Solar at Fashion Knits and Netaji Apparel Park." [level=2] [ref=f13e69]
+            - paragraph [ref=f13e70]: The Fashion Knits factory at Netaji Apparel Park has a rooftop solar power system, alongside shared park infrastructure.
+          - generic [ref=f13e71]:
+            - article [ref=f13e72]:
+              - img "Rooftop solar panels at the Netaji Apparel Park factory" [ref=f13e74]
+              - generic [ref=f13e75]:
+                - paragraph [ref=f13e76]: Fashion Knits factory
+                - heading "200 kWp rooftop solar" [level=3] [ref=f13e77]
+                - paragraph [ref=f13e78]: A 200 kWp rooftop solar power system is installed at the Netaji Apparel Park factory.
+            - article [ref=f13e79]:
+              - img "Solar and shared infrastructure at Netaji Apparel Park" [ref=f13e81]
+              - generic [ref=f13e82]:
+                - paragraph [ref=f13e83]: Shared park infrastructure
+                - heading "3.4 MW solar plant" [level=3] [ref=f13e84]
+                - paragraph [ref=f13e85]: The Netaji Apparel Park solar plant generates approximately 3.4 MW for factories across the park. The shared electrical infrastructure also includes a TNEB 110/11 kV substation serving surrounding consumers and supporting wind generation transmission.
+      - region [ref=f13e86]:
+        - generic [ref=f13e87]:
+          - generic [ref=f13e88]:
+            - paragraph [ref=f13e89]: Water treatment
+            - heading "Treat water for landscape reuse." [level=2] [ref=f13e93]
+            - paragraph [ref=f13e94]: The sewage treatment process uses Fluidized Attached Growth Process. Treated water is reused for gardening, landscaping and maintaining green spaces.
+          - figure [ref=f13e95]:
+            - img "Sewage treatment plant and water treatment tanks" [ref=f13e97]
+      - region [ref=f13e98]:
+        - generic [ref=f13e99]:
+          - generic [ref=f13e100]:
+            - generic [ref=f13e101]:
+              - paragraph [ref=f13e102]: Afforestation & community
+              - heading "Growing a greener Tiruppur." [level=2] [ref=f13e106]
+            - paragraph [ref=f13e107]: Fashion Knits took part in regional tree-planting work and supports a community shaped by long-running environmental projects.
+          - generic [ref=f13e108]:
+            - figure [ref=f13e109]:
+              - img "Community participants in a tree-planting campaign in Tiruppur" [ref=f13e111]
+              - generic [ref=f13e112]:
+                - heading "Vanathukkul Tiruppur" [level=3] [ref=f13e113]
+                - paragraph [ref=f13e114]: Fashion Knits initiated and took part in the campaign, planting nearly 125,000 trees over a two-year period.
+            - article [ref=f13e115]:
+              - paragraph [ref=f13e116]: VETRY · Tiruppur community work
+              - heading "Environmental projects with a long local history." [level=3] [ref=f13e117]
+              - paragraph [ref=f13e118]: VETRY is a Tiruppur NGO formed by local business leaders in 2004. Its work includes constructing a check dam across the Noyyal River in 2006, reviving the Andipalayam PWD Tank after 30 years, and developing the Iduvampalayam Government Higher Secondary School campus in 2008, which serves 3,000 students.
+              - generic [ref=f13e119]:
+                - generic [ref=f13e120]:
+                  - term [ref=f13e121]: Trees planted
+                  - definition [ref=f13e122]: 1,585,000
+                  - definition [ref=f13e123]: Across Tiruppur District, 2015–2024
+                - generic [ref=f13e124]:
+                  - term [ref=f13e125]: Ongoing program
+                  - definition [ref=f13e126]: 200,000 trees
+                  - definition [ref=f13e127]: Annual planting target
+          - generic [ref=f13e128]:
+            - paragraph [ref=f13e129]: Have a material or responsibility brief to discuss?
+            - link "Talk with our team" [ref=f13e130] [cursor=pointer]:
+              - /url: /#contact
+    - generic [ref=f13e134]:
+      - generic [ref=f13e135]:
+        - generic [ref=f13e136]:
+          - link "Fashion Knits home" [ref=f13e137] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f13e138]:
+              - generic [ref=f13e139]:
+                - generic [ref=f13e143]: FK
+                - generic [ref=f13e144]: We Design Your Dreams
+              - generic [ref=f13e145]: Fashion Knits
+          - paragraph [ref=f13e146]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f13e147]:
+            - paragraph [ref=f13e148]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f13e152]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f13e156]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f13e160]:
+          - heading "Explore" [level=2] [ref=f13e161]
+          - list [ref=f13e162]:
+            - listitem [ref=f13e163]:
+              - link "Products" [ref=f13e164] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f13e165]:
+              - link "Manufacturing" [ref=f13e166] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f13e167]:
+              - link "Quality" [ref=f13e168] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f13e169]:
+              - link "Sustainability" [ref=f13e170] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f13e171]:
+              - link "Export" [ref=f13e172] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f13e173]:
+              - link "About" [ref=f13e174] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f13e175]:
+          - heading "Discuss a production brief" [level=2] [ref=f13e176]
+          - paragraph [ref=f13e177]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f13e178] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f13e183] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f13e187]:
+        - paragraph [ref=f13e188]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f13e189] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f13e193]

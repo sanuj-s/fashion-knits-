@@ -31,8 +31,8 @@ const COPY: Record<EnquiryCTAContext, { eyebrow: string; heading: string; descri
   },
   quality: {
     eyebrow: 'Quality planning',
-    heading: 'Planning Your Next Knitwear Project?',
-    description: 'Share your quality requirements and approval process with our team.',
+    heading: 'Your standards. Your specifications. A clear starting point.',
+    description: 'Share your tech pack, approved sample requirements or product brief with Fashion Knits to discuss the quality expectations for your garment programme.',
   },
 };
 
@@ -70,7 +70,7 @@ export function EnquiryCTA({ context = 'general' }: { context?: EnquiryCTAContex
             href="/get-a-quote"
             className="btn-shine inline-flex min-h-14 w-full items-center justify-between gap-5 rounded-full bg-[#d3b476] px-6 text-[10px] font-bold uppercase tracking-[0.14em] text-[#25231f] transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#e5c991] hover:shadow-[0_12px_32px_rgba(201,169,110,0.2)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#d3b476] sm:w-fit sm:min-w-64"
           >
-            <span>Discuss Your Project</span>
+            <span>{context === 'quality' ? 'Discuss Your Quality Requirements' : 'Discuss Your Project'}</span>
             <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
           </Link>
         </div>

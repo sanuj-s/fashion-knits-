@@ -1,0 +1,263 @@
+- generic [active] [ref=f10e1]:
+  - banner [ref=f10e2]:
+    - generic [ref=f10e3]:
+      - link "Fashion Knits home" [ref=f10e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f10e5]:
+          - generic [ref=f10e6]:
+            - generic [ref=f10e10]: FK
+            - generic [ref=f10e11]: We Design Your Dreams
+          - generic [ref=f10e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f10e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f10e17]:
+    - generic [ref=f10e18]:
+      - generic [ref=f10e20]:
+        - navigation "Breadcrumb" [ref=f10e21]:
+          - link "Home" [ref=f10e22] [cursor=pointer]:
+            - /url: /
+          - generic [aria-hidden] [ref=f10e23]: /
+          - generic [ref=f10e24]: Manufacturing
+        - paragraph [ref=f10e25]: Manufacturing · Tiruppur, India
+        - heading "From CAD Patterns to Finished Garments." [level=1] [ref=f10e28]
+        - paragraph [ref=f10e29]: Fashion Knits combines in-house CAD for cutting and pattern making, print and embroidery facilities, product-focused production lines and garment finishing across its Tiruppur locations.
+        - link "Discuss a production brief" [ref=f10e30] [cursor=pointer]:
+          - /url: /#contact
+      - region "Manufacturing figures" [ref=f10e33]:
+        - generic [ref=f10e34]:
+          - article [ref=f10e35]:
+            - paragraph [ref=f10e36]: Machine capacity
+            - paragraph [ref=f10e37]: ~2,000
+            - paragraph [ref=f10e38]: machines · 2026 figure
+          - article [ref=f10e39]:
+            - paragraph [ref=f10e40]: Production capacity
+            - paragraph [ref=f10e41]: ~350,000
+            - paragraph [ref=f10e42]: pieces per month · 2026 figure
+          - article [ref=f10e43]:
+            - paragraph [ref=f10e44]: Decoration equipment
+            - paragraph [ref=f10e45]: 5 + 5
+            - paragraph [ref=f10e46]: automatic printing + embroidery machines · 2026 figure
+      - region [ref=f10e47]:
+        - generic [ref=f10e48]:
+          - generic [ref=f10e49]:
+            - generic [ref=f10e50]:
+              - paragraph [ref=f10e51]: Manufacturing capabilities
+              - heading "Pattern, decoration, construction and finish." [level=2] [ref=f10e52]
+            - paragraph [ref=f10e53]: Explore the equipment and processes that shape a Fashion Knits garment program.
+          - generic [ref=f10e54]:
+            - group "Manufacturing process areas" [ref=f10e55]:
+              - button "01 Pattern & Cut" [pressed] [ref=f10e56]:
+                - generic [ref=f10e57]: "01"
+                - generic [ref=f10e58]: Pattern & Cut
+              - button "02 Print & Embroider" [ref=f10e61]:
+                - generic [ref=f10e62]: "02"
+                - generic [ref=f10e63]: Print & Embroider
+              - button "03 Sew & Finish" [ref=f10e66]:
+                - generic [ref=f10e67]: "03"
+                - generic [ref=f10e68]: Sew & Finish
+              - button "04 Workforce & Facilities" [ref=f10e71]:
+                - generic [ref=f10e72]: "04"
+                - generic [ref=f10e73]: Workforce & Facilities
+            - article [ref=f10e76]:
+              - generic [aria-hidden] [ref=f10e77]: "01"
+              - generic [ref=f10e78]:
+                - paragraph [ref=f10e79]: Process 01
+                - heading "Pattern & Cut" [level=3] [ref=f10e86]
+                - paragraph [ref=f10e87]: In-house CAD supports pattern making and cutting as the garment moves from buyer specification to production.
+              - list [ref=f10e88]:
+                - listitem [ref=f10e89]: In-house CAD for pattern making
+                - listitem [ref=f10e91]: Lectra fully automatic cutting machine
+                - listitem [ref=f10e93]: Bullmer E80 fully automatic cutting machine
+          - generic [ref=f10e95]:
+            - paragraph [ref=f10e96]: Each production route is organized around the garment and buyer requirements.
+            - link "Explore quality & testing" [ref=f10e100] [cursor=pointer]:
+              - /url: /quality
+      - region [ref=f10e104]:
+        - generic [ref=f10e105]:
+          - generic [ref=f10e106]:
+            - generic [ref=f10e107]:
+              - paragraph [ref=f10e108]: Manufacturing equipment
+              - heading "Equipment & technology." [level=2] [ref=f10e109]
+            - paragraph [ref=f10e110]: CAD, automatic cutting, digital and screen printing, and embroidery equipment support the garment production flow.
+          - generic [ref=f10e111]:
+            - figure "Pattern & Cut Lectra fully automatic cutting machine" [ref=f10e112]:
+              - img "Lectra fully automatic cutting machine" [ref=f10e114]
+              - generic [ref=f10e115]:
+                - generic [ref=f10e116]: Pattern & Cut
+                - generic [ref=f10e117]: Lectra fully automatic cutting machine
+            - figure "Pattern & Cut Bullmer E80 fully automatic cutting machine" [ref=f10e118]:
+              - img "Bullmer E80 fully automatic cutting machine" [ref=f10e120]
+              - generic [ref=f10e121]:
+                - generic [ref=f10e122]: Pattern & Cut
+                - generic [ref=f10e123]: Bullmer E80 fully automatic cutting machine
+            - figure "Print & Embroider Kornit Storm 931 digital printing machine" [ref=f10e124]:
+              - img "Kornit Storm 931 digital printing machine" [ref=f10e126]
+              - generic [ref=f10e127]:
+                - generic [ref=f10e128]: Print & Embroider
+                - generic [ref=f10e129]: Kornit Storm 931 digital printing machine
+            - figure "Print & Embroider M&R Challenger II printing machine" [ref=f10e130]:
+              - img "M&R Challenger II printing machine" [ref=f10e132]
+              - generic [ref=f10e133]:
+                - generic [ref=f10e134]: Print & Embroider
+                - generic [ref=f10e135]: M&R Challenger II printing machine
+            - figure "Print & Embroider Sportsman EX printing machine" [ref=f10e136]:
+              - img "Sportsman EX printing machine" [ref=f10e138]
+              - generic [ref=f10e139]:
+                - generic [ref=f10e140]: Print & Embroider
+                - generic [ref=f10e141]: Sportsman EX printing machine
+            - figure "Print & Embroider M&R Alpha 8 Oval printing machine" [ref=f10e142]:
+              - img "M&R Alpha 8 Oval printing machine" [ref=f10e144]
+              - generic [ref=f10e145]:
+                - generic [ref=f10e146]: Print & Embroider
+                - generic [ref=f10e147]: M&R Alpha 8 Oval printing machine
+            - figure "Print & Embroider Barudan embroidery machine" [ref=f10e148]:
+              - img "Barudan embroidery machine" [ref=f10e150]
+              - generic [ref=f10e151]:
+                - generic [ref=f10e152]: Print & Embroider
+                - generic [ref=f10e153]: Barudan embroidery machine
+            - figure "Print & Embroider Tajima embroidery machines · 3 listed" [ref=f10e154]:
+              - img "Tajima embroidery machines · 3 listed" [ref=f10e156]
+              - generic [ref=f10e157]:
+                - generic [ref=f10e158]: Print & Embroider
+                - generic [ref=f10e159]: Tajima embroidery machines · 3 listed
+          - generic [ref=f10e160]:
+            - paragraph [ref=f10e161]:
+              - strong [ref=f10e162]: "In-house decoration:"
+              - text: five automatic printing machines and five embroidery machines.
+            - paragraph [ref=f10e163]:
+              - strong [ref=f10e164]: "Production flow:"
+              - text: cutting, sewing, trimming, checking, ironing and packing.
+      - region [ref=f10e165]:
+        - generic [ref=f10e166]:
+          - generic [ref=f10e167]:
+            - paragraph [ref=f10e168]: Workforce & locations
+            - heading "Built around people and production." [level=2] [ref=f10e169]
+            - paragraph [ref=f10e170]: Skilled operators are trained for specific product categories. Worker facilities include hostel accommodation, catering and transport.
+          - generic [ref=f10e171]:
+            - heading "Fashion Knits locations" [level=3] [ref=f10e172]
+            - list [ref=f10e173]:
+              - listitem [ref=f10e174]:
+                - heading "Head Office & Unit 2" [level=4] [ref=f10e175]
+                - generic [ref=f10e176]: Fashion Knits, 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+              - listitem [ref=f10e177]:
+                - heading "Unit 1" [level=4] [ref=f10e178]
+                - generic [ref=f10e179]: Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666, Tamil Nadu, India.
+              - listitem [ref=f10e180]:
+                - heading "Unit 3" [level=4] [ref=f10e181]
+                - generic [ref=f10e182]: SF No. 275, P.N. Road, Tiruppur, Tamil Nadu, India.
+      - region [ref=f10e183]:
+        - generic [ref=f10e184]:
+          - generic [ref=f10e185]:
+            - paragraph [ref=f10e186]: Sewing facilities
+            - heading "A production plan built for each product." [level=2] [ref=f10e187]
+            - paragraph [ref=f10e188]: Dedicated, product-focused lines across the plants convert customer designs into garments in a range of sizes, shapes and colours. Each garment moves through final checking, ironing and packaging to match customer requirements.
+          - generic [ref=f10e189]:
+            - article [ref=f10e190]:
+              - paragraph [ref=f10e191]: Monthly capacity
+              - paragraph [ref=f10e192]: ~350,000
+              - paragraph [ref=f10e193]: pieces per month · 2026 figure
+            - article [ref=f10e194]:
+              - paragraph [ref=f10e195]: Machine capacity
+              - paragraph [ref=f10e196]: ~2,000
+              - paragraph [ref=f10e197]: machines · 2026 figure
+            - link "See quality, testing & compliance" [ref=f10e199] [cursor=pointer]:
+              - /url: /quality
+      - generic [ref=f10e204]:
+        - generic [ref=f10e205]:
+          - paragraph [ref=f10e206]: Material evolution
+          - heading "BEYOND COTTON. INTO MAN-MADE FIBRES." [level=2] [ref=f10e208]:
+            - generic [ref=f10e209]: BEYOND COTTON.
+            - generic [ref=f10e210]:
+              - generic [ref=f10e211]: INTO MAN-MADE
+              - generic [ref=f10e212]: FIBRES.
+        - generic [ref=f10e213]:
+          - generic [ref=f10e214]:
+            - paragraph [ref=f10e215]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - paragraph [ref=f10e216]: Cotton and cotton blends remain established options.
+            - paragraph [ref=f10e217]: Performance-related requirements are considered against buyer specifications.
+            - link "Discuss Your Material Requirements" [ref=f10e218] [cursor=pointer]:
+              - /url: /#contact
+          - figure "Material study" [ref=f10e222]:
+            - img "A material study of knitted fabrics in contrasting textures and colours" [ref=f10e224]
+    - region [ref=f10e226]:
+      - generic [ref=f10e228]:
+        - generic [ref=f10e229]:
+          - paragraph [ref=f10e230]: Production planning
+          - heading "Planning Your Next Production Run?" [level=2] [ref=f10e232]
+          - paragraph [ref=f10e233]: Share your product scope and order requirements with our manufacturing team.
+        - link "Discuss Your Project" [ref=f10e235] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f10e241]:
+      - generic [ref=f10e242]:
+        - generic [ref=f10e243]:
+          - link "Fashion Knits home" [ref=f10e244] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f10e245]:
+              - generic [ref=f10e246]:
+                - generic [ref=f10e250]: FK
+                - generic [ref=f10e251]: We Design Your Dreams
+              - generic [ref=f10e252]: Fashion Knits
+          - paragraph [ref=f10e253]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f10e254]:
+            - paragraph [ref=f10e255]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f10e259]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f10e263]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f10e267]:
+          - heading "Explore" [level=2] [ref=f10e268]
+          - list [ref=f10e269]:
+            - listitem [ref=f10e270]:
+              - link "Products" [ref=f10e271] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f10e272]:
+              - link "Manufacturing" [ref=f10e273] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f10e274]:
+              - link "Quality" [ref=f10e275] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f10e276]:
+              - link "Sustainability" [ref=f10e277] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f10e278]:
+              - link "Export" [ref=f10e279] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f10e280]:
+              - link "About" [ref=f10e281] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f10e282]:
+          - heading "Discuss a production brief" [level=2] [ref=f10e283]
+          - paragraph [ref=f10e284]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f10e285] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f10e290] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f10e294]:
+        - paragraph [ref=f10e295]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f10e296] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=f10e300]

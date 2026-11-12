@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   const config = deliveryConfig();
   if (!config) {
     return NextResponse.json(
-      { success: false, deliveryConfigured: false, error: 'Online enquiry delivery is not configured. Use the prepared email option or contact the export desk directly.' },
+      { success: false, deliveryConfigured: false, error: 'Online enquiry delivery is not configured. Use the prepared email option or contact the company by email.' },
       { status: 503, headers: { 'Cache-Control': 'no-store' } },
     );
   }
@@ -95,7 +95,7 @@ export async function POST(request: Request) {
 
     if (!response.ok) {
       return NextResponse.json(
-        { success: false, deliveryConfigured: true, error: 'The email service did not accept this enquiry. Please use the prepared email option or contact the export desk directly.' },
+        { success: false, deliveryConfigured: true, error: 'The email service did not accept this enquiry. Please use the prepared email option or contact the company by email.' },
         { status: 502, headers: { 'Cache-Control': 'no-store' } },
       );
     }
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
     );
   } catch {
     return NextResponse.json(
-      { success: false, deliveryConfigured: true, error: 'The email service could not be reached. Please use the prepared email option or contact the export desk directly.' },
+      { success: false, deliveryConfigured: true, error: 'The email service could not be reached. Please use the prepared email option or contact the company by email.' },
       { status: 502, headers: { 'Cache-Control': 'no-store' } },
     );
   }

@@ -11,13 +11,39 @@ export const metadata: Metadata = {
 export default async function GetAQuotePage({
   searchParams,
 }: {
-  searchParams: Promise<{ product?: string | string[] }>;
+  searchParams: Promise<{
+    product?: string | string[];
+    productId?: string | string[];
+    productName?: string | string[];
+    productCategory?: string | string[];
+    fabric?: string | string[];
+    color?: string | string[];
+    customizations?: string | string[];
+  }>;
 }) {
-  const { product } = await searchParams;
+  const params = await searchParams;
+  const first = (value?: string | string[]) => Array.isArray(value) ? value[0] : value;
+  const product = first(params.product);
+  const productId = first(params.productId);
+  const productName = first(params.productName);
+  const productCategory = first(params.productCategory);
+  const fabric = first(params.fabric);
+  const color = first(params.color);
+  const customizations = first(params.customizations);
 
   return (
     <>
-      <Contact initialProductInterest={Array.isArray(product) ? product[0] : product} />
+      <Contact
+        initialProductInterest={productCategory ?? product}
+        initialGarment={productId && productName && productCategory ? {
+          id: productId,
+          name: productName,
+          category: productCategory,
+          fabric,
+          color,
+          customizations,
+        } : undefined}
+      />
       <Footer />
     </>
   );

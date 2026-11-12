@@ -1,0 +1,365 @@
+- generic [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - link "Fashion Knits home" [ref=f2e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=f2e5]:
+          - generic [ref=f2e6]:
+            - generic [ref=f2e10]: FK
+            - generic [ref=f2e11]: We Design Your Dreams
+          - generic [ref=f2e12]: Fashion Knits
+      - button "Open navigation menu" [ref=f2e13]
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=f2e17]:
+    - generic [ref=f2e18]:
+      - generic [ref=f2e19]:
+        - generic [ref=f2e22]:
+          - navigation "Breadcrumb" [ref=f2e23]:
+            - link "Home" [ref=f2e24] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=f2e25]: /
+            - generic [ref=f2e26]: Manufacturing
+          - generic [ref=f2e27]: Manufacturing · Tiruppur, India
+          - heading "From CAD Patterns to Finished Garments." [level=1] [ref=f2e31]:
+            - generic [ref=f2e32]: From CAD Patterns
+            - generic [ref=f2e34]: to Finished Garments.
+          - generic [ref=f2e37]:
+            - img "Industrial precision sewing machine stitching gold knit fabric at Fashion Knits manufacturing facility" [ref=f2e39]
+            - generic [ref=f2e40]:
+              - generic [ref=f2e41]: ISO 4915 · 301 Lockstitch
+              - generic [ref=f2e42]: Precision Seam
+          - paragraph [ref=f2e43]: Fashion Knits combines in-house CAD for cutting and pattern making, print and embroidery facilities, product-focused production lines and garment finishing across its Tiruppur locations.
+          - generic [ref=f2e44]:
+            - link "Discuss a production brief" [ref=f2e45] [cursor=pointer]:
+              - /url: /#contact
+            - link "Quality Standards" [ref=f2e48] [cursor=pointer]:
+              - /url: /quality
+        - generic [ref=f2e51]:
+          - article [ref=f2e53]:
+            - paragraph [ref=f2e54]: Machine capacity
+            - paragraph [ref=f2e55]: ~2,000
+            - paragraph [ref=f2e56]: machines · 2026 figure
+          - article [ref=f2e58]:
+            - paragraph [ref=f2e59]: Production capacity
+            - paragraph [ref=f2e60]: ~350,000
+            - paragraph [ref=f2e61]: pieces per month · 2026 figure
+          - article [ref=f2e63]:
+            - paragraph [ref=f2e64]: Decoration equipment
+            - paragraph [ref=f2e65]: 5 + 5
+            - paragraph [ref=f2e66]: automatic printing + embroidery machines · 2026 figure
+      - region [ref=f2e67]:
+        - generic [ref=f2e68]:
+          - generic [ref=f2e69]:
+            - generic [ref=f2e70]:
+              - paragraph [ref=f2e71]: Manufacturing capabilities
+              - heading "Pattern, decoration, construction and finish." [level=2] [ref=f2e72]
+            - paragraph [ref=f2e73]: Explore the equipment and processes that shape a Fashion Knits garment program.
+          - generic [ref=f2e74]:
+            - group "Manufacturing process areas" [ref=f2e75]:
+              - button "01 Pattern & Cut" [pressed] [ref=f2e76]:
+                - generic [ref=f2e77]: "01"
+                - generic [ref=f2e78]: Pattern & Cut
+              - button "02 Print & Embroider" [ref=f2e81]:
+                - generic [ref=f2e82]: "02"
+                - generic [ref=f2e83]: Print & Embroider
+              - button "03 Sew & Finish" [ref=f2e86]:
+                - generic [ref=f2e87]: "03"
+                - generic [ref=f2e88]: Sew & Finish
+              - button "04 Workforce & Facilities" [ref=f2e91]:
+                - generic [ref=f2e92]: "04"
+                - generic [ref=f2e93]: Workforce & Facilities
+            - article [ref=f2e96]:
+              - generic [aria-hidden] [ref=f2e97]: "01"
+              - generic [ref=f2e98]:
+                - paragraph [ref=f2e99]: Process 01
+                - heading "Pattern & Cut" [level=3] [ref=f2e106]
+                - paragraph [ref=f2e107]: In-house CAD supports pattern making and cutting as the garment moves from buyer specification to production.
+              - list [ref=f2e108]:
+                - listitem [ref=f2e109]: In-house CAD for pattern making
+                - listitem [ref=f2e111]: Lectra fully automatic cutting machine
+                - listitem [ref=f2e113]: Bullmer E80 fully automatic cutting machine
+          - generic [ref=f2e115]:
+            - paragraph [ref=f2e116]: Each production route is organized around the garment and buyer requirements.
+            - link "Explore quality & testing" [ref=f2e120] [cursor=pointer]:
+              - /url: /quality
+      - region [ref=f2e124]:
+        - generic [ref=f2e125]:
+          - generic [ref=f2e126]:
+            - generic [ref=f2e127]:
+              - paragraph [ref=f2e128]: Manufacturing equipment · Interactive showroom
+              - heading "Equipment & technology." [level=2] [ref=f2e129]
+            - paragraph [ref=f2e130]: Choose a process, inspect a listed machine, and see how it supports a garment program.
+          - generic [ref=f2e131]:
+            - generic [ref=f2e132]:
+              - generic [ref=f2e133]:
+                - paragraph [ref=f2e134]: Production process navigator
+                - paragraph [ref=f2e135]: Choose a stage to filter the machines below.
+              - paragraph [ref=f2e136]: Routes vary by garment and buyer brief
+            - group "Filter machines by production process" [ref=f2e137]:
+              - button "Pattern & cut, 2 listed machines" [ref=f2e138] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e139]: "01"
+                - generic [ref=f2e142]: Pattern & cut
+                - generic [ref=f2e143]: 2 machines
+              - button "Digital printing, 1 listed machine" [ref=f2e144] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e145]: "02"
+                - generic [ref=f2e146]: Digital printing
+                - generic [ref=f2e147]: 1 machine
+              - button "Screen printing, 3 listed machines" [pressed] [ref=f2e148] [cursor=pointer]:
+                - generic [ref=f2e150]: Screen printing
+                - generic [ref=f2e151]: 3 machines
+              - button "Embroidery, 2 listed machines" [ref=f2e152] [cursor=pointer]:
+                - generic [aria-hidden] [ref=f2e153]: "04"
+                - generic [ref=f2e154]: Embroidery
+                - generic [ref=f2e155]: 2 machines
+          - generic [ref=f2e156]:
+            - navigation "Screen printing machine selector" [ref=f2e834]:
+              - generic [ref=f2e158]:
+                - paragraph [ref=f2e159]: Machines in this process
+                - paragraph [ref=f2e160]: Screen printing
+              - group "Select a Screen printing machine" [ref=f2e835]:
+                - button "04 M&R Challenger II printing machine M&R · Challenger II" [ref=f2e836] [cursor=pointer]:
+                  - generic [ref=f2e837]: "04"
+                  - generic [ref=f2e838]:
+                    - generic [ref=f2e839]: M&R Challenger II printing machine
+                    - generic [ref=f2e840]: M&R · Challenger II
+                - button "05 M&R Sportsman EX printing machine M&R · Sportsman EX" [ref=f2e843] [cursor=pointer]:
+                  - generic [ref=f2e844]: "05"
+                  - generic [ref=f2e845]:
+                    - generic [ref=f2e846]: M&R Sportsman EX printing machine
+                    - generic [ref=f2e847]: M&R · Sportsman EX
+                - button "06 M&R Alpha 8 Oval printing machine M&R · Alpha 8 Oval" [active] [pressed] [ref=f2e850] [cursor=pointer]:
+                  - generic [ref=f2e851]: "06"
+                  - generic [ref=f2e852]:
+                    - generic [ref=f2e853]: M&R Alpha 8 Oval printing machine
+                    - generic [ref=f2e854]: M&R · Alpha 8 Oval
+              - paragraph [ref=f2e176]: "Keyboard: use arrow keys, Home or End to select a machine."
+            - figure "M&R Alpha 8 Oval printing machine image and component controls" [ref=f2e902]:
+              - generic [ref=f2e178]:
+                - generic [ref=f2e179]:
+                  - paragraph [ref=f2e180]: Selected equipment
+                  - paragraph [ref=f2e181]: Process 03 · Screen printing
+                - generic [ref=f2e182]: Equipment reference image
+              - generic [ref=f2e183]:
+                - generic [ref=f2e903]:
+                  - img "M&R Alpha 8 Oval printing machine equipment reference image" [ref=f2e904]
+                  - group "Inspectable components of M&R Alpha 8 Oval printing machine" [ref=f2e905]:
+                    - button "Inspect Oval print stations on M&R Alpha 8 Oval printing machine" [ref=f2e906] [cursor=pointer]:
+                      - generic: Oval print stations
+                    - button "Inspect Control panel on M&R Alpha 8 Oval printing machine" [ref=f2e908] [cursor=pointer]:
+                      - generic: Control panel
+                - paragraph: Still image · not live demonstration footage
+              - generic [ref=f2e191]:
+                - button "Previous machine" [ref=f2e192] [cursor=pointer]: Previous
+                - generic [ref=f2e195]:
+                  - generic [ref=f2e196]:
+                    - strong [ref=f2e197]: "06"
+                    - generic [ref=f2e198]: / 08
+                  - progressbar "Selected machine" [ref=f2e199]
+                - button "Next machine" [ref=f2e201] [cursor=pointer]: Next
+              - status [ref=f2e204]: "Selected M&R Alpha 8 Oval printing machine, machine 6 of 8. Process: Screen printing."
+            - complementary "Selected machine details" [ref=f2e205]:
+              - generic [ref=f2e910]:
+                - generic [ref=f2e911]:
+                  - generic [ref=f2e912]: Screen printing
+                  - generic [ref=f2e913]: 06 / 08
+                - heading "M&R Alpha 8 Oval printing machine" [level=3] [ref=f2e914]
+                - generic [ref=f2e915]:
+                  - generic [ref=f2e916]:
+                    - term [ref=f2e917]: Manufacturer
+                    - definition [ref=f2e918]: M&R
+                  - generic [ref=f2e919]:
+                    - term [ref=f2e920]: Model in company list
+                    - definition [ref=f2e921]: Alpha 8 Oval
+                - generic [ref=f2e922]:
+                  - paragraph [ref=f2e923]: Primary function
+                  - paragraph [ref=f2e924]: Oval automatic screen printing
+                  - paragraph [ref=f2e925]: Carries garments or cut pieces through screen-printing stations when that decoration is specified.
+                - generic [ref=f2e926]:
+                  - generic [ref=f2e927]:
+                    - paragraph [ref=f2e928]: Supported operation
+                    - paragraph [ref=f2e929]: Automatic screen printing on a modular oval press; the installed station and print-head configuration is not published.
+                  - generic [ref=f2e930]:
+                    - paragraph [ref=f2e931]: Garment application
+                    - paragraph [ref=f2e932]: Styles with approved screen-printed artwork, including cut pieces where required by the production plan.
+                  - generic [ref=f2e933]:
+                    - paragraph [ref=f2e934]: Why it matters to a buyer
+                    - paragraph [ref=f2e935]: Shows a second screen-printing press format in the equipment inventory without assuming its installed configuration.
+                - generic [ref=f2e936]:
+                  - paragraph [ref=f2e937]: Technical specifications
+                  - paragraph [ref=f2e938]: No installed configuration, speed, output rate or dimensions are published with this equipment record.
+                - paragraph [ref=f2e939]: The company list names M&R Alpha 8 Oval; M&R describes Alpha 8 as an oval automatic screen-printing press. Installed model variant and options are not listed.
+                - paragraph [ref=f2e941]: Select a marked component on the image to inspect its role.
+                - link "M&R · Alpha 8 press brochure" [ref=f2e942] [cursor=pointer]:
+                  - /url: https://www.mrprint.com/brochures/alpha-8-automatic-screen-printing-press-en-20150925-9r6VnmmXr20144yr.pdf
+              - button "Explore next process Embroidery" [ref=f2e901] [cursor=pointer]:
+                - generic [ref=f2e243]: Explore next process
+                - generic [ref=f2e244]: Embroidery
+          - generic [ref=f2e247]:
+            - generic [ref=f2e248]:
+              - generic [ref=f2e249]:
+                - paragraph [ref=f2e250]: Where equipment fits
+                - heading "A route through garment production." [level=3] [ref=f2e251]
+              - paragraph [ref=f2e252]: Decoration steps are selected to suit the style and buyer brief; a garment does not necessarily pass through every process shown.
+            - list [ref=f2e253]:
+              - listitem [ref=f2e254]:
+                - generic [ref=f2e255]: "01"
+                - generic [ref=f2e256]:
+                  - heading "Pattern preparation & cutting" [level=4] [ref=f2e257]
+                  - paragraph [ref=f2e258]: Prepare pattern data and cut fabric components for construction.
+              - listitem [ref=f2e259]:
+                - generic [ref=f2e260]: "02"
+                - generic [ref=f2e261]:
+                  - heading "Decoration, when specified" [level=4] [ref=f2e262]
+                  - paragraph [ref=f2e263]: Digital print, screen print or embroidery, according to the garment program.
+              - listitem [ref=f2e264]:
+                - generic [ref=f2e265]: "03"
+                - generic [ref=f2e266]:
+                  - heading "Sew & finish" [level=4] [ref=f2e267]
+                  - paragraph [ref=f2e268]: Garment assembly followed by checking, ironing and packing.
+          - generic [ref=f2e269]:
+            - paragraph [ref=f2e270]:
+              - strong [ref=f2e271]: "In-house decoration:"
+              - text: five automatic printing machines and five embroidery machines.
+            - paragraph [ref=f2e272]:
+              - strong [ref=f2e273]: "Production flow:"
+              - text: cutting, sewing, trimming, checking, ironing and packing.
+      - region [ref=f2e274]:
+        - generic [ref=f2e275]:
+          - generic [ref=f2e276]:
+            - paragraph [ref=f2e277]: Workforce & locations
+            - heading "Built around people and production." [level=2] [ref=f2e278]
+            - paragraph [ref=f2e279]: Skilled operators are trained for specific product categories. Worker facilities include hostel accommodation, catering and transport.
+          - generic [ref=f2e280]:
+            - heading "Fashion Knits locations" [level=3] [ref=f2e281]
+            - list [ref=f2e282]:
+              - listitem [ref=f2e283]:
+                - img "Exterior of Fashion Knits Head Office and Unit 2 in Angeripalayam" [ref=f2e285]
+                - generic [ref=f2e286]:
+                  - heading "Head Office & Unit 2" [level=4] [ref=f2e287]
+                  - generic [ref=f2e288]: Fashion Knits, 81/82 Angeripalayam Main Road, Tiruppur 641 603, Tamil Nadu, India.
+              - listitem [ref=f2e289]:
+                - img "Exterior of Fashion Knits Unit 1 at Netaji Apparel Park" [ref=f2e291]
+                - generic [ref=f2e292]:
+                  - heading "Unit 1" [level=4] [ref=f2e293]
+                  - generic [ref=f2e294]: Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666, Tamil Nadu, India.
+              - listitem [ref=f2e295]:
+                - generic [ref=f2e296]:
+                  - heading "Unit 3" [level=4] [ref=f2e297]
+                  - generic [ref=f2e298]: SF No. 275, P.N. Road, Tiruppur, Tamil Nadu, India.
+      - region [ref=f2e299]:
+        - generic [ref=f2e300]:
+          - generic [ref=f2e301]:
+            - paragraph [ref=f2e302]: Sewing facilities
+            - heading "A production plan built for each product." [level=2] [ref=f2e303]
+            - paragraph [ref=f2e304]: Dedicated, product-focused lines across the plants convert customer designs into garments in a range of sizes, shapes and colours. Each garment moves through final checking, ironing and packaging to match customer requirements.
+          - generic [ref=f2e305]:
+            - article [ref=f2e306]:
+              - paragraph [ref=f2e307]: Monthly capacity
+              - paragraph [ref=f2e308]: ~350,000
+              - paragraph [ref=f2e309]: pieces per month · 2026 figure
+            - article [ref=f2e310]:
+              - paragraph [ref=f2e311]: Machine capacity
+              - paragraph [ref=f2e312]: ~2,000
+              - paragraph [ref=f2e313]: machines · 2026 figure
+            - link "See quality, testing & compliance" [ref=f2e315] [cursor=pointer]:
+              - /url: /quality
+      - generic [ref=f2e320]:
+        - generic [ref=f2e321]:
+          - paragraph [ref=f2e322]: Material evolution
+          - heading "BEYOND COTTON. INTO MAN-MADE FIBRES." [level=2] [ref=f2e324]:
+            - generic [ref=f2e325]: BEYOND COTTON.
+            - generic [ref=f2e326]:
+              - generic [ref=f2e327]: INTO MAN-MADE
+              - generic [ref=f2e328]: FIBRES.
+        - generic [ref=f2e329]:
+          - generic [ref=f2e330]:
+            - paragraph [ref=f2e331]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - paragraph [ref=f2e332]: Cotton and cotton blends remain established options.
+            - paragraph [ref=f2e333]: Performance-related requirements are considered against buyer specifications.
+            - link "Discuss Your Material Requirements" [ref=f2e334] [cursor=pointer]:
+              - /url: /#contact
+          - figure "Material study" [ref=f2e338]:
+            - img "A material study of knitted fabrics in contrasting textures and colours" [ref=f2e340]
+    - region [ref=f2e342]:
+      - generic [ref=f2e344]:
+        - generic [ref=f2e345]:
+          - paragraph [ref=f2e346]: Production planning
+          - heading "Planning Your Next Production Run?" [level=2] [ref=f2e348]
+          - paragraph [ref=f2e349]: Share your product scope and order requirements with our manufacturing team.
+        - link "Discuss Your Project" [ref=f2e351] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=f2e357]:
+      - generic [ref=f2e358]:
+        - generic [ref=f2e359]:
+          - link "Fashion Knits home" [ref=f2e360] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=f2e361]:
+              - generic [ref=f2e362]:
+                - generic [ref=f2e366]: FK
+                - generic [ref=f2e367]: We Design Your Dreams
+              - generic [ref=f2e368]: Fashion Knits
+          - paragraph [ref=f2e369]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=f2e370]:
+            - paragraph [ref=f2e371]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=f2e375]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=f2e379]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=f2e383]:
+          - heading "Explore" [level=2] [ref=f2e384]
+          - list [ref=f2e385]:
+            - listitem [ref=f2e386]:
+              - link "Products" [ref=f2e387] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=f2e388]:
+              - link "Manufacturing" [ref=f2e389] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=f2e390]:
+              - link "Quality" [ref=f2e391] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=f2e392]:
+              - link "Sustainability" [ref=f2e393] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=f2e394]:
+              - link "Export" [ref=f2e395] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=f2e396]:
+              - link "About" [ref=f2e397] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=f2e398]:
+          - heading "Discuss a production brief" [level=2] [ref=f2e399]
+          - paragraph [ref=f2e400]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=f2e401] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=f2e406] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=f2e410]:
+        - paragraph [ref=f2e411]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=f2e412] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=f2e421] [cursor=pointer]
+  - alert [ref=f2e510]

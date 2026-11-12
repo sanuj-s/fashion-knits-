@@ -1,78 +1,820 @@
 'use client';
 
-import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  ArrowDown,
+  ArrowRight,
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  CircleHelp,
+  Layers3,
+  Search,
+  X,
+} from 'lucide-react';
+import {
+  AUDIENCE_COLLECTIONS,
+  type GarmentReference,
+} from '@/lib/products-data';
+import {
+  DEVELOPMENT_STEPS,
+  MATERIAL_DIRECTIONS,
+  PALETTE_DIRECTIONS,
+  STYLE_INSPIRATION,
+  TREND_DIRECTIONS,
+  type MaterialFilter,
+  type TrendSeason,
+} from './products-experience-data';
+import styles from './products.module.css';
 
-const CATEGORIES = [
-  { id: 'tshirts', filter: 'tops', name: 'T-Shirts', description: 'Crew, V-neck, relaxed and oversized knit tops. Construction, fabric and fit are developed against your brief.', image: '/assets/products/product_tshirt.webp' },
-  { id: 'polos', filter: 'tops', name: 'Polos', description: 'Knit polo styles shaped around the requested collar, placket, fit and trim details.', image: '/assets/products/product_polo.webp' },
-  { id: 'sweatshirts', filter: 'fleece', name: 'Sweatshirts', description: 'Crewneck and other sweatshirt styles for casual, uniform and seasonal ranges.', image: '/assets/products/product_sweatshirt.webp' },
-  { id: 'hoodies', filter: 'fleece', name: 'Hoodies', description: 'Pullover and zip hoodie programs developed from your fit and construction requirements.', image: '/assets/products/product_hoodie.webp' },
-  { id: 'sportswear', filter: 'active', name: 'Sportswear & Active', description: 'Knit activewear concepts. Fabric performance and test requirements are agreed for each program.', image: '/assets/products/product_sportswear.webp' },
-  { id: 'casualwear', filter: 'tops', name: 'Casualwear & Lounge', description: 'Relaxed tops, bottoms and coordinated knitwear for everyday and lounge collections.', image: '/assets/products/product_casualwear.webp' },
-  { id: 'kidswear', filter: 'kids', name: 'Kidswear & Babywear', description: 'Children’s and infant knitwear. Product safety requirements must be confirmed for each program.', image: '/assets/products/product_kidswear.webp' },
-  { id: 'custom', filter: 'custom', name: 'Custom Programs & OEM', description: 'Custom development based on your reference sample, tech pack, target materials and private-label brief.', image: '/assets/products/product_custom_oem.webp' },
+type AudienceId = (typeof AUDIENCE_COLLECTIONS)[number]['id'];
+type ProductEntry = GarmentReference & { audienceId: AudienceId; audienceLabel: string };
+
+const TREND_AUDIENCE_TABS = [
+  { id: 'all', label: 'All collections' },
+  { id: 'mens', label: "Men's" },
+  { id: 'womens', label: "Women's" },
+  { id: 'kids', label: "Kids'" },
+  { id: 'babies-toddler', label: 'Babies & toddler' },
+] as const;
+
+const CATALOGUE_AUDIENCE_TABS = [
+  { id: 'mens', label: "Men's" },
+  { id: 'womens', label: "Women's" },
+  { id: 'kids', label: "Kids'" },
+  { id: 'babies-toddler', label: 'Babies & toddler' },
+] as const;
+
+const MATERIAL_FILTERS: { id: 'all' | MaterialFilter; label: string }[] = [
+  { id: 'all', label: 'All directions' },
+  { id: 'natural', label: 'Natural fibres' },
+  { id: 'recycled', label: 'Recycled fibres' },
+  { id: 'blended', label: 'Blended materials' },
+  { id: 'lightweight', label: 'Lightweight' },
+  { id: 'heavier', label: 'Heavier constructions' },
+  { id: 'stretch', label: 'Stretch' },
+  { id: 'soft-touch', label: 'Soft touch' },
 ];
 
-const FILTERS = [
-  { id: 'all', label: 'All categories' },
-  { id: 'tops', label: 'Tops & polos' },
-  { id: 'fleece', label: 'Fleece & terry' },
-  { id: 'active', label: 'Activewear' },
-  { id: 'kids', label: 'Kidswear' },
-  { id: 'custom', label: 'Custom OEM' },
+const SEASON_TABS: { id: TrendSeason | 'all'; label: string }[] = [
+  { id: 'all', label: 'All directions' },
+  { id: 'spring-summer', label: 'Spring / Summer 2026' },
+  { id: 'autumn-winter', label: 'Autumn / Winter 2026' },
+  { id: 'year-round', label: 'Year-round essentials' },
 ];
+
+const PRODUCT_ENTRIES: ProductEntry[] = AUDIENCE_COLLECTIONS.flatMap((collection) =>
+  collection.garments.map((garment) => ({
+    ...garment,
+    audienceId: collection.id,
+    audienceLabel: collection.label,
+  })),
+);
+
+function productTypeFor(garment: GarmentReference) {
+  const name = garment.name.toLocaleLowerCase();
+  if (/set|coordinat/.test(name)) return 'Co-ord sets';
+  if (/romper|onesie/.test(name)) return 'Rompers & onesies';
+  if (/sleep|pajama|lounge/.test(name)) return 'Sleepwear & loungewear';
+  if (/jogger|shorts/.test(name)) return 'Joggers & shorts';
+  if (/polo|rugby/.test(name)) return 'Polos & rugby tops';
+  if (/hoodie|sweatshirt/.test(name)) return 'Sweatshirts & hoodies';
+  if (/cardigan|sweater|knit/.test(name)) return 'Knitwear';
+  if (/dress/.test(name)) return 'Dresses';
+  if (/jacket/.test(name)) return 'Jackets';
+  if (/top|t-shirt|tee/.test(name)) return 'T-shirts & tops';
+  return 'Other apparel';
+}
+
+const PRODUCT_TYPES = [...new Set(PRODUCT_ENTRIES.map(productTypeFor))].sort((a, b) => a.localeCompare(b));
+const PRODUCT_COLOURS = [...new Set(PRODUCT_ENTRIES.flatMap((garment) => garment.colorways.map((colour) => colour.name)))].sort((a, b) => a.localeCompare(b));
+
+function makeQuoteHref(
+  garment: GarmentReference,
+  category: string,
+  options?: { fabric?: string; color?: string; customizations?: string[] },
+) {
+  const params = new URLSearchParams({
+    product: category,
+    productId: garment.id,
+    productName: garment.name,
+    productCategory: garment.category,
+  });
+  if (options?.fabric) params.set('fabric', options.fabric);
+  if (options?.color) params.set('color', options.color);
+  if (options?.customizations?.length) params.set('customizations', options.customizations.join(' · '));
+  return `/get-a-quote?${params.toString()}`;
+}
+
+function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
+  return (
+    <p className={'mb-4 flex items-center gap-3 text-[9px] font-semibold uppercase tracking-[0.22em] sm:text-[10px] ' + (light ? 'text-[#d3b476]' : 'text-[#80643b]')}>
+      <span className={'h-px w-8 ' + (light ? 'bg-[#b18b4a]' : 'bg-[#b18b4a]')} />
+      {children}
+    </p>
+  );
+}
+
+function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  dark = false,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  description: string;
+  dark?: boolean;
+}) {
+  return (
+    <div className={'grid gap-5 border-b pb-7 sm:gap-7 lg:grid-cols-12 lg:items-end ' + (dark ? 'border-white/15' : 'border-[#25231f]/15')}>
+      <div className="lg:col-span-7">
+        <Eyebrow light={dark}>{eyebrow}</Eyebrow>
+        <h2 className={'max-w-4xl text-[clamp(2.2rem,5vw,4.8rem)] font-medium leading-[0.96] tracking-[-0.065em] ' + (dark ? 'text-[#faf8f5]' : 'text-[#25231f]')}>
+          {title}
+        </h2>
+      </div>
+      <p className={'max-w-xl text-sm leading-6 lg:col-span-5 lg:justify-self-end lg:text-base lg:leading-7 ' + (dark ? 'text-white/65' : 'text-[#25231f]/65')}>
+        {description}
+      </p>
+    </div>
+  );
+}
+
+function ImagePanel({
+  src,
+  alt,
+  className = '',
+  sizes = '(max-width: 768px) 100vw, 50vw',
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  sizes?: string;
+}) {
+  return <Image src={src} alt={alt} fill sizes={sizes} className={className} />;
+}
+
+function ConceptBadge() {
+  return (
+    <span className="inline-flex items-center gap-1.5 rounded-full border border-[#907348]/25 bg-[#faf8f5]/90 px-2.5 py-1 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#6d5734]">
+      <span aria-hidden="true" className="h-1 w-1 rounded-full bg-[#b18b4a]" />
+      Style concept
+    </span>
+  );
+}
 
 export function ProductsClient() {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const visibleCategories = activeFilter === 'all' ? CATEGORIES : CATEGORIES.filter((item) => item.filter === activeFilter);
+  const [activeAudience, setActiveAudience] = useState<'all' | AudienceId>('mens');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [materialFilter, setMaterialFilter] = useState('all');
+  const [productTypeFilter, setProductTypeFilter] = useState('all');
+  const [productColourFilter, setProductColourFilter] = useState('all');
+  const [sortOrder, setSortOrder] = useState('featured');
+  const [selectedGarment, setSelectedGarment] = useState<ProductEntry | null>(null);
+  const [activeMaterialFilter, setActiveMaterialFilter] = useState<'all' | MaterialFilter>('all');
+  const [comparisonIds, setComparisonIds] = useState<string[]>([]);
+  const [activeMaterial, setActiveMaterial] = useState<string | null>(null);
+  const [trendAudience, setTrendAudience] = useState<'all' | AudienceId>('all');
+  const [trendSeason, setTrendSeason] = useState<TrendSeason | 'all'>('all');
+  const [selectedColour, setSelectedColour] = useState(PALETTE_DIRECTIONS[8].name);
+  const [studioAudience, setStudioAudience] = useState<AudienceId>('mens');
+  const [studioStyleId, setStudioStyleId] = useState(AUDIENCE_COLLECTIONS[0].garments[0].id);
+  const [studioFabric, setStudioFabric] = useState(AUDIENCE_COLLECTIONS[0].garments[0].fabricOptions[0]);
+  const [studioColour, setStudioColour] = useState(AUDIENCE_COLLECTIONS[0].garments[0].colorways[0].name);
+  const [studioFit, setStudioFit] = useState('Relaxed');
+  const [studioPrint, setStudioPrint] = useState('Not selected');
+  const [studioEmbroidery, setStudioEmbroidery] = useState('Discuss during development');
+  const [studioNeckSleeve, setStudioNeckSleeve] = useState('As shown in concept');
+  const [studioLabel, setStudioLabel] = useState('Buyer label direction to discuss');
+  const [studioPackaging, setStudioPackaging] = useState('To be agreed');
+
+  const filteredProducts = useMemo(() => {
+    const query = searchTerm.trim().toLocaleLowerCase();
+    const filtered = PRODUCT_ENTRIES.filter((garment) => {
+      const matchesAudience = activeAudience === 'all' || garment.audienceId === activeAudience;
+      const matchesMaterial = materialFilter === 'all' || garment.fabricOptions.some((option) => option === materialFilter);
+      const matchesType = productTypeFilter === 'all' || productTypeFor(garment) === productTypeFilter;
+      const matchesColour = productColourFilter === 'all' || garment.colorways.some((colour) => colour.name === productColourFilter);
+      const searchable = [garment.name, garment.category, garment.description, garment.construction, ...garment.fabricOptions, ...garment.customizationOptions].join(' ').toLocaleLowerCase();
+      return matchesAudience && matchesMaterial && matchesType && matchesColour && (!query || searchable.includes(query));
+    });
+
+    if (sortOrder === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+    if (sortOrder === 'category') filtered.sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name));
+    return filtered;
+  }, [activeAudience, materialFilter, productTypeFilter, productColourFilter, searchTerm, sortOrder]);
+
+  const availableMaterials = useMemo(
+    () => [...new Set(PRODUCT_ENTRIES.flatMap((garment) => garment.fabricOptions))].sort((a, b) => a.localeCompare(b)),
+    [],
+  );
+  const visibleMaterials = activeMaterialFilter === 'all'
+    ? MATERIAL_DIRECTIONS
+    : MATERIAL_DIRECTIONS.filter((material) => material.filters.includes(activeMaterialFilter));
+  const selectedMaterials = comparisonIds
+    .map((id) => MATERIAL_DIRECTIONS.find((material) => material.id === id))
+    .filter((material): material is (typeof MATERIAL_DIRECTIONS)[number] => Boolean(material));
+  const visibleTrends = TREND_DIRECTIONS.filter((trend) =>
+    (trendAudience === 'all' || trend.audience === trendAudience) &&
+    (trendSeason === 'all' || trend.season === trendSeason),
+  );
+  const studioCollection = AUDIENCE_COLLECTIONS.find((collection) => collection.id === studioAudience) ?? AUDIENCE_COLLECTIONS[0];
+  const studioGarment = studioCollection.garments.find((garment) => garment.id === studioStyleId) ?? studioCollection.garments[0];
+  const activeDetailMaterial = MATERIAL_DIRECTIONS.find((material) => material.id === activeMaterial);
+
+  useEffect(() => {
+    if (!selectedGarment && !activeMaterial) return;
+    const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const dialog = document.querySelector<HTMLElement>('[role="dialog"][aria-modal="true"]');
+    const focusable = dialog ? [...dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')] : [];
+    focusable[0]?.focus({ preventScroll: true });
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedGarment(null);
+        setActiveMaterial(null);
+      }
+      if (event.key === 'Tab' && focusable.length) {
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      previousFocus?.focus({ preventScroll: true });
+    };
+  }, [selectedGarment, activeMaterial]);
+
+  function clearCatalogueFilters() {
+    setActiveAudience('all');
+    setSearchTerm('');
+    setMaterialFilter('all');
+    setProductTypeFilter('all');
+    setProductColourFilter('all');
+    setSortOrder('featured');
+  }
+
+  function updateStudioAudience(value: AudienceId) {
+    const nextCollection = AUDIENCE_COLLECTIONS.find((collection) => collection.id === value) ?? AUDIENCE_COLLECTIONS[0];
+    const firstGarment = nextCollection.garments[0];
+    setStudioAudience(value);
+    setStudioStyleId(firstGarment.id);
+    setStudioFabric(firstGarment.fabricOptions[0]);
+    setStudioColour(firstGarment.colorways[0].name);
+  }
+
+  function toggleComparison(id: string) {
+    setComparisonIds((current) => {
+      if (current.includes(id)) return current.filter((item) => item !== id);
+      if (current.length >= 3) return current;
+      return [...current, id];
+    });
+  }
+
+  const studioCustomizations = [
+    `Fit direction: ${studioFit}`,
+    `Print: ${studioPrint}`,
+    `Embroidery: ${studioEmbroidery}`,
+    `Neck / sleeve: ${studioNeckSleeve}`,
+    `Label: ${studioLabel}`,
+    `Packaging: ${studioPackaging}`,
+    `Colour-library direction: ${selectedColour}`,
+  ];
 
   return (
-    <div className="bg-warm-white text-charcoal">
-      <section className="border-b border-white/10 bg-charcoal px-5 pb-14 pt-28 text-off-white sm:px-8 sm:pb-16 sm:pt-32 lg:px-16 lg:pb-20">
-        <div className="mx-auto max-w-[90rem]">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-accent sm:text-xs"><Link href="/" className="hover:text-white">Home</Link><span aria-hidden="true" className="text-white/35">/</span><span aria-current="page" className="text-white/75">Products</span></nav>
-          <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">Knitwear for apparel brands</p>
-          <h1 className="max-w-4xl text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[0.9] tracking-[-0.065em]">Product <span className="text-accent">categories.</span></h1>
-          <div className="mt-6 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-            <p className="max-w-2xl text-sm leading-7 text-white/70 sm:text-base">Explore the knitwear categories Fashion Knits presents to buyers. Share a tech pack, reference sample, fabric direction or private-label brief to confirm what can be developed for your order.</p>
-            <Link href="#contact" className="inline-flex min-h-12 w-fit items-center gap-3 rounded-full bg-accent px-5 text-[10px] font-bold uppercase tracking-[0.14em] text-charcoal transition-colors hover:bg-[#e5c78e]">Discuss your requirements <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
+    <div className="bg-[#f5f2ee] text-[#25231f]">
+      <section className="relative isolate flex min-h-[42rem] items-end overflow-hidden bg-[#1a1a1a] text-[#faf8f5] sm:min-h-[46rem] lg:min-h-[min(52rem,calc(100svh-5rem))]">
+        <div className="absolute inset-0 -z-10">
+          <ImagePanel
+            src="/assets/images/hero_campaign.webp"
+            alt="Fashion models wearing neutral knitwear and relaxed apparel"
+            className={styles.heroImage}
+            sizes="100vw"
+          />
+          <div aria-hidden="true" className={styles.heroScrim} />
+        </div>
+        <div className="mx-auto w-full max-w-[100rem] px-5 pb-14 pt-28 sm:px-8 sm:pb-16 lg:px-16 lg:pb-20">
+          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[9px] font-mono uppercase tracking-[0.19em] text-white/55 sm:mb-10 sm:text-[10px]">
+            <Link href="/" className="transition-colors hover:text-white">Home</Link>
+            <span aria-hidden="true" className="text-white/30">/</span>
+            <span aria-current="page" className="text-white/80">Products</span>
+          </nav>
+          <div className={styles.heroCopy}>
+            <Eyebrow light>Knitted &amp; woven apparel · Tiruppur, India</Eyebrow>
+            <h1 className="max-w-[40rem] text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[0.9] tracking-[-0.07em]">
+              Apparel crafted <span className="block text-[#d3b476]">for every</span> generation.
+            </h1>
+            <div className="mt-6 flex flex-col gap-5">
+              <p className="max-w-[33rem] text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
+                From everyday essentials to trend-led collections, explore knitwear and apparel concepts for brands building their next range.
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row">
+                <a href="#collections" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#d3b476] px-5 text-[9px] font-bold uppercase tracking-[0.15em] text-[#25231f] transition-colors hover:bg-[#e2c58e]">
+                  Explore collections <ArrowDown aria-hidden="true" className="h-4 w-4" />
+                </a>
+                <a href="#collection-studio" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/35 px-5 text-[9px] font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:border-white hover:bg-white/10">
+                  Develop your collection <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-10 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-white/20 pt-4 text-[8px] font-semibold uppercase tracking-[0.18em] text-white/55 sm:mt-12 sm:text-[9px]">
+            <span>Tiruppur · India</span>
+            <a href="#collections" className="inline-flex items-center gap-2 transition-colors hover:text-white">Scroll to explore <ArrowDown aria-hidden="true" className="h-3 w-3" /></a>
+            <span className="basis-full text-right sm:basis-auto">A buyer-led product showroom</span>
           </div>
         </div>
       </section>
 
-      <section id="catalogue" aria-labelledby="catalogue-title" className="px-5 py-14 sm:px-8 sm:py-20 lg:px-16 lg:py-24">
-        <div className="mx-auto max-w-[90rem]">
-          <div className="flex flex-col gap-5 border-b border-charcoal/10 pb-5 sm:flex-row sm:items-end sm:justify-between">
-            <div><h2 id="catalogue-title" className="text-2xl font-medium tracking-[-0.04em] sm:text-3xl">Browse by garment type</h2><p className="mt-2 text-xs leading-5 text-charcoal/55">Available materials, minimums and production timing depend on the style and order brief.</p></div>
-            <span aria-live="polite" className="font-mono text-[10px] uppercase tracking-[0.12em] text-charcoal/50">{visibleCategories.length} categories</span>
+      <section id="collections" aria-labelledby="collections-title" className="scroll-mt-24 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Product categories · four collections"
+            title={<>A wardrobe of <span className="text-[#80643b]/70">possibilities.</span></>}
+            description="Browse product directions across men's, women's, kids' and babywear. Each image is a visual concept to start a buyer-led development conversation."
+          />
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+            {AUDIENCE_COLLECTIONS.map((collection, index) => {
+              const coverImages = [
+                '/assets/products/trend-edit/mens-half-zip-knit-pullover.webp',
+                '/assets/products/trend-edit/womens-striped-knit-polo.webp',
+                '/assets/products/trend-edit/kids-modern-rugby-top.webp',
+                '/assets/products/trend-edit/baby-striped-rib-romper.webp',
+              ];
+              const coverAlts = ['Olive half-zip knit concept', 'Striped knit polo concept', 'Colour-block rugby top concept', 'Striped infant romper concept'];
+              return (
+                <article key={collection.id} className={styles.collectionCard}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setActiveAudience(collection.id);
+                      document.getElementById('catalogue')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    aria-label={`Explore ${collection.label} apparel collection`}
+                    className="group block w-full text-left"
+                  >
+                    <div className="relative flex aspect-[4/4.35] items-center justify-center overflow-hidden bg-[#e7e3db] p-4">
+                      <span className="absolute left-4 top-4 z-10 font-mono text-[9px] uppercase tracking-[0.18em] text-[#25231f]/45">0{index + 1} / COLLECTION</span>
+                      <ImagePanel src={coverImages[index]} alt={coverAlts[index]} className={styles.collectionImage} sizes="(max-width: 640px) 50vw, (max-width: 1280px) 50vw, 25vw" />
+                      <span aria-hidden="true" className="absolute bottom-4 right-4 z-10 grid h-10 w-10 place-items-center rounded-full border border-[#25231f]/15 bg-[#f5f2ee]/75 text-[#25231f] transition-all group-hover:bg-[#d3b476] group-hover:border-[#d3b476]">
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
+                    </div>
+                    <div className="flex items-start justify-between gap-4 border-b border-[#25231f]/15 py-4">
+                      <div>
+                        <h3 className="text-xl font-medium tracking-[-0.04em]">{collection.label} apparel</h3>
+                        <p className="mt-1 text-[10px] uppercase tracking-[0.14em] text-[#25231f]/55">{collection.garments.length} style directions</p>
+                      </div>
+                      <span className="mt-1 font-mono text-[9px] text-[#80643b]">0{index + 1}</span>
+                    </div>
+                  </button>
+                </article>
+              );
+            })}
+          </div>
+          <p className="mt-5 max-w-3xl text-[10px] leading-5 text-[#25231f]/55">Style counts reflect the concepts shown in this digital catalogue; they are not a complete or confirmed production range.</p>
+        </div>
+      </section>
+
+      <section id="catalogue" aria-labelledby="catalogue-title" className="scroll-mt-20 bg-[#ebe8e1] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="The catalogue · concept-led"
+            title={<>Find a starting <span className="text-[#80643b]/70">point.</span></>}
+            description="Search the current style concepts or narrow the range by audience and proposed fabric direction. Confirm composition, fit, weight and construction against an approved development brief."
+          />
+          <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter by apparel collection">
+              {CATALOGUE_AUDIENCE_TABS.map((tab) => (
+                <button key={tab.id} type="button" aria-pressed={activeAudience === tab.id} onClick={() => setActiveAudience(tab.id)} className={'min-h-10 shrink-0 rounded-full px-4 text-[9px] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348] ' + (activeAudience === tab.id ? 'bg-[#25231f] text-white' : 'border border-[#25231f]/15 bg-[#f5f2ee] text-[#25231f]/70 hover:border-[#25231f]/40 hover:text-[#25231f]')}>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <p aria-live="polite" className="font-mono text-[9px] uppercase tracking-[0.14em] text-[#25231f]/55">{filteredProducts.length} style concepts</p>
           </div>
 
-          <div role="group" aria-label="Filter product categories" className="mt-5 flex flex-wrap gap-2">
-            {FILTERS.map((filter) => <button key={filter.id} type="button" aria-pressed={activeFilter === filter.id} onClick={() => setActiveFilter(filter.id)} className={`min-h-10 rounded-full px-4 text-[10px] font-semibold uppercase tracking-[0.1em] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348] ${activeFilter === filter.id ? 'bg-charcoal text-white' : 'border border-charcoal/15 bg-white text-charcoal/65 hover:border-charcoal/35 hover:text-charcoal'}`}>{filter.label}</button>)}
+          <div className="mt-4 grid gap-3 rounded-[0.9rem] border border-[#25231f]/10 bg-[#f5f2ee]/70 p-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[minmax(14rem,1.35fr)_minmax(11rem,1fr)_minmax(9rem,.8fr)_minmax(9rem,.8fr)_minmax(9rem,.8fr)_auto] xl:items-center lg:p-4">
+            <label className="relative block">
+              <span className="sr-only">Search products</span>
+              <Search aria-hidden="true" className="absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#25231f]/45" />
+              <input value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="Search styles, garments or details" className="h-11 w-full rounded-full border border-[#25231f]/15 bg-[#faf8f5] pl-10 pr-4 text-xs outline-none transition focus:border-[#907348] focus:ring-2 focus:ring-[#907348]/15" />
+            </label>
+            <label className="relative block">
+              <span className="sr-only">Filter by proposed material</span>
+              <select value={materialFilter} onChange={(event) => setMaterialFilter(event.target.value)} className="h-11 w-full appearance-none rounded-full border border-[#25231f]/15 bg-[#faf8f5] px-4 pr-10 text-xs text-[#25231f]/80 outline-none focus:border-[#907348] focus:ring-2 focus:ring-[#907348]/15">
+                <option value="all">All proposed materials</option>
+                {availableMaterials.map((material) => <option key={material} value={material}>{material}</option>)}
+              </select>
+              <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#25231f]/45" />
+            </label>
+            <label className="relative block">
+              <span className="sr-only">Filter by garment type</span>
+              <select value={productTypeFilter} onChange={(event) => setProductTypeFilter(event.target.value)} className="h-11 w-full appearance-none rounded-full border border-[#25231f]/15 bg-[#faf8f5] px-4 pr-10 text-xs text-[#25231f]/80 outline-none focus:border-[#907348] focus:ring-2 focus:ring-[#907348]/15">
+                <option value="all">All garment types</option>
+                {PRODUCT_TYPES.map((type) => <option key={type}>{type}</option>)}
+              </select>
+              <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#25231f]/45" />
+            </label>
+            <label className="relative block">
+              <span className="sr-only">Filter by colour direction</span>
+              <select value={productColourFilter} onChange={(event) => setProductColourFilter(event.target.value)} className="h-11 w-full appearance-none rounded-full border border-[#25231f]/15 bg-[#faf8f5] px-4 pr-10 text-xs text-[#25231f]/80 outline-none focus:border-[#907348] focus:ring-2 focus:ring-[#907348]/15">
+                <option value="all">All colour directions</option>
+                {PRODUCT_COLOURS.map((colour) => <option key={colour}>{colour}</option>)}
+              </select>
+              <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#25231f]/45" />
+            </label>
+            <label className="relative block">
+              <span className="sr-only">Sort style concepts</span>
+              <select value={sortOrder} onChange={(event) => setSortOrder(event.target.value)} className="h-11 w-full appearance-none rounded-full border border-[#25231f]/15 bg-[#faf8f5] px-4 pr-10 text-xs text-[#25231f]/80 outline-none focus:border-[#907348] focus:ring-2 focus:ring-[#907348]/15">
+                <option value="featured">Featured order</option>
+                <option value="name">Name A–Z</option>
+                <option value="category">Category</option>
+              </select>
+              <ChevronDown aria-hidden="true" className="pointer-events-none absolute right-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#25231f]/45" />
+            </label>
+            <button type="button" onClick={clearCatalogueFilters} className="min-h-11 rounded-full px-4 text-left text-[9px] font-semibold uppercase tracking-[0.12em] text-[#80643b] transition-colors hover:bg-[#25231f]/5 hover:text-[#25231f]">Clear filters</button>
           </div>
 
-          <p className="mt-6 text-[9px] font-semibold uppercase tracking-[0.13em] text-charcoal/50 sm:text-[10px]">Illustrative garment imagery · garments and labels shown are not Fashion Knits production samples</p>
+          {filteredProducts.length ? (
+            <div className="mt-5 grid gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {filteredProducts.map((garment, index) => (
+                <article key={garment.id} className={styles.productCard} style={{ animationDelay: `${Math.min(index % 8, 7) * 45}ms` }}>
+                  <button type="button" onClick={() => setSelectedGarment(garment)} className="group block w-full text-left" aria-label={`View details for ${garment.name}`}>
+                    <div className="relative flex aspect-[4/4.65] items-center justify-center overflow-hidden bg-[#f6f4ef] px-5 py-7">
+                      <span className="absolute left-3 top-3 z-10"><ConceptBadge /></span>
+                      <ImagePanel src={garment.views.front} alt={`${garment.name} style concept, front view`} className={styles.productImage} sizes="(max-width: 640px) 50vw, (max-width: 1200px) 33vw, 25vw" />
+                      <span aria-hidden="true" className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#25231f]/[0.035] to-transparent" />
+                      <span className="absolute bottom-3 right-3 z-10 inline-flex items-center gap-2 rounded-full border border-[#25231f]/15 bg-[#faf8f5]/90 px-3 py-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#25231f] transition-colors group-hover:bg-[#d3b476]">
+                        View concept <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+                      </span>
+                    </div>
+                    <div className="pt-3">
+                      <p className="text-[8px] font-semibold uppercase tracking-[0.17em] text-[#80643b]">{garment.category}</p>
+                      <h3 className="mt-1.5 text-lg font-medium leading-tight tracking-[-0.035em]">{garment.name}</h3>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {garment.fabricOptions.slice(0, 2).map((fabric) => <span key={fabric} className="rounded-full border border-[#25231f]/10 px-2.5 py-1 text-[8px] text-[#25231f]/60">{fabric}</span>)}
+                      </div>
+                      <div className="mt-4 flex items-center justify-between border-t border-[#25231f]/10 pt-3 text-[8px] font-semibold uppercase tracking-[0.13em] text-[#25231f]/60">
+                        <span>{garment.colorways.length} palette directions</span>
+                        <span className="inline-flex items-center gap-2 text-[#80643b]">Details <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" /></span>
+                      </div>
+                    </div>
+                  </button>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-5 border border-dashed border-[#25231f]/20 bg-[#f5f2ee]/65 px-5 py-14 text-center">
+              <p className="text-lg font-medium tracking-[-0.03em]">No style concepts match those filters.</p>
+              <p className="mt-2 text-sm text-[#25231f]/60">Try another material or clear the catalogue filters.</p>
+              <button type="button" onClick={clearCatalogueFilters} className="mt-5 min-h-10 rounded-full bg-[#25231f] px-4 text-[9px] font-semibold uppercase tracking-[0.12em] text-white">Clear filters</button>
+            </div>
+          )}
+          <p className="mt-7 max-w-4xl text-[10px] leading-5 text-[#25231f]/55">These are illustrative style concepts. Fabric names are proposed directions only. Composition, GSM, yarn, fit, size range, performance, construction and finishing are confirmed against the buyer&apos;s brief and approved sample.</p>
+        </div>
+      </section>
 
-          <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-            {visibleCategories.map((item) => (
-              <article key={item.id} className="overflow-hidden rounded-[1rem] border border-charcoal/10 bg-white">
-                <figure className="relative aspect-[4/3] overflow-hidden bg-[#e7e3dc]">
-                  <Image src={item.image} alt={`Illustrative ${item.name.toLowerCase()} style reference, not a Fashion Knits production sample`} fill sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" className="object-cover" />
-                  <span className="absolute left-3 top-3 rounded-full border border-white/25 bg-black/55 px-3 py-1.5 text-[8px] font-semibold uppercase tracking-[0.12em] text-white">Style reference</span>
-                </figure>
-                <div className="flex min-h-44 flex-col p-5">
-                  <h3 className="text-xl font-medium tracking-[-0.035em]">{item.name}</h3>
-                  <p className="mt-2 flex-1 text-xs leading-5 text-charcoal/60">{item.description}</p>
-                  <Link href="/#contact" className="mt-5 inline-flex min-h-10 items-center justify-between border-t border-charcoal/10 pt-3 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#856c42] hover:text-charcoal">Discuss this category <ArrowRight aria-hidden="true" className="h-4 w-4" /></Link>
+      <section id="materials" aria-labelledby="materials-title" className="scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Materials · fibres & constructions"
+            title={<>Explore our fabric &amp; <span className="text-[#80643b]/70">material library.</span></>}
+            description="Compare fibre and fabric construction directions. Availability, content, weight and performance depend on sourcing and development confirmation for each programme."
+          />
+          <div className="mt-7 grid min-w-0 gap-5 lg:grid-cols-12">
+            <div className="relative min-h-60 min-w-0 overflow-hidden bg-[#1a1a1a] text-white lg:col-span-4 lg:min-h-full">
+              <ImagePanel src="/assets/images/hero-slides/yarn-spools.jpg" alt="Yarns arranged for knitwear development" className={styles.materialImage} sizes="(max-width: 1024px) 100vw, 35vw" />
+              <div aria-hidden="true" className="absolute inset-0 bg-[#1a1a1a]/50" />
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
+                <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#d3b476]">From fibre to construction</p>
+                <p className="mt-2 max-w-sm text-xl font-medium leading-tight tracking-[-0.04em]">A fabric decision starts with the intended hand, use and finish.</p>
+              </div>
+            </div>
+            <div className="min-w-0 lg:col-span-8">
+              <div className="flex gap-2 overflow-x-auto pb-2" role="group" aria-label="Filter material directions">
+                {MATERIAL_FILTERS.map((filter) => (
+                  <button key={filter.id} type="button" aria-pressed={activeMaterialFilter === filter.id} onClick={() => setActiveMaterialFilter(filter.id)} className={'min-h-9 shrink-0 rounded-full px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (activeMaterialFilter === filter.id ? 'bg-[#25231f] text-white' : 'border border-[#25231f]/15 bg-white/60 text-[#25231f]/65 hover:text-[#25231f]')}>
+                    {filter.label}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+                {visibleMaterials.map((material, index) => (
+                  <article key={material.id} className="border border-[#25231f]/10 bg-[#faf8f5] p-4 transition-colors hover:border-[#907348]/40">
+                    <div className="mb-5 flex items-center justify-between gap-2">
+                      <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-[#80643b]">0{index + 1} · {material.kind}</span>
+                      <Layers3 aria-hidden="true" className="h-4 w-4 text-[#80643b]/65" />
+                    </div>
+                    <h3 className="text-base font-medium tracking-[-0.03em]">{material.name}</h3>
+                    <p className="mt-1.5 min-h-10 text-[10px] leading-5 text-[#25231f]/60">{material.feel}</p>
+                    <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#25231f]/10 pt-3">
+                      <span className="text-[8px] uppercase tracking-[0.1em] text-[#25231f]/45">Development possibility</span>
+                      <button type="button" onClick={() => setActiveMaterial(material.id)} aria-label={`More about ${material.name}`} className="inline-flex min-h-8 items-center gap-1.5 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#80643b] hover:text-[#25231f]">
+                        Details <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+                      </button>
+                    </div>
+                    <button type="button" onClick={() => toggleComparison(material.id)} aria-pressed={comparisonIds.includes(material.id)} disabled={!comparisonIds.includes(material.id) && comparisonIds.length >= 3} className="mt-3 inline-flex min-h-8 items-center gap-2 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#25231f]/60 transition-colors hover:text-[#25231f] disabled:cursor-not-allowed disabled:opacity-35">
+                      <span className={'grid h-4 w-4 place-items-center border ' + (comparisonIds.includes(material.id) ? 'border-[#80643b] bg-[#80643b] text-white' : 'border-[#25231f]/25')}>
+                        {comparisonIds.includes(material.id) && <Check aria-hidden="true" className="h-3 w-3" />}
+                      </span>
+                      {comparisonIds.includes(material.id) ? 'Selected to compare' : 'Compare material'}
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {selectedMaterials.length > 0 && (
+            <div aria-live="polite" className="mt-5 border border-[#25231f]/12 bg-[#ebe8e1] p-4 sm:p-5">
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Material comparison · {selectedMaterials.length} of 3</p>
+                  <p className="mt-1 text-sm text-[#25231f]/65">Select two or three directions to compare the development considerations.</p>
+                </div>
+                <button type="button" onClick={() => setComparisonIds([])} className="min-h-8 px-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#80643b] hover:text-[#25231f]">Clear comparison</button>
+              </div>
+              {selectedMaterials.length >= 2 ? (
+                <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                  {selectedMaterials.map((material) => (
+                    <article key={material.id} className="border border-[#25231f]/10 bg-[#faf8f5] p-4">
+                      <div className="flex items-start justify-between gap-3">
+                        <div><p className="font-mono text-[8px] uppercase tracking-[0.13em] text-[#80643b]">{material.kind}</p><h3 className="mt-1 text-base font-medium">{material.name}</h3></div>
+                        <button type="button" onClick={() => toggleComparison(material.id)} aria-label={`Remove ${material.name} from comparison`} className="p-1 text-[#25231f]/50 hover:text-[#25231f]"><X aria-hidden="true" className="h-4 w-4" /></button>
+                      </div>
+                      <dl className="mt-4 space-y-2 text-[10px] leading-5">
+                        <div><dt className="font-semibold text-[#25231f]/70">Composition</dt><dd className="text-[#25231f]/60">{material.composition}</dd></div>
+                        <div><dt className="font-semibold text-[#25231f]/70">Breathability</dt><dd className="text-[#25231f]/60">{material.breathability}</dd></div>
+                        <div><dt className="font-semibold text-[#25231f]/70">Stretch</dt><dd className="text-[#25231f]/60">{material.stretch}</dd></div>
+                        <div><dt className="font-semibold text-[#25231f]/70">Typical application</dt><dd className="text-[#25231f]/60">{material.applications}</dd></div>
+                      </dl>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-3 inline-flex items-center gap-2 text-[10px] text-[#25231f]/55"><CircleHelp aria-hidden="true" className="h-4 w-4" /> Choose one more material to open the side-by-side comparison.</p>
+              )}
+            </div>
+          )}
+          <p className="mt-5 max-w-4xl text-[10px] leading-5 text-[#25231f]/55">Material directions are a starting library, not a statement of current inventory or guaranteed availability. Fibre content, yarn, GSM, care and performance values are not specified here; they must be agreed and verified for each approved sample.</p>
+        </div>
+      </section>
+
+      <section id="trends" aria-labelledby="trends-title" className="scroll-mt-20 bg-[#1a1a1a] px-5 py-16 text-[#faf8f5] sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Collection development · 2026"
+            title={<>2026 fashion trends &amp; <span className="text-[#d3b476]">inspiration.</span></>}
+            description="A set of directional prompts for collection planning across four audience groups. These are editorial development ideas, not measured market demand or a forecast guarantee."
+            dark
+          />
+          <div className="mt-7 flex flex-col gap-3">
+            <div className="flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter trend directions by audience">
+              {TREND_AUDIENCE_TABS.map((tab) => (
+                <button key={`trend-${tab.id}`} type="button" aria-pressed={trendAudience === tab.id} onClick={() => setTrendAudience(tab.id)} className={'min-h-9 shrink-0 rounded-full px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (trendAudience === tab.id ? 'bg-[#d3b476] text-[#25231f]' : 'border border-white/20 text-white/65 hover:border-white/60 hover:text-white')}>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter trend directions by season">
+              {SEASON_TABS.map((tab) => (
+                <button key={`season-${tab.id}`} type="button" aria-pressed={trendSeason === tab.id} onClick={() => setTrendSeason(tab.id)} className={'min-h-9 shrink-0 px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (trendSeason === tab.id ? 'border-b border-[#d3b476] text-[#d3b476]' : 'text-white/50 hover:text-white')}>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
+          {visibleTrends.length ? (
+            <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {visibleTrends.map((trend, index) => (
+                <article key={trend.id} className="group grid grid-rows-[auto_1fr] border border-white/15 bg-[#22211e]">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e3db]">
+                    <ImagePanel src={trend.image} alt={trend.imageAlt} className={styles.trendImage} sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" />
+                    <span className="absolute left-3 top-3 border border-white/30 bg-[#1a1a1a]/70 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white">0{index + 1} / DIRECTION</span>
+                  </div>
+                  <div className="flex flex-col p-4 sm:p-5">
+                    <div className="flex items-center justify-between gap-3 text-[8px] font-semibold uppercase tracking-[0.15em] text-[#d3b476]"><span>{trend.audienceLabel}</span><span>{SEASON_TABS.find((tab) => tab.id === trend.season)?.label}</span></div>
+                    <h3 className="mt-3 text-2xl font-medium tracking-[-0.045em]">{trend.title}</h3>
+                    <p className="mt-2 min-h-12 text-[11px] leading-5 text-white/60">{trend.description}</p>
+                    <dl className="mt-5 grid gap-3 border-t border-white/15 pt-4 text-[9px] leading-4 sm:grid-cols-2">
+                      <div><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Colour direction</dt><dd className="text-white/75">{trend.colours.join(' · ')}</dd></div>
+                      <div><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Suggested fabrics</dt><dd className="text-white/75">{trend.fabrics.join(' · ')}</dd></div>
+                      <div className="sm:col-span-2"><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Garment directions</dt><dd className="text-white/75">{trend.garments.join(' · ')}</dd></div>
+                    </dl>
+                  </div>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-5 border border-white/15 p-7 text-sm text-white/65">No directions are listed for that combination. Choose another audience or season.</p>
+          )}
+        </div>
+      </section>
+
+      <section id="colour-studio" aria-labelledby="colour-studio-title" className="scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Colour library · visual references"
+            title={<>A considered <span className="text-[#80643b]/70">palette.</span></>}
+            description="Explore screen-based colour directions and suggested pairings for range planning. The selected swatch is a visual reference only, not a lab dip or approved production shade."
+          />
+          <div className="mt-7 grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem]">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
+              {PALETTE_DIRECTIONS.map((colour) => (
+                <button key={colour.name} type="button" aria-pressed={selectedColour === colour.name} onClick={() => { setSelectedColour(colour.name); setStudioColour(colour.name); }} className={'group border p-2.5 text-left transition-colors sm:p-3 ' + (selectedColour === colour.name ? 'border-[#80643b] bg-[#e9e3d8]' : 'border-[#25231f]/10 bg-[#faf8f5] hover:border-[#907348]/55')}>
+                  <span className="block aspect-[1.9/1] w-full" style={{ backgroundColor: colour.hex }} />
+                  <span className="mt-2 block text-xs font-medium">{colour.name}</span>
+                  <span className="mt-1 block text-[9px] leading-4 text-[#25231f]/55">Pairs with {colour.pairing}</span>
+                  <span className="mt-2 block font-mono text-[8px] uppercase tracking-[0.12em] text-[#25231f]/40">Screen reference · {colour.hex}</span>
+                </button>
+              ))}
+            </div>
+            <aside className="flex flex-col justify-between border border-[#25231f]/12 bg-[#ebe8e1] p-5 sm:p-6">
+              <div>
+                <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#80643b]">Selected colour direction</p>
+                <h3 className="mt-2 text-2xl font-medium tracking-[-0.04em]">{selectedColour}</h3>
+                <p className="mt-3 text-xs leading-5 text-[#25231f]/65">Use this selection as a conversation prompt. Confirm shade, dye route, material and lab dip approval separately.</p>
+              </div>
+              <div className="mt-8 border-t border-[#25231f]/15 pt-4">
+                <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/45">Palette disclaimer</p>
+                <p className="mt-2 text-[10px] leading-5 text-[#25231f]/55">Names are directional. HEX values are approximate screen samples only; they are not official Pantone references or production standards.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="inspiration" aria-labelledby="inspiration-title" className="bg-[#ebe8e1] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Style & market inspiration"
+            title={<>Visual directions, <span className="text-[#80643b]/70">open-ended.</span></>}
+            description="An editorial reference wall for discussing product language, texture and customer use. The concepts below do not represent brand partnerships, clients or endorsements."
+          />
+          <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {STYLE_INSPIRATION.map((item, index) => (
+              <article key={item.title} className="group bg-[#f5f2ee]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-[#f8f6f1]">
+                  <ImagePanel src={item.image} alt={item.alt} className={styles.inspirationImage} sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw" />
+                  <span className="absolute left-3 top-3 border border-[#25231f]/12 bg-[#faf8f5]/85 px-2 py-1 font-mono text-[7px] uppercase tracking-[0.13em] text-[#25231f]/60">0{index + 1}</span>
+                </div>
+                <div className="border-b border-[#25231f]/15 py-3">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#80643b]">{item.label}</p>
+                  <h3 className="mt-1 text-base font-medium tracking-[-0.03em]">{item.title}</h3>
+                  <p className="mt-1.5 text-[10px] leading-5 text-[#25231f]/60">{item.note}</p>
                 </div>
               </article>
             ))}
           </div>
+          <p className="mt-5 text-[9px] leading-5 text-[#25231f]/50">All imagery on this page presents product or style concepts. No third-party brand marks are used to imply a commercial relationship.</p>
         </div>
       </section>
+
+      <section id="collection-studio" aria-labelledby="collection-studio-title" className="scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Product customisation · buyer brief"
+            title={<>Build your own <span className="text-[#80643b]/70">apparel collection.</span></>}
+            description="Shape a development brief from the available style concepts. Your selections are carried into the existing quote form as editable project notes."
+          />
+          <div className="mt-7 grid gap-3 lg:grid-cols-12">
+            <div className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Collection</span><select value={studioAudience} onChange={(event) => updateStudioAudience(event.target.value as AudienceId)} className={styles.field}><option value="mens">Men&apos;s apparel</option><option value="womens">Women&apos;s apparel</option><option value="kids">Kids&apos; apparel</option><option value="babies-toddler">Babies &amp; toddler</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Style direction</span><select value={studioStyleId} onChange={(event) => { const garment = studioCollection.garments.find((item) => item.id === event.target.value) ?? studioCollection.garments[0]; setStudioStyleId(garment.id); setStudioFabric(garment.fabricOptions[0]); setStudioColour(garment.colorways[0].name); }} className={styles.field}>{studioCollection.garments.map((garment) => <option key={garment.id} value={garment.id}>{garment.name}</option>)}</select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Fabric direction</span><select value={studioFabric} onChange={(event) => setStudioFabric(event.target.value)} className={styles.field}>{studioGarment.fabricOptions.map((fabric) => <option key={fabric}>{fabric}</option>)}</select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Colour direction</span><select value={studioColour} onChange={(event) => setStudioColour(event.target.value)} className={styles.field}>{studioGarment.colorways.map((colour) => <option key={colour.name}>{colour.name}</option>)}{!studioGarment.colorways.some((colour) => colour.name === selectedColour) && <option>{selectedColour} · palette studio</option>}</select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Fit direction</span><select value={studioFit} onChange={(event) => setStudioFit(event.target.value)} className={styles.field}><option>Relaxed</option><option>Regular</option><option>Close fit</option><option>To buyer size specification</option><option>To be discussed</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Print method</span><select value={studioPrint} onChange={(event) => setStudioPrint(event.target.value)} className={styles.field}><option>Not selected</option><option>Screen print · to be reviewed</option><option>Digital print · to be reviewed</option><option>Buyer artwork · method to be confirmed</option><option>No print direction</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Embroidery</span><select value={studioEmbroidery} onChange={(event) => setStudioEmbroidery(event.target.value)} className={styles.field}><option>Discuss during development</option><option>Explore embroidery placement</option><option>No embroidery direction</option><option>Buyer artwork to review</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Neck &amp; sleeve details</span><select value={studioNeckSleeve} onChange={(event) => setStudioNeckSleeve(event.target.value)} className={styles.field}><option>As shown in concept</option><option>Explore alternate neckline</option><option>Explore alternate sleeve</option><option>To buyer specification</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Labels</span><select value={studioLabel} onChange={(event) => setStudioLabel(event.target.value)} className={styles.field}><option>Buyer label direction to discuss</option><option>Explore printed label</option><option>Explore woven label</option><option>To buyer specification</option></select></label>
+              <label className="block"><span className="mb-1.5 block text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/55">Packaging</span><select value={studioPackaging} onChange={(event) => setStudioPackaging(event.target.value)} className={styles.field}><option>To be agreed</option><option>Buyer packaging brief to review</option><option>Retail-ready packaging direction</option><option>To buyer specification</option></select></label>
+            </div>
+
+            <aside className="flex flex-col border border-[#25231f]/12 bg-[#ebe8e1] p-4 sm:p-5 lg:col-span-5">
+              <div className="relative flex min-h-[17rem] flex-1 items-center justify-center overflow-hidden bg-[#f6f4ef] p-5">
+                <ImagePanel src={studioGarment.views.front} alt={`${studioGarment.name} concept preview`} className={styles.studioImage} sizes="(max-width: 1024px) 100vw, 42vw" />
+                <span className="absolute bottom-3 left-3 border border-[#25231f]/10 bg-[#faf8f5]/85 px-2 py-1 font-mono text-[7px] uppercase tracking-[0.12em] text-[#25231f]/55">Silhouette concept · front view</span>
+              </div>
+              <div className="mt-4 flex items-start justify-between gap-3">
+                <div><p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#80643b]">Live brief summary</p><h3 className="mt-1 text-lg font-medium tracking-[-0.03em]">{studioGarment.name}</h3><p className="mt-1 text-[9px] text-[#25231f]/55">{studioGarment.category}</p></div>
+                <span className="mt-1 h-7 w-7 shrink-0 rounded-full border border-[#25231f]/15" style={{ backgroundColor: studioGarment.colorways.find((colour) => colour.name === studioColour)?.swatch ?? PALETTE_DIRECTIONS.find((colour) => studioColour.startsWith(colour.name))?.hex ?? '#e9e3d8' }} aria-label={`Selected colour: ${studioColour}`} />
+              </div>
+              <div className="mt-3 grid gap-x-4 gap-y-2 border-t border-[#25231f]/12 pt-3 text-[9px] sm:grid-cols-2">
+                <p><span className="text-[#25231f]/45">Fabric</span><span className="mt-0.5 block">{studioFabric}</span></p>
+                <p><span className="text-[#25231f]/45">Colour</span><span className="mt-0.5 block">{studioColour}</span></p>
+                <p><span className="text-[#25231f]/45">Fit</span><span className="mt-0.5 block">{studioFit}</span></p>
+                <p><span className="text-[#25231f]/45">Finish details</span><span className="mt-0.5 block">{studioPrint}; {studioEmbroidery}</span></p>
+              </div>
+              <Link href={makeQuoteHref(studioGarment, studioGarment.category, { fabric: studioFabric, color: studioColour, customizations: studioCustomizations })} className="mt-5 inline-flex min-h-12 items-center justify-between gap-3 rounded-full bg-[#25231f] px-5 text-[9px] font-bold uppercase tracking-[0.13em] text-white transition-colors hover:bg-[#80643b]">
+                Send this specification <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </Link>
+              <p className="mt-3 text-[8px] leading-4 text-[#25231f]/50">Preview shows the concept silhouette only. It is not a colour-accurate or production-ready technical design. Your selections open in the editable inquiry form.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="development-path" aria-labelledby="development-path-title" className="bg-[#ebe8e1] px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
+        <div className="mx-auto max-w-[100rem]">
+          <SectionHeading
+            eyebrow="Development pathway · from brief to dispatch"
+            title={<>From fabric choice to <span className="text-[#80643b]/70">finished apparel.</span></>}
+            description="A typical buyer-led pathway, with scope and approvals agreed for each programme. The sequence below describes development stages, not a promise of timing or production capacity."
+          />
+          <ol className="mt-7 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+            {DEVELOPMENT_STEPS.map((step, index) => (
+              <li key={step.title} className="relative min-h-36 border border-[#25231f]/12 bg-[#f5f2ee] p-4 sm:min-h-40 sm:p-5">
+                <span aria-hidden="true" className="font-mono text-[9px] tracking-[0.14em] text-[#80643b]">0{index + 1}</span>
+                <h3 className="mt-5 text-lg font-medium tracking-[-0.035em]">{step.title}</h3>
+                <p className="mt-1.5 max-w-xs text-[10px] leading-5 text-[#25231f]/60">{step.detail}</p>
+                {index < DEVELOPMENT_STEPS.length - 1 && <span aria-hidden="true" className="absolute right-3 top-4 hidden text-[#80643b]/55 lg:block">→</span>}
+              </li>
+            ))}
+          </ol>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/manufacturing" className="inline-flex min-h-10 items-center gap-2 border-b border-[#25231f]/20 pr-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#80643b] transition-colors hover:border-[#80643b] hover:text-[#25231f]">Explore manufacturing <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></Link>
+            <Link href="/quality" className="inline-flex min-h-10 items-center gap-2 border-b border-[#25231f]/20 pr-2 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#80643b] transition-colors hover:border-[#80643b] hover:text-[#25231f]">Explore quality <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" /></Link>
+          </div>
+        </div>
+      </section>
+
+      {selectedGarment && (
+        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-[#171614]/70 p-0 backdrop-blur-[2px] sm:items-center sm:p-5" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedGarment(null); }}>
+          <section role="dialog" aria-modal="true" aria-labelledby="product-detail-title" className={styles.detailDialog}>
+            <button type="button" onClick={() => setSelectedGarment(null)} aria-label="Close product concept details" className="absolute right-3 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-[#25231f]/15 bg-[#faf8f5]/90 text-[#25231f] transition-colors hover:bg-[#d3b476] sm:right-4 sm:top-4"><X aria-hidden="true" className="h-4 w-4" /></button>
+            <div className="grid min-h-0 lg:grid-cols-2">
+              <div className="relative flex min-h-[20rem] items-center justify-center overflow-hidden bg-[#ebe8e1] p-7 sm:min-h-[34rem]">
+                <ImagePanel src={selectedGarment.views.front} alt={`${selectedGarment.name} concept, front view`} className={styles.detailImage} sizes="(max-width: 1024px) 100vw, 50vw" />
+                <span className="absolute bottom-4 left-4 border border-[#25231f]/10 bg-[#faf8f5]/85 px-2.5 py-1.5 font-mono text-[8px] uppercase tracking-[0.12em] text-[#25231f]/60">Front concept view</span>
+              </div>
+              <div className="min-h-0 overflow-y-auto p-5 sm:p-8 lg:p-10">
+                <Eyebrow>{selectedGarment.category} · buyer-led concept</Eyebrow>
+                <h2 id="product-detail-title" className="max-w-xl text-3xl font-medium leading-[0.97] tracking-[-0.055em] sm:text-4xl">{selectedGarment.name}</h2>
+                <ConceptBadge />
+                <p className="mt-5 text-sm leading-6 text-[#25231f]/70">{selectedGarment.description}</p>
+                <div className="mt-6 border-t border-[#25231f]/12 pt-5">
+                  <h3 className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Construction direction</h3>
+                  <p className="mt-2 text-xs leading-6 text-[#25231f]/65">{selectedGarment.construction}</p>
+                </div>
+                <div className="mt-5 grid gap-5 border-t border-[#25231f]/12 pt-5 sm:grid-cols-2">
+                  <div><h3 className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Proposed fabric options</h3><ul className="mt-2 space-y-1.5 text-[10px] leading-5 text-[#25231f]/65">{selectedGarment.fabricOptions.map((option) => <li key={option}>· {option}</li>)}</ul></div>
+                  <div><h3 className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Palette directions</h3><ul className="mt-2 space-y-2 text-[10px] text-[#25231f]/65">{selectedGarment.colorways.map((colour) => <li key={colour.name} className="flex items-center gap-2"><span aria-hidden="true" className="h-3.5 w-3.5 rounded-full border border-[#25231f]/15" style={{ backgroundColor: colour.swatch }} />{colour.name}</li>)}</ul></div>
+                </div>
+                <div className="mt-5 border-t border-[#25231f]/12 pt-5">
+                  <h3 className="text-[9px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Customisation topics</h3>
+                  <div className="mt-2 flex flex-wrap gap-1.5">{selectedGarment.customizationOptions.map((option) => <span key={option} className="border border-[#25231f]/12 bg-[#ebe8e1] px-2.5 py-1.5 text-[8px] text-[#25231f]/65">{option}</span>)}</div>
+                </div>
+                <p className="mt-5 border-l-2 border-[#b18b4a] pl-3 text-[10px] leading-5 text-[#25231f]/55">One supplied concept view is shown. Back, side and detail photography, fibre composition, GSM, fit, yarn, size range, care and performance data are not specified; agree them against the buyer&apos;s approved brief and sample.</p>
+                {selectedGarment.designReference && <p className="mt-4 text-[9px] leading-5 text-[#25231f]/50">Style research only · <a href={selectedGarment.designReference.url} target="_blank" rel="noreferrer" className="underline underline-offset-2 hover:text-[#25231f]">{selectedGarment.designReference.label}</a> · no client or partnership claim.</p>}
+                <Link href={makeQuoteHref(selectedGarment, selectedGarment.category, { fabric: selectedGarment.fabricOptions[0], color: selectedGarment.colorways[0].name, customizations: selectedGarment.customizationOptions })} className="mt-6 inline-flex min-h-12 w-full items-center justify-between rounded-full bg-[#25231f] px-5 text-[9px] font-bold uppercase tracking-[0.13em] text-white transition-colors hover:bg-[#80643b] sm:w-auto sm:min-w-64">
+                  Request custom development <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeDetailMaterial && (
+        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-[#171614]/70 p-0 backdrop-blur-[2px] sm:items-center sm:p-5" onMouseDown={(event) => { if (event.target === event.currentTarget) setActiveMaterial(null); }}>
+          <section role="dialog" aria-modal="true" aria-labelledby="material-detail-title" className={styles.materialDialog}>
+            <button type="button" onClick={() => setActiveMaterial(null)} aria-label="Close material details" className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full border border-[#25231f]/15 bg-[#faf8f5] hover:bg-[#d3b476]"><X aria-hidden="true" className="h-4 w-4" /></button>
+            <Eyebrow>{activeDetailMaterial.kind} · development possibility</Eyebrow>
+            <h2 id="material-detail-title" className="text-3xl font-medium tracking-[-0.05em]">{activeDetailMaterial.name}</h2>
+            <dl className="mt-6 grid gap-4 sm:grid-cols-2">
+              {[
+                ['Composition', activeDetailMaterial.composition],
+                ['Feel & texture', activeDetailMaterial.feel],
+                ['Breathability', activeDetailMaterial.breathability],
+                ['Stretch', activeDetailMaterial.stretch],
+                ['Typical applications', activeDetailMaterial.applications],
+                ['Care', activeDetailMaterial.care],
+                ['Weight & GSM', 'Not specified in this catalogue; agree against the buyer brief and approved sample.'],
+                ['Customisation', 'Colour, finish, print, embroidery, trims and labels can be discussed for each confirmed material direction.'],
+              ].map(([term, description]) => <div key={term} className="border-t border-[#25231f]/12 pt-3"><dt className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#80643b]">{term}</dt><dd className="mt-1.5 text-[11px] leading-5 text-[#25231f]/65">{description}</dd></div>)}
+            </dl>
+            <p className="mt-5 text-[9px] leading-5 text-[#25231f]/50">Availability, sourcing, fibre content, certification and performance claims require programme-specific confirmation.</p>
+            <button type="button" onClick={() => toggleComparison(activeDetailMaterial.id)} className="mt-5 inline-flex min-h-10 items-center gap-2 border-b border-[#80643b]/40 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#80643b] hover:text-[#25231f]">
+              {comparisonIds.includes(activeDetailMaterial.id) ? 'Remove from comparison' : 'Add to comparison'} <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
+            </button>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
