@@ -65,21 +65,23 @@ export function InteractiveCountryMap({ selectedCode, reducedMotion, onSelect }:
   const selectedIndex = projectedFeatures.findIndex(({ feature }) => (
     feature.properties.alpha2 ? feature.properties.alpha2 === selectedCode : feature.id === selectedCode
   ));
-  const tooltipPoint = hovered
+  const selectedFeature = selectedIndex >= 0 ? projectedFeatures[selectedIndex].feature : null;
+  const tooltipFeature = hovered ?? selectedFeature;
+  const tooltipPoint = tooltipFeature
     ? projectCoordinates(
-      MARKETS.find((market) => market.code === hovered.properties.alpha2)?.lat ?? hovered.properties.label[1],
-      MARKETS.find((market) => market.code === hovered.properties.alpha2)?.lon ?? hovered.properties.label[0],
+      MARKETS.find((market) => market.code === tooltipFeature.properties.alpha2)?.lat ?? tooltipFeature.properties.label[1],
+      MARKETS.find((market) => market.code === tooltipFeature.properties.alpha2)?.lon ?? tooltipFeature.properties.label[0],
     )
     : null;
-  const tooltipRegion = hovered
-    ? MARKETS.find((market) => market.code === hovered.properties.alpha2)?.region
-      ?? regionFromGeography(hovered.properties.continent, hovered.properties.subregion)
+  const tooltipRegion = tooltipFeature
+    ? MARKETS.find((market) => market.code === tooltipFeature.properties.alpha2)?.region
+      ?? regionFromGeography(tooltipFeature.properties.continent, tooltipFeature.properties.subregion)
     : '';
-  const tooltipLatitude = hovered
-    ? MARKETS.find((market) => market.code === hovered.properties.alpha2)?.lat ?? hovered.properties.label[1]
+  const tooltipLatitude = tooltipFeature
+    ? MARKETS.find((market) => market.code === tooltipFeature.properties.alpha2)?.lat ?? tooltipFeature.properties.label[1]
     : 0;
-  const tooltipLongitude = hovered
-    ? MARKETS.find((market) => market.code === hovered.properties.alpha2)?.lon ?? hovered.properties.label[0]
+  const tooltipLongitude = tooltipFeature
+    ? MARKETS.find((market) => market.code === tooltipFeature.properties.alpha2)?.lon ?? tooltipFeature.properties.label[0]
     : 0;
 
   function handleShapeKeyDown(event: KeyboardEvent<SVGPathElement>, index: number, feature: CountryFeature) {
@@ -149,9 +151,9 @@ export function InteractiveCountryMap({ selectedCode, reducedMotion, onSelect }:
       )}
 
       <AnimatePresence mode="wait">
-        {hovered && tooltipPoint && (
+        {tooltipFeature && tooltipPoint && (
           <motion.div
-            key={hovered.id}
+            key={tooltipFeature.id}
             className={styles.countryMapTooltip}
             style={{
               left: 'clamp(7.5rem, ' + Math.max(8, Math.min(92, tooltipPoint.x / 12)) + '%, calc(100% - 7.5rem))',
@@ -163,10 +165,10 @@ export function InteractiveCountryMap({ selectedCode, reducedMotion, onSelect }:
             transition={{ duration: reducedMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
             role="status"
           >
-            <span className={styles.countryTooltipFlag}>{getFlag(hovered.properties.alpha2, styles.countryTooltipFlagImage)}</span>
+            <span className={styles.countryTooltipFlag}>{getFlag(tooltipFeature.properties.alpha2, styles.countryTooltipFlagImage)}</span>
             <span className={styles.countryTooltipCopy}>
-              <strong>{hovered.properties.name}</strong>
-              <span>{tooltipRegion} <i aria-hidden="true">·</i> {hovered.properties.alpha2 || 'No ISO code'}</span>
+              <strong>{tooltipFeature.properties.name}</strong>
+              <span>{tooltipRegion} <i aria-hidden="true">·</i> {tooltipFeature.properties.alpha2 || 'No ISO code'}</span>
               <span>{coordinateLabel(tooltipLatitude, tooltipLongitude)}</span>
             </span>
           </motion.div>

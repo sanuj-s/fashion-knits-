@@ -515,6 +515,100 @@
   background: var(--global-champagne);
 }
 
+.mapHeaderActions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.routeModeSwitcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  border: 1px solid rgba(245, 241, 232, 0.2);
+  padding: 0.15rem;
+  background: rgba(23, 23, 21, 0.38);
+}
+
+.routeModeButton {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid transparent;
+  padding: 0.34rem 0.48rem;
+  color: rgba(245, 241, 232, 0.66);
+  background: transparent;
+  cursor: pointer;
+  font-size: 0.53rem;
+  font-weight: 580;
+  letter-spacing: 0.025em;
+  white-space: nowrap;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.routeModeButton svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  color: #d9c9a9;
+  stroke-width: 1.65;
+}
+
+.routeModeButton:hover,
+.routeModeButton:focus-visible,
+.routeModeButtonActive {
+  border-color: rgba(197, 164, 109, 0.48);
+  color: var(--global-paper);
+  background: rgba(197, 164, 109, 0.16);
+}
+
+.routeModeButton:focus-visible {
+  outline: 1px solid var(--global-champagne);
+  outline-offset: 2px;
+}
+
+.mapViewButton,
+.profileViewButton {
+  display: inline-flex;
+  min-height: 2rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  border: 1px solid rgba(197, 164, 109, 0.42);
+  padding: 0.35rem 0.55rem;
+  color: rgba(245, 241, 232, 0.82);
+  background: rgba(23, 23, 21, 0.24);
+  cursor: pointer;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5rem;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.mapViewButton svg,
+.profileViewButton svg {
+  width: 0.76rem;
+  height: 0.76rem;
+  flex: 0 0 auto;
+  color: #d9c9a9;
+  stroke-width: 1.65;
+}
+
+.mapViewButton:hover,
+.mapViewButton:focus-visible,
+.profileViewButton:hover,
+.profileViewButton:focus-visible {
+  border-color: var(--global-champagne);
+  color: var(--global-paper);
+  background: rgba(197, 164, 109, 0.2);
+  outline: 1px solid var(--global-champagne);
+  outline-offset: 2px;
+}
+
 .mapCanvas {
   position: relative;
   min-height: clamp(15rem, 38vw, 31rem);
@@ -649,6 +743,7 @@
   cursor: pointer;
   pointer-events: visiblePainted;
   touch-action: manipulation;
+  outline: none;
   transition: fill 240ms ease, stroke 240ms ease, stroke-width 240ms ease, filter 240ms ease;
 }
 
@@ -783,6 +878,36 @@
   pointer-events: none;
 }
 
+.mapStageMarker {
+  cursor: pointer;
+  pointer-events: none;
+  outline: none;
+}
+
+.mapStageMarker > circle,
+.mapStageMarker > rect,
+.mapStageMarker > text {
+  pointer-events: all;
+}
+
+.mapStageMarker:hover .mapOriginHalo,
+.mapStageMarker:focus-visible .mapOriginHalo,
+.mapStageMarker:hover .mapSelectedHalo,
+.mapStageMarker:focus-visible .mapSelectedHalo {
+  stroke: #f0d9ad;
+  stroke-width: 2.4;
+}
+
+.mapStageFocusHalo {
+  fill: rgba(245, 241, 232, 0.08);
+  stroke: rgba(240, 217, 173, 0.8);
+  stroke-width: 1.1;
+  stroke-dasharray: 2 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  pointer-events: none;
+}
+
 .mapRegionGlow {
   opacity: 0.72;
   transform-box: fill-box;
@@ -867,6 +992,17 @@
 .mapRouteParticleSecondary {
   fill: #e5c994;
   filter: drop-shadow(0 0 3px rgba(197, 164, 109, 0.76));
+}
+
+.mapRouteSea {
+  stroke-dasharray: 0.022 0.012;
+  opacity: 0.78;
+}
+
+.mapRouteAir {
+  stroke-dasharray: 1;
+  stroke-width: 1.25;
+  opacity: 0.86;
 }
 
 .mapCaption {
@@ -1022,9 +1158,61 @@
 
 .explorerStage {
   display: grid;
-  grid-template-columns: minmax(0, 1.65fr) minmax(18rem, 0.72fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(22rem, 0.95fr);
   align-items: stretch;
   gap: 0.75rem;
+}
+
+.explorerStageMapFocus {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.explorerStageMapFocus .marketSpotlight {
+  display: none;
+}
+
+.explorerStageExpanded {
+  position: fixed;
+  z-index: 1000;
+  inset: clamp(0.55rem, 1.5vw, 1.25rem);
+  isolation: isolate;
+  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.95fr);
+  gap: 0.65rem;
+  overflow: hidden;
+  border: 1px solid rgba(197, 164, 109, 0.58);
+  padding: 0.65rem;
+  background: #211f1b;
+  box-shadow: 0 0 0 100vmax rgba(10, 9, 8, 0.7), 0 28px 90px rgba(0, 0, 0, 0.46);
+}
+
+.explorerStageExpanded::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background: rgba(10, 9, 8, 0.56);
+  backdrop-filter: blur(3px);
+  content: '';
+}
+
+.explorerStageExpanded .mapPanel,
+.explorerStageExpanded .marketSpotlight {
+  min-height: 0;
+  height: 100%;
+}
+
+.explorerStageExpanded .mapCanvas {
+  min-height: 20rem;
+}
+
+.explorerStageExpanded .marketSpotlight {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(197, 164, 109, 0.5) rgba(23, 23, 21, 0.36);
+  scrollbar-width: thin;
+}
+
+.explorerStageExpanded .spotlightContent {
+  flex: 0 0 auto;
 }
 
 .mapPanel {
@@ -1087,12 +1275,101 @@
   view-transition-name: fk-market-spotlight;
 }
 
+.explorerStage:not(.explorerStageExpanded):not(.explorerStageMapFocus) .marketSpotlight {
+  max-height: clamp(37rem, 54vw, 48rem);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(197, 164, 109, 0.42) rgba(23, 23, 21, 0.28);
+  scrollbar-width: thin;
+}
+
+.explorerStageExpanded .marketOverview p {
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.explorerStageExpanded .profileSectionKicker,
+.explorerStageExpanded .logisticsSectionHeading h4 {
+  font-size: 0.61rem;
+}
+
+.explorerStageExpanded .freightOptions span {
+  min-height: 2.35rem;
+  font-size: 0.68rem;
+}
+
+.explorerStageExpanded .shipmentStageButton {
+  min-height: 2.65rem;
+  padding: 0.42rem 0.55rem;
+}
+
+.explorerStageExpanded .shipmentStageButton > span,
+.explorerStageExpanded .shipmentStageButton > strong,
+.explorerStageExpanded .transitCard > span,
+.explorerStageExpanded .transitCard > small,
+.explorerStageExpanded .shipmentFacts dt,
+.explorerStageExpanded .documentList > article p,
+.explorerStageExpanded .manufacturingCards > article p {
+  font-size: 0.68rem;
+}
+
+.explorerStageExpanded .shipmentStageButton > strong,
+.explorerStageExpanded .documentList > article strong,
+.explorerStageExpanded .manufacturingCards > article strong {
+  font-size: 0.72rem;
+}
+
+.explorerStageExpanded .shipmentStageDetail p,
+.explorerStageExpanded .shipmentFacts dd {
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.explorerStageExpanded .transitCard > strong {
+  font-size: 0.84rem;
+}
+
 .spotlightTopline,
 .spotlightNavigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.profileViewActions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.55rem;
+}
+
+.profileViewButton {
+  min-height: 1.85rem;
+  padding: 0.3rem 0.48rem;
+  font-size: 0.47rem;
+}
+
+.marketOverview {
+  border-left: 1px solid rgba(197, 164, 109, 0.68);
+  padding: 0.12rem 0 0.12rem 0.62rem;
+}
+
+.profileSectionKicker {
+  color: #e6d5b4;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.56rem;
+  font-weight: 560;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.marketOverview p {
+  margin: 0.2rem 0 0;
+  color: rgba(245, 241, 232, 0.72);
+  font-size: 0.68rem;
+  line-height: 1.52;
 }
 
 .spotlightTopline,
@@ -1112,6 +1389,408 @@
   align-items: flex-start;
   justify-content: center;
   padding-block: 1.7rem;
+}
+
+.logisticsContent {
+  min-height: 0;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0.78rem;
+  padding-block: 1.15rem;
+}
+
+.logisticsIdentity {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.logisticsIdentity .spotlightFlagFrame {
+  width: 4rem;
+  height: 3rem;
+  flex: 0 0 auto;
+}
+
+.logisticsIdentityCopy {
+  min-width: 0;
+}
+
+.logisticsIdentity .spotlightEyebrow {
+  display: block;
+  margin-top: 0;
+  font-size: 0.47rem;
+}
+
+.logisticsCountryName {
+  margin-top: 0.24rem;
+  font-size: clamp(1.3rem, 2vw, 1.82rem);
+  letter-spacing: -0.045em;
+  line-height: 1.08;
+  overflow-wrap: anywhere;
+}
+
+.logisticsIdentity .spotlightMeta {
+  margin-top: 0.36rem;
+  font-size: 0.51rem;
+}
+
+.logisticsEstimate {
+  display: flex;
+  align-items: center;
+  gap: 0.42rem;
+  margin: 0;
+  color: rgba(231, 210, 173, 0.78);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.51rem;
+  letter-spacing: 0.035em;
+  line-height: 1.45;
+}
+
+.logisticsEstimate i {
+  width: 0.34rem;
+  height: 0.34rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--global-champagne);
+  box-shadow: 0 0 0.55rem rgba(197, 164, 109, 0.48);
+}
+
+.freightOptions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.freightOptions span {
+  display: inline-flex;
+  min-width: 0;
+  min-height: 1.8rem;
+  align-items: center;
+  gap: 0.42rem;
+  border: 1px solid rgba(197, 164, 109, 0.23);
+  padding: 0.36rem 0.48rem;
+  color: rgba(245, 241, 232, 0.78);
+  font-size: 0.62rem;
+  line-height: 1.2;
+}
+
+.freightOptions svg {
+  width: 0.78rem;
+  height: 0.78rem;
+  flex: 0 0 auto;
+  color: #d9c9a9;
+  stroke-width: 1.6;
+}
+
+.logisticsSection {
+  border-top: 1px solid rgba(245, 241, 232, 0.14);
+  padding-top: 0.7rem;
+}
+
+.logisticsSectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.logisticsSectionHeading h4 {
+  margin: 0;
+  color: #e6d5b4;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.57rem;
+  font-weight: 560;
+  letter-spacing: 0.115em;
+  text-transform: uppercase;
+}
+
+.logisticsSectionHeading > span {
+  color: rgba(245, 241, 232, 0.5);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.46rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.logisticsSectionHeading > svg {
+  width: 0.82rem;
+  height: 0.82rem;
+  color: #d9c9a9;
+  stroke-width: 1.55;
+}
+
+.shipmentRouteSteps {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.34rem;
+}
+
+.shipmentRouteSteps li {
+  display: block;
+  min-width: 0;
+}
+
+.shipmentStageButton {
+  display: grid;
+  width: 100%;
+  min-height: 2.25rem;
+  grid-template-columns: 1.18rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(245, 241, 232, 0.13);
+  padding: 0.34rem 0.42rem;
+  color: rgba(245, 241, 232, 0.72);
+  text-align: left;
+  background: rgba(23, 23, 21, 0.2);
+  cursor: pointer;
+  transition: color 200ms ease, border-color 200ms ease, background-color 200ms ease;
+}
+
+.shipmentStageButton > span {
+  padding-top: 0;
+  color: #d9c9a9;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.54rem;
+}
+
+.shipmentStageButton > strong {
+  color: inherit;
+  font-size: 0.62rem;
+  font-weight: 560;
+  line-height: 1.25;
+}
+
+.shipmentStageButton:hover,
+.shipmentStageButton:focus-visible,
+.shipmentStageButtonActive {
+  border-color: rgba(197, 164, 109, 0.7);
+  color: var(--global-paper);
+  background: rgba(197, 164, 109, 0.14);
+  outline: none;
+}
+
+.shipmentStageButton:focus-visible {
+  outline: 1px solid var(--global-champagne);
+  outline-offset: 1px;
+}
+
+.shipmentStageDetail {
+  margin-top: 0.45rem;
+  border: 1px solid rgba(197, 164, 109, 0.22);
+  padding: 0.5rem 0.58rem;
+  background: rgba(23, 23, 21, 0.24);
+}
+
+.shipmentStageDetail > span {
+  color: #e6d5b4;
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.shipmentStageDetail p {
+  margin: 0.18rem 0 0;
+  color: rgba(245, 241, 232, 0.66);
+  font-size: 0.63rem;
+  line-height: 1.48;
+}
+
+.shipmentRouteSteps {
+  display: grid;
+  gap: 0.37rem;
+  margin: 0.58rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shipmentRouteSteps li {
+  display: grid;
+  grid-template-columns: 1.15rem minmax(0, 1fr);
+  gap: 0.46rem;
+  align-items: start;
+}
+
+.shipmentRouteSteps li > span {
+  padding-top: 0.05rem;
+  color: #d9c9a9;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5rem;
+  letter-spacing: 0.035em;
+}
+
+.shipmentRouteSteps li div {
+  display: grid;
+  gap: 0.09rem;
+  min-width: 0;
+}
+
+.shipmentRouteSteps strong {
+  color: rgba(245, 241, 232, 0.9);
+  font-size: 0.57rem;
+  font-weight: 560;
+  line-height: 1.35;
+}
+
+.shipmentRouteSteps small {
+  color: rgba(245, 241, 232, 0.58);
+  font-size: 0.52rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.shipmentRouteSteps li {
+  display: block;
+}
+
+.shipmentRouteSteps .shipmentStageButton > strong {
+  font-size: 0.62rem;
+}
+
+.explorerStageExpanded .shipmentRouteSteps .shipmentStageButton > strong {
+  font-size: 0.72rem;
+}
+
+.transitCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.4rem;
+  margin-top: 0.55rem;
+}
+
+.transitCard {
+  display: grid;
+  align-content: start;
+  gap: 0.22rem;
+  min-width: 0;
+  border: 1px solid rgba(197, 164, 109, 0.22);
+  padding: 0.5rem;
+  background: rgba(23, 23, 21, 0.2);
+}
+
+.transitCard:only-child {
+  grid-column: 1 / -1;
+}
+
+.transitCard > span {
+  display: flex;
+  align-items: center;
+  gap: 0.32rem;
+  color: rgba(245, 241, 232, 0.69);
+  font-size: 0.59rem;
+  line-height: 1.25;
+}
+
+.transitCard > span svg {
+  width: 0.7rem;
+  height: 0.7rem;
+  flex: 0 0 auto;
+  color: #d9c9a9;
+}
+
+.transitCard > strong {
+  color: var(--global-paper);
+  font-size: 0.76rem;
+  font-weight: 550;
+  line-height: 1.25;
+}
+
+.transitCard > small {
+  color: rgba(245, 241, 232, 0.55);
+  font-size: 0.56rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.logisticsDocuments {
+  display: grid;
+  grid-template-columns: 0.85rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.45rem;
+  margin: 0.6rem 0 0;
+}
+
+.logisticsDocuments > svg {
+  width: 0.76rem;
+  height: 0.76rem;
+  margin-top: 0.05rem;
+  color: #d9c9a9;
+  stroke-width: 1.55;
+}
+
+.logisticsDocuments span {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.logisticsDocuments strong {
+  color: rgba(245, 241, 232, 0.86);
+  font-size: 0.53rem;
+  font-weight: 560;
+}
+
+.logisticsDocuments small {
+  color: rgba(245, 241, 232, 0.55);
+  font-size: 0.5rem;
+  line-height: 1.45;
+}
+
+.shipmentFacts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.36rem;
+  margin: 0.5rem 0 0;
+}
+
+.shipmentFacts > div {
+  min-width: 0;
+  border: 1px solid rgba(197, 164, 109, 0.18);
+  padding: 0.42rem 0.48rem;
+  background: rgba(23, 23, 21, 0.18);
+}
+
+.shipmentFacts > div:last-child {
+  grid-column: 1 / -1;
+}
+
+.shipmentFacts dt {
+  color: rgba(245, 241, 232, 0.54);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shipmentFacts dd {
+  margin: 0.16rem 0 0;
+  color: rgba(245, 241, 232, 0.83);
+  font-size: 0.62rem;
+  line-height: 1.4;
+}
+
+.documentList,
+.manufacturingCards {
+  display: grid;
+  gap: 0.32rem;
+  margin-top: 0.68rem;
+}
+
+.documentList > article,
+.manufacturingCards > article {
+  border-bottom: 1px solid rgba(245, 241, 232, 0.1);
+  padding: 0.32rem 0 0.4rem;
+}
+
+.documentList > article strong,
+.manufacturingCards > article strong {
+  color: rgba(245, 241, 232, 0.88);
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.documentList > article p,
+.manufacturingCards > article p {
+  margin: 0.12rem 0 0;
+  color: rgba(245, 241, 232, 0.62);
+  font-size: 0.59rem;
+  line-height: 1.42;
 }
 
 .spotlightFlagFrame {
@@ -2716,6 +3395,10 @@
 }
 
 @media (max-width: 900px) {
+  .explorerStage:not(.explorerStageExpanded) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .tradeDetailsLayout {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.25rem;
@@ -2868,7 +3551,31 @@
 
   .mapHeader {
     align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
     padding: 1.15rem 1rem 0.85rem;
+  }
+
+  .mapHeaderActions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.38rem;
+  }
+
+  .routeModeSwitcher {
+    gap: 0.05rem;
+  }
+
+  .routeModeButton {
+    min-height: 1.9rem;
+    gap: 0.24rem;
+    padding-inline: 0.36rem;
+    font-size: 0.47rem;
+  }
+
+  .routeModeButton svg {
+    width: 0.7rem;
+    height: 0.7rem;
   }
 
   .mapLiveTag {
@@ -2898,12 +3605,56 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .marketSpotlight {
+  .explorerStage:not(.explorerStageExpanded) .marketSpotlight {
     min-height: 0;
+    max-height: none;
+    overflow: hidden;
   }
 
   .spotlightContent {
     min-height: 17rem;
+  }
+
+  .logisticsContent {
+    min-height: 0;
+    gap: 0.72rem;
+    padding-block: 1rem;
+  }
+
+  .explorerStageExpanded {
+    inset: 0.45rem;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(14rem, 36svh) minmax(0, 1fr);
+    gap: 0.45rem;
+    overflow-y: auto;
+    padding: 0.45rem;
+  }
+
+  .explorerStageExpanded .mapPanel {
+    height: auto;
+  }
+
+  .explorerStageExpanded .mapCanvas {
+    min-height: 12rem;
+  }
+
+  .explorerStageExpanded .marketSpotlight {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .explorerStageExpanded .spotlightContent {
+    flex: 0 0 auto;
+  }
+
+  .profileViewActions {
+    gap: 0.35rem;
+  }
+
+  .profileViewButton {
+    min-height: 2rem;
+    padding-inline: 0.42rem;
   }
 
   .mapCaption {
@@ -3121,6 +3872,21 @@
 
   .mapCanvas {
     min-height: 16rem;
+  }
+
+  .mapHeaderActions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .routeModeSwitcher {
+    width: 100%;
+  }
+
+  .routeModeButton {
+    flex: 1 1 0;
+    padding-inline: 0.25rem;
+    font-size: 0.45rem;
   }
 
   .countryButton {

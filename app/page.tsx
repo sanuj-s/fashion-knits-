@@ -1,6 +1,6 @@
 import { Hero } from '@/components/hero/Hero';
 import { Products } from '@/components/sections/Products';
-import { ManufacturingProcess } from '@/components/sections/ManufacturingProcess';
+import { BuyerProjectExperience } from '@/components/sections/BuyerProjectExperience';
 import { Capabilities } from '@/components/sections/Capabilities';
 import { WorkforceScale } from '@/components/sections/WorkforceScale';
 import { MaterialInnovation } from '@/components/sections/MaterialInnovation';
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Hero />
       <Products />
-      <ManufacturingProcess />
+      <BuyerProjectExperience />
       <Capabilities />
       <WorkforceScale />
       <MaterialInnovation showImageLabel={false} />

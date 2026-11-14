@@ -72,18 +72,18 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-[90rem] items-center justify-between px-5 sm:px-8 lg:px-16 xl:px-24">
           <Link
             href="/"
-            className="inline-flex shrink-0 items-center text-off-white transition-opacity hover:opacity-90"
+            className="navbar-brand-link inline-flex shrink-0 items-center text-off-white transition-opacity hover:opacity-90"
             aria-label="Fashion Knits home"
           >
-            <BrandLogo id="header-brand" className="block h-10 w-[176px] sm:h-12 sm:w-[210px]" />
+            <BrandLogo id="header-brand" className="block h-10 w-[176px] sm:h-12 sm:w-[210px] lg:h-9 lg:w-[150px] xl:h-10 xl:w-[176px] 2xl:h-12 2xl:w-[210px]" />
           </Link>
 
-          <nav aria-label="Main navigation" className="hidden items-center gap-7 xl:flex 2xl:gap-8">
+          <nav aria-label="Main navigation" className="hidden items-center gap-2 lg:flex xl:gap-4 2xl:gap-7">
             {navLinks.map((link) => {
               const isActive = link.href.startsWith('/') &&
                 (pathname === link.href || pathname.startsWith(`${link.href}/`));
-              const linkClass = `group relative py-2 text-[10px] font-medium uppercase tracking-[0.17em] transition-colors duration-200 ${
-                isActive ? 'text-accent' : 'text-off-white/75 hover:text-white'
+              const linkClass = `group relative whitespace-nowrap py-2 text-[10px] font-medium uppercase tracking-[0.12em] transition-colors duration-200 ${
+                isActive ? 'text-accent' : 'text-white/90 hover:text-accent'
               }`;
               const underline = (
                 <span
@@ -119,7 +119,7 @@ export default function Navbar() {
 
             <Link
               href="/get-a-quote"
-              className="btn-shine rounded-full border border-accent/65 bg-accent px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-charcoal transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#e0c38d] hover:shadow-[0_8px_24px_rgba(201,169,110,0.22)]"
+              className="btn-shine whitespace-nowrap rounded-full border border-accent/65 bg-accent px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-charcoal transition-[transform,background-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-[#e0c38d] hover:shadow-[0_8px_24px_rgba(201,169,110,0.22)] xl:px-4 xl:py-2.5 xl:tracking-[0.16em] 2xl:px-5"
             >
               Inquire
             </Link>
@@ -128,7 +128,7 @@ export default function Navbar() {
           <button
             ref={menuButtonRef}
             type="button"
-            className="z-50 inline-flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 bg-white/5 transition-colors hover:bg-white/10 xl:hidden"
+            className="z-50 inline-flex h-11 w-11 flex-col items-center justify-center gap-[5px] rounded-full border border-white/20 bg-white/5 transition-colors hover:bg-white/10 lg:hidden"
             onClick={() => (isOpen ? closeMenu() : setIsOpen(true))}
             aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={isOpen}

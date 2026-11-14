@@ -33,8 +33,8 @@ const CAPABILITY_STAGES = [
     heading: 'Product-focused lines through finish.',
     description: 'Dedicated lines and product-trained operators move garments through sewing, trimming, checking, ironing and packaging.',
     Icon: Shirt,
-    image: '/assets/images/process-garment-finishing.webp',
-    alt: 'Garment finishing work in a production setting',
+    image: '/assets/images/home-sewing-finishing.webp',
+    alt: 'Illustrative garment production floor with sewing stations',
     details: ['Sewing across production lines', 'Trimming and final checking', 'Ironing and packaging'],
   },
   {

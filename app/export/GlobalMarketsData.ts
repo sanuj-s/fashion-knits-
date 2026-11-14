@@ -9,6 +9,17 @@ export const REGIONS = [
 
 export type MarketRegion = (typeof REGIONS)[number];
 
+export const CONTINENTS = [
+  'Europe',
+  'Asia',
+  'North America',
+  'South America',
+  'Africa',
+  'Oceania',
+] as const;
+
+export type Continent = (typeof CONTINENTS)[number];
+
 export type Market = {
   code: string;
   name: string;
@@ -102,7 +113,7 @@ export const MARKETS: Market[] = [
 
 export const FEATURED_MARKET_CODES = ['FR', 'GB', 'DE', 'US', 'CA', 'CH', 'AU', 'JP', 'SG', 'QA', 'AE'] as const;
 
-export function getMarketContinent(market: Pick<Market, 'code' | 'region'>) {
+export function getMarketContinent(market: Pick<Market, 'code' | 'region'>): Continent {
   if (market.region === 'Europe') return 'Europe';
   if (market.region === 'North America') return 'North America';
   if (market.region === 'Latin America') {
@@ -111,8 +122,17 @@ export function getMarketContinent(market: Pick<Market, 'code' | 'region'>) {
   if (market.region === 'Asia-Pacific') return ['AU', 'NZ'].includes(market.code) ? 'Oceania' : 'Asia';
   if (market.region === 'Middle East') return 'Asia';
   if (market.region === 'Africa') return 'Africa';
-  return 'International';
+  return 'Europe';
 }
+
+export const CONTINENT_CENTERS: Record<Continent, { lat: number; lon: number }> = {
+  Europe: { lat: 51, lon: 12 },
+  Asia: { lat: 28, lon: 91 },
+  'North America': { lat: 40, lon: -101 },
+  'South America': { lat: -18, lon: -61 },
+  Africa: { lat: 1, lon: 20 },
+  Oceania: { lat: -23, lon: 139 },
+};
 
 export const REGION_CENTERS: Record<MarketRegion, { lat: number; lon: number }> = {
   Europe: { lat: 51, lon: 12 },

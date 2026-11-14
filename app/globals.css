@@ -124,6 +124,23 @@ body {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 .spotlight { background: radial-gradient(520px circle at var(--mx, 70%) var(--my, 40%), rgba(201,169,110,.16), transparent 65%); transition: background .15s; }
+.home-hero-left-shade {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.82) 55%, rgba(0, 0, 0, 0.54) 74%, rgba(0, 0, 0, 0.16) 100%);
+}
+.home-hero-top-shade {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.24) 56%, transparent 100%);
+}
+.home-hero-bottom-shade {
+  background: linear-gradient(0deg, rgba(26, 26, 26, 0.92) 0%, rgba(26, 26, 26, 0.38) 52%, transparent 100%);
+}
+.navbar-brand-link:focus-visible {
+  outline-color: var(--accent);
+  outline-offset: 5px;
+  border-radius: 3px;
+}
+.home-hero-primary.btn-shine:hover {
+  background: #d8b87a;
+}
 .marquee-track { animation: marquee 38s linear infinite; }
 .marquee-track:hover { animation-play-state: paused; }
 .marquee-track.is-paused { animation-play-state: paused; }
@@ -132,6 +149,12 @@ body {
 .btn-shine::before { content: ''; position: absolute; inset: 0; background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.55) 50%, transparent 70%); transform: translateX(-120%); transition: transform .7s ease; }
 .btn-shine:hover::before { transform: translateX(120%); }
 .btn-shine:hover { background: #fff; }
+
+@media (max-width: 767px) {
+  .home-hero-left-shade {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.75) 62%, rgba(0, 0, 0, 0.48) 100%);
+  }
+}
 
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid currentColor;
@@ -1527,12 +1550,19 @@ button, a {
 }
 
 .products-showroom-backdrop {
-  background-image: url('/assets/products/showcase/showroom-environment.webp');
-  background-position: center 54%;
+  background-image: url('/assets/products/showcase/showroom-gallery-background.webp');
+  background-position: left calc(100% - 5rem);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 132% auto;
   scale: 1.035;
   filter: saturate(.88) contrast(.98);
+}
+
+@media (max-width: 767px) {
+  .products-showroom-backdrop {
+    background-position: center bottom;
+    background-size: auto 160%;
+  }
 }
 
 .products-light-wash {

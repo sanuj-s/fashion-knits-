@@ -2,7 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
+import { motion, useInView, useMotionValue, useScroll } from 'motion/react';
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import type { ReactNode } from 'react';
 import {
   ArrowDown,
   ArrowRight,
@@ -23,22 +25,12 @@ import {
   MATERIAL_DIRECTIONS,
   PALETTE_DIRECTIONS,
   STYLE_INSPIRATION,
-  TREND_DIRECTIONS,
   type MaterialFilter,
-  type TrendSeason,
 } from './products-experience-data';
 import styles from './products.module.css';
 
 type AudienceId = (typeof AUDIENCE_COLLECTIONS)[number]['id'];
 type ProductEntry = GarmentReference & { audienceId: AudienceId; audienceLabel: string };
-
-const TREND_AUDIENCE_TABS = [
-  { id: 'all', label: 'All collections' },
-  { id: 'mens', label: "Men's" },
-  { id: 'womens', label: "Women's" },
-  { id: 'kids', label: "Kids'" },
-  { id: 'babies-toddler', label: 'Babies & toddler' },
-] as const;
 
 const CATALOGUE_AUDIENCE_TABS = [
   { id: 'mens', label: "Men's" },
@@ -56,13 +48,6 @@ const MATERIAL_FILTERS: { id: 'all' | MaterialFilter; label: string }[] = [
   { id: 'heavier', label: 'Heavier constructions' },
   { id: 'stretch', label: 'Stretch' },
   { id: 'soft-touch', label: 'Soft touch' },
-];
-
-const SEASON_TABS: { id: TrendSeason | 'all'; label: string }[] = [
-  { id: 'all', label: 'All directions' },
-  { id: 'spring-summer', label: 'Spring / Summer 2026' },
-  { id: 'autumn-winter', label: 'Autumn / Winter 2026' },
-  { id: 'year-round', label: 'Year-round essentials' },
 ];
 
 const PRODUCT_ENTRIES: ProductEntry[] = AUDIENCE_COLLECTIONS.flatMap((collection) =>
@@ -166,6 +151,115 @@ function ConceptBadge() {
   );
 }
 
+const HERO_EASE = [0.22, 1, 0.36, 1] as const;
+
+function useProductsHeroMedia(query: string) {
+  return useSyncExternalStore(
+    (onChange) => {
+      const media = window.matchMedia(query);
+      media.addEventListener('change', onChange);
+      return () => media.removeEventListener('change', onChange);
+    },
+    () => window.matchMedia(query).matches,
+    () => false,
+  );
+}
+
+function ProductsHeroReveal({
+  children,
+  className = '',
+  delay = 0,
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+}) {
+  const reducedMotion = useProductsHeroMedia('(prefers-reduced-motion: reduce)');
+
+  return (
+    <motion.div
+      className={`${styles.heroMotionReveal} ${className}`}
+      initial={{ opacity: 0, ...(reducedMotion ? {} : { y: 24 }) }}
+      animate={{ opacity: 1, ...(reducedMotion ? {} : { y: 0 }) }}
+      transition={reducedMotion ? { duration: 0.15 } : { duration: 0.8, ease: HERO_EASE, delay }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+function ProductsHeroWord({ children, delay }: { children: ReactNode; delay: number }) {
+  const reducedMotion = useProductsHeroMedia('(prefers-reduced-motion: reduce)');
+
+  return (
+    <motion.span
+      className={`inline-block ${styles.heroMotionWord}`}
+      initial={{ opacity: 0, ...(reducedMotion ? {} : { y: 24 }) }}
+      animate={{ opacity: 1, ...(reducedMotion ? {} : { y: 0 }) }}
+      transition={reducedMotion ? { duration: 0.15 } : { duration: 0.8, ease: HERO_EASE, delay }}
+    >
+      {children}
+    </motion.span>
+  );
+}
+
+function ProductsHeroImage() {
+  const imageZoneRef = useRef<HTMLDivElement>(null);
+  const imageIsInView = useInView(imageZoneRef, { margin: '0px', once: false });
+  const reducedMotion = useProductsHeroMedia('(prefers-reduced-motion: reduce)');
+  const desktopFinePointer = useProductsHeroMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
+  const [documentVisible, setDocumentVisible] = useState(true);
+  const { scrollYProgress } = useScroll({
+    target: imageZoneRef,
+    offset: ['start end', 'end start'],
+  });
+  const parallaxY = useMotionValue(0);
+  const active = imageIsInView && documentVisible && !reducedMotion;
+
+  useEffect(() => {
+    const updateVisibility = () => setDocumentVisible(document.visibilityState === 'visible');
+    updateVisibility();
+    document.addEventListener('visibilitychange', updateVisibility);
+    return () => document.removeEventListener('visibilitychange', updateVisibility);
+  }, []);
+
+  useEffect(() => {
+    if (!imageIsInView || !desktopFinePointer || reducedMotion || !documentVisible) {
+      parallaxY.set(0);
+      return;
+    }
+
+    const updateParallax = (progress: number) => parallaxY.set((progress - 0.5) * 24);
+    updateParallax(scrollYProgress.get());
+    return scrollYProgress.on('change', updateParallax);
+  }, [desktopFinePointer, documentVisible, imageIsInView, parallaxY, reducedMotion, scrollYProgress]);
+
+  return (
+    <div ref={imageZoneRef} className={styles.heroImageZone}>
+      <motion.div className={styles.heroImageParallax} style={desktopFinePointer && !reducedMotion ? { y: parallaxY } : undefined}>
+        <motion.div
+          className={styles.heroImageEntrance}
+          initial={reducedMotion ? { opacity: 0 } : { opacity: 0, scale: 1.08 }}
+          animate={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+          transition={reducedMotion ? { duration: 0.15 } : { duration: 1.6, ease: HERO_EASE }}
+        >
+          <div className={`${styles.heroImageIdle} ${!reducedMotion ? styles.heroImageDrifting : ''} ${active ? styles.heroImageRunning : styles.heroImagePaused}`}>
+            <Image
+              src="/assets/images/hero_campaign.webp"
+              alt="Fashion models wearing neutral knitwear and relaxed apparel"
+              fill
+              quality={85}
+              sizes="(min-width: 1024px) 66vw, 100vw"
+              priority
+              className={styles.heroImage}
+            />
+          </div>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
+
 export function ProductsClient() {
   const [activeAudience, setActiveAudience] = useState<'all' | AudienceId>('mens');
   const [searchTerm, setSearchTerm] = useState('');
@@ -177,8 +271,6 @@ export function ProductsClient() {
   const [activeMaterialFilter, setActiveMaterialFilter] = useState<'all' | MaterialFilter>('all');
   const [comparisonIds, setComparisonIds] = useState<string[]>([]);
   const [activeMaterial, setActiveMaterial] = useState<string | null>(null);
-  const [trendAudience, setTrendAudience] = useState<'all' | AudienceId>('all');
-  const [trendSeason, setTrendSeason] = useState<TrendSeason | 'all'>('all');
   const [selectedColour, setSelectedColour] = useState(PALETTE_DIRECTIONS[8].name);
   const [studioAudience, setStudioAudience] = useState<AudienceId>('mens');
   const [studioStyleId, setStudioStyleId] = useState(AUDIENCE_COLLECTIONS[0].garments[0].id);
@@ -217,10 +309,6 @@ export function ProductsClient() {
   const selectedMaterials = comparisonIds
     .map((id) => MATERIAL_DIRECTIONS.find((material) => material.id === id))
     .filter((material): material is (typeof MATERIAL_DIRECTIONS)[number] => Boolean(material));
-  const visibleTrends = TREND_DIRECTIONS.filter((trend) =>
-    (trendAudience === 'all' || trend.audience === trendAudience) &&
-    (trendSeason === 'all' || trend.season === trendSeason),
-  );
   const studioCollection = AUDIENCE_COLLECTIONS.find((collection) => collection.id === studioAudience) ?? AUDIENCE_COLLECTIONS[0];
   const studioGarment = studioCollection.garments.find((garment) => garment.id === studioStyleId) ?? studioCollection.garments[0];
   const activeDetailMaterial = MATERIAL_DIRECTIONS.find((material) => material.id === activeMaterial);
@@ -296,46 +384,57 @@ export function ProductsClient() {
 
   return (
     <div className="bg-[#f5f2ee] text-[#25231f]">
-      <section className="relative isolate flex min-h-[42rem] items-end overflow-hidden bg-[#1a1a1a] text-[#faf8f5] sm:min-h-[46rem] lg:min-h-[min(52rem,calc(100svh-5rem))]">
-        <div className="absolute inset-0 -z-10">
-          <ImagePanel
-            src="/assets/images/hero_campaign.webp"
-            alt="Fashion models wearing neutral knitwear and relaxed apparel"
-            className={styles.heroImage}
-            sizes="100vw"
-          />
-          <div aria-hidden="true" className={styles.heroScrim} />
-        </div>
-        <div className="mx-auto w-full max-w-[100rem] px-5 pb-14 pt-28 sm:px-8 sm:pb-16 lg:px-16 lg:pb-20">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[9px] font-mono uppercase tracking-[0.19em] text-white/55 sm:mb-10 sm:text-[10px]">
-            <Link href="/" className="transition-colors hover:text-white">Home</Link>
-            <span aria-hidden="true" className="text-white/30">/</span>
-            <span aria-current="page" className="text-white/80">Products</span>
-          </nav>
+      <section className={styles.productsHero}>
+        <ProductsHeroImage />
+        <div aria-hidden="true" className={`${styles.heroLeftScrim} pointer-events-none`} />
+        <div aria-hidden="true" className={`${styles.heroTopScrim} pointer-events-none`} />
+        <div aria-hidden="true" className={`${styles.heroBottomScrim} pointer-events-none`} />
+        <div className={styles.heroContent}>
+          <ProductsHeroReveal delay={0} className={styles.heroBreadcrumb}>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-3 font-mono uppercase text-white/70">
+              <Link href="/" className="hover:text-white">Home</Link>
+              <span aria-hidden="true" className="text-white/35">/</span>
+              <span aria-current="page" className="text-white/85">Products</span>
+            </nav>
+          </ProductsHeroReveal>
+
           <div className={styles.heroCopy}>
-            <Eyebrow light>Knitted &amp; woven apparel · Tiruppur, India</Eyebrow>
-            <h1 className="max-w-[40rem] text-[clamp(2.75rem,7vw,6.5rem)] font-medium leading-[0.9] tracking-[-0.07em]">
-              Apparel crafted <span className="block text-[#d3b476]">for every</span> generation.
+            <ProductsHeroReveal delay={0.08}>
+              <Eyebrow light>Knitted &amp; woven apparel · Tiruppur, India</Eyebrow>
+            </ProductsHeroReveal>
+            <h1 className={styles.heroTitle}>
+              <span className={styles.heroTitleLine}>
+                <ProductsHeroWord delay={0.16}>Apparel</ProductsHeroWord>{' '}
+                <ProductsHeroWord delay={0.24}>crafted</ProductsHeroWord>
+              </span>
+              <span className={`${styles.heroTitleLine} ${styles.heroTitleGold}`}>
+                <ProductsHeroWord delay={0.32}>for</ProductsHeroWord>{' '}
+                <ProductsHeroWord delay={0.4}>every</ProductsHeroWord>
+              </span>
+              <span className={styles.heroTitleLine}>
+                <ProductsHeroWord delay={0.48}>generation.</ProductsHeroWord>
+              </span>
             </h1>
-            <div className="mt-6 flex flex-col gap-5">
-              <p className="max-w-[33rem] text-sm leading-6 text-white/70 sm:text-base sm:leading-7">
+            <ProductsHeroReveal delay={0.56} className={styles.heroDescription}>
+              <p>
                 From everyday essentials to trend-led collections, explore knitwear and apparel concepts for brands building their next range.
               </p>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <a href="#collections" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-[#d3b476] px-5 text-[9px] font-bold uppercase tracking-[0.15em] text-[#25231f] transition-colors hover:bg-[#e2c58e]">
-                  Explore collections <ArrowDown aria-hidden="true" className="h-4 w-4" />
-                </a>
-                <a href="#collection-studio" className="inline-flex min-h-12 items-center justify-center gap-3 rounded-full border border-white/35 px-5 text-[9px] font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:border-white hover:bg-white/10">
-                  Develop your collection <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
+            </ProductsHeroReveal>
+            <ProductsHeroReveal delay={0.64} className={styles.heroCtaRow}>
+              <a href="#collections" className={styles.heroPrimaryCta}>
+                Explore collections <ArrowDown aria-hidden="true" className="h-4 w-4" />
+              </a>
+              <a href="#collection-studio" className={styles.heroSecondaryCta}>
+                Develop your collection <ArrowRight aria-hidden="true" className="h-4 w-4" />
+              </a>
+            </ProductsHeroReveal>
           </div>
-          <div className="mt-10 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-white/20 pt-4 text-[8px] font-semibold uppercase tracking-[0.18em] text-white/55 sm:mt-12 sm:text-[9px]">
-            <span>Tiruppur · India</span>
-            <a href="#collections" className="inline-flex items-center gap-2 transition-colors hover:text-white">Scroll to explore <ArrowDown aria-hidden="true" className="h-3 w-3" /></a>
-            <span className="basis-full text-right sm:basis-auto">A buyer-led product showroom</span>
-          </div>
+
+          <ProductsHeroReveal delay={0.72} className={styles.heroFooterRow}>
+            <span className={styles.heroFooterLeft}>Tiruppur · India</span>
+            <a href="#collections" className={styles.heroFooterCenter}>Scroll to explore <ArrowDown aria-hidden="true" className="h-3 w-3" /></a>
+            <span className={styles.heroFooterRight}>A buyer-led product showroom</span>
+          </ProductsHeroReveal>
         </div>
       </section>
 
@@ -571,57 +670,6 @@ export function ProductsClient() {
             </div>
           )}
           <p className="mt-5 max-w-4xl text-[10px] leading-5 text-[#25231f]/55">Material directions are a starting library, not a statement of current inventory or guaranteed availability. Fibre content, yarn, GSM, care and performance values are not specified here; they must be agreed and verified for each approved sample.</p>
-        </div>
-      </section>
-
-      <section id="trends" aria-labelledby="trends-title" className="scroll-mt-20 bg-[#1a1a1a] px-5 py-16 text-[#faf8f5] sm:px-8 sm:py-20 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-[100rem]">
-          <SectionHeading
-            eyebrow="Collection development · 2026"
-            title={<>2026 fashion trends &amp; <span className="text-[#d3b476]">inspiration.</span></>}
-            description="A set of directional prompts for collection planning across four audience groups. These are editorial development ideas, not measured market demand or a forecast guarantee."
-            dark
-          />
-          <div className="mt-7 flex flex-col gap-3">
-            <div className="flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter trend directions by audience">
-              {TREND_AUDIENCE_TABS.map((tab) => (
-                <button key={`trend-${tab.id}`} type="button" aria-pressed={trendAudience === tab.id} onClick={() => setTrendAudience(tab.id)} className={'min-h-9 shrink-0 rounded-full px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (trendAudience === tab.id ? 'bg-[#d3b476] text-[#25231f]' : 'border border-white/20 text-white/65 hover:border-white/60 hover:text-white')}>
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-            <div className="flex gap-2 overflow-x-auto pb-1" role="group" aria-label="Filter trend directions by season">
-              {SEASON_TABS.map((tab) => (
-                <button key={`season-${tab.id}`} type="button" aria-pressed={trendSeason === tab.id} onClick={() => setTrendSeason(tab.id)} className={'min-h-9 shrink-0 px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (trendSeason === tab.id ? 'border-b border-[#d3b476] text-[#d3b476]' : 'text-white/50 hover:text-white')}>
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-          {visibleTrends.length ? (
-            <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-              {visibleTrends.map((trend, index) => (
-                <article key={trend.id} className="group grid grid-rows-[auto_1fr] border border-white/15 bg-[#22211e]">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#e7e3db]">
-                    <ImagePanel src={trend.image} alt={trend.imageAlt} className={styles.trendImage} sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw" />
-                    <span className="absolute left-3 top-3 border border-white/30 bg-[#1a1a1a]/70 px-2.5 py-1 font-mono text-[8px] uppercase tracking-[0.14em] text-white">0{index + 1} / DIRECTION</span>
-                  </div>
-                  <div className="flex flex-col p-4 sm:p-5">
-                    <div className="flex items-center justify-between gap-3 text-[8px] font-semibold uppercase tracking-[0.15em] text-[#d3b476]"><span>{trend.audienceLabel}</span><span>{SEASON_TABS.find((tab) => tab.id === trend.season)?.label}</span></div>
-                    <h3 className="mt-3 text-2xl font-medium tracking-[-0.045em]">{trend.title}</h3>
-                    <p className="mt-2 min-h-12 text-[11px] leading-5 text-white/60">{trend.description}</p>
-                    <dl className="mt-5 grid gap-3 border-t border-white/15 pt-4 text-[9px] leading-4 sm:grid-cols-2">
-                      <div><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Colour direction</dt><dd className="text-white/75">{trend.colours.join(' · ')}</dd></div>
-                      <div><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Suggested fabrics</dt><dd className="text-white/75">{trend.fabrics.join(' · ')}</dd></div>
-                      <div className="sm:col-span-2"><dt className="mb-1 font-semibold uppercase tracking-[0.12em] text-white/45">Garment directions</dt><dd className="text-white/75">{trend.garments.join(' · ')}</dd></div>
-                    </dl>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <p className="mt-5 border border-white/15 p-7 text-sm text-white/65">No directions are listed for that combination. Choose another audience or season.</p>
-          )}
         </div>
       </section>
 

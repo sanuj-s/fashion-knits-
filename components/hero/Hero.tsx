@@ -2,49 +2,10 @@
 
 import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { getImageProps } from 'next/image';
 import { gsap } from '@/lib/animations';
 import { ScrollIndicator } from './ScrollIndicator';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { useReducedMotion } from '@/lib/hooks';
-
-type HeroSlide = {
-  src: string;
-  width: number;
-  height: number;
-  desktopPosition: string;
-  mobilePosition: string;
-  label: string;
-};
-
-const HERO_IMAGES: HeroSlide[] = [
-  {
-    src: '/images/hero/hero-yarn-machinery.jpg',
-    width: 729,
-    height: 936,
-    desktopPosition: '100% 50%',
-    mobilePosition: '42% 50%',
-    label: 'Yarn machinery',
-  },
-  {
-    src: '/images/hero/hero-garment-fitting.jpg',
-    width: 735,
-    height: 963,
-    desktopPosition: '100% 50%',
-    mobilePosition: '22% 50%',
-    label: 'Garment fitting',
-  },
-  {
-    src: '/images/hero/hero-sewing-production.jpg',
-    width: 736,
-    height: 1104,
-    desktopPosition: '100% 50%',
-    mobilePosition: '68% 48%',
-    label: 'Sewing production',
-  },
-];
-
-const HERO_IMAGE_INTERVAL = 5000;
 
 function Magnetic({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,20 +19,36 @@ function Magnetic({ children }: { children: React.ReactNode }) {
     if (prefersReducedMotion) return;
     gsap.to(ref.current, { x: 0, y: 0, duration: 0.9, ease: 'elastic.out(1,0.4)' });
   };
-  return <div ref={ref} onMouseMove={move} onMouseLeave={leave} className="inline-block">{children}</div>;
+  return <div ref={ref} onMouseMove={move} onMouseLeave={leave} className="w-full sm:w-auto">{children}</div>;
 }
 
 export function Hero() {
   const root = useRef<HTMLElement>(null);
+  const heroVideo = useRef<HTMLVideoElement>(null);
   const prefersReducedMotion = useReducedMotion();
-  const [activeImage, setActiveImage] = useState(0);
   const [isHeroVisible, setIsHeroVisible] = useState(false);
   const [isDocumentVisible, setIsDocumentVisible] = useState(true);
-  const visibleImageIndex = activeImage % HERO_IMAGES.length;
+  const [isVideoEnabled, setIsVideoEnabled] = useState(false);
+
+  useEffect(() => {
+    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const mobileQuery = window.matchMedia('(max-width: 767px)');
+    const updatePlaybackPreference = () => {
+      setIsVideoEnabled(!reducedMotionQuery.matches && !mobileQuery.matches);
+    };
+
+    updatePlaybackPreference();
+    reducedMotionQuery.addEventListener('change', updatePlaybackPreference);
+    mobileQuery.addEventListener('change', updatePlaybackPreference);
+    return () => {
+      reducedMotionQuery.removeEventListener('change', updatePlaybackPreference);
+      mobileQuery.removeEventListener('change', updatePlaybackPreference);
+    };
+  }, []);
 
   useEffect(() => {
     const section = root.current;
-    if (!section || prefersReducedMotion) return;
+    if (!section || !isVideoEnabled) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => setIsHeroVisible(entry.isIntersecting),
@@ -79,7 +56,7 @@ export function Hero() {
     );
     observer.observe(section);
     return () => observer.disconnect();
-  }, [prefersReducedMotion]);
+  }, [isVideoEnabled]);
 
   useEffect(() => {
     const updateVisibility = () => setIsDocumentVisible(document.visibilityState === 'visible');
@@ -89,23 +66,28 @@ export function Hero() {
   }, []);
 
   useEffect(() => {
-    if (prefersReducedMotion || !isHeroVisible || !isDocumentVisible) return;
+    const video = heroVideo.current;
+    if (!video) return;
 
-    const timeout = window.setTimeout(() => {
-      setActiveImage((current) => (current + 1) % HERO_IMAGES.length);
-    }, HERO_IMAGE_INTERVAL);
+    if (!isVideoEnabled || !isHeroVisible || !isDocumentVisible) {
+      video.pause();
+      if (!isVideoEnabled && video.currentTime > 0) {
+        video.currentTime = 0;
+        video.load();
+      }
+      return;
+    }
 
-    return () => window.clearTimeout(timeout);
-  }, [activeImage, isHeroVisible, isDocumentVisible, prefersReducedMotion]);
+    void video.play().catch(() => undefined);
+  }, [isHeroVisible, isDocumentVisible, isVideoEnabled]);
 
   useLayoutEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
-      gsap.set('.h-line', { yPercent: 115 });
-      gsap.set('.h-fade', { y: 28, opacity: 0 });
-      gsap.timeline({ defaults: { ease: 'power4.out' } })
-        .to('.h-line', { yPercent: 0, duration: 1.3, stagger: 0.14 }, 0.25)
-        .to('.h-fade', { y: 0, opacity: 1, duration: 1, stagger: 0.1 }, 0.7);
+      const revealItems = '.h-eyebrow, .h-line, .h-body, .h-actions, .h-location';
+      gsap.set(revealItems, { y: 16, opacity: 0 });
+      gsap.timeline({ defaults: { ease: 'power2.out' } })
+        .to(revealItems, { y: 0, opacity: 1, duration: 0.6, stagger: 0.08 }, 0.15);
       gsap.to('.h-content', { yPercent: -8, opacity: 0.2, ease: 'none', scrollTrigger: { trigger: root.current, start: '15% top', end: 'bottom top', scrub: true } });
     }, root);
     return () => ctx.revert();
@@ -123,101 +105,78 @@ export function Hero() {
 
   return (
     <section ref={root} id="hero" onMouseMove={spot} className="grain relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-charcoal pt-28 text-off-white sm:pt-32">
-      {/* Full-bleed image sequence; decorative images crossfade behind the hero copy. */}
-      <div className="h-bg absolute inset-0 z-0">
-        {HERO_IMAGES.map((image, index) => {
-          const { props: slideImage } = getImageProps({
-            src: image.src,
-            width: image.width,
-            height: image.height,
-            alt: '',
-            sizes: '100vw',
-            quality: 75,
-            loading: 'eager',
-            fetchPriority: index === 0 ? 'high' : 'low',
-          });
-
-          return (
-            <picture
-              key={image.src}
-              className={`hero-slide-picture absolute inset-0 block h-full w-full transition-opacity duration-1000 ease-in-out motion-reduce:transition-none ${
-                index === visibleImageIndex ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              <img
-                {...slideImage}
-                alt=""
-                draggable={false}
-                style={{
-                  '--hero-position-desktop': image.desktopPosition,
-                  '--hero-position-mobile': image.mobilePosition,
-                } as React.CSSProperties}
-                className="hero-slide-image absolute inset-0 h-full w-full"
-              />
-            </picture>
-          );
-        })}
+      {/* The muted factory footage plays as a decorative background. */}
+      <div className="h-bg absolute inset-0 z-0 overflow-hidden">
+        <video
+          ref={heroVideo}
+          aria-hidden="true"
+          tabIndex={-1}
+          autoPlay={isVideoEnabled}
+          muted
+          loop
+          playsInline
+          preload={isVideoEnabled ? 'metadata' : 'none'}
+          poster="/images/hero/hero-knitting-machines-poster.png"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+        >
+          <source src="/videos/knitting-machines-producing-fabric.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div aria-label="Hero background photos" role="group" className="absolute bottom-24 right-6 z-20 flex items-center gap-1.5 sm:right-8 lg:right-16">
-        <span className="mr-2 hidden text-[9px] font-semibold uppercase tracking-[0.14em] text-white/65 sm:inline">
-          {HERO_IMAGES[visibleImageIndex].label}
-        </span>
-        {HERO_IMAGES.map((image, index) => (
-          <button
-            key={image.label}
-            type="button"
-            aria-label={`Show hero photo ${index + 1}: ${image.label}`}
-            aria-pressed={index === visibleImageIndex}
-            onClick={() => setActiveImage(index)}
-            className="group inline-flex h-10 w-8 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-          >
-            <span className={`h-[2px] rounded-full bg-white transition-[width,background-color] duration-300 motion-reduce:transition-none ${index === visibleImageIndex ? 'w-6 !bg-accent' : 'w-3 group-hover:w-5'}`} />
-          </button>
-        ))}
-      </div>
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-charcoal/75 via-charcoal/45 to-charcoal/5" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-charcoal/80 via-transparent to-charcoal/25" />
+      <div aria-hidden="true" className="home-hero-left-shade pointer-events-none absolute inset-0 z-[1]" />
+      <div aria-hidden="true" className="home-hero-top-shade pointer-events-none absolute inset-x-0 top-0 z-[1] h-[180px]" />
+      <div aria-hidden="true" className="home-hero-bottom-shade pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36" />
       <div className="spotlight absolute inset-0 z-[2] pointer-events-none" />
 
-      <div className="h-content relative z-10 w-full max-w-[90rem] mx-auto px-6 md:px-16 lg:px-24 my-auto pb-10">
-        <div className="h-fade flex items-center gap-4 mb-8">
+      <div className="h-content relative z-10 my-auto w-full max-w-[90rem] mx-auto px-5 pb-10 sm:px-8 lg:px-16 xl:px-24">
+        <div className="h-eyebrow mb-6 flex items-center gap-4">
           <span className="h-px w-12 bg-accent" />
-          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.3em] text-accent font-semibold">Fashion Knits // Tiruppur, India</span>
+          <span className="text-[10px] font-mono font-semibold uppercase tracking-[0.2em] text-accent text-shadow-[0_1px_12px_rgba(0,0,0,0.65)] sm:text-xs">Fashion Knits // Tiruppur, India</span>
         </div>
 
-        <h1 className="max-w-7xl text-balance font-semibold uppercase leading-[0.94] tracking-[-0.055em] text-[clamp(2.75rem,6vw,5.9rem)]">
-          <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">Knitwear that moves</span></span>
-          <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block text-accent">your brand forward.</span></span>
+        <h1
+          aria-label="Knitwear that moves your brand forward."
+          style={{ wordSpacing: '0.1em', textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}
+          className="max-w-7xl text-balance font-semibold uppercase leading-[0.96] tracking-[-0.02em] text-[clamp(2rem,8.5vw,2.5rem)] lg:text-[clamp(3rem,5.5vw,6rem)]"
+        >
+          <span aria-hidden="true" className="hidden lg:block">
+            <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">Knitwear that moves</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block text-accent">your brand forward.</span></span>
+          </span>
+          <span aria-hidden="true" className="block lg:hidden">
+            <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">Knitwear that</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">moves your brand</span></span>
+            <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block text-accent">forward.</span></span>
+          </span>
         </h1>
 
-        <p className="h-fade text-base sm:text-xl text-off-white/75 max-w-2xl mt-6 sm:mt-7 leading-relaxed">
+        <p className="h-body mt-6 max-w-[60ch] text-pretty text-[clamp(1rem,1.3vw,1.25rem)] font-normal leading-[1.6] text-white/[0.88]">
           From first swatch to finished garment, our Tiruppur team helps apparel brands shape a knitwear range around their brief, standards and production needs.
         </p>
 
-        <div className="h-fade flex flex-col sm:flex-row gap-4 mt-8 sm:mt-9">
+        <div className="h-actions mt-8 flex flex-col gap-4 sm:flex-row">
           <Magnetic>
-            <a href="#products" onClick={(event) => { event.preventDefault(); go('products'); }} className="btn-shine group inline-flex items-center px-9 py-4 bg-accent text-charcoal text-xs uppercase tracking-[0.2em] font-semibold cursor-pointer">
-              Explore Products <ArrowRight className="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1.5" />
+            <a href="#products" onClick={(event) => { event.preventDefault(); go('products'); }} className="home-hero-primary btn-shine group inline-flex h-14 w-full items-center justify-center gap-3 border border-accent bg-accent px-8 text-xs font-semibold uppercase tracking-[0.16em] text-charcoal transition-colors duration-300 hover:bg-[#d8b87a] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 sm:w-auto">
+              Explore Products <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </Magnetic>
           <Magnetic>
-            <Link href="/get-a-quote" className="inline-flex items-center px-9 py-4 border border-off-white/30 backdrop-blur-sm text-xs uppercase tracking-[0.2em] font-medium transition-colors duration-300 hover:bg-off-white hover:text-charcoal cursor-pointer">
+            <Link href="/get-a-quote" className="inline-flex h-14 w-full items-center justify-center gap-3 border border-white/45 bg-black/20 px-8 text-xs font-medium uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors duration-300 hover:border-accent hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 sm:w-auto">
               Request a Quote
             </Link>
           </Magnetic>
         </div>
 
-        <div className="h-fade hidden md:inline-flex items-center gap-2 mt-12 px-4 py-2 border border-white/15 bg-black/30 backdrop-blur-md text-[11px] font-mono uppercase tracking-wider text-off-white/80">
+        <div className="h-location mt-8 hidden self-start items-center gap-2 border border-white/15 bg-black/30 px-4 py-2 text-[11px] font-mono uppercase tracking-wider text-white/90 backdrop-blur-md md:inline-flex">
           <MapPin className="w-3.5 h-3.5 text-accent" /> NAP Unit-1 &amp; Angeripalayam HQ
         </div>
       </div>
 
-      <div className="relative z-10 border-t border-white/10 bg-charcoal/75 px-6 py-4 backdrop-blur-md sm:px-8 sm:py-5">
-        <ul className="mx-auto flex max-w-[90rem] flex-wrap items-center justify-between gap-x-6 gap-y-3 text-[9px] font-semibold uppercase tracking-[0.16em] text-off-white/65 sm:text-[10px] sm:tracking-[0.2em]">
-          <li>Tiruppur, India</li>
-          <li>Knitwear manufacturing</li>
-          <li>Custom product programs</li>
-          <li>International buyer enquiries</li>
+      <div className="relative z-10 border-t border-white/10 bg-charcoal/85 px-5 py-4 backdrop-blur-md sm:px-8 lg:px-16 xl:px-24">
+        <ul className="mx-auto grid max-w-[90rem] grid-cols-2 items-center text-[8px] font-semibold uppercase tracking-[0.12em] text-white/75 sm:text-[9px] sm:tracking-[0.15em] md:grid-cols-4">
+          <li className="px-2 py-1 text-center sm:px-3 md:py-0">Tiruppur, India</li>
+          <li className="border-l border-white/15 px-2 py-1 text-center sm:px-3 md:py-0">Knitwear manufacturing</li>
+          <li className="border-t border-white/10 px-2 py-1 text-center sm:px-3 md:border-l md:border-t-0 md:border-white/15 md:py-0">Custom product programs</li>
+          <li className="border-l border-t border-white/10 px-2 py-1 text-center sm:px-3 md:border-t-0 md:border-white/15 md:py-0">International buyer enquiries</li>
         </ul>
       </div>
       <ScrollIndicator />
