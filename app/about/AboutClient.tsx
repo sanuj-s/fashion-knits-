@@ -30,7 +30,7 @@ import {
 } from './AboutSupplementalSections';
 import styles from './about.module.css';
 
-const SHOW_REVIEW = process.env.NODE_ENV !== 'production' || process.env.NEXT_PUBLIC_SHOW_REVIEW === 'true';
+const SHOW_REVIEW = true;
 
 const HERO_IMAGE = {
   src: '/assets/facilities/angeripalayam-hq-exterior-enhanced.webp',
