@@ -1217,6 +1217,17 @@ button, a {
   }
 }
 
+/* View Transition pseudo-elements are document-level and must stay global. */
+::view-transition-old(fk-market-geography),
+::view-transition-new(fk-market-geography),
+::view-transition-old(fk-market-spotlight),
+::view-transition-new(fk-market-spotlight),
+::view-transition-old(fk-market-selected-name),
+::view-transition-new(fk-market-selected-name) {
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+}
+
 @media (hover: hover) and (pointer: fine) and (min-width: 1200px) {
   .process-story {
     cursor: none;

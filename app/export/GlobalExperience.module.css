@@ -3355,16 +3355,6 @@
   }
 }
 
-:global(::view-transition-old(fk-market-geography)),
-:global(::view-transition-new(fk-market-geography)),
-:global(::view-transition-old(fk-market-spotlight)),
-:global(::view-transition-new(fk-market-spotlight)),
-:global(::view-transition-old(fk-market-selected-name)),
-:global(::view-transition-new(fk-market-selected-name)) {
-  animation-duration: 460ms;
-  animation-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-}
-
 @media (max-width: 1100px) {
   .countryGrid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
