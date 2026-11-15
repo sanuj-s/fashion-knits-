@@ -47,7 +47,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className="min-h-screen bg-off-white text-charcoal font-sans selection:bg-accent selection:text-charcoal antialiased overflow-x-hidden">
         <ScrollProgress />
         <Navbar />

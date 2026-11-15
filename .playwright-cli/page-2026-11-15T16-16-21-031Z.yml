@@ -1,0 +1,200 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - navigation "Main navigation" [ref=e13]:
+        - link "Products" [ref=e14] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=e15] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=e16] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=e17] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=e19] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=e20] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=e21] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - generic [ref=e24]:
+        - generic:
+          - generic:
+            - img "Circular textile lifecycle arranged with cotton, a reusable bag, sweater and garment repair materials"
+        - generic [ref=e28]:
+          - navigation "Breadcrumb" [ref=e29]:
+            - link "Home" [ref=e30] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=e31]: /
+            - generic [ref=e32]: Sustainability
+          - generic [ref=e33]:
+            - paragraph [ref=e34]: Materials · Energy · Community
+            - heading "Better choices for what comes next." [level=1] [ref=e36]:
+              - generic [ref=e37]: Better choices
+              - generic [ref=e39]: for what comes next.
+            - paragraph [ref=e41]: From material exploration to solar energy and local environmental initiatives, Fashion Knits is working across the choices that shape responsible apparel manufacturing.
+      - region "Beyond cotton. Into man-made fibres." [ref=e45]:
+        - generic [ref=e46]:
+          - figure [ref=e47]:
+            - img "Textile offcuts beside a patchwork garment made from joined fabric panels" [ref=e49]
+          - generic [ref=e50]:
+            - paragraph [ref=e51]: Material direction
+            - heading "Beyond cotton. Into man-made fibres." [level=2] [ref=e52]
+            - paragraph [ref=e53]: Exploring polyester, nylon, viscose and blended knitwear solutions to meet evolving apparel requirements.
+            - list [ref=e54]:
+              - listitem [ref=e55]:
+                - generic [ref=e56]: Established options
+                - heading "Cotton & cotton blends" [level=3] [ref=e61]
+                - paragraph [ref=e62]: Established choices for knitwear programs, with fibre content and construction set for each product.
+              - listitem [ref=e63]:
+                - generic [ref=e64]: Under exploration
+                - heading "Polyester, nylon, viscose & blends" [level=3] [ref=e69]
+                - paragraph [ref=e70]: Man-made fibres and blended knitwear are being evaluated for evolving apparel requirements.
+            - paragraph [ref=e71]: Performance-related requirements remain subject to buyer specifications and supporting evidence.
+      - region "Solar at Fashion Knits and Netaji Apparel Park." [ref=e72]:
+        - generic [ref=e73]:
+          - generic [ref=e74]:
+            - generic [ref=e75]:
+              - paragraph [ref=e76]: Energy & infrastructure
+              - heading "Solar at Fashion Knits and Netaji Apparel Park." [level=2] [ref=e83]
+            - paragraph [ref=e84]: The Fashion Knits factory at Netaji Apparel Park has a rooftop solar power system, alongside shared park infrastructure.
+          - generic [ref=e85]:
+            - article [ref=e86]:
+              - img "Rooftop solar panels at the Netaji Apparel Park factory" [ref=e88]
+              - generic [ref=e89]:
+                - paragraph [ref=e90]: Fashion Knits factory
+                - heading "200 kWp rooftop solar" [level=3] [ref=e91]
+                - paragraph [ref=e92]: A 200 kWp rooftop solar power system is installed at the Netaji Apparel Park factory.
+            - article [ref=e93]:
+              - img "Solar and shared infrastructure at Netaji Apparel Park" [ref=e95]
+              - generic [ref=e96]:
+                - paragraph [ref=e97]: Shared park infrastructure
+                - heading "3.4 MW solar plant" [level=3] [ref=e98]
+                - paragraph [ref=e99]: The Netaji Apparel Park solar plant generates approximately 3.4 MW for factories across the park. The shared electrical infrastructure also includes a TNEB 110/11 kV substation serving surrounding consumers and supporting wind generation transmission.
+      - region "Treat water for landscape reuse." [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - paragraph [ref=e103]: Water treatment
+            - heading "Treat water for landscape reuse." [level=2] [ref=e107]
+            - paragraph [ref=e108]: The sewage treatment process uses Fluidized Attached Growth Process. Treated water is reused for gardening, landscaping and maintaining green spaces.
+          - figure [ref=e109]:
+            - img "Sewage treatment plant and water treatment tanks" [ref=e111]
+      - region "Growing a greener Tiruppur." [ref=e112]:
+        - generic [ref=e113]:
+          - generic [ref=e114]:
+            - generic [ref=e115]:
+              - paragraph [ref=e116]: Afforestation & community
+              - heading "Growing a greener Tiruppur." [level=2] [ref=e120]
+              - paragraph [ref=e121]: Fashion Knits took part in regional tree-planting work and supports a community shaped by long-running environmental projects.
+            - generic [ref=e122]:
+              - figure [ref=e123]:
+                - img "Hands holding rich soil around a young green seedling" [ref=e124]
+              - figure [ref=e125]:
+                - img "Dense green foliage arranged in the shape of a circular recycling symbol" [ref=e126]
+          - generic [ref=e127]:
+            - figure "Vanathukkul Tiruppur Fashion Knits initiated and took part in the campaign, planting nearly 125,000 trees over a two-year period." [ref=e128]:
+              - img "Community participants in a tree-planting campaign in Tiruppur" [ref=e130]
+              - generic [ref=e131]:
+                - heading "Vanathukkul Tiruppur" [level=3] [ref=e132]
+                - paragraph [ref=e133]: Fashion Knits initiated and took part in the campaign, planting nearly 125,000 trees over a two-year period.
+            - article [ref=e134]:
+              - paragraph [ref=e135]: VETRY · Tiruppur community work
+              - heading "Environmental projects with a long local history." [level=3] [ref=e136]
+              - paragraph [ref=e137]: VETRY is a Tiruppur NGO formed by local business leaders in 2004. Its work includes constructing a check dam across the Noyyal River in 2006, reviving the Andipalayam PWD Tank after 30 years, and developing the Iduvampalayam Government Higher Secondary School campus in 2008, which serves 3,000 students.
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - term [ref=e140]: Trees planted
+                  - definition [ref=e141]: 1,585,000
+                  - definition [ref=e142]: Across Tiruppur District, 2015–2024
+                - generic [ref=e143]:
+                  - term [ref=e144]: Ongoing program
+                  - definition [ref=e145]: 200,000 trees
+                  - definition [ref=e146]: Annual planting target
+          - generic [ref=e147]:
+            - paragraph [ref=e148]: Have a material or responsibility brief to discuss?
+            - link "Talk with our team" [ref=e149] [cursor=pointer]:
+              - /url: /#contact
+    - generic [ref=e153]:
+      - generic [ref=e154]:
+        - generic [ref=e155]:
+          - link "Fashion Knits home" [ref=e156] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e157]:
+              - generic [ref=e158]:
+                - generic [ref=e162]: FK
+                - generic [ref=e163]: We Design Your Dreams
+              - generic [ref=e164]: Fashion Knits
+          - paragraph [ref=e165]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e166]:
+            - paragraph [ref=e167]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e171]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e175]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e179]:
+          - heading "Explore" [level=2] [ref=e180]
+          - list [ref=e181]:
+            - listitem [ref=e182]:
+              - link "Products" [ref=e183] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e184]:
+              - link "Manufacturing" [ref=e185] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e186]:
+              - link "Quality" [ref=e187] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e188]:
+              - link "Sustainability" [ref=e189] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e190]:
+              - link "Export" [ref=e191] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e192]:
+              - link "About" [ref=e193] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e194]:
+          - heading "Discuss a production brief" [level=2] [ref=e195]
+          - paragraph [ref=e196]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e197] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e202] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e206]:
+        - paragraph [ref=e207]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e208] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=e217] [cursor=pointer]
+  - alert [ref=e221]

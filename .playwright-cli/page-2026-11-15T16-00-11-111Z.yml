@@ -1,0 +1,472 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - navigation "Main navigation" [ref=e13]:
+        - link "Products" [ref=e14] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=e15] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=e16] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=e17] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=e18] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=e20] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=e21] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e22]:
+    - generic [ref=e23]:
+      - region "APPAREL, CONNECTED TO THE WORLD." [ref=e24]:
+        - generic [ref=e29]:
+          - navigation "Breadcrumb" [ref=e30]:
+            - link "Home" [ref=e31] [cursor=pointer]:
+              - /url: /
+            - generic [aria-hidden] [ref=e32]: /
+            - generic [ref=e33]: Global export
+          - paragraph [ref=e34]: GLOBAL APPAREL EXPORT
+          - heading "APPAREL, CONNECTED TO THE WORLD." [level=1] [ref=e36]:
+            - generic [ref=e37]: APPAREL,
+            - generic [ref=e38]: CONNECTED TO THE
+            - generic [ref=e39]: WORLD.
+          - generic [ref=e40]:
+            - paragraph [ref=e41]: A clear starting point for exploring markets and preparing to discuss your next export order.
+            - generic [ref=e42]:
+              - link "Explore Global Markets" [ref=e43] [cursor=pointer]:
+                - /url: "#markets"
+              - link "Our Export Capabilities" [ref=e46] [cursor=pointer]:
+                - /url: "#export-capabilities"
+          - generic [ref=e49]:
+            - generic [ref=e50]: From Tiruppur, India
+            - generic [ref=e51]: Export coordination · freight · global markets
+            - generic [ref=e52]: 11° N 77° E
+        - link "Scroll to global markets" [ref=e53] [cursor=pointer]:
+          - /url: "#markets"
+          - generic [ref=e54]: Scroll to explore
+        - generic [ref=e57]: Representative port image · illustrative routes only
+      - region "A WORLD OF OPPORTUNITY." [ref=e58]:
+        - generic [ref=e59]:
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - paragraph [ref=e62]: 01 / INTERNATIONAL MARKETS
+              - heading "A WORLD OF OPPORTUNITY." [level=2] [ref=e63]:
+                - generic [ref=e64]: A WORLD OF
+                - generic [ref=e65]: OPPORTUNITY.
+            - paragraph [ref=e66]: Explore potential international markets for apparel and knitwear.
+          - generic [ref=e69]:
+            - generic [ref=e70]:
+              - generic [ref=e71]:
+                - paragraph [ref=e72]: Explore the market landscape
+                - paragraph [ref=e73]: Choose a continent or select a country on the map to explore its export route profile.
+              - paragraph [ref=e74]: Potential market
+            - group "Select a continent" [ref=e76]:
+              - button "Europe 31" [pressed] [ref=e77] [cursor=pointer]:
+                - generic [ref=e79]: Europe
+                - generic [ref=e80]: "31"
+              - button "Asia 23" [ref=e81] [cursor=pointer]:
+                - generic [ref=e82]: Asia
+                - generic [ref=e83]: "23"
+              - button "North America 5" [ref=e84] [cursor=pointer]:
+                - generic [ref=e85]: North America
+                - generic [ref=e86]: "5"
+              - button "South America 6" [ref=e87] [cursor=pointer]:
+                - generic [ref=e88]: South America
+                - generic [ref=e89]: "6"
+              - button "Africa 7" [ref=e90] [cursor=pointer]:
+                - generic [ref=e91]: Africa
+                - generic [ref=e92]: "7"
+              - button "Oceania 2" [ref=e93] [cursor=pointer]:
+                - generic [ref=e94]: Oceania
+                - generic [ref=e95]: "2"
+            - generic [ref=e96]:
+              - 'figure "Map focus: France (FR) · schematic route preview · 48.9° N / 2.4° E. Country boundaries: Natural Earth 1:50m. Route lines and gateway examples are illustrative; no carrier itinerary, transit quote or Fashion Knits shipment history is supplied." [ref=e97]':
+                - generic [ref=e98]:
+                  - generic [ref=e99]:
+                    - text: Geographic view
+                    - paragraph [ref=e100]: Europe market geography
+                  - generic [ref=e101]:
+                    - generic [ref=e102]: Europe
+                    - button "Map focus" [ref=e105] [cursor=pointer]
+                    - group "Choose transportation routes" [ref=e111]:
+                      - button "Sea Freight" [ref=e112] [cursor=pointer]
+                      - button "Air Freight" [ref=e118] [cursor=pointer]
+                      - button "All Routes" [pressed] [ref=e122] [cursor=pointer]
+                - generic [ref=e128]:
+                  - group "Illustrative export route. Select the origin or destination marker to focus the shipment journey.":
+                    - 'button "Focus manufacturing origin: Tiruppur, India"':
+                      - generic [ref=e132] [cursor=pointer]
+                      - generic [ref=e133] [cursor=pointer]
+                      - generic [ref=e134] [cursor=pointer]
+                      - generic [ref=e135] [cursor=pointer]: TIRUPPUR · INDIA
+                      - generic [ref=e136] [cursor=pointer]: 11.1° N · 77.3° E
+                    - button "Focus destination gateway planning example for France":
+                      - generic [ref=e137] [cursor=pointer]
+                      - generic [ref=e138] [cursor=pointer]
+                      - generic [ref=e139] [cursor=pointer]
+                      - generic [ref=e140] [cursor=pointer]
+                - generic [ref=e141]:
+                  - paragraph [ref=e142]: "Map focus: France (FR) · schematic route preview · 48.9° N / 2.4° E."
+                  - paragraph [ref=e143]:
+                    - text: "Country boundaries:"
+                    - link "Natural Earth 1:50m" [ref=e144] [cursor=pointer]:
+                      - /url: https://www.naturalearthdata.com/downloads/50m-cultural-vectors/
+                    - text: . Route lines and gateway examples are illustrative; no carrier itinerary, transit quote or Fashion Knits shipment history is supplied.
+              - complementary "Illustrative export logistics for France" [ref=e145]:
+                - generic [ref=e146]:
+                  - generic [ref=e147]: Country profile
+                  - generic [ref=e148]:
+                    - generic [ref=e149]: 01 / 11
+                    - button "Expand France country details" [ref=e150] [cursor=pointer]:
+                      - generic [ref=e156]: Expand
+                - generic [ref=e157]:
+                  - generic [ref=e161]:
+                    - generic [ref=e162]: Market reference
+                    - heading "France" [level=3] [ref=e163]
+                    - paragraph [ref=e164]: FR · Europe
+                  - generic [ref=e165]:
+                    - text: Market overview
+                    - paragraph [ref=e166]: Country and flag identify the selected market. No market-specific Fashion Knits order or customer data is connected here.
+                  - generic [ref=e167]:
+                    - generic [ref=e168]:
+                      - heading "International freight options" [level=4] [ref=e169]
+                      - generic [ref=e170]: Planning only
+                    - generic "International freight options" [ref=e171]:
+                      - generic [ref=e172]: Sea freight
+                      - generic [ref=e177]: Air freight
+                      - generic [ref=e180]: Road feeder where available
+                      - generic [ref=e186]: Multimodal
+                  - generic [ref=e189]:
+                    - generic [ref=e190]:
+                      - heading "Shipment journey" [level=4] [ref=e191]
+                      - generic [ref=e192]: All routes
+                    - list [ref=e193]:
+                      - listitem [ref=e194]:
+                        - button "01 Manufacturing" [ref=e195] [cursor=pointer]:
+                          - generic [ref=e196]: "01"
+                          - strong [ref=e197]: Manufacturing
+                      - listitem [ref=e198]:
+                        - button "02 Export gateway" [ref=e199] [cursor=pointer]:
+                          - generic [ref=e200]: "02"
+                          - strong [ref=e201]: Export gateway
+                      - listitem [ref=e202]:
+                        - button "03 Export customs" [ref=e203] [cursor=pointer]:
+                          - generic [ref=e204]: "03"
+                          - strong [ref=e205]: Export customs
+                      - listitem [ref=e206]:
+                        - button "04 International transport" [ref=e207] [cursor=pointer]:
+                          - generic [ref=e208]: "04"
+                          - strong [ref=e209]: International transport
+                      - listitem [ref=e210]:
+                        - button "05 Destination gateway" [pressed] [ref=e211] [cursor=pointer]:
+                          - generic [ref=e212]: "05"
+                          - strong [ref=e213]: Destination gateway
+                      - listitem [ref=e214]:
+                        - button "06 Import customs" [ref=e215] [cursor=pointer]:
+                          - generic [ref=e216]: "06"
+                          - strong [ref=e217]: Import customs
+                      - listitem [ref=e218]:
+                        - button "07 Final delivery" [ref=e219] [cursor=pointer]:
+                          - generic [ref=e220]: "07"
+                          - strong [ref=e221]: Final delivery
+                    - generic [ref=e222]:
+                      - text: Destination gateway
+                      - paragraph [ref=e223]: "Sea: Le Havre Port · Air: Paris Charles de Gaulle (CDG) is a destination gateway example for France, not a confirmed port or airport on a Fashion Knits booking."
+                  - generic [ref=e224]:
+                    - heading "Shipment information" [level=4] [ref=e226]
+                    - generic [ref=e230]:
+                      - generic [ref=e231]:
+                        - generic [ref=e232]: Sea freight
+                        - strong [ref=e237]: Estimate unavailable
+                        - generic [ref=e238]: "Origin example: V.O. Chidambaranar Port (Tuticorin) or Chennai Port"
+                        - generic [ref=e239]: "Destination example: Le Havre Port"
+                      - generic [ref=e240]:
+                        - generic [ref=e241]: Air freight
+                        - strong [ref=e244]: Estimate unavailable
+                        - generic [ref=e245]: "Origin example: Coimbatore cargo complex or Chennai Airport cargo"
+                        - generic [ref=e246]: "Destination example: Paris Charles de Gaulle (CDG)"
+                    - generic [ref=e247]:
+                      - generic [ref=e248]:
+                        - term [ref=e249]: Transportation
+                        - definition [ref=e250]: Sea / air comparison
+                      - generic [ref=e251]:
+                        - term [ref=e252]: Shipment process
+                        - definition [ref=e253]: Order-specific; confirm booking, incoterms and consignee details with the buyer and forwarder.
+                      - generic [ref=e254]:
+                        - term [ref=e255]: Tracking status
+                        - definition [ref=e256]: No live tracking data connected.
+                    - generic [ref=e257]:
+                      - generic [ref=e258]: Export documentation
+                      - article [ref=e259]:
+                        - strong [ref=e260]: Commercial invoice
+                        - paragraph [ref=e261]: Summarizes the sale, goods, parties and declared value for customs and payment records.
+                      - article [ref=e262]:
+                        - strong [ref=e263]: Packing list
+                        - paragraph [ref=e264]: Shows carton contents, quantities, weights and package dimensions for handling and inspection.
+                      - article [ref=e265]:
+                        - strong [ref=e266]: Shipping bill
+                        - paragraph [ref=e267]: India’s export declaration filed for customs clearance; the exact filing depends on the shipment.
+                      - article [ref=e268]:
+                        - strong [ref=e269]: Bill of lading / air waybill
+                        - paragraph [ref=e270]: The carrier’s transport record for sea or air cargo and the shipment reference used during transit.
+                      - article [ref=e271]:
+                        - strong [ref=e272]: Certificates & destination documents
+                        - paragraph [ref=e273]: Any origin, product or customs certificates depend on the goods and destination. Confirm the required set with the buyer and customs broker.
+                  - generic [ref=e274]:
+                    - generic [ref=e275]:
+                      - heading "Manufacturing in Tiruppur" [level=4] [ref=e276]
+                      - generic [ref=e277]: Production overview
+                    - generic [ref=e278]:
+                      - article [ref=e279]:
+                        - strong [ref=e280]: Pattern & cutting
+                        - paragraph [ref=e281]: In-house CAD pattern support and automatic cutting.
+                      - article [ref=e282]:
+                        - strong [ref=e283]: Print & embroider
+                        - paragraph [ref=e284]: Printing and embroidery processes for buyer-approved designs.
+                      - article [ref=e285]:
+                        - strong [ref=e286]: Sew & finish
+                        - paragraph [ref=e287]: Garment sewing, trimming, checking and ironing.
+                      - article [ref=e288]:
+                        - strong [ref=e289]: Quality & pack
+                        - paragraph [ref=e290]: Fabric inspection, in-house tests, final garment checks, metal detection where required, and export-carton packing.
+                - generic [ref=e291]:
+                  - generic [ref=e292]: Featured selection
+                  - generic [ref=e293]:
+                    - button "Previous featured market" [ref=e294] [cursor=pointer]
+                    - button "Next featured market" [ref=e297] [cursor=pointer]
+            - generic [ref=e300]:
+              - generic [ref=e301]:
+                - paragraph [ref=e302]: Countries in Europe
+                - paragraph [ref=e303]: Select a flag to move the map marker
+              - generic [ref=e304]: 01–08 / 31
+            - list "Potential markets in Europe" [ref=e305]:
+              - listitem [ref=e306]:
+                - button "Show United Kingdom (GB) on the illustrative map" [ref=e307] [cursor=pointer]:
+                  - generic [ref=e310]:
+                    - generic [ref=e311]: United Kingdom
+                    - generic [ref=e312]: GB
+              - listitem [ref=e313]:
+                - button "Show France (FR) on the illustrative map" [pressed] [ref=e314] [cursor=pointer]:
+                  - generic [ref=e317]:
+                    - generic [ref=e318]: France
+                    - generic [ref=e319]: FR
+              - listitem [ref=e320]:
+                - button "Show Germany (DE) on the illustrative map" [ref=e321] [cursor=pointer]:
+                  - generic [ref=e324]:
+                    - generic [ref=e325]: Germany
+                    - generic [ref=e326]: DE
+              - listitem [ref=e327]:
+                - button "Show Italy (IT) on the illustrative map" [ref=e328] [cursor=pointer]:
+                  - generic [ref=e331]:
+                    - generic [ref=e332]: Italy
+                    - generic [ref=e333]: IT
+              - listitem [ref=e334]:
+                - button "Show Spain (ES) on the illustrative map" [ref=e335] [cursor=pointer]:
+                  - generic [ref=e338]:
+                    - generic [ref=e339]: Spain
+                    - generic [ref=e340]: ES
+              - listitem [ref=e341]:
+                - button "Show Netherlands (NL) on the illustrative map" [ref=e342] [cursor=pointer]:
+                  - generic [ref=e345]:
+                    - generic [ref=e346]: Netherlands
+                    - generic [ref=e347]: NL
+              - listitem [ref=e348]:
+                - button "Show Belgium (BE) on the illustrative map" [ref=e349] [cursor=pointer]:
+                  - generic [ref=e352]:
+                    - generic [ref=e353]: Belgium
+                    - generic [ref=e354]: BE
+              - listitem [ref=e355]:
+                - button "Show Switzerland (CH) on the illustrative map" [ref=e356] [cursor=pointer]:
+                  - generic [ref=e359]:
+                    - generic [ref=e360]: Switzerland
+                    - generic [ref=e361]: CH
+            - generic "Country pages" [ref=e362]:
+              - button "Previous countries" [disabled] [ref=e363]:
+                - generic [ref=e366]: Previous
+              - generic [ref=e367]: 1 / 4
+              - button "Next countries" [ref=e368] [cursor=pointer]:
+                - generic [ref=e369]: Next
+            - paragraph [ref=e372]: Markets are presented for exploration. This selection does not represent confirmed Fashion Knits customers, active shipping routes, offices or export destinations.
+      - region "An export team that keeps orders moving." [ref=e373]:
+        - generic [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]:
+              - paragraph [ref=e377]: 02 / Export capabilities
+              - heading "An export team that keeps orders moving." [level=2] [ref=e379]
+              - paragraph [ref=e380]:
+                - text: Government-certified Two-Star Export House
+                - generic [ref=e384]: · Tiruppur, India
+            - paragraph [ref=e385]: A coordinated team can support apparel orders across the practical work of moving goods internationally.
+          - generic [ref=e386]:
+            - generic [ref=e387]:
+              - article [ref=e389]:
+                - generic [ref=e395]:
+                  - heading "Export team & shipment coordination" [level=3] [ref=e396]
+                  - paragraph [ref=e397]: An export team can align order details, shipment preparation and responsibilities agreed for each order.
+              - article [ref=e402]:
+                - generic [ref=e406]:
+                  - heading "Customs clearance" [level=3] [ref=e407]
+                  - paragraph [ref=e408]: Support through customs procedures and the related documentation, with responsibilities confirmed for each shipment.
+              - article [ref=e413]:
+                - generic [ref=e417]:
+                  - heading "Warehousing & storage" [level=3] [ref=e418]
+                  - paragraph [ref=e419]: Storage and cargo coordination can support organized inventory handling and export readiness where arranged.
+              - article [ref=e424]:
+                - generic [ref=e427]:
+                  - heading "International freight coordination" [level=3] [ref=e428]
+                  - paragraph [ref=e429]: Freight options can be coordinated around the cargo, destination and requirements agreed for an order.
+              - article [ref=e434]:
+                - generic [ref=e438]:
+                  - heading "Export documentation" [level=3] [ref=e439]
+                  - paragraph [ref=e440]: Documentation support follows the requirements agreed for each order, destination and delivery term.
+              - article [ref=e445]:
+                - generic [ref=e450]:
+                  - heading "Shipment communication" [level=3] [ref=e451]
+                  - paragraph [ref=e452]: Shipment updates can be shared with buyers and logistics parties according to the agreed communication plan.
+            - generic [ref=e456]:
+              - figure "Export coordination Representative image" [ref=e457]:
+                - img "Representative stock photograph of a logistics worker reviewing shipment paperwork; the person shown is not Fashion Knits staff." [ref=e458]
+                - generic [ref=e459]:
+                  - generic [ref=e463]: Export coordination
+                  - generic [ref=e464]: Representative image
+              - paragraph [ref=e465]: Shipment scope, responsibilities and arrangements are agreed for each order.
+      - region "THE DETAILS THAT MOVE GLOBAL TRADE" [ref=e466]:
+        - generic [ref=e467]:
+          - generic [ref=e468]:
+            - heading "THE DETAILS THAT MOVE GLOBAL TRADE" [level=2] [ref=e470]:
+              - text: THE DETAILS THAT MOVE
+              - generic [ref=e471]: GLOBAL TRADE
+            - paragraph [ref=e472]: Every international shipment involves decisions about documentation, cargo handling, customs requirements, transportation, and delivery terms. The details depend on the destination and the shipment.
+          - generic [ref=e473]:
+            - group "Choose an export topic" [ref=e474]:
+              - button "Export documentation" [pressed] [ref=e475] [cursor=pointer]
+              - button "Customs and compliance" [ref=e484] [cursor=pointer]
+              - button "Warehousing and cargo handling" [ref=e492] [cursor=pointer]
+              - button "Freight and delivery terms" [ref=e500] [cursor=pointer]
+            - region "Documents give a shipment its paper trail." [ref=e509]:
+              - generic [ref=e511]:
+                - generic [ref=e512]:
+                  - paragraph [ref=e513]: DOCUMENT ROLES
+                  - heading "Documents give a shipment its paper trail." [level=3] [ref=e517]
+                  - paragraph [ref=e518]: A commercial invoice describes the transaction and declared goods value; a packing list shows how items are grouped; shipping instructions provide details used to prepare transport documents. Certificates or permits may also apply. The document set depends on the shipment and destination.
+                  - list [ref=e519]:
+                    - listitem [ref=e520]:
+                      - generic [ref=e521]: Commercial invoice
+                      - generic [ref=e522]: Transaction and goods details
+                    - listitem [ref=e523]:
+                      - generic [ref=e524]: Packing list
+                      - generic [ref=e525]: Package contents and quantities
+                    - listitem [ref=e526]:
+                      - generic [ref=e527]: Shipping instructions
+                      - generic [ref=e528]: Details for transport paperwork
+                - img "Layered trade documents" [ref=e529]:
+                  - generic [aria-hidden] [ref=e530]:
+                    - generic [ref=e531]: SHIPPING INSTRUCTIONS
+                    - generic [ref=e538]: PACKING LIST
+                    - generic [ref=e547]:
+                      - generic [ref=e548]: COMMERCIAL INVOICE
+                      - generic [ref=e557]: TRADE FILE
+                    - generic [ref=e558]: Illustrative document roles · as applicable
+      - region "YOUR NEXT MARKET STARTS HERE." [ref=e559]:
+        - generic [ref=e563]:
+          - paragraph [ref=e564]: Take business beyond borders
+          - heading "YOUR NEXT MARKET STARTS HERE." [level=2] [ref=e566]:
+            - text: YOUR NEXT MARKET
+            - generic [ref=e567]: STARTS HERE.
+          - paragraph [ref=e568]: Every market opens a different conversation. Share the destination and order you have in mind, and our team can discuss what may be needed next.
+          - generic [ref=e569]:
+            - link "Contact Our Export Team" [ref=e570] [cursor=pointer]:
+              - /url: "#contact"
+            - link "Explore Our Capabilities" [ref=e573] [cursor=pointer]:
+              - /url: "#export-capabilities"
+          - paragraph [ref=e577]: Representative shipping image · shipment arrangements are confirmed order by order.
+    - region "Planning Your Next Export Order?" [ref=e578]:
+      - generic [ref=e580]:
+        - generic [ref=e581]:
+          - paragraph [ref=e582]: International enquiry
+          - heading "Planning Your Next Export Order?" [level=2] [ref=e584]
+          - paragraph [ref=e585]: Share your destination, order details and delivery requirements with our team.
+        - link "Discuss Your Project" [ref=e587] [cursor=pointer]:
+          - /url: /get-a-quote
+    - generic [ref=e593]:
+      - generic [ref=e594]:
+        - generic [ref=e595]:
+          - link "Fashion Knits home" [ref=e596] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e597]:
+              - generic [ref=e598]:
+                - generic [ref=e602]: FK
+                - generic [ref=e603]: We Design Your Dreams
+              - generic [ref=e604]: Fashion Knits
+          - paragraph [ref=e605]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e606]:
+            - paragraph [ref=e607]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e611]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e615]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e619]:
+          - heading "Explore" [level=2] [ref=e620]
+          - list [ref=e621]:
+            - listitem [ref=e622]:
+              - link "Products" [ref=e623] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e624]:
+              - link "Manufacturing" [ref=e625] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e626]:
+              - link "Quality" [ref=e627] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e628]:
+              - link "Sustainability" [ref=e629] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e630]:
+              - link "Export" [ref=e631] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e632]:
+              - link "About" [ref=e633] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e634]:
+          - heading "Discuss a production brief" [level=2] [ref=e635]
+          - paragraph [ref=e636]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e637] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e642] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e646]:
+        - paragraph [ref=e647]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e648] [cursor=pointer]:
+          - /url: /#hero
+  - button "Open Next.js Dev Tools" [ref=e657] [cursor=pointer]

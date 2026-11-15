@@ -113,6 +113,12 @@
   line-height: 1;
 }
 
+@media (min-width: 1600px) {
+  .heroTitle {
+    font-size: clamp(44px, min(5.6vw, 10.5vh), 90px);
+  }
+}
+
 .heroTitleLine {
   display: block;
   white-space: nowrap;

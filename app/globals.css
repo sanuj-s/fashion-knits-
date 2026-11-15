@@ -1550,7 +1550,7 @@ button, a {
 }
 
 .products-showroom-backdrop {
-  background-image: url('/assets/products/showcase/showroom-gallery-background.webp');
+  background-image: url('/assets/products/showcase/showroom-environment.webp');
   background-position: left calc(100% - 5rem);
   background-repeat: no-repeat;
   background-size: 132% auto;

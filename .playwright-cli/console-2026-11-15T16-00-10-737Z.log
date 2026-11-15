@@ -1,0 +1,8 @@
+[     231ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     284ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     387ms] [WARNING] Image with src "/assets/export/redesign/hero-global-port.webp" is using quality "84" which is not configured in images.qualities [75]. Please update your config to [75, 84].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     434ms] [WARNING] Image with src "/assets/export/redesign/export-coordination.webp" is using quality "80" which is not configured in images.qualities [75]. Please update your config to [75, 80].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
+[     445ms] [WARNING] Image with src "/assets/export/redesign/sea-freight.webp" is using quality "82" which is not configured in images.qualities [75]. Please update your config to [75, 82].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:777
