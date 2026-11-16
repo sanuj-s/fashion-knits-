@@ -11,6 +11,12 @@ export interface MaterialDirection {
   applications: string;
   care: string;
   filters: MaterialFilter[];
+  image?: string;
+  imageAlt?: string;
+  gsm?: string;
+  moq?: string;
+  leadTime?: string;
+  certifications?: string[];
 }
 
 export const MATERIAL_DIRECTIONS: MaterialDirection[] = [

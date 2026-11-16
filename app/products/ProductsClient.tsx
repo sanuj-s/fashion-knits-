@@ -9,10 +9,7 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
-  Check,
   ChevronDown,
-  CircleHelp,
-  Layers3,
   Search,
   X,
 } from 'lucide-react';
@@ -22,11 +19,10 @@ import {
 } from '@/lib/products-data';
 import {
   DEVELOPMENT_STEPS,
-  MATERIAL_DIRECTIONS,
   PALETTE_DIRECTIONS,
   STYLE_INSPIRATION,
-  type MaterialFilter,
 } from './products-experience-data';
+import { FabricLibrary, type MaterialImages } from './fabric-library/FabricLibrary';
 import styles from './products.module.css';
 
 type AudienceId = (typeof AUDIENCE_COLLECTIONS)[number]['id'];
@@ -38,17 +34,6 @@ const CATALOGUE_AUDIENCE_TABS = [
   { id: 'kids', label: "Kids'" },
   { id: 'babies-toddler', label: 'Babies & toddler' },
 ] as const;
-
-const MATERIAL_FILTERS: { id: 'all' | MaterialFilter; label: string }[] = [
-  { id: 'all', label: 'All directions' },
-  { id: 'natural', label: 'Natural fibres' },
-  { id: 'recycled', label: 'Recycled fibres' },
-  { id: 'blended', label: 'Blended materials' },
-  { id: 'lightweight', label: 'Lightweight' },
-  { id: 'heavier', label: 'Heavier constructions' },
-  { id: 'stretch', label: 'Stretch' },
-  { id: 'soft-touch', label: 'Soft touch' },
-];
 
 const PRODUCT_ENTRIES: ProductEntry[] = AUDIENCE_COLLECTIONS.flatMap((collection) =>
   collection.garments.map((garment) => ({
@@ -260,7 +245,7 @@ function ProductsHeroImage() {
   );
 }
 
-export function ProductsClient() {
+export function ProductsClient({ materialImages = {} }: { materialImages?: MaterialImages }) {
   const [activeAudience, setActiveAudience] = useState<'all' | AudienceId>('mens');
   const [searchTerm, setSearchTerm] = useState('');
   const [materialFilter, setMaterialFilter] = useState('all');
@@ -268,9 +253,6 @@ export function ProductsClient() {
   const [productColourFilter, setProductColourFilter] = useState('all');
   const [sortOrder, setSortOrder] = useState('featured');
   const [selectedGarment, setSelectedGarment] = useState<ProductEntry | null>(null);
-  const [activeMaterialFilter, setActiveMaterialFilter] = useState<'all' | MaterialFilter>('all');
-  const [comparisonIds, setComparisonIds] = useState<string[]>([]);
-  const [activeMaterial, setActiveMaterial] = useState<string | null>(null);
   const [selectedColour, setSelectedColour] = useState(PALETTE_DIRECTIONS[8].name);
   const [studioAudience, setStudioAudience] = useState<AudienceId>('mens');
   const [studioStyleId, setStudioStyleId] = useState(AUDIENCE_COLLECTIONS[0].garments[0].id);
@@ -303,18 +285,11 @@ export function ProductsClient() {
     () => [...new Set(PRODUCT_ENTRIES.flatMap((garment) => garment.fabricOptions))].sort((a, b) => a.localeCompare(b)),
     [],
   );
-  const visibleMaterials = activeMaterialFilter === 'all'
-    ? MATERIAL_DIRECTIONS
-    : MATERIAL_DIRECTIONS.filter((material) => material.filters.includes(activeMaterialFilter));
-  const selectedMaterials = comparisonIds
-    .map((id) => MATERIAL_DIRECTIONS.find((material) => material.id === id))
-    .filter((material): material is (typeof MATERIAL_DIRECTIONS)[number] => Boolean(material));
   const studioCollection = AUDIENCE_COLLECTIONS.find((collection) => collection.id === studioAudience) ?? AUDIENCE_COLLECTIONS[0];
   const studioGarment = studioCollection.garments.find((garment) => garment.id === studioStyleId) ?? studioCollection.garments[0];
-  const activeDetailMaterial = MATERIAL_DIRECTIONS.find((material) => material.id === activeMaterial);
 
   useEffect(() => {
-    if (!selectedGarment && !activeMaterial) return;
+    if (!selectedGarment) return;
     const previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const dialog = document.querySelector<HTMLElement>('[role="dialog"][aria-modal="true"]');
     const focusable = dialog ? [...dialog.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')] : [];
@@ -324,7 +299,6 @@ export function ProductsClient() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         setSelectedGarment(null);
-        setActiveMaterial(null);
       }
       if (event.key === 'Tab' && focusable.length) {
         const first = focusable[0];
@@ -344,7 +318,7 @@ export function ProductsClient() {
       document.body.style.overflow = previousOverflow;
       previousFocus?.focus({ preventScroll: true });
     };
-  }, [selectedGarment, activeMaterial]);
+  }, [selectedGarment]);
 
   function clearCatalogueFilters() {
     setActiveAudience('all');
@@ -362,14 +336,6 @@ export function ProductsClient() {
     setStudioStyleId(firstGarment.id);
     setStudioFabric(firstGarment.fabricOptions[0]);
     setStudioColour(firstGarment.colorways[0].name);
-  }
-
-  function toggleComparison(id: string) {
-    setComparisonIds((current) => {
-      if (current.includes(id)) return current.filter((item) => item !== id);
-      if (current.length >= 3) return current;
-      return [...current, id];
-    });
   }
 
   const studioCustomizations = [
@@ -587,91 +553,7 @@ export function ProductsClient() {
         </div>
       </section>
 
-      <section id="materials" aria-labelledby="materials-title" className="scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
-        <div className="mx-auto max-w-[100rem]">
-          <SectionHeading
-            eyebrow="Materials · fibres & constructions"
-            title={<>Explore our fabric &amp; <span className="text-[#80643b]/70">material library.</span></>}
-            description="Compare fibre and fabric construction directions. Availability, content, weight and performance depend on sourcing and development confirmation for each programme."
-          />
-          <div className="mt-7 grid min-w-0 gap-5 lg:grid-cols-12">
-            <div className="relative min-h-60 min-w-0 overflow-hidden bg-[#1a1a1a] text-white lg:col-span-4 lg:min-h-full">
-              <ImagePanel src="/assets/images/hero-slides/yarn-spools.jpg" alt="Yarns arranged for knitwear development" className={styles.materialImage} sizes="(max-width: 1024px) 100vw, 35vw" />
-              <div aria-hidden="true" className="absolute inset-0 bg-[#1a1a1a]/50" />
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-                <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#d3b476]">From fibre to construction</p>
-                <p className="mt-2 max-w-sm text-xl font-medium leading-tight tracking-[-0.04em]">A fabric decision starts with the intended hand, use and finish.</p>
-              </div>
-            </div>
-            <div className="min-w-0 lg:col-span-8">
-              <div className="flex gap-2 overflow-x-auto pb-2" role="group" aria-label="Filter material directions">
-                {MATERIAL_FILTERS.map((filter) => (
-                  <button key={filter.id} type="button" aria-pressed={activeMaterialFilter === filter.id} onClick={() => setActiveMaterialFilter(filter.id)} className={'min-h-9 shrink-0 rounded-full px-3.5 text-[8px] font-semibold uppercase tracking-[0.1em] transition-colors ' + (activeMaterialFilter === filter.id ? 'bg-[#25231f] text-white' : 'border border-[#25231f]/15 bg-white/60 text-[#25231f]/65 hover:text-[#25231f]')}>
-                    {filter.label}
-                  </button>
-                ))}
-              </div>
-              <div className="mt-2 grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-                {visibleMaterials.map((material, index) => (
-                  <article key={material.id} className="border border-[#25231f]/10 bg-[#faf8f5] p-4 transition-colors hover:border-[#907348]/40">
-                    <div className="mb-5 flex items-center justify-between gap-2">
-                      <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-[#80643b]">0{index + 1} · {material.kind}</span>
-                      <Layers3 aria-hidden="true" className="h-4 w-4 text-[#80643b]/65" />
-                    </div>
-                    <h3 className="text-base font-medium tracking-[-0.03em]">{material.name}</h3>
-                    <p className="mt-1.5 min-h-10 text-[10px] leading-5 text-[#25231f]/60">{material.feel}</p>
-                    <div className="mt-4 flex items-center justify-between gap-3 border-t border-[#25231f]/10 pt-3">
-                      <span className="text-[8px] uppercase tracking-[0.1em] text-[#25231f]/45">Development possibility</span>
-                      <button type="button" onClick={() => setActiveMaterial(material.id)} aria-label={`More about ${material.name}`} className="inline-flex min-h-8 items-center gap-1.5 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#80643b] hover:text-[#25231f]">
-                        Details <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                    <button type="button" onClick={() => toggleComparison(material.id)} aria-pressed={comparisonIds.includes(material.id)} disabled={!comparisonIds.includes(material.id) && comparisonIds.length >= 3} className="mt-3 inline-flex min-h-8 items-center gap-2 text-[8px] font-semibold uppercase tracking-[0.1em] text-[#25231f]/60 transition-colors hover:text-[#25231f] disabled:cursor-not-allowed disabled:opacity-35">
-                      <span className={'grid h-4 w-4 place-items-center border ' + (comparisonIds.includes(material.id) ? 'border-[#80643b] bg-[#80643b] text-white' : 'border-[#25231f]/25')}>
-                        {comparisonIds.includes(material.id) && <Check aria-hidden="true" className="h-3 w-3" />}
-                      </span>
-                      {comparisonIds.includes(material.id) ? 'Selected to compare' : 'Compare material'}
-                    </button>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {selectedMaterials.length > 0 && (
-            <div aria-live="polite" className="mt-5 border border-[#25231f]/12 bg-[#ebe8e1] p-4 sm:p-5">
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <div>
-                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#80643b]">Material comparison · {selectedMaterials.length} of 3</p>
-                  <p className="mt-1 text-sm text-[#25231f]/65">Select two or three directions to compare the development considerations.</p>
-                </div>
-                <button type="button" onClick={() => setComparisonIds([])} className="min-h-8 px-2 text-[8px] font-semibold uppercase tracking-[0.12em] text-[#80643b] hover:text-[#25231f]">Clear comparison</button>
-              </div>
-              {selectedMaterials.length >= 2 ? (
-                <div className="mt-4 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
-                  {selectedMaterials.map((material) => (
-                    <article key={material.id} className="border border-[#25231f]/10 bg-[#faf8f5] p-4">
-                      <div className="flex items-start justify-between gap-3">
-                        <div><p className="font-mono text-[8px] uppercase tracking-[0.13em] text-[#80643b]">{material.kind}</p><h3 className="mt-1 text-base font-medium">{material.name}</h3></div>
-                        <button type="button" onClick={() => toggleComparison(material.id)} aria-label={`Remove ${material.name} from comparison`} className="p-1 text-[#25231f]/50 hover:text-[#25231f]"><X aria-hidden="true" className="h-4 w-4" /></button>
-                      </div>
-                      <dl className="mt-4 space-y-2 text-[10px] leading-5">
-                        <div><dt className="font-semibold text-[#25231f]/70">Composition</dt><dd className="text-[#25231f]/60">{material.composition}</dd></div>
-                        <div><dt className="font-semibold text-[#25231f]/70">Breathability</dt><dd className="text-[#25231f]/60">{material.breathability}</dd></div>
-                        <div><dt className="font-semibold text-[#25231f]/70">Stretch</dt><dd className="text-[#25231f]/60">{material.stretch}</dd></div>
-                        <div><dt className="font-semibold text-[#25231f]/70">Typical application</dt><dd className="text-[#25231f]/60">{material.applications}</dd></div>
-                      </dl>
-                    </article>
-                  ))}
-                </div>
-              ) : (
-                <p className="mt-3 inline-flex items-center gap-2 text-[10px] text-[#25231f]/55"><CircleHelp aria-hidden="true" className="h-4 w-4" /> Choose one more material to open the side-by-side comparison.</p>
-              )}
-            </div>
-          )}
-          <p className="mt-5 max-w-4xl text-[10px] leading-5 text-[#25231f]/55">Material directions are a starting library, not a statement of current inventory or guaranteed availability. Fibre content, yarn, GSM, care and performance values are not specified here; they must be agreed and verified for each approved sample.</p>
-        </div>
-      </section>
+      <FabricLibrary materialImages={materialImages} />
 
       <section id="colour-studio" aria-labelledby="colour-studio-title" className="scroll-mt-20 px-5 py-16 sm:px-8 sm:py-20 lg:px-16 lg:py-28">
         <div className="mx-auto max-w-[100rem]">
@@ -680,29 +562,6 @@ export function ProductsClient() {
             title={<>A considered <span className="text-[#80643b]/70">palette.</span></>}
             description="Explore screen-based colour directions and suggested pairings for range planning. The selected swatch is a visual reference only, not a lab dip or approved production shade."
           />
-          <div className="mt-7 grid gap-7 lg:grid-cols-[minmax(0,1fr)_20rem]">
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 xl:grid-cols-4">
-              {PALETTE_DIRECTIONS.map((colour) => (
-                <button key={colour.name} type="button" aria-pressed={selectedColour === colour.name} onClick={() => { setSelectedColour(colour.name); setStudioColour(colour.name); }} className={'group border p-2.5 text-left transition-colors sm:p-3 ' + (selectedColour === colour.name ? 'border-[#80643b] bg-[#e9e3d8]' : 'border-[#25231f]/10 bg-[#faf8f5] hover:border-[#907348]/55')}>
-                  <span className="block aspect-[1.9/1] w-full" style={{ backgroundColor: colour.hex }} />
-                  <span className="mt-2 block text-xs font-medium">{colour.name}</span>
-                  <span className="mt-1 block text-[9px] leading-4 text-[#25231f]/55">Pairs with {colour.pairing}</span>
-                  <span className="mt-2 block font-mono text-[8px] uppercase tracking-[0.12em] text-[#25231f]/40">Screen reference · {colour.hex}</span>
-                </button>
-              ))}
-            </div>
-            <aside className="flex flex-col justify-between border border-[#25231f]/12 bg-[#ebe8e1] p-5 sm:p-6">
-              <div>
-                <p className="text-[8px] font-semibold uppercase tracking-[0.16em] text-[#80643b]">Selected colour direction</p>
-                <h3 className="mt-2 text-2xl font-medium tracking-[-0.04em]">{selectedColour}</h3>
-                <p className="mt-3 text-xs leading-5 text-[#25231f]/65">Use this selection as a conversation prompt. Confirm shade, dye route, material and lab dip approval separately.</p>
-              </div>
-              <div className="mt-8 border-t border-[#25231f]/15 pt-4">
-                <p className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#25231f]/45">Palette disclaimer</p>
-                <p className="mt-2 text-[10px] leading-5 text-[#25231f]/55">Names are directional. HEX values are approximate screen samples only; they are not official Pantone references or production standards.</p>
-              </div>
-            </aside>
-          </div>
         </div>
       </section>
 
@@ -838,31 +697,7 @@ export function ProductsClient() {
         </div>
       )}
 
-      {activeDetailMaterial && (
-        <div className="fixed inset-0 z-[100] flex items-end justify-center bg-[#171614]/70 p-0 backdrop-blur-[2px] sm:items-center sm:p-5" onMouseDown={(event) => { if (event.target === event.currentTarget) setActiveMaterial(null); }}>
-          <section role="dialog" aria-modal="true" aria-labelledby="material-detail-title" className={styles.materialDialog}>
-            <button type="button" onClick={() => setActiveMaterial(null)} aria-label="Close material details" className="absolute right-3 top-3 grid h-10 w-10 place-items-center rounded-full border border-[#25231f]/15 bg-[#faf8f5] hover:bg-[#d3b476]"><X aria-hidden="true" className="h-4 w-4" /></button>
-            <Eyebrow>{activeDetailMaterial.kind} · development possibility</Eyebrow>
-            <h2 id="material-detail-title" className="text-3xl font-medium tracking-[-0.05em]">{activeDetailMaterial.name}</h2>
-            <dl className="mt-6 grid gap-4 sm:grid-cols-2">
-              {[
-                ['Composition', activeDetailMaterial.composition],
-                ['Feel & texture', activeDetailMaterial.feel],
-                ['Breathability', activeDetailMaterial.breathability],
-                ['Stretch', activeDetailMaterial.stretch],
-                ['Typical applications', activeDetailMaterial.applications],
-                ['Care', activeDetailMaterial.care],
-                ['Weight & GSM', 'Not specified in this catalogue; agree against the buyer brief and approved sample.'],
-                ['Customisation', 'Colour, finish, print, embroidery, trims and labels can be discussed for each confirmed material direction.'],
-              ].map(([term, description]) => <div key={term} className="border-t border-[#25231f]/12 pt-3"><dt className="text-[8px] font-semibold uppercase tracking-[0.14em] text-[#80643b]">{term}</dt><dd className="mt-1.5 text-[11px] leading-5 text-[#25231f]/65">{description}</dd></div>)}
-            </dl>
-            <p className="mt-5 text-[9px] leading-5 text-[#25231f]/50">Availability, sourcing, fibre content, certification and performance claims require programme-specific confirmation.</p>
-            <button type="button" onClick={() => toggleComparison(activeDetailMaterial.id)} className="mt-5 inline-flex min-h-10 items-center gap-2 border-b border-[#80643b]/40 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#80643b] hover:text-[#25231f]">
-              {comparisonIds.includes(activeDetailMaterial.id) ? 'Remove from comparison' : 'Add to comparison'} <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
-            </button>
-          </section>
-        </div>
-      )}
+
     </div>
   );
 }
