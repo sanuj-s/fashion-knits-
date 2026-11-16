@@ -22,6 +22,7 @@ import {
   PALETTE_DIRECTIONS,
   STYLE_INSPIRATION,
 } from './products-experience-data';
+import { ColourLibraryBuilder } from './ColourLibraryBuilder';
 import { FabricLibrary, type MaterialImages } from './fabric-library/FabricLibrary';
 import styles from './products.module.css';
 
@@ -560,7 +561,14 @@ export function ProductsClient({ materialImages = {} }: { materialImages?: Mater
           <SectionHeading
             eyebrow="Colour library · visual references"
             title={<>A considered <span className="text-[#80643b]/70">palette.</span></>}
-            description="Explore screen-based colour directions and suggested pairings for range planning. The selected swatch is a visual reference only, not a lab dip or approved production shade."
+            description="Build a buyer-ready colourway direction from screen references, then share the fabric and shade details needed for development."
+          />
+          <ColourLibraryBuilder
+            initialColour={selectedColour}
+            onPrimaryColourChange={(colour) => {
+              setSelectedColour(colour);
+              setStudioColour(colour);
+            }}
           />
         </div>
       </section>

@@ -1,0 +1,234 @@
+.motionRoot {
+  --about-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 650ms var(--about-ease), transform 650ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-fade] {
+  opacity: 0;
+  transition: opacity 500ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal][data-about-in='true'] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-fade][data-about-in='true'] {
+  opacity: 1;
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal][data-about-animated='true'],
+.motionRoot[data-motion-ready='true'] [data-about-fade][data-about-animated='true'] {
+  transition-delay: 0ms;
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-line] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 500ms var(--about-ease);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-line][data-about-in='true'] {
+  transform: scaleX(1);
+}
+
+.maskWord {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: baseline;
+}
+
+.motionRoot[data-motion-ready='true'] .maskWord > span {
+  display: inline-block;
+  transform: translate3d(0, 100%, 0);
+  transition: transform 650ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-mask][data-about-in='true'] > span {
+  transform: translate3d(0, 0, 0);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-mask][data-about-animated='true'] > span {
+  transition-delay: 0ms;
+}
+
+.mutedWord {
+  color: inherit;
+}
+
+.eyebrowLine {
+  transform-origin: left center;
+}
+
+.eyebrowText {
+  display: inline-block;
+}
+
+.parallaxHeading {
+  transform: translate3d(0, var(--about-parallax, 0px), 0);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal].aboutLink {
+  position: relative;
+  transition:
+    opacity 650ms var(--about-ease),
+    transform 650ms var(--about-ease),
+    color 220ms var(--about-ease),
+    border-color 220ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms), var(--about-delay, 0ms), 0ms, 0ms;
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal].aboutLink[data-about-animated='true'] {
+  transition-delay: 0ms;
+}
+
+.aboutLink::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 1px;
+  background: #907348;
+  content: '';
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 240ms var(--about-ease);
+}
+
+.aboutLink:hover::after,
+.aboutLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.aboutLinkArrow {
+  transition: transform 220ms var(--about-ease);
+}
+
+.aboutLink:hover .aboutLinkArrow,
+.aboutLink:focus-visible .aboutLinkArrow {
+  transform: translate(4px, -4px);
+}
+
+.valueMask {
+  overflow: hidden;
+}
+
+.motionRoot[data-motion-ready='true'] .valueMask > strong {
+  transform: translate3d(0, 100%, 0);
+  transition: transform 650ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-mask][data-about-mask-group='stats'][data-about-in='true'] > strong {
+  transform: translate3d(0, 0, 0);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-mask][data-about-mask-group='stats'][data-about-animated='true'] > strong {
+  transition-delay: 0ms;
+}
+
+.pillarCard {
+  transition: transform 230ms var(--about-ease), box-shadow 230ms var(--about-ease), border-color 230ms var(--about-ease);
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal].pillarCard {
+  transition:
+    opacity 650ms var(--about-ease),
+    transform 650ms var(--about-ease),
+    box-shadow 230ms var(--about-ease),
+    border-color 230ms var(--about-ease);
+  transition-delay: var(--about-delay, 0ms), var(--about-delay, 0ms), 0ms, 0ms;
+}
+
+.motionRoot[data-motion-ready='true'] [data-about-reveal].pillarCard[data-about-animated='true'] {
+  transition-duration: 0ms, 230ms, 230ms, 230ms;
+  transition-delay: 0ms;
+}
+
+.pillarCard:hover,
+.pillarCard:focus-visible,
+.motionRoot[data-motion-ready='true'] [data-about-reveal].pillarCard[data-about-in='true']:hover,
+.motionRoot[data-motion-ready='true'] [data-about-reveal].pillarCard[data-about-in='true']:focus-visible {
+  border-color: rgba(144, 115, 72, 0.4);
+  box-shadow: 0 12px 28px rgba(36, 35, 31, 0.1);
+  transform: translateY(-4px);
+}
+
+.pillarCard:focus-visible {
+  outline: 2px solid rgba(144, 115, 72, 0.58);
+  outline-offset: 3px;
+}
+
+.pillarIcon {
+  transition: transform 230ms var(--about-ease);
+}
+
+.pillarCard:hover .pillarIcon,
+.pillarCard:focus-visible .pillarIcon {
+  transform: scale(1.1) rotate(6deg);
+}
+
+@media (max-width: 767px) {
+  .parallaxHeading {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .parallaxHeading {
+    transform: none !important;
+  }
+
+  .aboutLink::after {
+    transform: none;
+    opacity: 0;
+    transition: opacity 150ms ease;
+  }
+
+  .aboutLink:hover::after,
+  .aboutLink:focus-visible::after {
+    opacity: 1;
+  }
+
+  .aboutLinkArrow,
+  .pillarCard:hover,
+  .pillarCard:focus-visible,
+  .pillarCard:hover .pillarIcon,
+  .pillarCard:focus-visible .pillarIcon {
+    transform: none !important;
+  }
+
+  .motionRoot[data-motion-ready='true'] [data-about-reveal],
+  .motionRoot[data-motion-ready='true'] [data-about-fade] {
+    transform: none !important;
+    transition: opacity 150ms ease !important;
+  }
+
+  .motionRoot[data-motion-ready='true'] [data-about-mask] > span {
+    opacity: 0;
+    transform: none !important;
+    transition: opacity 150ms ease !important;
+  }
+
+  .motionRoot[data-motion-ready='true'] [data-about-mask][data-about-in='true'] > span {
+    opacity: 1;
+  }
+
+  .motionRoot[data-motion-ready='true'] [data-about-line] {
+    opacity: 0;
+    transform: none !important;
+    transition: opacity 150ms ease !important;
+  }
+
+  .motionRoot[data-motion-ready='true'] [data-about-line][data-about-in='true'] {
+    opacity: 1;
+  }
+}

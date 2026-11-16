@@ -69,7 +69,23 @@ export const TREND_DIRECTIONS: TrendDirection[] = [
   { id: 'baby-practical-sets', audience: 'babies-toddler', audienceLabel: 'Babies & toddler', season: 'autumn-winter', title: 'Practical little layers', description: 'Considered one-pieces and soft layers keep the focus on comfort, movement and a clear buyer brief.', colours: ['Warm neutral', 'Blue aura', 'Berry'], fabrics: ['Interlock', 'Cotton-modal jersey'], garments: ['Rompers', 'Sleepwear'], image: '/assets/products/_normalized/perspective-baby-sleeper.webp', imageAlt: 'Footed baby sleepsuit product concept' },
 ];
 
-export const PALETTE_DIRECTIONS = [
+export interface PaletteDirection {
+  name: string;
+  hex: string;
+  pairing: string;
+  image?: { src: string; alt: string };
+}
+
+export interface ColourBuyerDetails {
+  leadTime?: string;
+  moq?: string;
+  fastnessGrade?: string;
+  certifications?: string[];
+}
+
+export const COLOUR_BUYER_DETAILS: ColourBuyerDetails = {};
+
+export const PALETTE_DIRECTIONS: PaletteDirection[] = [
   { name: 'Transformative teal', hex: '#176b70', pairing: 'Soft ivory · earth brown' },
   { name: 'Blue aura', hex: '#a8bdc9', pairing: 'Warm neutral · deep navy' },
   { name: 'Marina blue', hex: '#496a86', pairing: 'Soft ivory · acacia' },
@@ -82,6 +98,21 @@ export const PALETTE_DIRECTIONS = [
   { name: 'Warm neutral', hex: '#c9bdab', pairing: 'Sage · deep navy' },
   { name: 'Electric lime', hex: '#c5d333', pairing: 'Deep navy · soft ivory' },
   { name: 'Signal coral', hex: '#e16454', pairing: 'Marina blue · soft ivory' },
+];
+
+export interface ColourDevelopmentStep {
+  title: string;
+  detail: string;
+  turnaround?: string;
+  rounds?: string;
+  notes?: string;
+}
+
+export const COLOUR_DEVELOPMENT_STEPS: ColourDevelopmentStep[] = [
+  { title: 'Colour brief', detail: 'Share the target shade, fabric and end use.' },
+  { title: 'Lab dip', detail: 'Review a dyed sample against your reference.' },
+  { title: 'Approval', detail: 'Confirm the selected shade before bulk dyeing.' },
+  { title: 'Bulk dyeing and shade check', detail: 'Check the bulk shade against the approved lab dip.' },
 ];
 
 export const STYLE_INSPIRATION = [

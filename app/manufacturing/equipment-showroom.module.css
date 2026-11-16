@@ -27,7 +27,8 @@
   padding: 1.3rem 1.5rem 1rem;
   color: #f7f5f1;
   background: #1b1a18;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
 }
 
 .navigatorHeading {
@@ -65,40 +66,45 @@
 }
 
 .processTrack {
+  --stage-marker-offset: 1.55rem;
+  --stage-gap: 0.6rem;
   position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.6rem;
   margin-top: 1.15rem;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.6rem;
   overscroll-behavior-inline: contain;
   scrollbar-color: rgba(201, 169, 110, 0.48) transparent;
   scrollbar-width: thin;
 }
 
-.processTrackBase,
-.processTrackProgress {
+.stageConnector {
   position: absolute;
   z-index: 0;
   top: 1.02rem;
-  left: 2.1%;
+  left: var(--stage-marker-offset);
+  width: calc(100% + var(--stage-gap));
   height: 1px;
+  background: rgba(255, 255, 255, 0.2);
   pointer-events: none;
+}
+
+.stageConnector::after {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress, 0%);
+  background: var(--showroom-gold);
+  box-shadow: 0 0 10px rgba(200, 166, 104, 0.38);
+  content: '';
+  transition: width 260ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mobileSwipeHint,
 .mobileMachineSwipeHint {
   display: none;
-}
-
-.processTrackBase {
-  right: 2.1%;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.processTrackProgress {
-  background: var(--showroom-gold);
-  transition: width 480ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .stageButton {
@@ -110,6 +116,7 @@
   gap: 0.55rem;
   padding: 0 0.5rem 0.7rem;
   color: rgba(255, 255, 255, 0.65);
+  scroll-snap-align: start;
   text-align: left;
   cursor: pointer;
 }
@@ -128,13 +135,15 @@
 }
 
 .stageMarker {
+  position: relative;
+  z-index: 1;
   display: grid;
   width: 2.1rem;
   height: 2.1rem;
   place-items: center;
-  color: #1b1a18;
-  background: #383733;
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.38);
   border-radius: 50%;
   font-family: var(--font-mono, monospace);
   font-size: 0.6rem;
@@ -146,6 +155,7 @@
   background: #d6bd8b;
   border-color: #d6bd8b;
   transform: scale(1.05);
+  box-shadow: 0 0 0 5px rgba(214, 189, 139, 0.13), 0 0 22px rgba(214, 189, 139, 0.32);
 }
 
 .stageCopy {
@@ -154,7 +164,7 @@
 }
 
 .stageLabel {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 0.73rem;
   font-weight: 600;
   line-height: 1.3;
@@ -208,22 +218,24 @@
 .machineOption {
   position: relative;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  flex: 0 0 min(18rem, 44vw);
+  grid-template-columns: auto 3rem minmax(0, 1fr) auto;
+  flex: 0 0 min(21rem, 48vw);
   align-items: center;
   gap: 0.7rem;
-  min-height: 3.45rem;
+  min-height: 4.2rem;
   padding: 0.65rem 0.85rem;
   color: var(--showroom-ink);
   background: rgba(255, 255, 255, 0.48);
-  border: 1px solid rgba(29, 28, 26, 0.12);
+  border: 1px solid #e3e0d8;
+  border-radius: 16px;
   text-align: left;
-  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, transform 220ms ease;
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
 }
 
 .machineOption:hover {
   border-color: rgba(29, 28, 26, 0.38);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(29, 28, 26, 0.12);
 }
 
 .machineOptionSelected {
@@ -233,11 +245,25 @@
 }
 
 .machineOptionNumber {
-  align-self: start;
+  align-self: center;
   padding-top: 0.1rem;
   color: #9a7e50;
   font-family: var(--font-mono, monospace);
   font-size: 0.58rem;
+}
+
+.machineOptionThumb {
+  position: relative;
+  display: block;
+  width: 3rem;
+  height: 2.7rem;
+  overflow: hidden;
+  background: #ded9cf;
+  border-radius: 10px;
+}
+
+.machineOptionThumb img {
+  object-fit: cover;
 }
 
 .machineOptionCopy {
@@ -247,12 +273,14 @@
 }
 
 .machineOptionName {
+  display: -webkit-box;
   overflow: hidden;
   font-size: 0.72rem;
   font-weight: 650;
   line-height: 1.35;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  min-height: 2.7em;
 }
 
 .machineOptionMeta {
@@ -298,38 +326,41 @@
 }
 
 .visualColumn {
+  position: sticky;
+  top: 7.5rem;
+  align-self: start;
   display: grid;
   min-width: 0;
   grid-template-rows: minmax(0, 1fr) auto;
   margin: 0;
-  border: 1px solid rgba(29, 28, 26, 0.12);
-  background: #e9e5dd;
+  overflow: hidden;
+  border: 1px solid #e3e0d8;
+  border-radius: 24px;
+  background: #f0ede7;
 }
 
 .visualStage {
-  --visual-height: clamp(26rem, 36vw, 34rem);
   position: relative;
-  display: grid;
+  display: block;
   min-width: 0;
-  height: var(--visual-height);
-  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   isolation: isolate;
-  background-color: #e9e5dd;
-  background-image: linear-gradient(rgba(45, 43, 39, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 43, 39, 0.045) 1px, transparent 1px), radial-gradient(ellipse at 51% 54%, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0) 69%);
-  background-size: 34px 34px, 34px 34px, auto;
+  background: #22211e;
 }
 
 .visualMeta {
   position: absolute;
   z-index: 2;
   top: 1rem;
-  left: 1.1rem;
-  right: 1.1rem;
+  left: 1rem;
+  right: 1rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  color: rgba(39, 37, 33, 0.62);
+  color: #fff;
   font-family: var(--font-mono, monospace);
   font-size: 0.55rem;
   letter-spacing: 0.13em;
@@ -337,20 +368,44 @@
   pointer-events: none;
 }
 
+.visualMeta span {
+  max-width: calc(50% - 0.5rem);
+  padding: 0.55rem 0.75rem;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(18, 18, 17, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .machineCanvas {
-  position: relative;
-  width: min(100%, calc(var(--visual-height) * var(--machine-aspect)));
-  aspect-ratio: var(--machine-aspect);
+  position: absolute;
   z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.machineCanvas::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(13, 13, 12, 0.62), rgba(13, 13, 12, 0.25) 54%, rgba(13, 13, 12, 0.08)), linear-gradient(0deg, rgba(13, 13, 12, 0.24), transparent 38%);
+  content: '';
+  pointer-events: none;
 }
 
 .machineImage {
-  object-fit: contain;
-  mix-blend-mode: multiply;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hotspotLayer {
   position: absolute;
+  z-index: 2;
   inset: 0;
 }
 
@@ -369,6 +424,7 @@
 }
 
 .hotspotMarker {
+  position: relative;
   display: grid;
   width: 1.55rem;
   height: 1.55rem;
@@ -384,6 +440,21 @@
   transition: background-color 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 }
 
+.hotspotMarker::after {
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(245, 234, 209, 0.72);
+  border-radius: inherit;
+  content: '';
+  animation: hotspotPulse 2.2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hotspotPulse {
+  0% { opacity: 0.78; transform: scale(0.78); }
+  75%, 100% { opacity: 0; transform: scale(1.42); }
+}
+
 .hotspot:hover .hotspotMarker,
 .hotspotSelected .hotspotMarker {
   background: #f5ead1;
@@ -393,13 +464,17 @@
 
 .hotspotLabel {
   position: absolute;
+  z-index: 3;
   top: 50%;
   left: calc(100% + 0.5rem);
   width: max-content;
   max-width: min(10rem, 30vw);
   padding: 0.43rem 0.58rem;
   color: #f7f5f1;
-  background: rgba(27, 26, 24, 0.93);
+  background: rgba(27, 26, 24, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
   font-size: 0.62rem;
   font-weight: 600;
   line-height: 1.3;
@@ -507,7 +582,9 @@
   flex-direction: column;
   color: #f5f3ef;
   background: #1d1c1a;
-  border: 1px solid rgba(22, 21, 19, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .detailPanelHeader {
@@ -522,7 +599,13 @@
 }
 
 .detailProcess {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.58rem;
   color: #cfb37d;
+  background: rgba(200, 166, 104, 0.1);
+  border: 1px solid rgba(200, 166, 104, 0.22);
+  border-radius: 999px;
   letter-spacing: 0.12em;
 }
 
@@ -540,6 +623,7 @@
   font-weight: 560;
   letter-spacing: -0.045em;
   line-height: 1.08;
+  min-height: 2.16em;
 }
 
 .machineFunction {
@@ -547,6 +631,7 @@
   color: rgba(255, 255, 255, 0.56);
   font-size: 0.75rem;
   line-height: 1.55;
+  min-height: 2.32em;
 }
 
 .detailTabs {
@@ -607,8 +692,12 @@
 
 .tabPanel {
   flex: 1;
-  min-height: 19.5rem;
+  height: 24rem;
+  min-height: 24rem;
+  overflow-y: auto;
   padding: 1.25rem clamp(1.2rem, 2vw, 1.75rem) 1.45rem;
+  scrollbar-color: rgba(201, 169, 110, 0.45) transparent;
+  scrollbar-width: thin;
   outline: none;
 }
 
@@ -625,6 +714,46 @@
   letter-spacing: 0.13em;
 }
 
+.overviewSpecs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.overviewSpec {
+  display: grid;
+  align-content: start;
+  gap: 0.32rem;
+  min-width: 0;
+  min-height: 4.15rem;
+  padding: 0.62rem 0.7rem;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+}
+
+.overviewSpec > span {
+  color: #c8a668;
+  font-size: 0.49rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.overviewSpec > strong {
+  display: -webkit-box;
+  overflow: hidden;
+  color: rgba(250, 248, 244, 0.84);
+  font-size: 0.62rem;
+  font-weight: 560;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
 .overviewLead {
   margin: 0;
   color: rgba(250, 248, 244, 0.9);
@@ -636,7 +765,9 @@
   margin-top: 1.05rem;
   padding: 0.85rem 0.95rem;
   background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(200, 166, 104, 0.24);
   border-left: 2px solid #b8955c;
+  border-radius: 16px;
 }
 
 .outcomeLabel {
@@ -654,7 +785,9 @@
 }
 
 .buyerPrompt {
-  margin-top: 1.05rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .buyerPrompt .tabEyebrow {
@@ -717,6 +850,7 @@
   padding: 0.85rem 0.9rem;
   background: rgba(200, 166, 104, 0.09);
   border: 1px solid rgba(200, 166, 104, 0.3);
+  border-radius: 16px;
 }
 
 .hotspotCalloutHeader {
@@ -807,6 +941,7 @@
   padding: 0.68rem 0.72rem;
   color: rgba(255, 255, 255, 0.7);
   background: rgba(255, 255, 255, 0.045);
+  border-radius: 12px;
 }
 
 .contextMark {
@@ -838,6 +973,7 @@
   color: #eee8dd;
   background: rgba(255, 255, 255, 0.045);
   border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
   transition: background-color 180ms ease, border-color 180ms ease;
 }
 
@@ -885,6 +1021,8 @@
   padding: 0.65rem 0.8rem;
   color: #201e1a;
   background: #d5b775;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
   transition: background-color 180ms ease, transform 180ms ease;
 }
 
@@ -896,6 +1034,15 @@
 .discussLink small,
 .discussLink strong {
   display: block;
+}
+
+.discussArrow {
+  flex: 0 0 auto;
+  transition: transform 180ms ease;
+}
+
+.discussLink:hover .discussArrow {
+  transform: translateX(4px);
 }
 
 .discussLink small {
@@ -917,6 +1064,7 @@
   padding: 0.6rem 0.8rem;
   color: rgba(255, 255, 255, 0.76);
   border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
   text-align: left;
   cursor: pointer;
   transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
@@ -1040,10 +1188,6 @@
     gap: 1.45rem;
   }
 
-  .visualStage {
-    --visual-height: min(37vw, 41rem);
-  }
-
   .detailPanelHeader {
     padding-right: 2.1rem;
     padding-left: 2.1rem;
@@ -1061,8 +1205,8 @@
     gap: 1rem;
   }
 
-  .visualStage {
-    --visual-height: clamp(25rem, 55vw, 37rem);
+  .visualColumn {
+    position: static;
   }
 
   .detailPanel {
@@ -1071,7 +1215,8 @@
   }
 
   .tabPanel {
-    min-height: auto;
+    height: 24rem;
+    min-height: 24rem;
   }
 
   .detailPanelFooter {
@@ -1108,6 +1253,8 @@
   }
 
   .processTrack {
+    --stage-marker-offset: 1.3rem;
+    --stage-gap: 0.15rem;
     grid-template-columns: repeat(4, minmax(8.1rem, 1fr));
     gap: 0.15rem;
     margin-right: -0.35rem;
@@ -1154,21 +1301,14 @@
   }
 
   .machineOption {
-    flex-basis: min(15.5rem, 78vw);
+    flex-basis: min(18rem, 86vw);
   }
 
   .showroomGrid {
     margin-top: 1rem;
   }
 
-  .visualStage {
-    --visual-height: clamp(16rem, 74vw, 25rem);
-  }
-
   .visualMeta {
-    top: 0.7rem;
-    left: 0.7rem;
-    right: 0.7rem;
     font-size: 0.47rem;
   }
 
@@ -1209,6 +1349,8 @@
   }
 
   .tabPanel {
+    height: 24rem;
+    min-height: 24rem;
     padding: 1rem 1rem 1.15rem;
   }
 
@@ -1289,5 +1431,13 @@
   .nextProcessButton {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .stageConnector::after {
+    transition-duration: 0.01ms !important;
+  }
+
+  .hotspotMarker::after {
+    animation: none;
   }
 }

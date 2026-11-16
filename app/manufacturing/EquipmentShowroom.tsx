@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
@@ -27,7 +26,7 @@ import {
 import styles from './equipment-showroom.module.css';
 
 const machineTransition = {
-  duration: 0.42,
+  duration: 0.26,
   ease: [0.22, 1, 0.36, 1] as const,
 };
 
@@ -43,6 +42,16 @@ const DETAIL_TABS = [
 
 type DetailTab = (typeof DETAIL_TABS)[number]['id'];
 
+function getCoverFocus(points: number[], visibleFraction: number) {
+  const cropRange = 1 - visibleFraction;
+  if (cropRange <= 0 || points.length === 0) return { offset: 0, position: 50 };
+
+  const midpoint = (Math.min(...points) + Math.max(...points)) / 2;
+  const offset = Math.max(0, Math.min(cropRange, midpoint - visibleFraction / 2));
+
+  return { offset, position: (offset / cropRange) * 100 };
+}
+
 function EquipmentVisual({
   machine,
   onSelectHotspot,
@@ -54,12 +63,16 @@ function EquipmentVisual({
   selectedHotspot: string | null;
   reduceMotion: boolean;
 }) {
+  const frameAspect = 4 / 3;
   const imageAspect = machine.imageWidth / machine.imageHeight;
+  const visibleWidth = Math.min(1, frameAspect / imageAspect);
+  const visibleHeight = Math.min(1, imageAspect / frameAspect);
+  const horizontalFocus = getCoverFocus(machine.hotspots.map((hotspot) => hotspot.x / 100), visibleWidth);
+  const verticalFocus = getCoverFocus(machine.hotspots.map((hotspot) => hotspot.y / 100), visibleHeight);
 
   return (
     <div
       className={styles.visualStage}
-      style={{ '--machine-aspect': imageAspect } as React.CSSProperties}
       aria-label={`${machine.name} equipment view`}
     >
       <div className={styles.visualMeta}>
@@ -67,7 +80,7 @@ function EquipmentVisual({
         <span>{machine.process.toUpperCase().replace('-', ' / ')}</span>
       </div>
 
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={machine.id}
           className={styles.machineCanvas}
@@ -82,25 +95,32 @@ function EquipmentVisual({
             fill
             sizes="(max-width: 767px) 92vw, (max-width: 1279px) 90vw, 62vw"
             className={styles.machineImage}
+            style={{ objectPosition: `${horizontalFocus.position}% ${verticalFocus.position}%` }}
             priority={machine.id === 'lectra'}
           />
 
           <div className={styles.hotspotLayer} role="group" aria-label={`Inspectable machine features for ${machine.name}`}>
-            {machine.hotspots.map((hotspot, index) => (
-              <button
-                key={hotspot.id}
-                type="button"
-                className={`${styles.hotspot} ${selectedHotspot === hotspot.id ? styles.hotspotSelected : ''}`}
-                data-label-side={hotspot.x >= 46 ? 'left' : 'right'}
-                style={{ left: `${hotspot.x}%`, top: `${hotspot.y}%` }}
-                aria-label={`Inspect ${hotspot.label} on ${machine.name}`}
-                aria-pressed={selectedHotspot === hotspot.id}
-                onClick={() => onSelectHotspot(hotspot)}
-              >
-                <span aria-hidden="true" className={styles.hotspotMarker}>{index + 1}</span>
-                <span className={styles.hotspotLabel}>{hotspot.label}</span>
-              </button>
-            ))}
+            {machine.hotspots.map((hotspot, index) => {
+              const x = ((hotspot.x / 100 - horizontalFocus.offset) / visibleWidth) * 100;
+              const y = ((hotspot.y / 100 - verticalFocus.offset) / visibleHeight) * 100;
+
+              return (
+                <button
+                  key={hotspot.id}
+                  type="button"
+                  className={`${styles.hotspot} ${selectedHotspot === hotspot.id ? styles.hotspotSelected : ''}`}
+                  data-label-side={x >= 46 ? 'left' : 'right'}
+                  style={{ left: `${x}%`, top: `${y}%` }}
+                  aria-label={`Inspect ${hotspot.label} on ${machine.name}`}
+                  aria-describedby={`machine-hotspot-tooltip-${machine.id}-${hotspot.id}`}
+                  aria-pressed={selectedHotspot === hotspot.id}
+                  onClick={() => onSelectHotspot(hotspot)}
+                >
+                  <span aria-hidden="true" className={styles.hotspotMarker}>{index + 1}</span>
+                  <span id={`machine-hotspot-tooltip-${machine.id}-${hotspot.id}`} role="tooltip" className={styles.hotspotLabel}>{hotspot.label}</span>
+                </button>
+              );
+            })}
           </div>
         </motion.div>
       </AnimatePresence>
@@ -128,8 +148,14 @@ export function EquipmentShowroom() {
   const stageMachines = SHOWROOM_MACHINES.filter((machine) => machine.process === activeStage.id);
   const activeHotspot = activeMachine.hotspots.find((hotspot) => hotspot.id === selectedHotspot) ?? null;
   const nextStage = PROCESS_STAGES[(activeStageIndex + 1) % PROCESS_STAGES.length];
-  const processProgress = (activeStageIndex / (PROCESS_STAGES.length - 1)) * 100;
   const machineProgress = ((selectedMachineIndex + 1) / SHOWROOM_MACHINES.length) * 100;
+  const overviewSpecs = [
+    { label: 'Manufacturer', value: activeMachine.manufacturer },
+    ...(activeMachine.model ? [{ label: 'Model', value: activeMachine.model }] : []),
+    ...activeMachine.technicalFacts
+      .slice(0, activeMachine.model ? 2 : 3)
+      .map((fact) => ({ label: fact.label, value: fact.value })),
+  ].slice(0, 4);
 
   useEffect(() => {
     const activeStageButton = stageButtonRefs.current[activeStageIndex];
@@ -222,7 +248,7 @@ export function EquipmentShowroom() {
         <div className={styles.sectionHeading}>
           <div>
             <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#907348]">Fashion Knits · manufacturing equipment</p>
-            <h2 id="equipment-title" className="max-w-4xl text-[clamp(2.3rem,5vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.06em]">Inside the production floor.</h2>
+            <h2 id="equipment-title" className="max-w-4xl text-[clamp(2.3rem,5vw,4.7rem)] font-semibold leading-[0.94] tracking-[-0.035em]">Inside the production floor.</h2>
           </div>
           <p className={styles.sectionIntro}>Explore the equipment behind pattern cutting and garment decoration. Each route is planned around the garment and buyer brief.</p>
         </div>
@@ -237,13 +263,6 @@ export function EquipmentShowroom() {
           </div>
 
           <div className={styles.processTrack} role="group" aria-label="Explore manufacturing processes">
-            <div aria-hidden="true" className={styles.processTrackBase} />
-            <motion.div
-              aria-hidden="true"
-              className={styles.processTrackProgress}
-              animate={{ width: `${processProgress}%` }}
-              transition={reduceMotion ? { duration: 0 } : { duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            />
             {PROCESS_STAGES.map((stage, stageIndex) => {
               const count = SHOWROOM_MACHINES.filter((machine) => machine.process === stage.id).length;
               const selected = activeStage.id === stage.id;
@@ -257,6 +276,13 @@ export function EquipmentShowroom() {
                   onClick={() => selectProcess(stage.id)}
                   className={`${styles.stageButton} ${selected ? styles.stageButtonSelected : ''}`}
                 >
+                  {stageIndex < PROCESS_STAGES.length - 1 && (
+                    <span
+                      aria-hidden="true"
+                      className={styles.stageConnector}
+                      style={{ '--progress': stageIndex < activeStageIndex ? '100%' : '0%' } as React.CSSProperties}
+                    />
+                  )}
                   <span aria-hidden="true" className={styles.stageMarker}>{selected ? <Check className="h-3.5 w-3.5" /> : stage.number}</span>
                   <span className={styles.stageCopy}>
                     <span className={styles.stageLabel}>{stage.title}</span>
@@ -296,6 +322,9 @@ export function EquipmentShowroom() {
                   className={`${styles.machineOption} ${selected ? styles.machineOptionSelected : ''}`}
                 >
                   <span className={styles.machineOptionNumber}>{indexText(machineIndex)}</span>
+                  <span className={styles.machineOptionThumb} aria-hidden="true">
+                    <Image src={machine.image} alt="" fill sizes="48px" />
+                  </span>
                   <span className={styles.machineOptionCopy}>
                     <span className={styles.machineOptionName}>{machine.name}</span>
                     <span className={styles.machineOptionMeta}>{machine.manufacturer}{machine.model ? ` · ${machine.model}` : ''}</span>
@@ -397,6 +426,14 @@ export function EquipmentShowroom() {
                   {activeTab === 'overview' && (
                     <div className={styles.overviewView}>
                       <p className={styles.tabEyebrow}>At a glance</p>
+                      <div className={styles.overviewSpecs} aria-label="Machine specifications">
+                        {overviewSpecs.map((spec, index) => (
+                          <div className={styles.overviewSpec} key={`${spec.label}-${index}`}>
+                            <span>{spec.label}</span>
+                            <strong>{spec.value}</strong>
+                          </div>
+                        ))}
+                      </div>
                       <p className={styles.overviewLead}>{activeMachine.overview}</p>
                       <div className={styles.outcomeCard}>
                         <span className={styles.outcomeLabel}>GARMENT OUTCOME</span>
@@ -495,7 +532,7 @@ export function EquipmentShowroom() {
             <div className={styles.detailPanelFooter}>
               <Link href="/get-a-quote" className={styles.discussLink}>
                 <span><small>Have a style in mind?</small><strong>Discuss a production requirement</strong></span>
-                <ArrowRight aria-hidden="true" className="h-5 w-5" />
+                <ArrowRight aria-hidden="true" className={`${styles.discussArrow} h-5 w-5`} />
               </Link>
               <button type="button" onClick={() => selectProcess(nextStage.id)} className={styles.nextProcessButton}>
                 <span>Next process</span><strong>{nextStage.title}</strong><ArrowRight aria-hidden="true" className="h-4 w-4" />

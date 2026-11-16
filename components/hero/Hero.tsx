@@ -6,6 +6,7 @@ import { gsap } from '@/lib/animations';
 import { ScrollIndicator } from './ScrollIndicator';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { useReducedMotion } from '@/lib/hooks';
+import styles from './Hero.module.css';
 
 function Magnetic({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -104,7 +105,7 @@ export function Hero() {
   };
 
   return (
-    <section ref={root} id="hero" onMouseMove={spot} className="grain relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-charcoal pt-28 text-off-white sm:pt-32">
+    <section ref={root} id="hero" onMouseMove={spot} style={{ '--hero-dim': 0.78 } as React.CSSProperties} className="grain relative flex min-h-[100svh] w-full flex-col justify-between overflow-hidden bg-charcoal pt-28 text-off-white sm:pt-32">
       {/* The muted factory footage plays as a decorative background. */}
       <div className="h-bg absolute inset-0 z-0 overflow-hidden">
         <video
@@ -117,14 +118,14 @@ export function Hero() {
           playsInline
           preload={isVideoEnabled ? 'metadata' : 'none'}
           poster="/images/hero/hero-knitting-machines-poster.png"
-          className="absolute inset-0 h-full w-full object-cover object-center"
+          className={`${styles.videoGrade} absolute inset-0 h-full w-full object-cover object-center`}
         >
           <source src="/videos/knitting-machines-producing-fabric.mp4" type="video/mp4" />
         </video>
       </div>
-      <div aria-hidden="true" className="home-hero-left-shade pointer-events-none absolute inset-0 z-[1]" />
-      <div aria-hidden="true" className="home-hero-top-shade pointer-events-none absolute inset-x-0 top-0 z-[1] h-[180px]" />
-      <div aria-hidden="true" className="home-hero-bottom-shade pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36" />
+      <div aria-hidden="true" className={`${styles.heroOverlay} pointer-events-none absolute inset-0 z-[1]`} />
+      <div aria-hidden="true" className={`${styles.heroTopFade} pointer-events-none absolute inset-x-0 top-0 z-[1] h-[180px]`} />
+      <div aria-hidden="true" className={`${styles.heroBottomFade} pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-36`} />
       <div className="spotlight absolute inset-0 z-[2] pointer-events-none" />
 
       <div className="h-content relative z-10 my-auto w-full max-w-[90rem] mx-auto px-5 pb-10 sm:px-8 lg:px-16 xl:px-24">
@@ -135,8 +136,8 @@ export function Hero() {
 
         <h1
           aria-label="Knitwear that moves your brand forward."
-          style={{ wordSpacing: '0.1em', textShadow: '0 2px 24px rgba(0,0,0,0.45)' }}
-          className="max-w-7xl text-balance font-semibold uppercase leading-[0.96] tracking-[-0.02em] text-[clamp(2rem,8.5vw,2.5rem)] lg:text-[clamp(3rem,5.5vw,6rem)]"
+          style={{ wordSpacing: '0.1em' }}
+          className={`${styles.heroText} max-w-7xl text-balance font-semibold uppercase leading-[0.96] tracking-[-0.02em] text-[clamp(2rem,8.5vw,2.5rem)] lg:text-[clamp(3rem,5.5vw,6rem)]`}
         >
           <span aria-hidden="true" className="hidden lg:block">
             <span className="block overflow-hidden pb-[0.08em]"><span className="h-line block">Knitwear that moves</span></span>
@@ -149,7 +150,7 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="h-body mt-6 max-w-[60ch] text-pretty text-[clamp(1rem,1.3vw,1.25rem)] font-normal leading-[1.6] text-white/[0.88]">
+        <p className={`${styles.heroText} h-body mt-6 max-w-[60ch] text-pretty text-[clamp(1rem,1.3vw,1.25rem)] font-normal leading-[1.6] text-white/[0.88]`}>
           From first swatch to finished garment, our Tiruppur team helps apparel brands shape a knitwear range around their brief, standards and production needs.
         </p>
 
