@@ -1,0 +1,194 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Fashion Knits home" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [aria-hidden] [ref=e5]:
+          - generic [ref=e6]:
+            - generic [ref=e10]: FK
+            - generic [ref=e11]: We Design Your Dreams
+          - generic [ref=e12]: Fashion Knits
+      - navigation "Main navigation" [ref=e13]:
+        - link "Products" [ref=e14] [cursor=pointer]:
+          - /url: /products
+        - link "Manufacturing" [ref=e15] [cursor=pointer]:
+          - /url: /manufacturing
+        - link "Quality" [ref=e16] [cursor=pointer]:
+          - /url: /quality
+        - link "Sustainability" [ref=e17] [cursor=pointer]:
+          - /url: /sustainability
+        - link "Global Export" [ref=e18] [cursor=pointer]:
+          - /url: /export
+        - link "About Us" [ref=e19] [cursor=pointer]:
+          - /url: /about
+        - link "Inquire" [ref=e20] [cursor=pointer]:
+          - /url: /get-a-quote
+  - dialog [aria-hidden]:
+    - generic:
+      - generic: Fashion Knits · Tiruppur
+      - navigation:
+        - link:
+          - /url: /products
+          - generic: Products
+        - link:
+          - /url: /manufacturing
+          - generic: Manufacturing
+        - link:
+          - /url: /quality
+          - generic: Quality
+        - link:
+          - /url: /sustainability
+          - generic: Sustainability
+        - link:
+          - /url: /export
+          - generic: Global Export
+        - link:
+          - /url: /about
+          - generic: About Us
+      - generic:
+        - generic: Knitwear development · Manufacturing · Export
+        - link:
+          - /url: /get-a-quote
+          - text: Start an inquiry
+  - main [ref=e21]:
+    - generic [ref=e1784]:
+      - generic [ref=e1785]:
+        - generic [ref=e1786]:
+          - paragraph [ref=e1787]: Get a quote · Tiruppur, India
+          - heading "Discuss your knitwear brief." [level=2] [ref=e1789]
+        - paragraph [ref=e1790]: Tell us the product, destination and approximate order quantity. A reference sample or tech pack helps us understand your requirements.
+      - generic [ref=e1791]:
+        - complementary [ref=e1792]:
+          - generic [ref=e1793]:
+            - generic [ref=e1795]: Fashion Knits · Tiruppur
+            - generic [ref=e1802]:
+              - paragraph [ref=e1803]: Head Office & Unit 2
+              - heading "81/82 Angeripalayam Main Road" [level=3] [ref=e1804]
+              - paragraph [ref=e1805]: Tiruppur 641 603, Tamil Nadu, India
+            - link "www.fashionknits.in" [ref=e1806] [cursor=pointer]:
+              - /url: https://www.fashionknits.in
+          - link "Email raviramu@fashionknits.net" [ref=e1807] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+            - generic [ref=e1812]:
+              - generic [ref=e1813]: Email
+              - text: raviramu@fashionknits.net
+        - generic [ref=e1814]:
+          - heading "Tell us about your project" [level=3] [ref=e1815]
+          - paragraph [ref=e1816]: Name, company, work email, country and a short project description are required.
+          - complementary "Selected showroom style" [ref=e1817]:
+            - paragraph [ref=e1818]: Selected showroom style
+            - heading "Ivory cable-knit cardigan" [level=4] [ref=e1819]
+            - paragraph [ref=e1820]: womens-cable-knit-cardigan
+            - generic [ref=e1821]:
+              - generic [ref=e1822]:
+                - term [ref=e1823]: Category
+                - definition [ref=e1824]: Women's apparel
+              - generic [ref=e1825]:
+                - term [ref=e1826]: Proposed fabric
+                - definition [ref=e1827]: Cable-knit stitch direction · gauge to discuss
+              - generic [ref=e1828]:
+                - term [ref=e1829]: Proposed colorway
+                - definition [ref=e1830]: Camel & ivory
+              - generic [ref=e1831]:
+                - term [ref=e1832]: Customisation topics
+                - definition [ref=e1833]: "Body length and ease, Fabric weight preference: Midweight, Fit preference: Relaxed, Branding preference: Small logo or motif, Labels and trims preference: Brand label direction"
+            - paragraph [ref=e1834]: This style reference is included in the editable project details below.
+          - form "Tell us about your project" [ref=e1835]:
+            - paragraph [ref=e1836]: Online enquiry delivery is not configured at this site. Fill in the details, then use “Prepare email enquiry” to open your email app with this information.
+            - generic [ref=e1837]:
+              - generic [ref=e1838]:
+                - generic [ref=e1839]: Your name *
+                - textbox "Your name *" [ref=e1840]:
+                  - /placeholder: Name
+              - generic [ref=e1841]:
+                - generic [ref=e1842]: Company / brand *
+                - textbox "Company / brand *" [ref=e1843]:
+                  - /placeholder: Company or brand
+              - generic [ref=e1844]:
+                - generic [ref=e1845]: Work email *
+                - textbox "Work email *" [ref=e1846]:
+                  - /placeholder: you@company.com
+              - generic [ref=e1847]:
+                - generic [ref=e1848]: Country *
+                - textbox "Country *" [ref=e1849]:
+                  - /placeholder: Country
+            - generic [ref=e1850]:
+              - generic [ref=e1851]:
+                - generic [ref=e1852]: Product interest
+                - combobox "Product interest" [ref=e1853]:
+                  - option "Men's apparel"
+                  - option "Women's apparel" [selected]
+                  - option "Kids' apparel"
+                  - option "Babies & toddler"
+                  - option "T-Shirts"
+                  - option "Polos"
+                  - option "Sweatshirts"
+                  - option "Hoodies"
+                  - option "Sportswear & active"
+                  - option "Casualwear / loungewear"
+                  - option "Kidswear & babywear"
+                  - option "Custom programs / OEM"
+              - generic [ref=e1854]:
+                - generic [ref=e1855]: Estimated quantity
+                - textbox "Estimated quantity" [ref=e1856]:
+                  - /placeholder: If known
+            - generic [ref=e1858]:
+              - generic [ref=e1859]: Phone (optional)
+              - textbox "Phone (optional)" [ref=e1860]:
+                - /placeholder: Include country code
+            - generic [ref=e1862]:
+              - generic [ref=e1863]: Project details *
+              - textbox "Project details *" [ref=e1864]:
+                - /placeholder: Product, fabric, destination, quantity or timeline — share what you know so far.
+                - text: "Selected showroom style: Ivory cable-knit cardigan Style reference ID: womens-cable-knit-cardigan Product category: Women's apparel Proposed fabric direction: Cable-knit stitch direction · gauge to discuss Proposed colorway: Camel & ivory Customisation topics: Body length and ease, Fabric weight preference: Midweight, Fit preference: Relaxed, Branding preference: Small logo or motif, Labels and trims preference: Brand label direction"
+            - link "Prepare email enquiry" [ref=e1865] [cursor=pointer]:
+              - /url: mailto:raviramu@fashionknits.net?subject=Knitwear%20production%20enquiry&body=Name%3A%20%0ACompany%3A%20%0AEmail%3A%20%0ACountry%3A%20%0APhone%3A%20%0AProduct%3A%20Women's%20apparel%0AEstimated%20quantity%3A%20%0A%0AProject%20details%3A%0ASelected%20showroom%20style%3A%20Ivory%20cable-knit%20cardigan%0AStyle%20reference%20ID%3A%20womens-cable-knit-cardigan%0AProduct%20category%3A%20Women's%20apparel%0AProposed%20fabric%20direction%3A%20Cable-knit%20stitch%20direction%20%C2%B7%20gauge%20to%20discuss%0AProposed%20colorway%3A%20Camel%20%26%20ivory%0ACustomisation%20topics%3A%20Body%20length%20and%20ease%2C%20Fabric%20weight%20preference%3A%20Midweight%2C%20Fit%20preference%3A%20Relaxed%2C%20Branding%20preference%3A%20Small%20logo%20or%20motif%2C%20Labels%20and%20trims%20preference%3A%20Brand%20label%20direction
+            - paragraph [ref=e1870]: A successful submission means the configured email provider accepted the message for delivery. It does not confirm that a person has read it.
+    - generic [ref=e1872]:
+      - generic [ref=e1873]:
+        - generic [ref=e1874]:
+          - link "Fashion Knits home" [ref=e1875] [cursor=pointer]:
+            - /url: /
+            - img [aria-hidden] [ref=e1876]:
+              - generic [ref=e1877]:
+                - generic [ref=e1881]: FK
+                - generic [ref=e1882]: We Design Your Dreams
+              - generic [ref=e1883]: Fashion Knits
+          - paragraph [ref=e1884]: Knitwear development and garment manufacturing for apparel buyers, based in Tiruppur, India.
+          - generic [ref=e1885]:
+            - paragraph [ref=e1886]: Head Office & Unit 02 · 81/82 Angeripalayam Main Road, Tiruppur 641 603
+            - paragraph [ref=e1890]: Unit 01 · Shed No. 29, Netaji Apparel Park, New Tiruppur 641 666
+            - paragraph [ref=e1894]: Unit 03 · SF No. 275, P.N. Road, Tiruppur
+        - navigation "Footer navigation" [ref=e1898]:
+          - heading "Explore" [level=2] [ref=e1899]
+          - list [ref=e1900]:
+            - listitem [ref=e1901]:
+              - link "Products" [ref=e1902] [cursor=pointer]:
+                - /url: /products
+            - listitem [ref=e1903]:
+              - link "Manufacturing" [ref=e1904] [cursor=pointer]:
+                - /url: /manufacturing
+            - listitem [ref=e1905]:
+              - link "Quality" [ref=e1906] [cursor=pointer]:
+                - /url: /quality
+            - listitem [ref=e1907]:
+              - link "Sustainability" [ref=e1908] [cursor=pointer]:
+                - /url: /sustainability
+            - listitem [ref=e1909]:
+              - link "Export" [ref=e1910] [cursor=pointer]:
+                - /url: /export
+            - listitem [ref=e1911]:
+              - link "About" [ref=e1912] [cursor=pointer]:
+                - /url: /about
+        - generic [ref=e1913]:
+          - heading "Discuss a production brief" [level=2] [ref=e1914]
+          - paragraph [ref=e1915]: Send a reference, tech pack or a short description of your knitwear requirements.
+          - link "Get a quote" [ref=e1916] [cursor=pointer]:
+            - /url: /get-a-quote
+          - link "raviramu@fashionknits.net" [ref=e1921] [cursor=pointer]:
+            - /url: mailto:raviramu@fashionknits.net
+      - generic [ref=e1925]:
+        - paragraph [ref=e1926]: © 2026 Fashion Knits · Tiruppur, India
+        - link "Back to top" [ref=e1927] [cursor=pointer]:
+          - /url: /#hero
+  - alert [ref=e1027]: Get a Quote | Fashion Knits

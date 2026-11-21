@@ -1,0 +1,10 @@
+[     147ms] [ERROR] Failed to load resource: the server responded with a status of 500 (Internal Server Error) @ http://127.0.0.1:3000/_next/static/chunks/app/page-af285270f56dbb3a.js:1
+[     233ms] ChunkLoadError: Loading chunk 974 failed.
+(error: http://127.0.0.1:3000/_next/static/chunks/app/page-af285270f56dbb3a.js)
+    at s.f.j (http://127.0.0.1:3000/_next/static/chunks/webpack-c00b1a97b88e5da7.js:1:2802)
+    at http://127.0.0.1:3000/_next/static/chunks/webpack-c00b1a97b88e5da7.js:1:1197
+    at Array.reduce (<anonymous>)
+    at s.e (http://127.0.0.1:3000/_next/static/chunks/webpack-c00b1a97b88e5da7.js:1:1176)
+    at c (http://127.0.0.1:3000/_next/static/chunks/794-0e0bbed515431157.js:52:13161)
+    at http://127.0.0.1:3000/_next/static/chunks/794-0e0bbed515431157.js:52:28405
+    at t (http://127.0.0.1:3000/_next/static/chunks/794-0e0bbed515431157.js:52:29681)

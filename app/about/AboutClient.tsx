@@ -40,7 +40,7 @@ const HERO_IMAGE = {
 
 const LEADERSHIP_IMAGE = {
   src: '/assets/images/leadership/ramu-raj.jpeg',
-  alt: 'Ramu Raj, Managing Director of Fashion Knits',
+  alt: 'Ramu, Managing Director of Fashion Knits',
   aiEnhanced: false,
 };
 
@@ -263,7 +263,7 @@ export function AboutClient() {
             <div className="md:col-span-7 lg:col-span-8">
               <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.18em] text-accent">Leadership · Fashion Knits</p>
               <h2 id="md-profile-title" className="flex flex-wrap gap-x-[0.22em] text-[clamp(3rem,7vw,6.5rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-white">
-                <AboutNameWord>Ramu</AboutNameWord><AboutNameWord delay={0.1}>Raj</AboutNameWord>
+                <AboutNameWord>Ramu</AboutNameWord>
               </h2>
               <p className="mt-5 text-sm font-medium tracking-[0.02em] text-[#d8c18f] sm:text-base">Managing Director, Fashion Knits</p>
               {leadership.buyerRole.trim() && (
@@ -288,7 +288,7 @@ export function AboutClient() {
                     <span aria-hidden="true" className="mb-2 h-px w-10 bg-[#907348]" />
                     <div>
                       {SHOW_REVIEW && <p className="mb-1 flex flex-wrap items-center gap-2 text-[9px] font-semibold uppercase tracking-[0.15em] text-white/55">Proposed sign-off <ReviewTag /></p>}
-                      <p className="text-lg font-semibold tracking-[-0.03em]">Ramu Raj</p>
+                      <p className="text-lg font-semibold tracking-[-0.03em]">Ramu</p>
                       <p className="text-sm text-white/55">Managing Director, Fashion Knits</p>
                     </div>
                   </div>

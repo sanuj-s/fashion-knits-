@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next';
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import './globals.css';
 import Navbar from '@/components/navigation/Navbar';
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
@@ -52,6 +54,8 @@ export default function RootLayout({
         <ScrollProgress />
         <Navbar />
         <main className="relative flex flex-col w-full">{children}</main>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, ArrowRight, Camera, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Camera, ChevronDown, RotateCw, ZoomIn, ZoomOut } from 'lucide-react';
 import {
   motion,
   AnimatePresence,
@@ -53,6 +53,62 @@ function garmentView(garment: GarmentReference, angle: GarmentAngle) {
   return angle === 'detail' ? garment.views.detail : garment.views[angle];
 }
 
+function garmentTypeFor(name: string) {
+  const value = name.toLowerCase();
+  if (/coordinated|\bset\b/.test(value)) return 'Co-ord set';
+  if (/romper|onesie|sleepsuit/.test(value)) return 'Romper';
+  if (/sleep|lounge/.test(value)) return 'Sleepwear';
+  if (/half.?zip/.test(value)) return 'Half-zip knit';
+  if (/polo/.test(value)) return 'Polo shirt';
+  if (/rugby/.test(value)) return 'Rugby top';
+  if (/jogger/.test(value)) return 'Joggers';
+  if (/short/.test(value)) return 'Shorts';
+  if (/hoodie/.test(value)) return 'Hoodie';
+  if (/sweatshirt/.test(value)) return 'Sweatshirt';
+  if (/cardigan/.test(value)) return 'Cardigan';
+  if (/dress/.test(value)) return 'Dress';
+  if (/jacket/.test(value)) return 'Jacket';
+  if (/sweater|jumper/.test(value)) return 'Sweater';
+  if (/t-shirt|\btee\b/.test(value)) return 'T-shirt';
+  if (/shirt/.test(value)) return 'Shirt';
+  if (/top/.test(value)) return 'Top';
+  return 'Knitwear';
+}
+
+function BuyerPreferenceSelect({
+  id,
+  label,
+  value,
+  options,
+  onChange,
+}: {
+  id: string;
+  label: string;
+  value: string;
+  options: string[];
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label htmlFor={id} className="block min-w-0">
+      <span className="mb-1.5 block text-[9px] font-semibold uppercase tracking-[0.13em] text-[#746b5d]">{label}</span>
+      <select
+        id={id}
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="h-10 w-full rounded-md border border-[#514936]/15 bg-white/65 px-3 text-[11px] text-[#3f3b33] outline-none transition-colors hover:border-[#8f6f3d]/40 focus-visible:border-[#8f6f3d]/70 focus-visible:ring-2 focus-visible:ring-[#8f6f3d]/15"
+      >
+        <option value="">To be discussed</option>
+        {options.map((option) => <option key={option} value={option}>{option}</option>)}
+      </select>
+    </label>
+  );
+}
+
+const FABRIC_WEIGHT_PREFERENCES = ['Lightweight', 'Midweight', 'Heavier weight'];
+const FIT_PREFERENCES = ['Close-fitting', 'Regular', 'Relaxed'];
+const BRANDING_PREFERENCES = ['Small logo or motif', 'Larger artwork', 'No branding'];
+const LABEL_TRIM_PREFERENCES = ['Brand label direction', 'Care label focus', 'Buttons or trims', 'No added trims'];
+
 export function Products() {
   const [audienceIndex, setAudienceIndex] = useState(0);
   const [prevAudienceIndex, setPrevAudienceIndex] = useState(0);
@@ -69,6 +125,12 @@ export function Products() {
   const [selectedFabric, setSelectedFabric] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
   const [selectedCustomizations, setSelectedCustomizations] = useState<string[]>([]);
+  const [selectedFabricWeight, setSelectedFabricWeight] = useState('');
+  const [selectedFitPreference, setSelectedFitPreference] = useState('');
+  const [selectedBrandingPreference, setSelectedBrandingPreference] = useState('');
+  const [selectedLabelTrimPreference, setSelectedLabelTrimPreference] = useState('');
+  const [isDesignDetailsOpen, setIsDesignDetailsOpen] = useState(false);
+  const [isCustomiseDesignOpen, setIsCustomiseDesignOpen] = useState(false);
 
   const router = useRouter();
   const panelRef = useRef<HTMLDivElement>(null);
@@ -81,9 +143,10 @@ export function Products() {
 
   const audience = AUDIENCE_COLLECTIONS[audienceIndex];
   const prevAudience = AUDIENCE_COLLECTIONS[prevAudienceIndex];
-  const selectedGarment = audience.garments[selectedIndex];
-  const rackWindowStart = Math.max(0, Math.min(selectedIndex - 2, audience.garments.length - 5));
-  const rackGarments = audience.garments
+  const showcaseGarments = audience.garments.filter((garment) => garment.showInHomepageShowcase !== false);
+  const selectedGarment = showcaseGarments[selectedIndex];
+  const rackWindowStart = Math.max(0, Math.min(selectedIndex - 2, showcaseGarments.length - 5));
+  const rackGarments = showcaseGarments
     .slice(rackWindowStart, rackWindowStart + 5)
     .map((garment, offset) => ({ garment, index: rackWindowStart + offset }));
   const currentPalette = TAB_PALETTES[audience.id] ?? TAB_PALETTES.mens;
@@ -100,6 +163,14 @@ export function Products() {
   const hoveredGarment = pointerHoveredGarment ?? focusedGarment;
   const availableViews = GARMENT_VIEW_ORDER.filter((angle) => garmentView(selectedGarment, angle));
   const selectedViewImage = garmentView(selectedGarment, selectedView);
+  const buyerCustomizations = [
+    ...selectedCustomizations,
+    selectedFabricWeight && `Fabric weight preference: ${selectedFabricWeight}`,
+    selectedFitPreference && `Fit preference: ${selectedFitPreference}`,
+    selectedBrandingPreference && `Branding preference: ${selectedBrandingPreference}`,
+    selectedLabelTrimPreference && `Labels and trims preference: ${selectedLabelTrimPreference}`,
+  ].filter((value): value is string => Boolean(value));
+  const selectedPreferenceCount = buyerCustomizations.length + (selectedColor ? 1 : 0) + (selectedFabric ? 1 : 0);
 
   const revealSelectedDetails = () => {
     requestAnimationFrame(() => {
@@ -186,13 +257,19 @@ export function Products() {
 
   /* Garment selection */
   const selectGarment = (index: number, moveFocus = false) => {
-    const nextIndex = (index + audience.garments.length) % audience.garments.length;
+    const nextIndex = (index + showcaseGarments.length) % showcaseGarments.length;
     setSelectedIndex(nextIndex);
     setSelectedView('front');
     setIsZoomed(false);
     setSelectedFabric('');
     setSelectedColor('');
     setSelectedCustomizations([]);
+    setSelectedFabricWeight('');
+    setSelectedFitPreference('');
+    setSelectedBrandingPreference('');
+    setSelectedLabelTrimPreference('');
+    setIsDesignDetailsOpen(false);
+    setIsCustomiseDesignOpen(false);
     revealSelectedDetails();
     if (moveFocus) {
       requestAnimationFrame(() => {
@@ -218,6 +295,12 @@ export function Products() {
     setSelectedFabric('');
     setSelectedColor('');
     setSelectedCustomizations([]);
+    setSelectedFabricWeight('');
+    setSelectedFitPreference('');
+    setSelectedBrandingPreference('');
+    setSelectedLabelTrimPreference('');
+    setIsDesignDetailsOpen(false);
+    setIsCustomiseDesignOpen(false);
     revealSelectedDetails();
     setPointerHoveredGarment(null);
     setFocusedGarment(null);
@@ -255,7 +338,7 @@ export function Products() {
     if (event.key === 'ArrowRight') nextIndex = index + 1;
     if (event.key === 'ArrowLeft') nextIndex = index - 1;
     if (event.key === 'Home') nextIndex = 0;
-    if (event.key === 'End') nextIndex = audience.garments.length - 1;
+    if (event.key === 'End') nextIndex = showcaseGarments.length - 1;
     if (nextIndex === undefined) return;
     event.preventDefault();
     selectGarment(nextIndex, true);
@@ -273,7 +356,7 @@ export function Products() {
     });
     if (selectedFabric) params.set('fabric', selectedFabric);
     if (selectedColor) params.set('color', selectedColor);
-    if (selectedCustomizations.length) params.set('customizations', selectedCustomizations.join(', '));
+    if (buyerCustomizations.length) params.set('customizations', buyerCustomizations.join(', '));
     router.push(`/get-a-quote?${params.toString()}`);
   };
 
@@ -445,7 +528,7 @@ export function Products() {
                 aria-live="polite"
                 className="absolute right-0 top-1/2 hidden -translate-y-1/2 text-[11px] font-medium uppercase tracking-[0.2em] text-[#7a7064] lg:block"
               >
-                {String(selectedIndex + 1).padStart(2, '0')} / {String(audience.garments.length).padStart(2, '0')}
+                {String(selectedIndex + 1).padStart(2, '0')} / {String(showcaseGarments.length).padStart(2, '0')}
               </span>
             </div>
 
@@ -486,7 +569,7 @@ export function Products() {
                       justifyContent: 'center',
                     }}
                   >
-                    {audience.garments.map((garment, i) => {
+                    {showcaseGarments.map((garment, i) => {
                       const isHovered = hoveredGarment?.index === i;
                       const isItemSel = selectedIndex === i;
 
@@ -720,13 +803,13 @@ export function Products() {
 
             {/* Mobile swipe hint */}
             <p className="mt-2 text-center text-[9px] text-[#88867f] sm:hidden">
-              Swipe the rack, or explore all {audience.garments.length} styles below
+              Swipe the rack, or explore all {showcaseGarments.length} styles below
             </p>
 
             <div className="products-selector-wrap mt-4 border-t border-charcoal/10 pt-3 sm:mt-5 sm:pt-4">
               <div className="mb-2 flex items-center justify-between gap-3">
                 <p className="text-[9px] font-semibold uppercase tracking-[0.18em] text-[#6e6456]">Explore this range</p>
-                <span className="font-mono text-[9px] tracking-[0.1em] text-[#52483a]">{String(selectedIndex + 1).padStart(2, '0')} / {String(audience.garments.length).padStart(2, '0')}</span>
+                <span className="font-mono text-[9px] tracking-[0.1em] text-[#52483a]">{String(selectedIndex + 1).padStart(2, '0')} / {String(showcaseGarments.length).padStart(2, '0')}</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -738,7 +821,7 @@ export function Products() {
                   <ArrowLeft aria-hidden="true" className="h-4 w-4" />
                 </button>
                 <div className="products-selector flex min-w-0 flex-1 gap-2 overflow-x-auto pb-1" role="group" aria-label={`Choose a ${audience.label} garment`}>
-                  {audience.garments.map((garment, index) => {
+                  {showcaseGarments.map((garment, index) => {
                     const selected = selectedIndex === index;
                     return (
                       <button
@@ -867,106 +950,199 @@ export function Products() {
               </p>
             </div>
 
-            <div className="flex flex-col justify-center px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
-              <p className="text-[9px] font-semibold uppercase tracking-[0.19em] text-[#806942]">
-                {selectedGarment.category} <span aria-hidden="true">/</span> Style concept
+            <div className="products-detail-info flex flex-col bg-[#f8f6f1] px-5 py-6 sm:px-8 sm:py-8 lg:px-10">
+              <p className="text-[9px] font-semibold uppercase tracking-[0.2em] text-[#806942]">
+                {selectedGarment.category}
               </p>
-              <h3 className="mt-2 max-w-2xl text-2xl font-medium tracking-[-0.04em] text-[#26241f] sm:text-3xl">{selectedGarment.name}</h3>
-              <p className="mt-2 font-mono text-[8px] uppercase tracking-[0.1em] text-[#847a6a]">Reference {selectedGarment.id}</p>
-              <p className="mt-3 max-w-2xl text-sm leading-6 text-[#514d45]">{selectedGarment.description}</p>
-              <div className="mt-4 border-l-2 border-[#b2986d] pl-3">
-                <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#6a5a40]">Silhouette &amp; construction</p>
-                <p className="mt-1 text-xs leading-5 text-[#514d45]">{selectedGarment.construction}</p>
-              </div>
+              <h3 className="mt-2 max-w-2xl font-serif text-[clamp(1.75rem,2.6vw,2.55rem)] font-medium leading-[1.05] tracking-[-0.035em] text-[#26241f]">
+                {selectedGarment.name}
+              </h3>
+              <p className="mt-3 max-w-2xl text-[13px] leading-6 text-[#514d45] sm:text-sm">
+                {selectedGarment.description}
+              </p>
 
-              <div className="products-reference-note mt-4">
-                <span className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#746143]">Design reference</span>
-                {selectedGarment.designReference ? (
-                  <>
-                    <a href={selectedGarment.designReference.url} target="_blank" rel="noreferrer" className="ml-2 text-[10px] font-medium text-[#433b2e] underline decoration-[#b2986d]/60 underline-offset-2 hover:text-[#806942]">
-                      {selectedGarment.designReference.label}
-                    </a>
-                    <p className="mt-1 text-[9px] leading-4 text-[#776f62]">Editorial inspiration only. This is an original Fashion Knits concept, not an official branded product or affiliation.</p>
-                  </>
-                ) : (
-                  <p className="mt-1 text-[9px] leading-4 text-[#776f62]">Independent Fashion Knits concept; no external label reference assigned.</p>
-                )}
-              </div>
-
-              <div className="products-proposal-note mt-4 rounded-lg px-3 py-2 text-[9px] leading-4">
-                Proposed range direction only. Fabric composition, weight, sizing, order quantities and production details require buyer confirmation.
-              </div>
-
-              <section aria-labelledby="fabric-options-label" className="mt-5">
-                <div className="flex items-baseline justify-between gap-2">
-                  <label id="fabric-options-label" htmlFor="garment-fabric-choice" className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#3e392f]">Proposed fabric direction</label>
-                  <span className="text-[8px] uppercase tracking-[0.08em] text-[#82786a]">Optional</span>
+              <section aria-label="Product overview" className="mt-5 grid grid-cols-2 gap-x-5 gap-y-4 border-y border-[#31291e]/10 py-4">
+                <div className="min-w-0">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#82745e]">Garment type</p>
+                  <p className="mt-1 text-[11px] font-medium leading-4 text-[#36332c]">{garmentTypeFor(selectedGarment.name)}</p>
                 </div>
-                <select
-                  id="garment-fabric-choice"
-                  value={selectedFabric}
-                  onChange={(event) => setSelectedFabric(event.target.value)}
-                  className="mt-2 h-10 w-full rounded-md border border-[#564c3c]/20 bg-white/70 px-3 text-xs text-[#443f36] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#907348]"
-                >
-                  <option value="">No preference yet</option>
-                  {selectedGarment.fabricOptions.map((fabric) => <option key={fabric} value={fabric}>{fabric}</option>)}
-                </select>
+                <div className="min-w-0">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#82745e]">Silhouette</p>
+                  <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-[#514d45]">
+                    {selectedGarment.construction.split(';')[0]?.replace(/[.]$/, '') || 'To be discussed with buyer'}
+                  </p>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#82745e]">Material preference</p>
+                  <p className="mt-1 line-clamp-2 text-[11px] leading-4 text-[#514d45]">{selectedFabric || 'To be discussed'}</p>
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[8px] font-semibold uppercase tracking-[0.15em] text-[#82745e]">Customisation</p>
+                  <p className="mt-1 text-[11px] leading-4 text-[#514d45]">
+                    {selectedPreferenceCount ? `${selectedPreferenceCount} buyer preferences selected` : 'Buyer-led'}
+                  </p>
+                </div>
               </section>
 
-              <fieldset className="mt-4">
-                <legend className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#3e392f]">Proposed colorways</legend>
-                <div className="mt-2 grid grid-cols-3 gap-2">
-                  {selectedGarment.colorways.map((color) => {
-                    const isActive = selectedColor === color.name;
-                    return (
-                      <button
-                        key={color.name}
-                        type="button"
-                        aria-pressed={isActive}
-                        aria-label={"Choose " + color.name + " colorway"}
-                        onClick={() => setSelectedColor(isActive ? '' : color.name)}
-                        className="products-colorway flex min-h-10 items-center gap-2 rounded-md border px-2 py-1.5 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#907348]"
-                        data-active={isActive || undefined}
-                      >
-                        <span className="h-4 w-4 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: color.swatch }} />
-                        <span className="text-[9px] leading-3 text-[#514d45]">{color.name}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </fieldset>
+              <div className="mt-1 divide-y divide-[#31291e]/10 border-b border-[#31291e]/10">
+                <section>
+                  <button
+                    type="button"
+                    aria-expanded={isDesignDetailsOpen}
+                    aria-controls="product-design-details"
+                    onClick={() => setIsDesignDetailsOpen((open) => !open)}
+                    className="flex min-h-12 w-full items-center justify-between gap-4 py-3 text-left text-[12px] font-medium text-[#302d27] transition-colors hover:text-[#806942] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348]"
+                  >
+                    <span>Design Details</span>
+                    <ChevronDown aria-hidden="true" className={`h-4 w-4 shrink-0 text-[#8f7449] transition-transform duration-200 ${isDesignDetailsOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <motion.div
+                    id="product-design-details"
+                    aria-hidden={!isDesignDetailsOpen}
+                    inert={!isDesignDetailsOpen}
+                    initial={false}
+                    animate={{ height: isDesignDetailsOpen ? 'auto' : 0, opacity: isDesignDetailsOpen ? 1 : 0 }}
+                    transition={{ duration: reducedMotion ? 0 : 0.22, ease: 'easeOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-4 pr-2">
+                      <p className="text-[9px] font-semibold uppercase tracking-[0.13em] text-[#82745e]">Construction &amp; finish</p>
+                      <p className="mt-1.5 max-w-2xl text-[11px] leading-5 text-[#514d45]">{selectedGarment.construction}</p>
+                    </div>
+                  </motion.div>
+                </section>
 
-              <fieldset className="mt-4">
-                <legend className="text-[9px] font-semibold uppercase tracking-[0.14em] text-[#3e392f]">Customisation to discuss</legend>
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {selectedGarment.customizationOptions.map((option) => {
-                    const isActive = selectedCustomizations.includes(option);
-                    return (
-                      <button
-                        key={option}
-                        type="button"
-                        aria-pressed={isActive}
-                        onClick={() => setSelectedCustomizations((current) => isActive ? current.filter((value) => value !== option) : [...current, option])}
-                        className="products-customization rounded-full border px-2.5 py-1.5 text-[8px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#907348]"
-                        data-active={isActive || undefined}
-                      >
-                        {option}
-                      </button>
-                    );
-                  })}
-                </div>
-              </fieldset>
+                <section>
+                  <button
+                    type="button"
+                    aria-expanded={isCustomiseDesignOpen}
+                    aria-controls="product-customise-design"
+                    onClick={() => setIsCustomiseDesignOpen((open) => !open)}
+                    className="flex min-h-12 w-full items-center justify-between gap-4 py-3 text-left text-[12px] font-medium text-[#302d27] transition-colors hover:text-[#806942] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348]"
+                  >
+                    <span>Customise This Design</span>
+                    <ChevronDown aria-hidden="true" className={`h-4 w-4 shrink-0 text-[#8f7449] transition-transform duration-200 ${isCustomiseDesignOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <motion.div
+                    id="product-customise-design"
+                    aria-hidden={!isCustomiseDesignOpen}
+                    inert={!isCustomiseDesignOpen}
+                    initial={false}
+                    animate={{ height: isCustomiseDesignOpen ? 'auto' : 0, opacity: isCustomiseDesignOpen ? 1 : 0 }}
+                    transition={{ duration: reducedMotion ? 0 : 0.22, ease: 'easeOut' }}
+                    className="overflow-hidden"
+                  >
+                    <div className="pb-4 pt-1">
+                      <div className="grid gap-x-3 gap-y-3 sm:grid-cols-2">
+                        <BuyerPreferenceSelect
+                          id="garment-material-preference"
+                          label="Material preference"
+                          value={selectedFabric}
+                          options={selectedGarment.fabricOptions}
+                          onChange={setSelectedFabric}
+                        />
+                        <BuyerPreferenceSelect
+                          id="garment-weight-preference"
+                          label="Fabric weight preference"
+                          value={selectedFabricWeight}
+                          options={FABRIC_WEIGHT_PREFERENCES}
+                          onChange={setSelectedFabricWeight}
+                        />
+                        <BuyerPreferenceSelect
+                          id="garment-fit-preference"
+                          label="Fit preference"
+                          value={selectedFitPreference}
+                          options={FIT_PREFERENCES}
+                          onChange={setSelectedFitPreference}
+                        />
+                        <BuyerPreferenceSelect
+                          id="garment-branding-preference"
+                          label="Branding preference"
+                          value={selectedBrandingPreference}
+                          options={BRANDING_PREFERENCES}
+                          onChange={setSelectedBrandingPreference}
+                        />
+                        <BuyerPreferenceSelect
+                          id="garment-label-trim-preference"
+                          label="Labels & trims"
+                          value={selectedLabelTrimPreference}
+                          options={LABEL_TRIM_PREFERENCES}
+                          onChange={setSelectedLabelTrimPreference}
+                        />
+                      </div>
 
-              <div className="mt-5 flex flex-wrap items-center gap-3 border-t border-[#31291e]/10 pt-4">
+                      <fieldset className="mt-4">
+                        <legend className="text-[9px] font-semibold uppercase tracking-[0.13em] text-[#746b5d]">Colour preference</legend>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {selectedGarment.colorways.map((color) => {
+                            const isActive = selectedColor === color.name;
+                            return (
+                              <button
+                                key={color.name}
+                                type="button"
+                                aria-pressed={isActive}
+                                aria-label={`Choose ${color.name} colourway`}
+                                onClick={() => setSelectedColor(isActive ? '' : color.name)}
+                                className="products-colorway inline-flex min-h-9 items-center gap-2 rounded-full border px-2.5 py-1 text-left text-[9px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#907348]"
+                                data-active={isActive || undefined}
+                              >
+                                <span className="h-3.5 w-3.5 shrink-0 rounded-full border border-black/10" style={{ backgroundColor: color.swatch }} />
+                                <span>{color.name}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </fieldset>
+
+                      <fieldset className="mt-4">
+                        <legend className="text-[9px] font-semibold uppercase tracking-[0.13em] text-[#746b5d]">Design details to discuss</legend>
+                        <div className="mt-2 flex flex-wrap gap-1.5">
+                          {selectedGarment.customizationOptions.map((option) => {
+                            const isActive = selectedCustomizations.includes(option);
+                            return (
+                              <button
+                                key={option}
+                                type="button"
+                                aria-pressed={isActive}
+                                onClick={() => setSelectedCustomizations((current) => isActive ? current.filter((value) => value !== option) : [...current, option])}
+                                className="products-customization min-h-8 rounded-full border px-2.5 py-1 text-[9px] font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-[#907348]"
+                                data-active={isActive || undefined}
+                              >
+                                {option}
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </fieldset>
+                      <p className="mt-3 text-[9px] leading-4 text-[#777064]">Selections are preferences for discussion; material, weight, fit, branding and trim details are agreed with the buyer.</p>
+                    </div>
+                  </motion.div>
+                </section>
+              </div>
+
+              <p className="mt-4 text-[10px] leading-4 text-[#756b5a]">
+                <span className="font-semibold uppercase tracking-[0.11em] text-[#82745e]">Design inspiration</span>
+                <span aria-hidden="true"> · </span>
+                {selectedGarment.designReference?.url ? (
+                  <a href={selectedGarment.designReference.url} target="_blank" rel="noreferrer" className="underline decoration-[#b2986d]/50 underline-offset-2 transition-colors hover:text-[#806942]">
+                    {selectedGarment.designReference.label}
+                  </a>
+                ) : (
+                  <span>{selectedGarment.designReference?.label ?? 'To be discussed with buyer'}</span>
+                )}
+                <span> · editorial reference, independent concept</span>
+              </p>
+
+              <div className="mt-auto pt-5">
+                <p className="text-[9px] leading-4 text-[#777064]">Your selections will travel with the enquiry. Final specifications remain buyer-confirmed.</p>
                 <button
                   type="button"
                   onClick={enquireAboutStyle}
-                  className="group inline-flex min-h-11 items-center justify-center gap-3 bg-[#292720] px-5 text-[9px] font-semibold uppercase tracking-[0.15em] text-white transition-colors hover:bg-[#514532] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348] motion-reduce:transition-none"
+                  className="group mt-3 flex min-h-12 w-full items-center justify-between gap-4 bg-[#292720] px-5 text-[9px] font-semibold uppercase tracking-[0.17em] text-white transition-colors hover:bg-[#514532] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#907348] motion-reduce:transition-none"
                 >
-                  Request a quote
-                  <ArrowRight aria-hidden="true" className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
+                  <span>Request a quote</span>
+                  <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none" />
                 </button>
-                <span className="text-[10px] leading-5 text-[#5d574d]">Your style and selected options will prefill the enquiry form.</span>
               </div>
             </div>
           </motion.article>
@@ -1053,6 +1229,34 @@ function BrandingGarmentArtwork({
   );
 }
 
+function ShowcaseGarmentArtwork({ garment, priority }: { garment: GarmentReference; priority: boolean }) {
+  const fit = garment.showcaseFit;
+  const hasCompleteShowcaseImage = Boolean(garment.showcaseImage);
+
+  return (
+    <div className="relative h-full w-full">
+      <div
+        className="absolute bottom-0 z-10"
+        style={{
+          top: `${hasCompleteShowcaseImage ? fit?.showcaseImageTop ?? 0 : fit?.imageTop ?? 32}%`,
+          left: '50%',
+          width: `${hasCompleteShowcaseImage ? fit?.showcaseImageWidth ?? 100 : fit?.imageWidth ?? 100}%`,
+          transform: 'translateX(-50%)',
+        }}
+      >
+        <Image
+          src={garment.showcaseImage ?? garment.views.front}
+          alt=""
+          fill
+          sizes="(max-width: 767px) 22vw, 16rem"
+          className="products-garment-img relative z-10 object-contain"
+          priority={priority}
+        />
+      </div>
+    </div>
+  );
+}
+
 function GarmentItem({
   garment,
   index,
@@ -1093,7 +1297,7 @@ function GarmentItem({
   }
 
   // Keep the selected item's requested scale if it is also hovered.
-  const garmentScale = garment.scale ?? 1;
+  const garmentScale = garment.showcaseFit?.scale ?? garment.scale ?? 1;
   const currentScale = prefersReduced
     ? garmentScale
     : isSelected
@@ -1277,43 +1481,76 @@ function GarmentItem({
               justifyContent: 'center',
             }}
           >
-            <motion.div
-              className="w-full"
-              initial={false}
-              animate={{
-                scale: currentScale,
-                filter: shadowFilter,
-                z: prefersReduced ? 0 : isSelected ? 38 : isHovered ? 14 : 0,
-              }}
-              style={{
-                transformOrigin: '50% 0%',
-                transformStyle: 'preserve-3d',
-                willChange: imageAnimating && !prefersReduced ? 'transform' : undefined,
-              }}
-              transition={
-                prefersReduced
-                  ? { scale: { duration: 0 }, filter: { duration: 0 } }
-                  : {
-                      scale: { duration: 0.25, ease: 'easeOut' },
-                      filter: { duration: 0.25, ease: 'easeOut' },
-                    }
-              }
-              onAnimationStart={() => {
-                if (!prefersReduced) setImageAnimating(true);
-              }}
-              onAnimationComplete={() => setImageAnimating(false)}
-            >
-              <div className="relative h-[min(300px,34vh)] min-h-[190px] w-[min(78%,16rem)]">
-                <BrandingGarmentArtwork
-                  garment={garment}
-                  imageSource={garment.views.front}
-                  alt=""
-                  sizes="(max-width: 767px) 50vw, 16rem"
-                  imageClassName="products-garment-img"
-                  priority={index === 0}
-                />
+            {garment.showcaseArtOnly ? (
+              <div className="relative h-[min(300px,34vh)] min-h-[190px] w-[min(88%,16rem)]">
+                <motion.div
+                  className="absolute inset-0 w-full"
+                  initial={false}
+                  animate={{
+                    scale: currentScale,
+                    filter: shadowFilter,
+                    z: prefersReduced ? 0 : isSelected ? 38 : isHovered ? 14 : 0,
+                  }}
+                  style={{
+                    transformOrigin: '50% 0%',
+                    transformStyle: 'preserve-3d',
+                    willChange: imageAnimating && !prefersReduced ? 'transform' : undefined,
+                  }}
+                  transition={
+                    prefersReduced
+                      ? { scale: { duration: 0 }, filter: { duration: 0 } }
+                      : {
+                          scale: { duration: 0.25, ease: 'easeOut' },
+                          filter: { duration: 0.25, ease: 'easeOut' },
+                        }
+                  }
+                  onAnimationStart={() => {
+                    if (!prefersReduced) setImageAnimating(true);
+                  }}
+                  onAnimationComplete={() => setImageAnimating(false)}
+                >
+                  <ShowcaseGarmentArtwork garment={garment} priority={index === 0} />
+                </motion.div>
               </div>
-            </motion.div>
+            ) : (
+              <motion.div
+                className="w-full"
+                initial={false}
+                animate={{
+                  scale: currentScale,
+                  filter: shadowFilter,
+                  z: prefersReduced ? 0 : isSelected ? 38 : isHovered ? 14 : 0,
+                }}
+                style={{
+                  transformOrigin: '50% 0%',
+                  transformStyle: 'preserve-3d',
+                  willChange: imageAnimating && !prefersReduced ? 'transform' : undefined,
+                }}
+                transition={
+                  prefersReduced
+                    ? { scale: { duration: 0 }, filter: { duration: 0 } }
+                    : {
+                        scale: { duration: 0.25, ease: 'easeOut' },
+                        filter: { duration: 0.25, ease: 'easeOut' },
+                      }
+                }
+                onAnimationStart={() => {
+                  if (!prefersReduced) setImageAnimating(true);
+                }}
+                onAnimationComplete={() => setImageAnimating(false)}
+              >
+                <div className="relative h-[min(300px,34vh)] min-h-[190px] w-[min(78%,16rem)]">
+                  <BrandingGarmentArtwork
+                    garment={garment}
+                    imageSource={garment.views.front}
+                    alt=""
+                    sizes="(max-width: 767px) 50vw, 16rem"
+                    imageClassName="products-garment-img"
+                    priority={index === 0}
+                  />
+                </div>
+              </motion.div>
+            )}
           </div>
         </motion.div>
       </button>
