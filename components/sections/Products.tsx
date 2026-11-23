@@ -50,7 +50,9 @@ const getClientHydrationSnapshot = () => true;
 const getServerHydrationSnapshot = () => false;
 
 function garmentView(garment: GarmentReference, angle: GarmentAngle) {
-  return angle === 'detail' ? garment.views.detail : garment.views[angle];
+  if (angle === 'detail') return garment.views.detail;
+  if (angle === 'front') return garment.detailFrontImage ?? garment.views.front;
+  return garment.views[angle];
 }
 
 function garmentTypeFor(name: string) {
@@ -1196,9 +1198,11 @@ function BrandingGarmentArtwork({
   imageClassName,
   priority,
 }: BrandingGarmentArtworkProps) {
+  const hasDetailImageHanger = imageSource === garment.detailFrontImage;
+
   return (
     <div className="relative h-full w-full">
-      {garment.hasHanger === false && (
+      {garment.hasHanger === false && !hasDetailImageHanger && (
         <svg
           aria-hidden="true"
           className="pointer-events-none absolute left-[19%] top-0 z-0 h-[45%] w-[62%] overflow-visible"
@@ -1215,7 +1219,7 @@ function BrandingGarmentArtwork({
           />
         </svg>
       )}
-      <div className={`absolute inset-x-0 bottom-0 ${garment.hasHanger === false ? 'top-[12%]' : 'top-0'}`}>
+      <div className={`absolute inset-x-0 bottom-0 ${garment.hasHanger === false && !hasDetailImageHanger ? 'top-[12%]' : 'top-0'}`}>
         <Image
           src={imageSource}
           alt={alt}

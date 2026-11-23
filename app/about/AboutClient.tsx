@@ -8,8 +8,6 @@ import {
   AboutDrawLine,
   AboutHeroDot,
   AboutHeroEntry,
-  AboutHeroImageParallax,
-  AboutHeroImageReveal,
   AboutHeroWord,
   AboutListItemReveal,
   AboutMagneticLink,
@@ -34,7 +32,6 @@ const SHOW_REVIEW = true;
 
 const HERO_IMAGE = {
   src: '/assets/facilities/angeripalayam-hq-exterior-enhanced.webp',
-  alt: 'AI-enhanced visual reference based on the Fashion Knits Head Office and Unit 2 exterior in Angeripalayam, Tiruppur',
   aiEnhanced: true,
 };
 
@@ -142,23 +139,39 @@ const showCtaSeam = aboutBuyersAreReady || !aboutQualityIsReady;
 export function AboutClient() {
   return (
     <div className="bg-warm-white text-charcoal">
-      <section id="hero" className={`relative isolate overflow-hidden bg-charcoal px-5 pb-16 pt-28 text-off-white sm:px-8 sm:pb-20 sm:pt-32 lg:px-16 lg:pb-24 ${styles.heroSection}`}>
+      <section id="hero" className={`relative isolate overflow-hidden bg-charcoal px-5 pb-6 pt-8 text-off-white sm:px-8 sm:pb-8 sm:pt-10 lg:px-16 lg:pb-10 lg:pt-12 ${styles.heroSection}`}>
+        <div aria-hidden="true" className={styles.heroImage}>
+          <Image
+            src={HERO_IMAGE.src}
+            alt=""
+            fill
+            loading="eager"
+            sizes="100vw"
+            className="object-cover object-[64%_center]"
+          />
+        </div>
+        <div aria-hidden="true" className={styles.heroScrim} />
         <div aria-hidden="true" className={styles.heroGrid} />
-        <div className="relative mx-auto max-w-[90rem]">
-          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-accent sm:text-xs">
-            <Link href="/" className="hover:text-white">Home</Link>
-            <span aria-hidden="true" className="text-white/35">/</span>
-            <span aria-current="page" className="text-white/75">About</span>
-          </nav>
+        <div className={styles.heroInner}>
+          <div className={styles.heroTopline}>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-3 text-[10px] font-mono uppercase tracking-[0.2em] text-accent sm:text-xs">
+              <Link href="/" className="hover:text-white">Home</Link>
+              <span aria-hidden="true" className="text-white/50">/</span>
+              <span aria-current="page" className="text-white/90">About</span>
+            </nav>
+            {HERO_IMAGE.aiEnhanced && (
+              <span className={styles.aiTag}>AI-enhanced visual reference</span>
+            )}
+          </div>
 
-          <div className="grid items-center gap-11 md:grid-cols-12 md:gap-8 lg:gap-12">
-            <div className="relative z-10 md:col-span-6 lg:col-span-5">
+          <div className={styles.heroContent}>
+            <div className={styles.heroCopy}>
               <div>
                 <AboutHeroEntry>
-                <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent sm:text-xs">
-                  <span aria-hidden="true" className="h-px w-8 bg-accent" />
-                  Apparel manufacturing · Tiruppur, India
-                </p>
+                  <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-accent sm:text-xs">
+                    <span aria-hidden="true" className="h-px w-8 bg-accent" />
+                    Apparel manufacturing · Tiruppur, India
+                  </p>
                 </AboutHeroEntry>
                 <h1 className="mt-6 max-w-2xl text-[clamp(3.8rem,9.5vw,8.5rem)] font-semibold leading-[1.04] tracking-[-0.03em] text-white">
                   <span className="block overflow-hidden"><AboutHeroWord delay={0.08}>Fashion</AboutHeroWord></span>
@@ -170,44 +183,16 @@ export function AboutClient() {
                 <p className="mt-5 max-w-xl text-sm leading-7 text-white/68 sm:text-base sm:leading-8">
                   Since 1990, Fashion Knits has made knitted and woven garments for men, women, children, toddlers and newborns.
                 </p>
-                <Link href="#manufacturing" className="mt-8 inline-flex min-h-12 items-center gap-3 border border-white/25 px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-white hover:border-accent hover:bg-accent hover:text-charcoal">
+                <Link href="#manufacturing" className={`${styles.heroCta} mt-8 inline-flex min-h-12 items-center gap-3 border border-white/45 px-5 text-[10px] font-bold uppercase tracking-[0.13em] text-white hover:border-accent hover:bg-accent hover:text-charcoal`}>
                   Explore our capabilities <ArrowRight aria-hidden="true" className="h-4 w-4" />
                 </Link>
               </div>
             </div>
+          </div>
 
-            <div className="relative md:col-span-6 lg:col-span-7">
-              <figure className={styles.heroFigure}>
-                <div className={`${styles.heroImageFrame} relative aspect-[1.12/1] overflow-hidden bg-[#d5d0c5] sm:aspect-[1.35/1]`}>
-                  <AboutHeroImageReveal className={styles.heroImageClip}>
-                    <AboutHeroImageParallax className={styles.heroImageScale}>
-                      <Image
-                        src={HERO_IMAGE.src}
-                        alt={HERO_IMAGE.alt}
-                        fill
-                        loading="eager"
-                        sizes="(max-width: 767px) 92vw, (max-width: 1279px) 52vw, 56vw"
-                        className="object-cover"
-                      />
-                    </AboutHeroImageParallax>
-                  </AboutHeroImageReveal>
-                  <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-charcoal/55 via-transparent to-charcoal/10" />
-                  {HERO_IMAGE.aiEnhanced && (
-                    <span className={`${styles.aiTag} absolute left-4 top-4 sm:left-6 sm:top-6`}>
-                      AI-enhanced visual reference
-                    </span>
-                  )}
-                  <p className="absolute bottom-5 left-5 max-w-xs text-[9px] font-mono uppercase leading-5 tracking-[0.14em] text-white/80 sm:bottom-7 sm:left-7 sm:text-[10px]">
-                    Head Office &amp; Unit 2 · Angeripalayam
-                  </p>
-                  <span aria-hidden="true" className={styles.heroCornerLine} />
-                </div>
-                <figcaption className="flex flex-col justify-between gap-2 border-b border-white/20 py-3 text-[9px] font-mono uppercase tracking-[0.13em] text-white/48 sm:flex-row sm:items-center sm:text-[10px]">
-                  {HERO_IMAGE.aiEnhanced && <span>Exterior visualization, not documentary photography</span>}
-                  <span>Tiruppur · Tamil Nadu</span>
-                </figcaption>
-              </figure>
-            </div>
+          <div className={styles.heroFooter}>
+            <span>Head Office &amp; Unit 2 · Angeripalayam</span>
+            <span>{HERO_IMAGE.aiEnhanced ? 'Exterior visualization, not documentary photography · ' : ''}Tiruppur · Tamil Nadu</span>
           </div>
         </div>
       </section>
